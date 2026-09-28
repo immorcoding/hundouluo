@@ -1,5 +1,7 @@
 # v0.1.0 Windows 导出与交付核查
 
+玩家拿到 Windows ZIP 后应完整解压，阅读包根目录的 `试玩说明.txt`，双击 `轨道基地.exe`；A/D 或方向键移动、空格跳跃、按住 J 射击，死亡或任务完成时按 R 重试。无需在玩家电脑安装 Godot。
+
 使用 Godot 4.7.2 stable 标准版。Windows x86_64 模板来自 [Godot 官方 4.7.2 发布包](https://godotengine.org/download/archive/4.7.2-stable/)（`Godot_v4.7.2-stable_export_templates.tpz`）；在本机仅提取 `templates/` 下的四个 Windows 文件到 `%APPDATA%\Godot\export_templates\4.7.2.stable\`。本项目不把模板二进制纳入源包。模板 SHA-256：
 
 | 文件 | SHA-256 |

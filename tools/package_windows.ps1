@@ -171,6 +171,19 @@ try {
 	New-Item -ItemType Directory -Path $packageDocs | Out-Null
 	Copy-Item -LiteralPath (Join-Path $projectCopy 'docs\assets-manifest.md') -Destination $packageDocs
 	Copy-Item -LiteralPath (Join-Path $projectCopy 'docs\release-prep.md') -Destination $packageDocs
+	$playInstructions = @(
+		'轨道基地 v0.1.0 · Windows 试玩说明'
+		''
+		'将 ZIP 完整解压到一个文件夹；双击“轨道基地.exe”即可运行，无需安装 Godot。'
+		'系统：Windows x86_64。若未启动，请记录 Windows 版本与错误提示。'
+		'按键：A / ← 向左，D / → 向右，空格跳跃，按住 J 连续射击。'
+		'死亡或任务完成画面按 R，从关卡起点重新开始。'
+		'建议分别有声、静音各玩一次；最终手感与战斗时长尚待你的试玩记录。'
+		'请复制 GitHub issue #12 的“用户试玩记录单”填写：'
+		'https://github.com/immorcoding/hundouluo/issues/12'
+		'包版本和源码提交见 BUILD_INFO.txt；素材来源见 docs/assets-manifest.md。'
+	) -join "`r`n"
+	[IO.File]::WriteAllText((Join-Path $packageDirectory '试玩说明.txt'), $playInstructions + "`r`n", [Text.UTF8Encoding]::new($false))
 
 	$buildInfo = @(
 		'package_label=' + $PackageLabel

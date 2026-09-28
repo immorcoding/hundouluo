@@ -89,11 +89,15 @@ class WindowsPackageTests(unittest.TestCase):
                 self.assertIn("README.md", windows_entries)
                 self.assertIn("LICENSE", windows_entries)
                 self.assertIn("BUILD_INFO.txt", windows_entries)
+                self.assertIn("试玩说明.txt", windows_entries)
                 self.assertIn("docs/assets-manifest.md", windows_entries)
                 self.assertFalse(any(path.lower().endswith(".pck") for path in windows_entries))
                 build_info = windows_archive.read("BUILD_INFO.txt").decode("utf-8")
                 self.assertIn("source_commit=", build_info)
                 self.assertIn("真人试玩：未测", build_info)
+                play_info = windows_archive.read("试玩说明.txt").decode("utf-8")
+                self.assertIn("双击", play_info)
+                self.assertIn("按住 J", play_info)
                 self.assertNotIn(str(PROJECT_ROOT), build_info)
 
 
