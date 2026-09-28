@@ -8,15 +8,7 @@ func _initialize() -> void:
 func _run() -> void:
 	var stage := Node2D.new()
 	root.add_child(stage)
-	var floor := StaticBody2D.new()
-	floor.collision_layer = 4
-	var floor_shape := CollisionShape2D.new()
-	var rectangle := RectangleShape2D.new()
-	rectangle.size = Vector2(600, 16)
-	floor_shape.shape = rectangle
-	floor.add_child(floor_shape)
-	floor.position.y = 8
-	stage.add_child(floor)
+	stage.add_child((load("res://tests/operative_floor.tscn") as PackedScene).instantiate())
 
 	var scene := load("res://scenes/operative.tscn") as PackedScene
 	if scene == null:
