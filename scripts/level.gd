@@ -1,7 +1,13 @@
 extends Node2D
 
+signal operative_fell
+
 const TILES := preload("res://assets/pixel/base_tiles.png")
 const DECK := preload("res://assets/pixel/hangar_deck.png")
+const ART_SECTION_WIDTH := 1440
+const FALL_DEATH_Y := 410.0
+
+var _fall_reported := false
 
 
 func _ready() -> void:
@@ -10,13 +16,20 @@ func _ready() -> void:
 	var right := _solid_span($Ground/Right as StaticBody2D)
 	var ground_y := _ground_top($Ground/Left as StaticBody2D)
 	for span in [left, right]:
-		var deck := Sprite2D.new()
-		deck.texture = DECK
-		deck.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-		deck.region_enabled = true
-		deck.region_rect = Rect2(span.x, 0, span.y - span.x, 108)
-		deck.position = Vector2((span.x + span.y) / 2.0, ground_y + 54)
-		$Ground/Deck.add_child(deck)
+		# The 1440px painted deck repeats without stretching, but the collider
+		# remains the only source of truth for where solid floor exists.
+		var start: int = span.x
+		while start < span.y:
+			var source_x: int = posmod(start, ART_SECTION_WIDTH)
+			var width: int = mini(span.y - start, ART_SECTION_WIDTH - source_x)
+			var deck := Sprite2D.new()
+			deck.texture = DECK
+			deck.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+			deck.region_enabled = true
+			deck.region_rect = Rect2(source_x, 0, width, 108)
+			deck.position = Vector2(start + width / 2.0, ground_y + 54)
+			$Ground/Deck.add_child(deck)
+			start += width
 		var edge_x := left.y - 24 if span == left else right.x
 		for y in range(ground_y, 360, 24):
 			var tile := Sprite2D.new()
@@ -56,10 +69,19 @@ func _ground_top(body: StaticBody2D) -> int:
 
 func _process(_delta: float) -> void:
 	var lead_x: float = $Operative/Operative.position.x + 115.0
-	$Camera2D.position.x = clampf(lead_x, 320.0, 1120.0)
+	$Camera2D.position.x = clampf(lead_x, 320.0, 4000.0)
 
 
 func _physics_process(_delta: float) -> void:
+	var operative := $Operative/Operative as CharacterBody2D
+	if not _fall_reported and operative.position.y >= FALL_DEATH_Y:
+		_fall_reported = true
+		operative.health = 0
+		operative.velocity = Vector2.ZERO
+		operative.get_node("Sprite").frame = 6
+		operative.health_changed.emit(0)
+		operative.died.emit()
+		operative_fell.emit()
 	var camera := $Camera2D as Camera2D
 	var half_view := camera.get_viewport_rect().size / camera.zoom / 2.0
 	var center := camera.get_screen_center_position()

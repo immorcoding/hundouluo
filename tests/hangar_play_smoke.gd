@@ -29,7 +29,7 @@ func _run() -> void:
 	if level.get_node("Projectiles").get_child_count() == 0:
 		_fail("operative cannot shoot in the art acceptance scene")
 		return
-	actor.position = Vector2(816, 224)
+	actor.position = Vector2(1392, 224)
 	actor.velocity = Vector2.ZERO
 	for tick in 17:
 		await physics_frame
