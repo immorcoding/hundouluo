@@ -6,8 +6,14 @@ const TILES := preload("res://assets/pixel/base_tiles.png")
 const DECK := preload("res://assets/pixel/hangar_deck.png")
 const ART_SECTION_WIDTH := 1440
 const FALL_DEATH_Y := 410.0
+const FINAL_SECTION_X := 3500.0
+
+enum RunState { PLAYING, DEAD, COMPLETE }
 
 var _fall_reported := false
+var _fell := false
+var _mech_hud_shown := false
+var _state := RunState.PLAYING
 
 
 func _ready() -> void:
@@ -44,6 +50,10 @@ func _ready() -> void:
 			$Ground/Tiles.add_child(tile)
 	var operative := $Operative/Operative as CharacterBody2D
 	operative.position = Vector2(140, ground_y)
+	$HUD.show_life(operative.health)
+	operative.health_changed.connect($HUD.show_life)
+	operative.died.connect(_on_operative_died)
+	operative_fell.connect(_on_operative_fell)
 	$Camera2D.position = Vector2(320, 180)
 	for child in $Enemies.get_children():
 		var soldier := child as MechanicalSoldier
@@ -51,6 +61,10 @@ func _ready() -> void:
 			continue
 		soldier.target = operative
 		soldier.projectile_fired.connect(_on_operative_projectile_fired)
+	$BossSlot/DefenseMech.target = operative
+	$BossSlot/DefenseMech.projectile_fired.connect(_on_operative_projectile_fired)
+	$BossSlot/DefenseMech.health_changed.connect($HUD.show_mech_health)
+	$BossSlot/DefenseMech.died.connect(_on_mech_died)
 
 
 func _solid_span(body: StaticBody2D) -> Vector2i:
@@ -73,6 +87,8 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(_delta: float) -> void:
+	if _state != RunState.PLAYING:
+		return
 	var operative := $Operative/Operative as CharacterBody2D
 	if not _fall_reported and operative.position.y >= FALL_DEATH_Y:
 		_fall_reported = true
@@ -83,6 +99,7 @@ func _physics_process(_delta: float) -> void:
 		operative_fell.emit()
 		operative.health_changed.emit(0)
 		operative.died.emit()
+		return
 	var camera := $Camera2D as Camera2D
 	var half_view := camera.get_viewport_rect().size / camera.zoom / 2.0
 	var center := camera.get_screen_center_position()
@@ -92,9 +109,51 @@ func _physics_process(_delta: float) -> void:
 		if soldier == null:
 			continue
 		soldier.attack_enabled = soldier.is_fully_visible_in(view_rect)
+	$BossSlot/DefenseMech.update_visibility(view_rect)
+	if not _mech_hud_shown and (operative.position.x >= FINAL_SECTION_X or $BossSlot/DefenseMech.attack_enabled):
+		_mech_hud_shown = true
+		$HUD.show_mech($BossSlot/DefenseMech.max_health)
 
 
 func _on_operative_projectile_fired(projectile: Area2D) -> void:
 	var spawn_position := projectile.global_position
 	$Projectiles.add_child(projectile)
 	projectile.global_position = spawn_position
+
+
+func _on_mech_died() -> void:
+	if _state != RunState.PLAYING:
+		return
+	_state = RunState.COMPLETE
+	_stop_gameplay()
+	$ExitDoor/DoorBlocker/CollisionShape2D.set_deferred("disabled", true)
+	$HUD.show_complete()
+
+
+func _on_operative_fell() -> void:
+	_fell = true
+
+
+func _on_operative_died() -> void:
+	if _state != RunState.PLAYING:
+		return
+	_state = RunState.DEAD
+	_stop_gameplay()
+	$HUD.show_death("跌落深渊" if _fell else "生命耗尽")
+
+
+func _stop_gameplay() -> void:
+	# Keep this level alive for R, but freeze every active gameplay subtree.
+	$Operative.process_mode = Node.PROCESS_MODE_DISABLED
+	$Enemies.process_mode = Node.PROCESS_MODE_DISABLED
+	$BossSlot.process_mode = Node.PROCESS_MODE_DISABLED
+	$Projectiles.process_mode = Node.PROCESS_MODE_DISABLED
+	# The winner cannot take a final hit from an already-overlapping projectile.
+	$Operative/Operative.set_deferred("collision_layer", 0)
+	$Operative/Operative.set_deferred("collision_mask", 0)
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if _state != RunState.PLAYING and event.is_action_pressed("retry") and not event.is_echo():
+		get_viewport().set_input_as_handled()
+		get_tree().call_deferred("change_scene_to_file", "res://scenes/level.tscn")
