@@ -1,11 +1,11 @@
 # 轨道基地 · v0.1.0 工程入口
 
-本仓库是正式的 Godot 4.7.2 标准版 / GDScript 源项目，与 `.scratch/` 中的抛弃式手感灰盒分开。工程和输入骨架已具备；行动员的移动、射击、受击模块已接入主场景，但地形、敌人、正式关卡、HUD 和死亡重试仍属后续票据。主场景现在没有地面，不能当成可游玩的关卡；下方无界面行为检查提供可重复的模块验收。
+本仓库是正式的 Godot 4.7.2 标准版 / GDScript 源项目，与 `.scratch/` 中的抛弃式手感灰盒分开。工程和输入骨架、行动员的移动／射击／受击模块已具备。主场景现为 #22 的救援机库**美术验收片段**：可跑、跳、射击并跨越一个真实缺口；机械兵和防御机甲是无碰撞、无 AI 的画面比例展示体，不代表 #15 的敌人行为或 #16 的五段正式关卡。HUD、死亡重试与通关也尚未实现。
 
 ## 打开与运行
 
 1. 使用 Godot **4.7.2 标准版**，在项目管理器选择本目录中的 `project.godot` 导入。
-2. 在编辑器按 **F6** 运行当前 `scenes/level.tscn`，或按 **F5** 运行配置好的主场景。
+2. 在编辑器按 **F6** 运行当前 `scenes/level.tscn`，或按 **F5** 运行配置好的主场景。默认窗口为 1280×720，内部 640×360、整数倍像素显示。跌落缺口后目前须用 F5 重启片段；R 的死亡重试行为属于后续票据。
 3. 命令行可用 `Godot_v4.7.2-stable_win64_console.exe --path <本目录> --editor` 打开编辑器；`--headless --path <本目录> --quit-after 2` 可做无界面启动检查。
 
 目前的输入动作都在 `project.godot` 的 Input Map 中配置为**物理键位**（不随键盘布局的字符变化）：
@@ -24,7 +24,9 @@
 
 唯一主场景 `scenes/level.tscn` 保留 `Operative`、`Enemies`、`Projectiles` 三个 2D 实例槽，以及屏幕空间的 `HUD` 槽。行动员实例位于 `Operative` 槽，通过 `projectile_fired(projectile)` 信号交由关卡放入 `Projectiles` 槽；不操作 HUD 或镜头。行动员公开 `health`（初始 3）、`receive_hit()`、`health_changed(health)` 与 `died()`，敌弹和接触的后续实现均可调用同一个受击入口。短暂无敌由行动员自行判定。己方弹丸对具有 `receive_hit()` 的碰撞对象提交一次命中后消失；未命中也会在有限距离后消失。
 
-碰撞层约定：行动员为第 1 层、普通敌人/受击目标为第 2 层、地形为第 3 层、己方弹丸为第 4 层。行动员检测敌人和地形，己方弹丸检测敌人和地形；后续敌人与关卡按此接缝布置。跑速、跳跃速度、射击间隔、无敌时长和弹丸速度/距离均是场景可调参数，不视为已完成真人手感验收。`Camera2D` 目前固定，后续关卡票据负责跟随与五段布局。
+碰撞层约定：行动员为第 1 层、普通敌人/受击目标为第 2 层、地形为第 3 层、己方弹丸为第 4 层。行动员检测敌人和地形，己方弹丸检测敌人和地形；后续敌人与关卡按此接缝布置。跑速、跳跃速度、射击间隔、无敌时长和弹丸速度/距离均是场景可调参数，不视为已完成真人手感验收。片段镜头水平跟随行动员、留出前方空间；正式五段布局仍属后续票据。
+
+可编辑的像素图集和机库两层背景由 `tools/build_pixel_art.py` 绘制，不从概念图缩放或切片。`scenes/level.tscn` 中两段地面碰撞矩形是坐标来源，`scripts/level.gd` 根据它们绘制地板与缺口警戒边缘。实际 Godot 截图、与 C 草图的对照、权利记录和待试玩事项见 [美术说明](docs/art/README.md)。
 
 ## 检查
 
@@ -40,6 +42,9 @@
 & '<Godot 4.7.2 console.exe 路径>' --headless --path . --script tests/friendly_projectile_expiry.gd
 & '<Godot 4.7.2 console.exe 路径>' --headless --path . --script tests/operative_damage.gd
 & '<Godot 4.7.2 console.exe 路径>' --headless --path . --script tests/level_operative_wiring.gd
+& '<Godot 4.7.2 console.exe 路径>' --headless --path . --script tests/hangar_scene_smoke.gd
+& '<Godot 4.7.2 console.exe 路径>' --headless --path . --script tests/hangar_play_smoke.gd
+python -m unittest discover -s tests -v
 ```
 
-首次在新目录运行脚本前，先用 `--headless --editor --path . --import` 导入 PNG。检查覆盖入口、输入和槽位，以及行动员跑跳、左右连续射击、弹丸单次命中与清理、受击无敌和死亡信号；它们不等同于真人试玩或正式关卡验收。
+首次在新目录运行脚本前，先用 `--headless --editor --path . --import` 导入 PNG。检查覆盖入口、输入和槽位、片段地形及跑跳射击，以及行动员弹丸单次命中与清理、受击无敌和死亡信号；它们不等同于真人试玩或正式关卡验收。实际视口截图可用 `& '<Godot 4.7.2 console.exe 路径>' --path . --rendering-method gl_compatibility --script tools/capture_hangar.gd` 重新生成（需要图形会话）。

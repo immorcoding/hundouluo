@@ -299,6 +299,148 @@ def atlas(name, frames, size, fps, animations):
     }
 
 
+def detailed_actor(image, name, state):
+    """Re-ink original shapes at a denser grid; add hand-placed material marks."""
+    size = {"operative": (48, 60), "mechanical_soldier": (48, 60),
+            "defense_mech": (104, 90)}[name]
+    image = image.resize(size, Image.Resampling.NEAREST)
+    d = ImageDraw.Draw(image)
+    if state == "down":
+        return image
+    if name == "operative":
+        box(d, (17, 9, 28, 9), "white")
+        box(d, (29, 16, 34, 17), "cyan_light")
+        box(d, (7, 28, 9, 33), "cyan_dark")
+        box(d, (5, 38, 9, 39), "steel_light")
+        box(d, (15, 33, 17, 38), "cyan_light")
+        box(d, (21, 47, 24, 49), "steel")
+        box(d, (11, 55, 17, 55), "steel_light")
+        box(d, (29, 55, 35, 55), "steel_light")
+        box(d, (31, 34, 33, 35), "cyan_light")
+    elif name == "mechanical_soldier":
+        box(d, (14, 9, 19, 10), "amber")
+        box(d, (27, 9, 31, 10), "red_dark")
+        box(d, (23, 34, 25, 36), "amber")
+        box(d, (16, 39, 20, 40), "red_dark")
+        box(d, (12, 50, 15, 51), "amber_dark")
+        box(d, (33, 51, 36, 52), "amber_dark")
+        box(d, (32, 26, 34, 28), "red_dark")
+    else:
+        for x in (24, 70):
+            box(d, (x, 22, x + 5, 23), "steel_light")
+            box(d, (x + 2, 32, x + 4, 33), "ink")
+            box(d, (x + 3, 49, x + 5, 52), "steel_light")
+        box(d, (47, 16, 58, 17), "steel_light")
+        box(d, (48, 59, 57, 60), "amber_dark")
+        box(d, (18, 77, 29, 78), "steel_light")
+        box(d, (76, 77, 87, 78), "steel_light")
+        box(d, (52, 45, 54, 47), "white" if state.startswith("charge") else "red")
+    return image
+
+
+def hangar_layers():
+    """Original editable pixel composition, not a resampled concept painting."""
+    far, d = canvas((1440, 360))
+    box(d, (0, 0, 1439, 359), "void")
+    # A lower shaft remains visible *only* through the real terrain gap.
+    for x in range(0, 1440, 144):
+        box(d, (x + 12, 272, x + 28, 359), "deep")
+        box(d, (x + 16, 281, x + 19, 359), "wall")
+    for y in (300, 332):
+        box(d, (0, y, 1439, y + 2), "wall_dark")
+        for x in range(38, 1440, 192):
+            box(d, (x, y + 5, x + 8, y + 7), "cyan_dark")
+    box(d, (0, 0, 1439, 25), "ink")
+    for x in range(0, 1440, 120):
+        box(d, (x + 3, 6, x + 110, 9), "wall")
+        box(d, (x + 12, 15, x + 15, 24), "steel")
+        box(d, (x + 94, 15, x + 97, 24), "steel")
+    # Wide bay opening and nested silhouettes provide scale without fighting sprites.
+    box(d, (92, 38, 1020, 263), "wall_dark")
+    box(d, (114, 51, 1001, 253), "deep")
+    box(d, (150, 61, 946, 246), "wall")
+    for x in (260, 744):
+        box(d, (x, 66, x + 27, 236), "steel")
+        box(d, (x + 5, 69, x + 22, 233), "wall_dark")
+        box(d, (x + 9, 75, x + 11, 226), "wall_light")
+    for y in (86, 202):
+        box(d, (160, y, 937, y + 3), "steel")
+        box(d, (165, y + 1, 931, y + 1), "steel_light")
+    for x in range(172, 930, 84):
+        box(d, (x, 66, x + 4, 238), "wall_dark")
+        box(d, (x + 5, 78, x + 6, 225), "steel")
+        box(d, (x - 12, 227, x + 27, 230), "steel")
+    # A parked heavy rescue gantry, intentionally not a playable mech silhouette.
+    box(d, (390, 110, 604, 156), "shadow")
+    box(d, (412, 100, 580, 112), "steel")
+    box(d, (438, 80, 554, 99), "wall_dark")
+    box(d, (402, 157, 427, 215), "wall_dark")
+    box(d, (568, 157, 593, 215), "wall_dark")
+    box(d, (466, 158, 527, 202), "wall_dark")
+    box(d, (471, 169, 521, 178), "steel")
+    for x in range(400, 604, 28):
+        box(d, (x, 111, x + 1, 153), "wall_light")
+        box(d, (x + 4, 139, x + 14, 140), "steel")
+    for x in (424, 487, 561):
+        box(d, (x, 120, x + 7, 123), "amber_dark")
+    box(d, (1064, 39, 1409, 267), "wall_dark")
+    box(d, (1080, 55, 1393, 251), "steel")
+    box(d, (1103, 66, 1371, 238), "deep")
+    for x in range(1122, 1370, 38):
+        box(d, (x, 70, x + 2, 234), "wall")
+    for y in (95, 151, 207):
+        box(d, (1106, y, 1369, y + 3), "wall")
+        box(d, (1150, y + 1, 1180, y + 1), "cyan_dark")
+    for x in range(1090, 1380, 55):
+        box(d, (x, 244, x + 33, 248), "wall")
+        box(d, (x + 4, 249, x + 7, 260), "shadow")
+    far.save(OUT / "hangar_far.png", optimize=True)
+
+    mid, d = canvas((1440, 288))
+    for x in (28, 320, 682, 1028, 1376):
+        box(d, (x, 0, x + 29, 255), "ink")
+        box(d, (x + 4, 0, x + 24, 255), "shadow")
+        box(d, (x + 7, 0, x + 10, 249), "steel")
+        box(d, (x + 16, 91, x + 21, 96), "cyan_light")
+        box(d, (x - 9, 192, x + 37, 198), "steel")
+        box(d, (x - 7, 201, x + 36, 203), "ink")
+        for y in (40, 133, 224):
+            box(d, (x + 17, y, x + 19, y + 2), "amber_dark")
+    for x in (126, 472, 828, 1172):
+        box(d, (x, 131, x + 142, 136), "ink")
+        box(d, (x + 5, 137, x + 137, 143), "steel")
+        for rail in range(x + 10, x + 137, 21):
+            box(d, (rail, 116, rail + 2, 130), "wall_light")
+        box(d, (x + 8, 114, x + 135, 116), "wall_light")
+        box(d, (x + 16, 145, x + 20, 159), "wall")
+        box(d, (x + 117, 145, x + 121, 159), "wall")
+        for bolt in range(x + 17, x + 140, 39):
+            box(d, (bolt, 139, bolt + 1, 140), "amber_dark")
+    # Hoist and rescue-cross panel, with the combat strip kept quiet.
+    box(d, (764, 0, 821, 17), "ink")
+    box(d, (787, 17, 792, 90), "steel")
+    box(d, (775, 90, 804, 101), "shadow")
+    box(d, (782, 101, 796, 113), "amber_dark")
+    box(d, (173, 55, 219, 102), "ink")
+    box(d, (178, 60, 214, 97), "steel")
+    box(d, (192, 65, 199, 91), "cyan_light")
+    box(d, (183, 74, 208, 81), "cyan_light")
+    for x in (240, 624, 964, 1290):
+        box(d, (x, 188, x + 18, 233), "wall_dark")
+        box(d, (x + 4, 194, x + 15, 214), "steel")
+        box(d, (x + 7, 197, x + 12, 201), "amber")
+    # Small industrial conduits and braces sit above the combat silhouette.
+    for x in (79, 399, 748, 1082):
+        box(d, (x, 18, x + 4, 56), "wall_light")
+        box(d, (x - 6, 54, x + 11, 57), "ink")
+        box(d, (x - 4, 57, x + 9, 59), "steel")
+    for x in (121, 460, 811, 1155):
+        poly(d, [(x, 169), (x + 3, 169), (x + 50, 217),
+                 (x + 47, 217)], "wall_dark")
+        box(d, (x + 10, 181, x + 12, 183), "steel")
+    mid.save(OUT / "hangar_mid.png", optimize=True)
+
+
 def preview():
     # A composed art/legibility check, never a shipped level layout.
     im = Image.new("RGBA", (384, 216), P["void"])
@@ -340,14 +482,14 @@ def main():
     tiles = ["floor", "floor_vent", "gap_left", "gap_right", "wall",
              "wall_vent", "repair", "rescue_sign", "beacon_off", "beacon_on"]
     metadata = {
-        "operative": atlas("operative", [(n, operative(n)) for n in operative_frames], (36, 48), 8,
+        "operative": atlas("operative", [(n, detailed_actor(operative(n), "operative", n)) for n in operative_frames], (48, 60), 8,
                            {"idle": ["idle"], "run": ["run_a", "run_b"],
                             "jump": ["jump"], "fire": ["fire"], "hurt": ["hurt"], "down": ["down"]}),
-        "mechanical_soldier": atlas("mechanical_soldier", [(n, soldier(n)) for n in soldier_frames], (36, 48), 6,
+        "mechanical_soldier": atlas("mechanical_soldier", [(n, detailed_actor(soldier(n), "mechanical_soldier", n)) for n in soldier_frames], (48, 60), 6,
                                     {"idle": ["idle"], "walk": ["walk_a", "walk_b"],
                                      "windup": ["windup"], "fire": ["fire"],
                                      "hurt": ["hurt"], "down": ["down"]}),
-        "defense_mech": atlas("defense_mech", [(n, defense_mech(n)) for n in mech_frames], (80, 72), 5,
+        "defense_mech": atlas("defense_mech", [(n, detailed_actor(defense_mech(n), "defense_mech", n)) for n in mech_frames], (104, 90), 5,
                               {"idle": ["idle"], "charge": ["charge_a", "charge_b"],
                                "fire": ["fire"], "hurt": ["hurt"], "down": ["down"]}),
         "base_tiles": atlas("base_tiles", [(n, tile(n)) for n in tiles], (24, 24), 1,
@@ -357,6 +499,7 @@ def main():
         metadata[key]["ground_baseline_y"] = metadata[key]["frame_size"][1] - 1
         metadata[key]["loop_notes"] = "down is terminal; hurt/fire are event frames"
     (OUT / "atlas.json").write_text(json.dumps(metadata, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    hangar_layers()
     preview()
 
 

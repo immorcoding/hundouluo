@@ -48,7 +48,7 @@ func _physics_process(delta: float) -> void:
 		_fire_cooldown -= delta
 		if _fire_cooldown <= 0.0:
 			var projectile := PROJECTILE.instantiate() as Area2D
-			projectile.global_position = to_global(Vector2(_facing * 24, -25))
+			projectile.global_position = to_global(Vector2(_facing * 30, -31))
 			projectile.direction = _facing
 			projectile_fired.emit(projectile)
 			_fire_cooldown = fire_interval

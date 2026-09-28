@@ -4,3 +4,7 @@
 # Python-generated files from art tooling
 __pycache__/
 *.pyc
+
+# Review-only captures/previews are re-imported locally by the editor.
+docs/art/*.png.import
+docs/art/concepts/*.png.import

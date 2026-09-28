@@ -2,8 +2,8 @@
   "operative": {
     "image": "operative.png",
     "frame_size": [
-      36,
-      48
+      48,
+      60
     ],
     "layout": {
       "columns": 7,
@@ -45,14 +45,14 @@
     "origin": "bottom-center",
     "facing": "right",
     "filter": "nearest",
-    "ground_baseline_y": 47,
+    "ground_baseline_y": 59,
     "loop_notes": "down is terminal; hurt/fire are event frames"
   },
   "mechanical_soldier": {
     "image": "mechanical_soldier.png",
     "frame_size": [
-      36,
-      48
+      48,
+      60
     ],
     "layout": {
       "columns": 7,
@@ -94,14 +94,14 @@
     "origin": "bottom-center",
     "facing": "left",
     "filter": "nearest",
-    "ground_baseline_y": 47,
+    "ground_baseline_y": 59,
     "loop_notes": "down is terminal; hurt/fire are event frames"
   },
   "defense_mech": {
     "image": "defense_mech.png",
     "frame_size": [
-      80,
-      72
+      104,
+      90
     ],
     "layout": {
       "columns": 6,
@@ -139,7 +139,7 @@
     "origin": "bottom-center",
     "facing": "left",
     "filter": "nearest",
-    "ground_baseline_y": 71,
+    "ground_baseline_y": 89,
     "loop_notes": "down is terminal; hurt/fire are event frames"
   },
   "base_tiles": {

@@ -1,6 +1,6 @@
 # Issue #19 — 原创像素资产交付
 
-这里仅交付美术资源，不是可运行的 Godot 场景、关卡构图或战斗反馈实现。
+本节原为 #19 的像素资产交付记录；#22 将其扩展为下方的可运行救援机库美术验收片段，不代表完整关卡或战斗反馈实现。
 
 ![原生 384×216 预览](scene-native.png)
 
@@ -10,9 +10,9 @@
 
 | 图集 | 单帧 | 列数／帧序（从 0 起） | 正面方向 |
 | --- | --- | --- | --- |
-| `operative.png` | 36×48 | idle, run_a, run_b, jump, fire, hurt, down | 右 |
-| `mechanical_soldier.png` | 36×48 | idle, walk_a, walk_b, windup, fire, hurt, down | 左 |
-| `defense_mech.png` | 80×72 | idle, charge_a, charge_b, fire, hurt, down | 左 |
+| `operative.png` | 48×60 | idle, run_a, run_b, jump, fire, hurt, down | 右 |
+| `mechanical_soldier.png` | 48×60 | idle, walk_a, walk_b, windup, fire, hurt, down | 左 |
+| `defense_mech.png` | 104×90 | idle, charge_a, charge_b, fire, hurt, down | 左 |
 | `base_tiles.png` | 24×24 | floor, floor_vent, gap_left, gap_right, wall, wall_vent, repair, rescue_sign, beacon_off, beacon_on | 不适用 |
 
 行动员站姿、跑步两帧、跳跃、开火、受击与倒地；机械兵站姿、巡逻两帧、预告、开火、受击与倒地；防御机甲站姿、两段蓄力、开火、受击与损毁。机械兵胸前与机甲肩部共享橙红安防尖角标记，但各自体型仍能独立识别。机甲保持固定，蓄力核心增亮同时出现四边框，静音时也具有形态变化。`fire` 是射击瞬间姿态／枪口闪光，不包含弹丸贴图；受击帧不是无敌持续效果，反馈集成属后续票据。`down` 为终态，停留在原地；它不构成死亡／通关逻辑。
@@ -21,9 +21,24 @@
 
 ## Godot 4 导入建议
 
-将 `assets/pixel/` 复制进项目 `res://`，Sprite2D 使用对应 PNG，启用 `hframes` 为列数、`vframes=1`，按照 JSON 的序号设置 `frame` 或定义 SpriteFrames 的 AtlasTexture 区域。纹理过滤设 `Nearest`，不使用压缩引起的边缘混色；整数倍放大。角色统一以单帧底边中心为站立锚点，建议用 Sprite2D 的 offset 将这一点对齐角色脚底；`down` 仍占原有 36×48 或 80×72 单元。敌人反向面对目标时可使用水平翻转，注意左右枪口、背包不对称细节也随之镜像。透明像素不是碰撞形状；碰撞体、可受击区域、机甲蓄力时长、动画时序和地图碰撞仍须在正式工程按试玩调试。
+Sprite2D 使用对应 PNG，启用 `hframes` 为列数、`vframes=1`，按照 JSON 的序号设置 `frame` 或定义 SpriteFrames 的 AtlasTexture 区域。纹理过滤设 `Nearest`，不使用压缩引起的边缘混色；整数倍放大。角色统一以单帧底边中心为站立锚点，建议用 Sprite2D 的 offset 将这一点对齐角色脚底；`down` 仍占更新后的 48×60 或 104×90 单元。敌人反向面对目标时可使用水平翻转，注意左右枪口、背包不对称细节也随之镜像。透明像素不是碰撞形状；碰撞体、可受击区域、机甲蓄力时长、动画时序和地图碰撞仍须在正式工程按试玩调试。
 
-24px 图块是为角色约 1.5–3 格高的画面判读选择，预览的原生画布为 384×216。对照 `scene-native.png` 检查实际显示大小，`scene-3x.png` 和四张 `*-frames-3x.png` 仅用于审看硬边和所有帧。受击、弹丸、静音可判读与关卡公平性不能仅据静态预览宣布验收通过。
+24px 图块仍用于地面。`scene-native.png` / `scene-3x.png` 是 #19 的 384×216 旧示意，并非现在的游戏镜头；四张 `*-frames-3x.png` 可审看更新后的帧。实际显示大小以如下 Godot 截图为准。受击、弹丸、静音可判读与关卡公平性不能仅据静态预览宣布验收通过。
+
+## #22 · 救援机库实机场景与 C 草图对照
+
+| C 救援机库方向草图（生成参考，非入包画面） | Godot 4.7.2 真实视口（原创资源） |
+| --- | --- |
+| [查看 C 原型构图](https://github.com/immorcoding/hundouluo/blob/codex/visual-art-prototype/prototypes/visual-art/images/c-rescue-bay.png) | ![实际 Godot 战斗层与机库纵深](hangar-godot-combat.png) |
+| 草图的黄边断崖和多层机库只定义视觉层级，未取用任何图像像素。 | ![实际 Godot 可跳跃缺口与防御机甲展示体](hangar-godot-gap.png) |
+
+草图是丰富的氛围和密度参考；实机故意把前景地面与敌我轮廓从蓝灰低对比背景里分开，机库远景（不透明）与吊装中景（透明）是两张独立的原创 1440px 宽像素层。更硬的网格笔触与有限色板是本版差异，不是逐像素复刻。行动员图集 60px 高，站姿可见不透明包围盒约 57px，即 360px 视口的 15.8%；镜头前方留白约 435px。实际窗口由 Godot 报告为 1280×720，逻辑视口 640×360，使用 viewport + integer 缩放；仓库保留的截图是其 640×360 逻辑视口的原生采样。
+
+`tools/build_pixel_art.py` 是三角色更新帧和 `hangar_far.png` / `hangar_mid.png` 的原始可编辑制作源。角色沿用 #19 自绘轮廓和关键帧，在 48×60 / 104×90 网格重新描绘并增加罩面高光、背包标记、装甲刻线、铆点与机甲核心细节；不是放大概念图。`scenes/level.tscn` 明确分离 Far、Mid、Ground、ArtSamples 和玩法槽位；其中碰撞矩形界定左侧 [0,768) 与右侧 [864,1440)，`scripts/level.gd` 从形状推导 24px 地板与黄色警戒边缘并填满至视口底。机械兵和防御机甲目前只是无碰撞画面展示体，不接入 #15 未合并的行为；可跑跳、左右连续射击、跨缺口，但跌落后暂须重新运行场景。
+
+制作、许可：上述所有新增像素均由该仓库的 Python/Pillow 形状指令本地绘制，和 #19 原素材同受根目录 `LICENSE` 约束；没有把 C 概念 PNG、第三方贴图、字体或音效导入游戏。C 草图仅通过远端链接供审看，不是游戏文件。可用 `python tools/build_pixel_art.py` 确定性重建图集、背景和帧预览，首次导入用 Godot 4.7.2 的 `--headless --editor --path . --import`。实际截图由 `tools/capture_hangar.gd` 在 Godot 图形会话中读取视口产生，不是 Python 拼贴。
+
+仍待用户真人试玩：运动中轮廓与黄色缺口是否足够醒目、60px 主角与前方视野是否舒适、跨 96px 缺口的手感、静音时危险辨识、不同显示器整数缩放。#22 不因自动检查而宣告美术验收通过；#15 敌人 AI、#16 正式五段布局、HUD 和死亡重试均不在本票完成范围内。
 
 ## 制作来源与权利边界
 
