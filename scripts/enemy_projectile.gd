@@ -1,0 +1,24 @@
+extends Area2D
+
+@export var speed := 270.0
+@export var max_distance := 560.0
+var direction := -1
+var _distance := 0.0
+var _spent := false
+
+
+func _physics_process(delta: float) -> void:
+	var step := speed * delta
+	position.x += direction * step
+	_distance += absf(step)
+	if _distance >= max_distance:
+		queue_free()
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if _spent:
+		return
+	_spent = true
+	if body.has_method("receive_hit"):
+		body.receive_hit()
+	queue_free()

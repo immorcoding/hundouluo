@@ -1,5 +1,6 @@
 # Godot editor cache (generated locally)
 .godot/
+*.png.import
 
 # Python-generated files from art tooling
 __pycache__/
