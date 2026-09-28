@@ -14,12 +14,12 @@ func _physics_process(_delta: float) -> void:
 	var camera := $Camera2D as Camera2D
 	var half_view := camera.get_viewport_rect().size / camera.zoom / 2.0
 	var center := camera.get_screen_center_position()
+	var view_rect := Rect2(center - half_view, half_view * 2.0)
 	for child in $Enemies.get_children():
 		var soldier := child as MechanicalSoldier
 		if soldier == null:
 			continue
-		soldier.attack_enabled = absf(soldier.global_position.x - center.x) + 18.0 < half_view.x \
-			and absf(soldier.global_position.y - 24.0 - center.y) + 24.0 < half_view.y
+		soldier.attack_enabled = soldier.is_fully_visible_in(view_rect)
 
 
 func _on_operative_projectile_fired(projectile: Area2D) -> void:

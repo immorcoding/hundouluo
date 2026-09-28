@@ -29,6 +29,14 @@ func _ready() -> void:
 	_patrol_origin = global_position.x
 
 
+func is_fully_visible_in(view_rect: Rect2) -> bool:
+	var sprite := $Sprite as Sprite2D
+	var local_bounds := sprite.get_rect()
+	var top_left := sprite.to_global(local_bounds.position)
+	var bottom_right := sprite.to_global(local_bounds.end)
+	return view_rect.encloses(Rect2(top_left, bottom_right - top_left))
+
+
 func _physics_process(delta: float) -> void:
 	if health == 0:
 		return
