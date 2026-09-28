@@ -1,7 +1,11 @@
 # Godot editor cache (generated locally)
 .godot/
-*.png.import
 
 # Python-generated files from art tooling
 __pycache__/
 *.pyc
+
+# Review-only captures/previews are re-imported locally by the editor.
+docs/art/*.png.import
+docs/art/concepts/*.png.import
+assets/art_source/*.png.import

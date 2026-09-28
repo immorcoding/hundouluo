@@ -2,8 +2,8 @@
   "operative": {
     "image": "operative.png",
     "frame_size": [
-      36,
-      48
+      72,
+      60
     ],
     "layout": {
       "columns": 7,
@@ -45,14 +45,16 @@
     "origin": "bottom-center",
     "facing": "right",
     "filter": "nearest",
-    "ground_baseline_y": 47,
-    "loop_notes": "down is terminal; hurt/fire are event frames"
+    "ground_baseline_y": 59,
+    "palette_limit": 48,
+    "loop_notes": "down is terminal; hurt/fire are event frames",
+    "source": "assets/art_source/operative-sheet.png (ImageGen + atlas postprocessing)"
   },
   "mechanical_soldier": {
     "image": "mechanical_soldier.png",
     "frame_size": [
-      36,
-      48
+      64,
+      60
     ],
     "layout": {
       "columns": 7,
@@ -94,14 +96,16 @@
     "origin": "bottom-center",
     "facing": "left",
     "filter": "nearest",
-    "ground_baseline_y": 47,
-    "loop_notes": "down is terminal; hurt/fire are event frames"
+    "ground_baseline_y": 59,
+    "palette_limit": 48,
+    "loop_notes": "down is terminal; hurt/fire are event frames",
+    "source": "assets/art_source/soldier-sheet.png (ImageGen + atlas postprocessing)"
   },
   "defense_mech": {
     "image": "defense_mech.png",
     "frame_size": [
-      80,
-      72
+      136,
+      90
     ],
     "layout": {
       "columns": 6,
@@ -139,8 +143,10 @@
     "origin": "bottom-center",
     "facing": "left",
     "filter": "nearest",
-    "ground_baseline_y": 71,
-    "loop_notes": "down is terminal; hurt/fire are event frames"
+    "ground_baseline_y": 89,
+    "palette_limit": 48,
+    "loop_notes": "down is terminal; hurt/fire are event frames",
+    "source": "assets/art_source/mech-sheet.png (ImageGen + atlas postprocessing)"
   },
   "base_tiles": {
     "image": "base_tiles.png",
@@ -149,7 +155,7 @@
       24
     ],
     "layout": {
-      "columns": 10,
+      "columns": 13,
       "rows": 1,
       "margin": 0,
       "separation": 0
@@ -164,7 +170,10 @@
       "repair": 6,
       "rescue_sign": 7,
       "beacon_off": 8,
-      "beacon_on": 9
+      "beacon_on": 9,
+      "floor_sub": 10,
+      "gap_wall_left": 11,
+      "gap_wall_right": 12
     },
     "animations": {
       "beacon": [
@@ -175,6 +184,8 @@
     "suggested_fps": 1,
     "origin": "bottom-center",
     "facing": "left",
-    "filter": "nearest"
+    "filter": "nearest",
+    "palette_limit": 24,
+    "source": "tools/legacy_pixel_art.py (programmatic original tiles)"
   }
 }

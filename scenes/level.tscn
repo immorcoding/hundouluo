@@ -1,24 +1,70 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=10 format=3]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/operative.tscn" id="2"]
+[ext_resource type="Texture2D" path="res://assets/pixel/hangar_far.png" id="3"]
+[ext_resource type="Texture2D" path="res://assets/pixel/hangar_mid.png" id="4"]
+[ext_resource type="Texture2D" path="res://assets/pixel/mechanical_soldier.png" id="5"]
+[ext_resource type="Texture2D" path="res://assets/pixel/defense_mech.png" id="6"]
+[ext_resource type="Texture2D" path="res://assets/pixel/hangar_deck.png" id="7"]
+
+[sub_resource type="RectangleShape2D" id="LeftGround"]
+size = Vector2(768, 108)
+
+[sub_resource type="RectangleShape2D" id="RightGround"]
+size = Vector2(576, 108)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1")
 
-[node name="Backdrop" type="CanvasLayer" parent="."]
-layer = -1
+[node name="HangarFar" type="Sprite2D" parent="."]
+position = Vector2(720, 180)
+texture_filter = 1
+texture = ExtResource("3")
 
-[node name="Fill" type="ColorRect" parent="Backdrop"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0.065, 0.11, 0.16, 1)
+[node name="HangarMid" type="Sprite2D" parent="."]
+position = Vector2(720, 180)
+texture_filter = 1
+texture = ExtResource("4")
+
+[node name="Ground" type="Node2D" parent="."]
+
+[node name="Left" type="StaticBody2D" parent="Ground"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Left"]
+position = Vector2(384, 306)
+shape = SubResource("LeftGround")
+
+[node name="Right" type="StaticBody2D" parent="Ground"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Right"]
+position = Vector2(1152, 306)
+shape = SubResource("RightGround")
+
+[node name="Deck" type="Node2D" parent="Ground"]
+
+[node name="Tiles" type="Node2D" parent="Ground"]
+
+[node name="ArtSamples" type="Node2D" parent="."]
+
+[node name="MechanicalSoldier" type="Sprite2D" parent="ArtSamples"]
+position = Vector2(538, 222)
+texture_filter = 1
+texture = ExtResource("5")
+hframes = 7
+
+[node name="DefenseMech" type="Sprite2D" parent="ArtSamples"]
+position = Vector2(1112, 207)
+texture_filter = 1
+texture = ExtResource("6")
+hframes = 6
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(320, 180)
 
 [node name="Operative" type="Node2D" parent="."]
 

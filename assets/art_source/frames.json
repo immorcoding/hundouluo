@@ -1,0 +1,43 @@
+{
+  "operative": {
+    "source": "operative-sheet.png", "frame_size": [72, 60], "standing_height": 58,
+    "anchor_x": 0.42, "facing": "right", "fps": 8,
+    "animations": {"idle": ["idle"], "run": ["run_a", "run_b"], "jump": ["jump"], "fire": ["fire"], "hurt": ["hurt"], "down": ["down"]},
+    "frames": [
+      {"name": "idle", "crop": [0, 80, 380, 530]},
+      {"name": "run_a", "crop": [385, 80, 745, 530]},
+      {"name": "run_b", "crop": [750, 80, 1120, 530]},
+      {"name": "jump", "crop": [1150, 80, 1448, 530], "top": 2},
+      {"name": "fire", "crop": [0, 600, 394, 1050], "anchor_x": 0.39},
+      {"name": "hurt", "crop": [394, 600, 709, 1050], "anchor_x": 0.45},
+      {"name": "down", "crop": [710, 800, 1108, 1050], "anchor_x": 0.5}
+    ]
+  },
+  "mechanical_soldier": {
+    "source": "soldier-sheet.png", "frame_size": [64, 60], "standing_height": 58,
+    "anchor_x": 0.6, "facing": "left", "fps": 6,
+    "animations": {"idle": ["idle"], "walk": ["walk_a", "walk_b"], "windup": ["windup"], "fire": ["fire"], "hurt": ["hurt"], "down": ["down"]},
+    "frames": [
+      {"name": "idle", "crop": [0, 60, 362, 530]},
+      {"name": "walk_a", "crop": [367, 60, 724, 530]},
+      {"name": "walk_b", "crop": [730, 60, 1095, 530]},
+      {"name": "windup", "crop": [1105, 60, 1448, 530]},
+      {"name": "fire", "crop": [0, 560, 383, 1050], "anchor_x": 0.59},
+      {"name": "hurt", "crop": [390, 560, 699, 1050]},
+      {"name": "down", "crop": [700, 880, 1135, 1050], "anchor_x": 0.5}
+    ]
+  },
+  "defense_mech": {
+    "source": "mech-sheet.png", "frame_size": [136, 90], "standing_height": 86,
+    "anchor_x": 0.56, "facing": "left", "fps": 5,
+    "animations": {"idle": ["idle"], "charge": ["charge_a", "charge_b"], "fire": ["fire"], "hurt": ["hurt"], "down": ["down"]},
+    "frames": [
+      {"name": "idle", "crop": [0, 70, 449, 570]},
+      {"name": "charge_a", "crop": [450, 70, 892, 570]},
+      {"name": "charge_b", "crop": [895, 70, 1349, 570]},
+      {"name": "fire", "crop": [0, 595, 475, 1080]},
+      {"name": "hurt", "crop": [478, 595, 890, 1080]},
+      {"name": "down", "crop": [900, 690, 1349, 1080], "anchor_x": 0.5}
+    ]
+  }
+}

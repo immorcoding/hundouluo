@@ -4,18 +4,19 @@
 [ext_resource type="Texture2D" path="res://assets/pixel/operative.png" id="2"]
 
 [sub_resource type="RectangleShape2D" id="Body"]
-size = Vector2(20, 40)
+size = Vector2(24, 52)
 
 [node name="Operative" type="CharacterBody2D"]
 collision_mask = 6
 script = ExtResource("1")
+muzzle_offsets = PackedVector2Array(28, -38, 31, -36, 31, -36, 23, -37, 21, -37, 26, -40, 0, 0)
 
 [node name="Body" type="CollisionShape2D" parent="."]
-position = Vector2(0, -20)
+position = Vector2(0, -26)
 shape = SubResource("Body")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(0, -24)
+position = Vector2(0, -30)
 texture_filter = 1
 texture = ExtResource("2")
 hframes = 7

@@ -9,6 +9,8 @@ signal died
 @export var gravity := 900.0
 @export_range(0.01, 2.0, 0.01) var fire_interval := 0.16
 @export_range(0.0, 3.0, 0.05) var invulnerability_duration := 0.7
+# Artwork-local muzzle points, one per atlas frame; configured by the scene.
+@export var muzzle_offsets := PackedVector2Array([Vector2(30, -31)])
 
 const PROJECTILE := preload("res://scenes/friendly_projectile.tscn")
 
@@ -48,7 +50,8 @@ func _physics_process(delta: float) -> void:
 		_fire_cooldown -= delta
 		if _fire_cooldown <= 0.0:
 			var projectile := PROJECTILE.instantiate() as Area2D
-			projectile.global_position = to_global(Vector2(_facing * 24, -25))
+			var muzzle := muzzle_offsets[mini($Sprite.frame, muzzle_offsets.size() - 1)]
+			projectile.global_position = to_global(Vector2(_facing * muzzle.x, muzzle.y))
 			projectile.direction = _facing
 			projectile_fired.emit(projectile)
 			_fire_cooldown = fire_interval
