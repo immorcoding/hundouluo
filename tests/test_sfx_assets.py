@@ -27,6 +27,15 @@ EXPECTED_CUES = {
 }
 
 
+def run_generator(output_dir: str | Path) -> subprocess.CompletedProcess[str]:
+    return subprocess.run(
+        [sys.executable, str(GENERATOR), "--output-dir", str(output_dir)],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+    )
+
+
 class SoundAssetTests(unittest.TestCase):
     def test_manifest_traces_generated_audio_and_existing_original_art(self) -> None:
         self.assertTrue(MANIFEST.is_file())
@@ -51,12 +60,7 @@ class SoundAssetTests(unittest.TestCase):
 
     def test_sound_set_has_distinct_short_feedback_and_prioritizes_danger(self) -> None:
         with tempfile.TemporaryDirectory() as output_dir:
-            result = subprocess.run(
-                [sys.executable, str(GENERATOR), "--output-dir", output_dir],
-                cwd=ROOT,
-                capture_output=True,
-                text=True,
-            )
+            result = run_generator(output_dir)
             self.assertEqual(result.returncode, 0, result.stderr)
 
             files = {path.name: path for path in Path(output_dir).glob("*.wav")}
@@ -83,18 +87,8 @@ class SoundAssetTests(unittest.TestCase):
 
     def test_player_shot_is_a_repeatable_short_mono_pcm_wave(self) -> None:
         with tempfile.TemporaryDirectory() as first_dir, tempfile.TemporaryDirectory() as second_dir:
-            first = subprocess.run(
-                [sys.executable, str(GENERATOR), "--output-dir", first_dir],
-                cwd=ROOT,
-                capture_output=True,
-                text=True,
-            )
-            second = subprocess.run(
-                [sys.executable, str(GENERATOR), "--output-dir", second_dir],
-                cwd=ROOT,
-                capture_output=True,
-                text=True,
-            )
+            first = run_generator(first_dir)
+            second = run_generator(second_dir)
 
             self.assertEqual(first.returncode, 0, first.stderr)
             self.assertEqual(second.returncode, 0, second.stderr)
