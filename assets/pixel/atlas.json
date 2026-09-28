@@ -2,7 +2,7 @@
   "operative": {
     "image": "operative.png",
     "frame_size": [
-      48,
+      72,
       60
     ],
     "layout": {
@@ -46,12 +46,14 @@
     "facing": "right",
     "filter": "nearest",
     "ground_baseline_y": 59,
-    "loop_notes": "down is terminal; hurt/fire are event frames"
+    "palette_limit": 48,
+    "loop_notes": "down is terminal; hurt/fire are event frames",
+    "source": "assets/art_source/operative-sheet.png (ImageGen + atlas postprocessing)"
   },
   "mechanical_soldier": {
     "image": "mechanical_soldier.png",
     "frame_size": [
-      48,
+      64,
       60
     ],
     "layout": {
@@ -95,12 +97,14 @@
     "facing": "left",
     "filter": "nearest",
     "ground_baseline_y": 59,
-    "loop_notes": "down is terminal; hurt/fire are event frames"
+    "palette_limit": 48,
+    "loop_notes": "down is terminal; hurt/fire are event frames",
+    "source": "assets/art_source/soldier-sheet.png (ImageGen + atlas postprocessing)"
   },
   "defense_mech": {
     "image": "defense_mech.png",
     "frame_size": [
-      104,
+      136,
       90
     ],
     "layout": {
@@ -140,7 +144,9 @@
     "facing": "left",
     "filter": "nearest",
     "ground_baseline_y": 89,
-    "loop_notes": "down is terminal; hurt/fire are event frames"
+    "palette_limit": 48,
+    "loop_notes": "down is terminal; hurt/fire are event frames",
+    "source": "assets/art_source/mech-sheet.png (ImageGen + atlas postprocessing)"
   },
   "base_tiles": {
     "image": "base_tiles.png",
@@ -178,6 +184,8 @@
     "suggested_fps": 1,
     "origin": "bottom-center",
     "facing": "left",
-    "filter": "nearest"
+    "filter": "nearest",
+    "palette_limit": 24,
+    "source": "tools/legacy_pixel_art.py (programmatic original tiles)"
   }
 }

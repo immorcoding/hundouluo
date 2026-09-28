@@ -8,3 +8,4 @@ __pycache__/
 # Review-only captures/previews are re-imported locally by the editor.
 docs/art/*.png.import
 docs/art/concepts/*.png.import
+assets/art_source/*.png.import

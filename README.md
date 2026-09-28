@@ -26,7 +26,7 @@
 
 碰撞层约定：行动员为第 1 层、普通敌人/受击目标为第 2 层、地形为第 3 层、己方弹丸为第 4 层。行动员检测敌人和地形，己方弹丸检测敌人和地形；后续敌人与关卡按此接缝布置。跑速、跳跃速度、射击间隔、无敌时长和弹丸速度/距离均是场景可调参数，不视为已完成真人手感验收。片段镜头水平跟随行动员、留出前方空间；正式五段布局仍属后续票据。
 
-可编辑的像素图集由 `tools/build_pixel_art.py` 绘制，远中景与厚甲板的逐形状制作源是 `tools/build_hangar_composition.py`，不从概念图缩放或切片。`scenes/level.tscn` 中两段地面碰撞矩形是坐标来源，`scripts/level.gd` 按形状裁出甲板、留出缺口并绘制警戒边缘。实际 Godot 截图、与 C 草图的对照、权利记录和待试玩事项见 [美术说明](docs/art/README.md)。
+当前美术采用 **ImageGen 原创生成辅助 + 分层／图集加工**，不是手绘：背景、支柱吊具、甲板和三个角色分别制作，原始 PNG、提示词与裁切配置保存在 `assets/art_source/`。运行 `python tools/build_pixel_art.py` 可离线重建正式资源；`tools/assemble_hangar_art.py` 负责缩放、透明边清理、有限调色板和脚底对齐。C 草图仅作对照，未作为整张可玩场景贴图。`scenes/level.tscn` 中两段地面碰撞矩形仍是坐标来源，`scripts/level.gd` 按形状裁出甲板、留出缺口并绘制警戒边缘。实际 Godot 截图、与 C 草图的对照、制作来源和待试玩事项见 [美术说明](docs/art/README.md)。
 
 ## 检查
 
@@ -38,6 +38,7 @@
 & '<Godot 4.7.2 console.exe 路径>' --headless --path . --script tests/scene_slots_smoke.gd
 & '<Godot 4.7.2 console.exe 路径>' --headless --path . --script tests/operative_behavior.gd
 & '<Godot 4.7.2 console.exe 路径>' --headless --path . --script tests/operative_shooting.gd
+& '<Godot 4.7.2 console.exe 路径>' --headless --path . --script tests/operative_muzzle.gd
 & '<Godot 4.7.2 console.exe 路径>' --headless --path . --script tests/friendly_projectile_hit.gd
 & '<Godot 4.7.2 console.exe 路径>' --headless --path . --script tests/friendly_projectile_expiry.gd
 & '<Godot 4.7.2 console.exe 路径>' --headless --path . --script tests/operative_damage.gd

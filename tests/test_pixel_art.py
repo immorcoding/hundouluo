@@ -25,7 +25,11 @@ class PixelArtTests(unittest.TestCase):
                 self.assertEqual(info["layout"]["columns"], len(info["frames"]))
                 self.assertEqual(set(info["frames"].values()), set(range(len(info["frames"]))))
                 self.assertEqual(set(image.getchannel("A").getdata()) <= {0, 255}, True)
-                self.assertLessEqual(len(image.getcolors(image.width * image.height)), 24)
+                # Generated-assisted actors use 48 RGBA entries; original tiles
+                # keep their 24-color contract. Runtime art stays finite-palette.
+                limit = 24 if name == "base_tiles" else 48
+                self.assertEqual(info["palette_limit"], limit)
+                self.assertLessEqual(len(image.getcolors(image.width * image.height)), limit)
                 for i in range(info["layout"]["columns"]):
                     self.assertIsNotNone(image.crop((i * w, 0, (i + 1) * w, h)).getbbox())
 
