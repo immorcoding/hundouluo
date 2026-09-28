@@ -1,2 +1,6 @@
-# Godot's imported assets and editor state are recreated on open.
+# Godot editor cache (generated locally)
 .godot/
+
+# Python-generated files from art tooling
+__pycache__/
+*.pyc

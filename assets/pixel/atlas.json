@@ -1,0 +1,180 @@
+{
+  "operative": {
+    "image": "operative.png",
+    "frame_size": [
+      36,
+      48
+    ],
+    "layout": {
+      "columns": 7,
+      "rows": 1,
+      "margin": 0,
+      "separation": 0
+    },
+    "frames": {
+      "idle": 0,
+      "run_a": 1,
+      "run_b": 2,
+      "jump": 3,
+      "fire": 4,
+      "hurt": 5,
+      "down": 6
+    },
+    "animations": {
+      "idle": [
+        "idle"
+      ],
+      "run": [
+        "run_a",
+        "run_b"
+      ],
+      "jump": [
+        "jump"
+      ],
+      "fire": [
+        "fire"
+      ],
+      "hurt": [
+        "hurt"
+      ],
+      "down": [
+        "down"
+      ]
+    },
+    "suggested_fps": 8,
+    "origin": "bottom-center",
+    "facing": "right",
+    "filter": "nearest",
+    "ground_baseline_y": 47,
+    "loop_notes": "down is terminal; hurt/fire are event frames"
+  },
+  "mechanical_soldier": {
+    "image": "mechanical_soldier.png",
+    "frame_size": [
+      36,
+      48
+    ],
+    "layout": {
+      "columns": 7,
+      "rows": 1,
+      "margin": 0,
+      "separation": 0
+    },
+    "frames": {
+      "idle": 0,
+      "walk_a": 1,
+      "walk_b": 2,
+      "windup": 3,
+      "fire": 4,
+      "hurt": 5,
+      "down": 6
+    },
+    "animations": {
+      "idle": [
+        "idle"
+      ],
+      "walk": [
+        "walk_a",
+        "walk_b"
+      ],
+      "windup": [
+        "windup"
+      ],
+      "fire": [
+        "fire"
+      ],
+      "hurt": [
+        "hurt"
+      ],
+      "down": [
+        "down"
+      ]
+    },
+    "suggested_fps": 6,
+    "origin": "bottom-center",
+    "facing": "left",
+    "filter": "nearest",
+    "ground_baseline_y": 47,
+    "loop_notes": "down is terminal; hurt/fire are event frames"
+  },
+  "defense_mech": {
+    "image": "defense_mech.png",
+    "frame_size": [
+      80,
+      72
+    ],
+    "layout": {
+      "columns": 6,
+      "rows": 1,
+      "margin": 0,
+      "separation": 0
+    },
+    "frames": {
+      "idle": 0,
+      "charge_a": 1,
+      "charge_b": 2,
+      "fire": 3,
+      "hurt": 4,
+      "down": 5
+    },
+    "animations": {
+      "idle": [
+        "idle"
+      ],
+      "charge": [
+        "charge_a",
+        "charge_b"
+      ],
+      "fire": [
+        "fire"
+      ],
+      "hurt": [
+        "hurt"
+      ],
+      "down": [
+        "down"
+      ]
+    },
+    "suggested_fps": 5,
+    "origin": "bottom-center",
+    "facing": "left",
+    "filter": "nearest",
+    "ground_baseline_y": 71,
+    "loop_notes": "down is terminal; hurt/fire are event frames"
+  },
+  "base_tiles": {
+    "image": "base_tiles.png",
+    "frame_size": [
+      24,
+      24
+    ],
+    "layout": {
+      "columns": 10,
+      "rows": 1,
+      "margin": 0,
+      "separation": 0
+    },
+    "frames": {
+      "floor": 0,
+      "floor_vent": 1,
+      "gap_left": 2,
+      "gap_right": 3,
+      "wall": 4,
+      "wall_vent": 5,
+      "repair": 6,
+      "rescue_sign": 7,
+      "beacon_off": 8,
+      "beacon_on": 9
+    },
+    "animations": {
+      "beacon": [
+        "beacon_off",
+        "beacon_on"
+      ]
+    },
+    "suggested_fps": 1,
+    "origin": "bottom-center",
+    "facing": "left",
+    "filter": "nearest"
+  }
+}
