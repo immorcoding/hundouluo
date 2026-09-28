@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>科幻横版闯关 · 场景美术原型</title>
+  <style>
+    :root { color-scheme: dark; font-family: system-ui, "Microsoft YaHei", sans-serif; background: #090f17; color: #e7f1f5; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: radial-gradient(ellipse at 50% 0, #1c3341 0, #0b1620 48%, #080d14 100%); }
+    main { width: min(1320px, calc(100% - 32px)); margin: 0 auto; padding: 28px 0 138px; }
+    .eyebrow { color: #77dfe2; font-size: 12px; font-weight: 800; letter-spacing: .2em; }
+    h1 { font-size: clamp(24px, 3vw, 36px); line-height: 1.2; margin: 9px 0 8px; }
+    .intro { color: #a5b7c2; margin: 0 0 22px; font-size: 14px; line-height: 1.7; }
+    .stage { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid #4c6a72; box-shadow: 0 30px 70px #0009, 0 0 0 5px #14242c; background: #13202a; }
+    .stage img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .stage::after { content: "美术方向示意 · 非游戏实机"; position: absolute; right: 16px; top: 14px; padding: 7px 10px; background: #07131bc9; color: #c2dce0; border: 1px solid #59777b; font-size: 11px; letter-spacing: .05em; }
+    .scale { display: none; position: absolute; left: 13%; bottom: 22%; height: 16.5%; width: 15px; border-left: 2px solid #f0db66; border-top: 2px solid #f0db66; border-bottom: 2px solid #f0db66; filter: drop-shadow(0 1px 3px #000); }
+    .scale span { position: absolute; left: 20px; top: -5px; min-width: 100px; padding: 3px 5px; background: #0b141be6; color: #fff0a0; font-size: 11px; white-space: nowrap; }
+    .show-scale .scale { display: block; }
+    .info { display: grid; grid-template-columns: 1fr minmax(200px, 350px); gap: 24px; align-items: start; margin-top: 20px; }
+    h2 { font-size: 20px; margin: 0 0 7px; }
+    .summary { margin: 0; color: #b5c8d0; font-size: 14px; line-height: 1.7; }
+    .notes { color: #9eafb7; font-size: 12px; line-height: 1.7; }
+    .spec { border-left: 2px solid #6acbcf; padding-left: 14px; color: #c7d8dc; font-size: 13px; line-height: 1.65; }
+    .spec p { margin: 0 0 7px; }
+    .spec label { display: flex; align-items: center; gap: 7px; cursor: pointer; }
+    .toolbar { position: fixed; z-index: 5; left: 0; right: 0; bottom: 0; padding: 12px 16px 17px; background: #0b141cf2; border-top: 1px solid #33525c; backdrop-filter: blur(14px); }
+    .toolbar-inner { max-width: 1320px; margin: auto; display: flex; gap: 8px; align-items: center; }
+    .toolbar strong { color: #8fb1ba; font-size: 12px; margin-right: 10px; white-space: nowrap; }
+    .choice { flex: 1; min-height: 52px; border: 1px solid #42606a; border-radius: 5px; background: #14242c; color: #c0d1d8; font: inherit; text-align: left; padding: 6px 13px; cursor: pointer; }
+    .choice:hover, .choice:focus-visible { border-color: #8fe9e4; outline: none; }
+    .choice.active { background: #174249; border-color: #90e8d9; color: #fff; box-shadow: inset 0 0 0 1px #90e8d955; }
+    .choice small { display: block; margin-top: 2px; color: #91aab3; font-size: 11px; }
+    .choice.active small { color: #c5eae6; }
+    @media (max-width: 720px) {
+      main { width: calc(100% - 20px); padding-top: 19px; }
+      .stage::after { top: 5px; right: 5px; font-size: 9px; padding: 4px; }
+      .info { grid-template-columns: 1fr; gap: 12px; }
+      .toolbar { padding: 8px; }
+      .toolbar-inner { flex-wrap: wrap; gap: 5px; }
+      .toolbar strong { width: 100%; }
+      .choice { padding: 6px; min-height: 47px; font-size: 11px; }
+      .choice small { font-size: 9px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="eyebrow">ART DIRECTION / THROWAWAY PROTOTYPE</div>
+    <h1>科幻横版闯关：场景美术方向</h1>
+    <p class="intro">切换三种构图，比较战斗层、背景层和角色辨识度。按 ← / → 也能切换；这些是生成的视觉草图，不是 Godot 实机画面或可直接使用的逐帧素材。</p>
+    <div class="stage" id="stage">
+      <img id="art" alt="科幻横版闯关场景美术方向示意">
+      <div class="scale" aria-hidden="true"><span>目标主角身高 ≈ 15–18%</span></div>
+    </div>
+    <div class="info">
+      <div>
+        <h2 id="variant-title"></h2>
+        <p class="summary" id="variant-summary"></p>
+        <p class="notes" id="variant-risk"></p>
+      </div>
+      <div class="spec">
+        <p>待验证画布：<b>640 × 360</b> 逻辑像素，默认窗口 <b>1280 × 720</b>；实际清晰度、镜头和贴图密度须在 Godot 中验证。</p>
+        <p>目标主角高度约 <b>54–65</b> 逻辑像素（画面高度 15–18%），不是本草图中已锁定的像素尺寸。</p>
+        <label><input id="scale-toggle" type="checkbox"> 显示角色高度参考尺</label>
+      </div>
+    </div>
+  </main>
+  <nav class="toolbar" aria-label="切换场景方案"><div class="toolbar-inner">
+    <strong>方案对比</strong>
+    <button class="choice" data-variant="A">A · 封闭走廊<small>高密度、强压迫</small></button>
+    <button class="choice" data-variant="B">B · 维修竖井<small>纵深层次、工业结构</small></button>
+    <button class="choice" data-variant="C">C · 救援机库 ★<small>开阔战斗层、推荐</small></button>
+  </div></nav>
+  <script>
+    const variants = {
+      A: { image: 'images/a-corridor.png', title: 'A · 封闭走廊', summary: '沿用概念图的高密度机械结构与强烈冷暖对比，适合狭窄、紧张的短战斗段落。', risk: '取舍：背景细节最容易和敌人争夺注意力，角色轮廓和危险边界需要进一步简化。' },
+      B: { image: 'images/b-repair-shaft.png', title: 'B · 维修竖井', summary: '强化多层平台、维修设施与场景纵深，让地图更像有功能的科幻设施。', risk: '取舍：层次丰富，但可通行地面和跳跃间隙容易被装饰遮挡。' },
+      C: { image: 'images/c-rescue-bay.png', title: 'C · 救援机库（推荐）', summary: '远景保留概念图的规模感与材质细节，前景留出清楚的跑跳、射击空间；黄边标示危险缺口。', risk: '待验证：把这一构图落到真正的 640×360 逻辑画布，并确认主角 15–18% 高度时的战斗视野。' }
+    };
+    const buttons = [...document.querySelectorAll('[data-variant]')];
+    const requested = new URLSearchParams(location.search).get('variant')?.toUpperCase();
+    let current = variants[requested] ? requested : 'C';
+    function show(key) {
+      current = key;
+      const data = variants[key];
+      document.getElementById('art').src = data.image;
+      document.getElementById('art').alt = data.title + '场景美术草图';
+      document.getElementById('variant-title').textContent = data.title;
+      document.getElementById('variant-summary').textContent = data.summary;
+      document.getElementById('variant-risk').textContent = data.risk;
+      buttons.forEach(button => {
+        const selected = button.dataset.variant === key;
+        button.classList.toggle('active', selected);
+        button.setAttribute('aria-current', selected ? 'true' : 'false');
+      });
+      const url = new URL(location.href);
+      url.searchParams.set('variant', key);
+      try { history.replaceState(null, '', url); } catch (_) { /* file:// browsers can restrict history */ }
+    }
+    buttons.forEach(button => button.addEventListener('click', () => show(button.dataset.variant)));
+    document.addEventListener('keydown', event => {
+      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+      const keys = Object.keys(variants);
+      show(keys[(keys.indexOf(current) + (event.key === 'ArrowRight' ? 1 : keys.length - 1)) % keys.length]);
+    });
+    document.getElementById('scale-toggle').addEventListener('change', event => document.getElementById('stage').classList.toggle('show-scale', event.target.checked));
+    show(current);
+  </script>
+</body>
+</html>
