@@ -59,13 +59,18 @@ func _run() -> void:
 		return
 	var fall_events := [0]
 	var death_events := [0]
-	level.operative_fell.connect(func() -> void: fall_events[0] += 1)
-	actor.died.connect(func() -> void: death_events[0] += 1)
+	var event_order: Array[String] = []
+	level.operative_fell.connect(func() -> void:
+		fall_events[0] += 1
+		event_order.append("fell"))
+	actor.died.connect(func() -> void:
+		death_events[0] += 1
+		event_order.append("died"))
 	actor.position = Vector2(1392, 425)
 	actor.velocity = Vector2.ZERO
 	for tick in 3:
 		await physics_frame
-	if fall_events[0] != 1 or death_events[0] != 1 or actor.health != 0:
+	if fall_events[0] != 1 or death_events[0] != 1 or actor.health != 0 or event_order != ["fell", "died"]:
 		_fail("唯一缺口跌落未恰好触发一次死亡事件")
 		return
 	print("PASS: 五段布置、五个机械兵、终点接缝、镜头和跌落事件")

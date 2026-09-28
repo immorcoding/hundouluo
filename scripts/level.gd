@@ -79,9 +79,10 @@ func _physics_process(_delta: float) -> void:
 		operative.health = 0
 		operative.velocity = Vector2.ZERO
 		operative.get_node("Sprite").frame = 6
+		# Consumers can distinguish the fatal fall before generic death handling.
+		operative_fell.emit()
 		operative.health_changed.emit(0)
 		operative.died.emit()
-		operative_fell.emit()
 	var camera := $Camera2D as Camera2D
 	var half_view := camera.get_viewport_rect().size / camera.zoom / 2.0
 	var center := camera.get_screen_center_position()
