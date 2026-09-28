@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3]
+[gd_scene load_steps=10 format=3]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/operative.tscn" id="2"]
@@ -6,12 +6,13 @@
 [ext_resource type="Texture2D" path="res://assets/pixel/hangar_mid.png" id="4"]
 [ext_resource type="Texture2D" path="res://assets/pixel/mechanical_soldier.png" id="5"]
 [ext_resource type="Texture2D" path="res://assets/pixel/defense_mech.png" id="6"]
+[ext_resource type="Texture2D" path="res://assets/pixel/hangar_deck.png" id="7"]
 
 [sub_resource type="RectangleShape2D" id="LeftGround"]
-size = Vector2(768, 72)
+size = Vector2(768, 108)
 
 [sub_resource type="RectangleShape2D" id="RightGround"]
-size = Vector2(576, 72)
+size = Vector2(576, 108)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1")
@@ -22,7 +23,7 @@ texture_filter = 1
 texture = ExtResource("3")
 
 [node name="HangarMid" type="Sprite2D" parent="."]
-position = Vector2(720, 144)
+position = Vector2(720, 180)
 texture_filter = 1
 texture = ExtResource("4")
 
@@ -33,7 +34,7 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Left"]
-position = Vector2(384, 324)
+position = Vector2(384, 306)
 shape = SubResource("LeftGround")
 
 [node name="Right" type="StaticBody2D" parent="Ground"]
@@ -41,21 +42,23 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Right"]
-position = Vector2(1152, 324)
+position = Vector2(1152, 306)
 shape = SubResource("RightGround")
+
+[node name="Deck" type="Node2D" parent="Ground"]
 
 [node name="Tiles" type="Node2D" parent="Ground"]
 
 [node name="ArtSamples" type="Node2D" parent="."]
 
 [node name="MechanicalSoldier" type="Sprite2D" parent="ArtSamples"]
-position = Vector2(538, 258)
+position = Vector2(538, 222)
 texture_filter = 1
 texture = ExtResource("5")
 hframes = 7
 
 [node name="DefenseMech" type="Sprite2D" parent="ArtSamples"]
-position = Vector2(1112, 243)
+position = Vector2(1112, 207)
 texture_filter = 1
 texture = ExtResource("6")
 hframes = 6

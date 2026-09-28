@@ -149,7 +149,7 @@
       24
     ],
     "layout": {
-      "columns": 10,
+      "columns": 13,
       "rows": 1,
       "margin": 0,
       "separation": 0
@@ -164,7 +164,10 @@
       "repair": 6,
       "rescue_sign": 7,
       "beacon_off": 8,
-      "beacon_on": 9
+      "beacon_on": 9,
+      "floor_sub": 10,
+      "gap_wall_left": 11,
+      "gap_wall_right": 12
     },
     "animations": {
       "beacon": [

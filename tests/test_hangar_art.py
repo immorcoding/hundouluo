@@ -27,9 +27,17 @@ class HangarArtTests(unittest.TestCase):
     def test_far_and_midground_are_separate_original_pixel_layers(self):
         for name in ("hangar_far.png", "hangar_mid.png"):
             with self.subTest(name=name), Image.open(ROOT / "assets/pixel" / name) as image:
-                self.assertEqual(image.size, (1440, 360 if name == "hangar_far.png" else 288))
+                self.assertEqual(image.size, (1440, 360))
                 self.assertEqual(image.mode, "RGBA")
-                self.assertEqual(set(image.getchannel("A").getdata()) <= {0, 255}, True)
+                alphas = set(image.getchannel("A").getdata())
+                if name == "hangar_far.png":
+                    self.assertEqual(alphas, {255})
+                else:
+                    self.assertIn(0, alphas)
+                    self.assertIn(255, alphas)
+                    self.assertTrue(any(0 < value < 255 for value in alphas))
+        with Image.open(ROOT / "assets/pixel/hangar_deck.png") as image:
+            self.assertEqual(image.size, (1440, 108))
 
     def test_display_is_integer_scaled_from_640_by_360(self):
         project = (ROOT / "project.godot").read_text(encoding="utf-8")

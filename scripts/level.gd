@@ -1,6 +1,7 @@
 extends Node2D
 
 const TILES := preload("res://assets/pixel/base_tiles.png")
+const DECK := preload("res://assets/pixel/hangar_deck.png")
 
 
 func _ready() -> void:
@@ -9,20 +10,25 @@ func _ready() -> void:
 	var right := _solid_span($Ground/Right as StaticBody2D)
 	var ground_y := _ground_top($Ground/Left as StaticBody2D)
 	for span in [left, right]:
-		for x in range(span.x, span.y, 24):
-			for y in range(ground_y, 360, 24):
-				var tile := Sprite2D.new()
-				tile.texture = TILES
-				tile.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-				tile.hframes = 10
-				if x == left.y - 24:
-					tile.frame = 2
-				elif x == right.x:
-					tile.frame = 3
-				else:
-					tile.frame = 1 if x % 120 == 48 else 0
-				tile.position = Vector2(x + 12, y + 12)
-				$Ground/Tiles.add_child(tile)
+		var deck := Sprite2D.new()
+		deck.texture = DECK
+		deck.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		deck.region_enabled = true
+		deck.region_rect = Rect2(span.x, 0, span.y - span.x, 108)
+		deck.position = Vector2((span.x + span.y) / 2.0, ground_y + 54)
+		$Ground/Deck.add_child(deck)
+		var edge_x := left.y - 24 if span == left else right.x
+		for y in range(ground_y, 360, 24):
+			var tile := Sprite2D.new()
+			tile.texture = TILES
+			tile.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+			tile.hframes = 13
+			if span == left:
+				tile.frame = 2 if y == ground_y else 11
+			else:
+				tile.frame = 3 if y == ground_y else 12
+			tile.position = Vector2(edge_x + 12, y + 12)
+			$Ground/Tiles.add_child(tile)
 	var operative := $Operative/Operative as CharacterBody2D
 	operative.position = Vector2(140, ground_y)
 	$Camera2D.position = Vector2(320, 180)

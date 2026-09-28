@@ -11,6 +11,8 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw
 
+from build_hangar_composition import render_hangar
+
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "assets" / "pixel"
@@ -229,23 +231,46 @@ def defense_mech(state):
 def tile(kind):
     im, d = canvas((24, 24))
     if kind.startswith("floor") or kind.startswith("gap"):
-        box(d, (0, 0, 23, 23), "wall_dark")
-        box(d, (0, 0, 23, 4), "steel_light")
-        box(d, (0, 5, 23, 7), "ink")
-        box(d, (2, 9, 21, 21), "wall")
-        box(d, (2, 10, 21, 11), "steel")
-        box(d, (5, 15, 7, 18), "steel_light")
-        box(d, (16, 15, 18, 18), "steel_light")
+        box(d, (0, 0, 23, 23), "ink")
+        if kind in ("floor_sub", "gap_wall_left", "gap_wall_right"):
+            box(d, (1, 1, 22, 22), "wall_dark")
+            box(d, (3, 3, 20, 19), "shadow")
+            box(d, (4, 5, 19, 6), "steel")
+            box(d, (4, 17, 19, 18), "steel")
+            box(d, (5, 9, 7, 14), "wall")
+            box(d, (17, 9, 19, 14), "wall")
+            box(d, (10, 9, 13, 14), "ink")
+            box(d, (11, 10, 12, 12), "steel_light")
+            box(d, (2, 2, 3, 3), "steel_light")
+            box(d, (20, 20, 21, 21), "steel_light")
+            if kind in ("gap_wall_left", "gap_wall_right"):
+                x = 17 if kind == "gap_wall_left" else 0
+                box(d, (x, 0, x + 6, 23), "amber")
+                for y in (1, 9, 17):
+                    poly(d, [(x, y), (x + 6, y + 6),
+                             (x + 6, y + 8), (x, y + 2)], "ink")
+            return im
+        box(d, (0, 0, 23, 2), "cream")
+        box(d, (0, 3, 23, 5), "steel_light")
+        box(d, (0, 6, 23, 8), "ink")
+        box(d, (1, 9, 22, 22), "wall_dark")
+        box(d, (3, 10, 20, 12), "steel")
+        box(d, (3, 19, 20, 20), "shadow")
+        box(d, (4, 14, 6, 15), "steel_light")
+        box(d, (17, 14, 19, 15), "steel_light")
+        box(d, (7, 17, 16, 18), "wall")
+        box(d, (2, 4, 3, 5), "ink")
+        box(d, (20, 4, 21, 5), "ink")
         if kind == "floor_vent":
-            box(d, (9, 12, 14, 21), "ink")
-            for y in (14, 17, 20):
-                box(d, (10, y, 13, y), "steel_light")
+            box(d, (8, 12, 16, 19), "ink")
+            for x in (10, 13, 16):
+                box(d, (x, 13, x, 18), "steel_light")
         if kind in ("gap_left", "gap_right"):
-            x = 18 if kind == "gap_left" else 0
-            box(d, (x, 0, x + 5, 7), "amber")
-            box(d, (x + 1, 1, x + 2, 3), "ink")
-            box(d, (x + 3, 4, x + 4, 6), "ink")
-            box(d, (x, 8, x + 3, 23), "amber_dark")
+            x = 15 if kind == "gap_left" else 0
+            box(d, (x, 0, x + 8, 8), "amber")
+            poly(d, [(x, 0), (x + 3, 0), (x + 8, 6),
+                     (x + 8, 8), (x + 5, 8)], "ink")
+            box(d, (x, 9, x + 4, 23), "amber_dark")
         return im
     if kind in ("wall", "wall_vent", "repair"):
         box(d, (0, 0, 23, 23), "wall_dark")
@@ -308,137 +333,73 @@ def detailed_actor(image, name, state):
     if state == "down":
         return image
     if name == "operative":
-        box(d, (17, 9, 28, 9), "white")
-        box(d, (29, 16, 34, 17), "cyan_light")
-        box(d, (7, 28, 9, 33), "cyan_dark")
+        # Helmet shell and layered glass are 1-2px brushwork, not a scaled photo.
+        box(d, (17, 5, 26, 6), "white")
+        box(d, (14, 9, 16, 15), "white")
+        box(d, (31, 8, 34, 10), "cream")
+        box(d, (19, 13, 34, 14), "cyan_light")
+        box(d, (24, 15, 36, 17), "cyan")
+        box(d, (32, 19, 35, 20), "cyan_dark")
+        box(d, (16, 23, 31, 24), "white")
+        box(d, (11, 18, 13, 21), "steel_light")
+        # Asymmetric tool pack, latch, air line, chest harness and gloves.
+        box(d, (4, 25, 9, 27), "steel_light")
+        box(d, (5, 30, 8, 34), "amber")
+        box(d, (6, 31, 7, 32), "white")
         box(d, (5, 38, 9, 39), "steel_light")
-        box(d, (15, 33, 17, 38), "cyan_light")
-        box(d, (21, 47, 24, 49), "steel")
-        box(d, (11, 55, 17, 55), "steel_light")
-        box(d, (29, 55, 35, 55), "steel_light")
-        box(d, (31, 34, 33, 35), "cyan_light")
+        box(d, (11, 30, 14, 40), "cyan_dark")
+        box(d, (15, 32, 17, 37), "cyan_light")
+        box(d, (18, 33, 27, 34), "steel_light")
+        box(d, (25, 30, 27, 42), "cyan_dark")
+        box(d, (18, 42, 28, 43), "cyan")
+        box(d, (34, 33, 38, 35), "steel_light")
+        box(d, (39, 36, 43, 37), "cyan_light")
+        box(d, (19, 47, 22, 49), "steel")
+        box(d, (26, 47, 28, 49), "steel")
+        box(d, (11, 54, 16, 55), "steel_light")
+        box(d, (29, 54, 35, 55), "steel_light")
+        box(d, (8, 57, 15, 58), "ink")
+        box(d, (28, 57, 37, 58), "ink")
     elif name == "mechanical_soldier":
-        box(d, (14, 9, 19, 10), "amber")
-        box(d, (27, 9, 31, 10), "red_dark")
-        box(d, (23, 34, 25, 36), "amber")
-        box(d, (16, 39, 20, 40), "red_dark")
-        box(d, (12, 50, 15, 51), "amber_dark")
-        box(d, (33, 51, 36, 52), "amber_dark")
-        box(d, (32, 26, 34, 28), "red_dark")
+        poly(d, [(17, 7), (24, 4), (29, 5), (21, 11)], "amber")
+        box(d, (13, 17, 24, 18), "ink")
+        box(d, (15, 17, 20, 17), "red")
+        box(d, (26, 11, 35, 12), "red_dark")
+        box(d, (30, 15, 34, 16), "orange")
+        box(d, (37, 22, 40, 25), "red_dark")
+        poly(d, [(17, 29), (25, 27), (29, 30), (20, 33)], "orange")
+        box(d, (19, 37, 24, 38), "ink")
+        box(d, (24, 35, 27, 37), "amber")
+        box(d, (34, 31, 38, 32), "red_dark")
+        box(d, (4, 36, 9, 37), "steel_light")
+        box(d, (6, 39, 14, 40), "ink")
+        box(d, (15, 43, 23, 44), "red_dark")
+        box(d, (27, 44, 32, 46), "orange")
+        box(d, (11, 51, 15, 52), "amber_dark")
+        box(d, (33, 51, 37, 52), "amber_dark")
+        box(d, (4, 56, 15, 57), "ink")
+        box(d, (27, 56, 39, 57), "ink")
     else:
-        for x in (24, 70):
-            box(d, (x, 22, x + 5, 23), "steel_light")
-            box(d, (x + 2, 32, x + 4, 33), "ink")
-            box(d, (x + 3, 49, x + 5, 52), "steel_light")
-        box(d, (47, 16, 58, 17), "steel_light")
-        box(d, (48, 59, 57, 60), "amber_dark")
-        box(d, (18, 77, 29, 78), "steel_light")
-        box(d, (76, 77, 87, 78), "steel_light")
-        box(d, (52, 45, 54, 47), "white" if state.startswith("charge") else "red")
+        for x in (20, 73):
+            box(d, (x, 23, x + 10, 24), "steel_light")
+            box(d, (x + 2, 27, x + 8, 28), "shadow")
+            box(d, (x + 3, 33, x + 5, 35), "ink")
+            box(d, (x + 3, 45, x + 6, 48), "steel_light")
+            box(d, (x + 2, 52, x + 9, 53), "shadow")
+        box(d, (42, 16, 61, 17), "steel_light")
+        box(d, (46, 22, 58, 23), "shadow")
+        box(d, (29, 36, 35, 37), "steel_light")
+        box(d, (69, 36, 74, 37), "steel_light")
+        box(d, (33, 45, 38, 47), "shadow")
+        box(d, (66, 45, 71, 47), "shadow")
+        box(d, (43, 39, 61, 40), "ink")
+        box(d, (45, 51, 59, 52), "amber_dark")
+        box(d, (51, 43, 54, 46), "white" if state.startswith("charge") else "orange")
+        for x in (19, 29, 75, 85):
+            box(d, (x, 75, x + 3, 77), "steel_light")
+        box(d, (16, 84, 37, 85), "ink")
+        box(d, (68, 84, 90, 85), "ink")
     return image
-
-
-def hangar_layers():
-    """Original editable pixel composition, not a resampled concept painting."""
-    far, d = canvas((1440, 360))
-    box(d, (0, 0, 1439, 359), "void")
-    # A lower shaft remains visible *only* through the real terrain gap.
-    for x in range(0, 1440, 144):
-        box(d, (x + 12, 272, x + 28, 359), "deep")
-        box(d, (x + 16, 281, x + 19, 359), "wall")
-    for y in (300, 332):
-        box(d, (0, y, 1439, y + 2), "wall_dark")
-        for x in range(38, 1440, 192):
-            box(d, (x, y + 5, x + 8, y + 7), "cyan_dark")
-    box(d, (0, 0, 1439, 25), "ink")
-    for x in range(0, 1440, 120):
-        box(d, (x + 3, 6, x + 110, 9), "wall")
-        box(d, (x + 12, 15, x + 15, 24), "steel")
-        box(d, (x + 94, 15, x + 97, 24), "steel")
-    # Wide bay opening and nested silhouettes provide scale without fighting sprites.
-    box(d, (92, 38, 1020, 263), "wall_dark")
-    box(d, (114, 51, 1001, 253), "deep")
-    box(d, (150, 61, 946, 246), "wall")
-    for x in (260, 744):
-        box(d, (x, 66, x + 27, 236), "steel")
-        box(d, (x + 5, 69, x + 22, 233), "wall_dark")
-        box(d, (x + 9, 75, x + 11, 226), "wall_light")
-    for y in (86, 202):
-        box(d, (160, y, 937, y + 3), "steel")
-        box(d, (165, y + 1, 931, y + 1), "steel_light")
-    for x in range(172, 930, 84):
-        box(d, (x, 66, x + 4, 238), "wall_dark")
-        box(d, (x + 5, 78, x + 6, 225), "steel")
-        box(d, (x - 12, 227, x + 27, 230), "steel")
-    # A parked heavy rescue gantry, intentionally not a playable mech silhouette.
-    box(d, (390, 110, 604, 156), "shadow")
-    box(d, (412, 100, 580, 112), "steel")
-    box(d, (438, 80, 554, 99), "wall_dark")
-    box(d, (402, 157, 427, 215), "wall_dark")
-    box(d, (568, 157, 593, 215), "wall_dark")
-    box(d, (466, 158, 527, 202), "wall_dark")
-    box(d, (471, 169, 521, 178), "steel")
-    for x in range(400, 604, 28):
-        box(d, (x, 111, x + 1, 153), "wall_light")
-        box(d, (x + 4, 139, x + 14, 140), "steel")
-    for x in (424, 487, 561):
-        box(d, (x, 120, x + 7, 123), "amber_dark")
-    box(d, (1064, 39, 1409, 267), "wall_dark")
-    box(d, (1080, 55, 1393, 251), "steel")
-    box(d, (1103, 66, 1371, 238), "deep")
-    for x in range(1122, 1370, 38):
-        box(d, (x, 70, x + 2, 234), "wall")
-    for y in (95, 151, 207):
-        box(d, (1106, y, 1369, y + 3), "wall")
-        box(d, (1150, y + 1, 1180, y + 1), "cyan_dark")
-    for x in range(1090, 1380, 55):
-        box(d, (x, 244, x + 33, 248), "wall")
-        box(d, (x + 4, 249, x + 7, 260), "shadow")
-    far.save(OUT / "hangar_far.png", optimize=True)
-
-    mid, d = canvas((1440, 288))
-    for x in (28, 320, 682, 1028, 1376):
-        box(d, (x, 0, x + 29, 255), "ink")
-        box(d, (x + 4, 0, x + 24, 255), "shadow")
-        box(d, (x + 7, 0, x + 10, 249), "steel")
-        box(d, (x + 16, 91, x + 21, 96), "cyan_light")
-        box(d, (x - 9, 192, x + 37, 198), "steel")
-        box(d, (x - 7, 201, x + 36, 203), "ink")
-        for y in (40, 133, 224):
-            box(d, (x + 17, y, x + 19, y + 2), "amber_dark")
-    for x in (126, 472, 828, 1172):
-        box(d, (x, 131, x + 142, 136), "ink")
-        box(d, (x + 5, 137, x + 137, 143), "steel")
-        for rail in range(x + 10, x + 137, 21):
-            box(d, (rail, 116, rail + 2, 130), "wall_light")
-        box(d, (x + 8, 114, x + 135, 116), "wall_light")
-        box(d, (x + 16, 145, x + 20, 159), "wall")
-        box(d, (x + 117, 145, x + 121, 159), "wall")
-        for bolt in range(x + 17, x + 140, 39):
-            box(d, (bolt, 139, bolt + 1, 140), "amber_dark")
-    # Hoist and rescue-cross panel, with the combat strip kept quiet.
-    box(d, (764, 0, 821, 17), "ink")
-    box(d, (787, 17, 792, 90), "steel")
-    box(d, (775, 90, 804, 101), "shadow")
-    box(d, (782, 101, 796, 113), "amber_dark")
-    box(d, (173, 55, 219, 102), "ink")
-    box(d, (178, 60, 214, 97), "steel")
-    box(d, (192, 65, 199, 91), "cyan_light")
-    box(d, (183, 74, 208, 81), "cyan_light")
-    for x in (240, 624, 964, 1290):
-        box(d, (x, 188, x + 18, 233), "wall_dark")
-        box(d, (x + 4, 194, x + 15, 214), "steel")
-        box(d, (x + 7, 197, x + 12, 201), "amber")
-    # Small industrial conduits and braces sit above the combat silhouette.
-    for x in (79, 399, 748, 1082):
-        box(d, (x, 18, x + 4, 56), "wall_light")
-        box(d, (x - 6, 54, x + 11, 57), "ink")
-        box(d, (x - 4, 57, x + 9, 59), "steel")
-    for x in (121, 460, 811, 1155):
-        poly(d, [(x, 169), (x + 3, 169), (x + 50, 217),
-                 (x + 47, 217)], "wall_dark")
-        box(d, (x + 10, 181, x + 12, 183), "steel")
-    mid.save(OUT / "hangar_mid.png", optimize=True)
 
 
 def preview():
@@ -480,7 +441,8 @@ def main():
     soldier_frames = ["idle", "walk_a", "walk_b", "windup", "fire", "hurt", "down"]
     mech_frames = ["idle", "charge_a", "charge_b", "fire", "hurt", "down"]
     tiles = ["floor", "floor_vent", "gap_left", "gap_right", "wall",
-             "wall_vent", "repair", "rescue_sign", "beacon_off", "beacon_on"]
+             "wall_vent", "repair", "rescue_sign", "beacon_off", "beacon_on",
+             "floor_sub", "gap_wall_left", "gap_wall_right"]
     metadata = {
         "operative": atlas("operative", [(n, detailed_actor(operative(n), "operative", n)) for n in operative_frames], (48, 60), 8,
                            {"idle": ["idle"], "run": ["run_a", "run_b"],
@@ -499,7 +461,7 @@ def main():
         metadata[key]["ground_baseline_y"] = metadata[key]["frame_size"][1] - 1
         metadata[key]["loop_notes"] = "down is terminal; hurt/fire are event frames"
     (OUT / "atlas.json").write_text(json.dumps(metadata, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    hangar_layers()
+    render_hangar(OUT)
     preview()
 
 

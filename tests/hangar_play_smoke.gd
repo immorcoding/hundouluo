@@ -23,17 +23,17 @@ func _run() -> void:
 	Input.action_release("move_right")
 	Input.action_release("jump")
 	Input.action_release("shoot")
-	if actor.position.x <= start_x or actor.position.y >= 288:
+	if actor.position.x <= start_x or actor.position.y >= 252:
 		_fail("operative cannot move and jump in the art acceptance scene")
 		return
 	if level.get_node("Projectiles").get_child_count() == 0:
 		_fail("operative cannot shoot in the art acceptance scene")
 		return
-	actor.position = Vector2(816, 260)
+	actor.position = Vector2(816, 224)
 	actor.velocity = Vector2.ZERO
 	for tick in 17:
 		await physics_frame
-	if actor.position.y <= 288:
+	if actor.position.y <= 252:
 		_fail("painted gap has an invisible floor")
 		return
 	print("PASS: hangar scene supports run/jump/fire and its visible gap is open")
