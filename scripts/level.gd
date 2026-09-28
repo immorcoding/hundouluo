@@ -99,6 +99,7 @@ func _physics_process(_delta: float) -> void:
 		operative_fell.emit()
 		operative.health_changed.emit(0)
 		operative.died.emit()
+		return
 	var camera := $Camera2D as Camera2D
 	var half_view := camera.get_viewport_rect().size / camera.zoom / 2.0
 	var center := camera.get_screen_center_position()
