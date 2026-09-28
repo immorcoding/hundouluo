@@ -1,6 +1,10 @@
-[gd_scene format=3]
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/level.gd" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/operative.tscn" id="2"]
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1")
 
 [node name="Backdrop" type="CanvasLayer" parent="."]
 layer = -1
@@ -18,8 +22,12 @@ color = Color(0.065, 0.11, 0.16, 1)
 
 [node name="Operative" type="Node2D" parent="."]
 
+[node name="Operative" parent="Operative" instance=ExtResource("2")]
+
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Projectiles" type="Node2D" parent="."]
 
 [node name="HUD" type="CanvasLayer" parent="."]
+
+[connection signal="projectile_fired" from="Operative/Operative" to="." method="_on_operative_projectile_fired"]
