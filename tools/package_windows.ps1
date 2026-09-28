@@ -215,7 +215,19 @@ try {
 		$resolvedTemporaryRoot = [IO.Path]::GetFullPath($temporaryRoot)
 		$systemTemporaryRoot = [IO.Path]::GetFullPath($env:TEMP).TrimEnd('\', '/') + [IO.Path]::DirectorySeparatorChar
 		if ($resolvedTemporaryRoot.StartsWith($systemTemporaryRoot, [StringComparison]::OrdinalIgnoreCase) -and (Split-Path -Leaf $resolvedTemporaryRoot) -match '^hundouluo-windows-[0-9a-f]{32}$') {
-			Remove-Item -LiteralPath $resolvedTemporaryRoot -Recurse -Force
+			# Windows can retain the freshly launched EXE for a moment after exit.
+			for ($attempt = 0; $attempt -lt 12; $attempt++) {
+				try {
+					Remove-Item -LiteralPath $resolvedTemporaryRoot -Recurse -Force -ErrorAction Stop
+					break
+				} catch {
+					if ($attempt -eq 11) {
+						Write-Warning "Temporary build directory remains locked: $resolvedTemporaryRoot"
+					} else {
+						Start-Sleep -Milliseconds 250
+					}
+				}
+			}
 		}
 	}
 }
