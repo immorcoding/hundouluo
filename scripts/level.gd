@@ -7,6 +7,7 @@ const DECK := preload("res://assets/pixel/hangar_deck.png")
 const ART_SECTION_WIDTH := 1440
 const FALL_DEATH_Y := 410.0
 const FINAL_SECTION_X := 3500.0
+const FRIENDLY_PROJECTILE_LAYER := 1 << 3
 
 enum RunState { PLAYING, DEAD, COMPLETE }
 
@@ -52,6 +53,7 @@ func _ready() -> void:
 	operative.position = Vector2(140, ground_y)
 	$HUD.show_life(operative.health)
 	operative.health_changed.connect($HUD.show_life)
+	operative.health_changed.connect(_on_operative_health_changed)
 	operative.died.connect(_on_operative_died)
 	operative_fell.connect(_on_operative_fell)
 	$Camera2D.position = Vector2(320, 180)
@@ -61,8 +63,10 @@ func _ready() -> void:
 			continue
 		soldier.target = operative
 		soldier.projectile_fired.connect(_on_operative_projectile_fired)
+		soldier.warning_started.connect($CombatFeedback.play_cue.bind("enemy_warning"))
 	$BossSlot/DefenseMech.target = operative
 	$BossSlot/DefenseMech.projectile_fired.connect(_on_operative_projectile_fired)
+	$BossSlot/DefenseMech.charge_started.connect($CombatFeedback.play_cue.bind("mech_charge_warning"))
 	$BossSlot/DefenseMech.health_changed.connect($HUD.show_mech_health)
 	$BossSlot/DefenseMech.died.connect(_on_mech_died)
 
@@ -116,9 +120,17 @@ func _physics_process(_delta: float) -> void:
 
 
 func _on_operative_projectile_fired(projectile: Area2D) -> void:
+	var is_friendly := (projectile.collision_layer & FRIENDLY_PROJECTILE_LAYER) != 0
+	$CombatFeedback.play_cue("player_shot" if is_friendly else "enemy_shot")
+	projectile.impacted.connect($CombatFeedback.impact)
 	var spawn_position := projectile.global_position
 	$Projectiles.add_child(projectile)
 	projectile.global_position = spawn_position
+
+
+func _on_operative_health_changed(health: int) -> void:
+	if health > 0:
+		$CombatFeedback.play_cue("operative_hurt")
 
 
 func _on_mech_died() -> void:
@@ -138,6 +150,7 @@ func _on_operative_died() -> void:
 	if _state != RunState.PLAYING:
 		return
 	_state = RunState.DEAD
+	$CombatFeedback.play_cue("death_fall" if _fell else "death_health")
 	_stop_gameplay()
 	$HUD.show_death("跌落深渊" if _fell else "生命耗尽")
 

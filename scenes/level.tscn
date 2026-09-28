@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3]
+[gd_scene load_steps=13 format=3]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/operative.tscn" id="2"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" path="res://scenes/mechanical_soldier.tscn" id="5"]
 [ext_resource type="PackedScene" path="res://scenes/defense_mech.tscn" id="6"]
 [ext_resource type="Script" path="res://scripts/level_hud.gd" id="7"]
+[ext_resource type="Script" path="res://scripts/combat_feedback.gd" id="8"]
 
 [sub_resource type="RectangleShape2D" id="LeftGround"]
 size = Vector2(1344, 108)
@@ -129,6 +130,9 @@ color = Color(0.780392, 0.576471, 0.254902, 1)
 polygon = PackedVector2Array(-66, -140, 66, -140, 66, -124, -66, -124)
 
 [node name="Projectiles" type="Node2D" parent="."]
+
+[node name="CombatFeedback" type="Node2D" parent="."]
+script = ExtResource("8")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("7")

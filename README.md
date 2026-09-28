@@ -28,6 +28,8 @@
 
 碰撞层约定：行动员为第 1 层、普通敌人和机甲为第 2 层、地形为第 3 层、己方弹丸为第 4 层、敌弹为第 5 层。青白短光束与橙红实体弹在颜色、形状上可区分；机械兵亮起枪口、机甲蓄力预告。镜头水平跟随行动员、留出前方空间。速度、生命、预告和射击间隔等是场景可调参数，尚未做真人手感验收。
 
+运行时反馈由 `CombatFeedback` 观察关卡事件，不参与伤害判定：八个 `assets/audio/` 原创 WAV 分别用于轻己方射击、敌弹、击中、行动员受击、单兵预告、机甲蓄力与两种死因；没有背景音乐。弹丸击敌或击墙产生 0.16 秒局部标记。行动员受伤后以稳定暖色表示短暂无敌，低血量 HUD 改色，机甲枪口在蓄力期间逐渐放大，血量条随有效命中下降；失败遮罩明确区分死因且保留 R 重试。没有全屏闪烁或持续镜头震动。音量初值由 `scripts/combat_feedback.gd` 调整，资源来源见 [素材清单](docs/assets-manifest.md)。
+
 当前美术采用 **ImageGen 原创生成辅助 + 分层／图集加工**，不是手绘：背景、支柱吊具、甲板和三个角色分别制作，原始 PNG、提示词与裁切配置保存在 `assets/art_source/`。运行 `python tools/build_pixel_art.py` 可离线重建正式资源；`tools/assemble_hangar_art.py` 负责缩放、透明边清理、有限调色板和脚底对齐。C 草图仅作对照，未作为整张可玩场景贴图。`scenes/level.tscn` 中两段地面碰撞矩形仍是坐标来源，`scripts/level.gd` 按形状裁出甲板、留出缺口并绘制警戒边缘。实际 Godot 截图、与 C 草图的对照、制作来源和待试玩事项见 [美术说明](docs/art/README.md)。
 
 ## 检查
@@ -53,7 +55,9 @@
 & '<Godot 4.7.2 console.exe 路径>' --headless --path . --script tests/hangar_play_smoke.gd
 & '<Godot 4.7.2 console.exe 路径>' --headless --path . --script tests/level_boss_wiring.gd
 & '<Godot 4.7.2 console.exe 路径>' --headless --path . --script tests/level_outcomes_retry.gd
+& '<Godot 4.7.2 console.exe 路径>' --headless --path . --script tests/level_feedback.gd
 python -m unittest discover -s tests -v
 ```
 
 首次在新目录运行脚本前，先用 `--headless --editor --path . --import` 导入资源。上方仅列部分入口；其他 `tests/*.gd` 中继承 `SceneTree` 的脚本也可独立运行，`mechanical_encounter.gd` 与 `defense_mech_encounter.gd` 是场景 fixture，不可独立运行。自动检查不等同于真人试玩；缺口手感、机甲战 30–45 秒、两种死亡与重试的可读性仍需实测。实际视口截图可用 `& '<Godot 4.7.2 console.exe 路径>' --path . --rendering-method gl_compatibility --script tools/capture_hangar.gd` 重新生成（需要图形会话）。
+真人验收还须分别有声与静音通关/失败，确认危险预告高于密集射击、机甲进度和重试一眼可读、声音大小舒适；自动化测试只验证接线及状态，不验证听感或实际视觉舒适度。

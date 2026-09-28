@@ -3,6 +3,7 @@ class_name MechanicalSoldier
 
 signal died
 signal projectile_fired(projectile: Area2D)
+signal warning_started
 
 @export var patrol_speed := 28.0
 @export var patrol_half_width := 42.0
@@ -61,6 +62,7 @@ func _physics_process(delta: float) -> void:
 		$Muzzle.position = Vector2(_facing * 24, -18)
 		$Muzzle.visible = true
 		_warning_remaining = warning_duration
+		warning_started.emit()
 	if global_position.x <= _patrol_origin - patrol_half_width:
 		_patrol_direction = 1
 	elif global_position.x >= _patrol_origin + patrol_half_width:
@@ -72,6 +74,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	$Sprite.flip_h = _facing > 0
 	$Sprite.frame = 3 if _warning_remaining > 0.0 else 1 + int(Time.get_ticks_msec() / 170) % 2
+	$Muzzle.scale = Vector2.ONE * (1.0 + 0.18 * sin(_warning_remaining * 22.0))
 
 
 func receive_hit() -> void:

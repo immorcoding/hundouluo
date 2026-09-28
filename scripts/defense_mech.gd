@@ -4,6 +4,7 @@ class_name DefenseMech
 signal health_changed(health: int)
 signal died
 signal projectile_fired(projectile: Area2D)
+signal charge_started
 
 @export_range(1, 200, 1) var max_health := 120
 @export var attack_range := 420.0
@@ -83,12 +84,18 @@ func _physics_process(delta: float) -> void:
 		$Sprite.frame = 3
 	else:
 		$Sprite.frame = 0
+	if _phase == Phase.CHARGE:
+		var progress := 1.0 - _remaining / maxf(charge_duration, 0.01)
+		$Muzzle.scale = Vector2.ONE * (1.0 + 0.45 * progress)
+	else:
+		$Muzzle.scale = Vector2.ONE
 
 
 func _begin_charge() -> void:
 	_phase = Phase.CHARGE
 	_remaining = charge_duration
 	$Muzzle.visible = true
+	charge_started.emit()
 
 
 func _fire_low_projectile() -> void:

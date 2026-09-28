@@ -25,9 +25,10 @@ func _physics_process(delta: float) -> void:
 		return
 	if _invulnerable_remaining > 0.0:
 		_invulnerable_remaining = maxf(0.0, _invulnerable_remaining - delta)
-		$Sprite.modulate.a = 0.4 if int(_invulnerable_remaining * 12.0) % 2 == 0 else 1.0
+		# Sustained warm tint reads as invulnerability without a strobe.
+		$Sprite.modulate = Color(1.0, 0.65, 0.58, 0.82)
 		if _invulnerable_remaining == 0.0:
-			$Sprite.modulate.a = 1.0
+			$Sprite.modulate = Color.WHITE
 	var direction := Input.get_axis("move_left", "move_right")
 	velocity.x = direction * run_speed
 	if direction != 0.0:
@@ -66,7 +67,7 @@ func receive_hit() -> void:
 	health_changed.emit(health)
 	if health == 0:
 		velocity = Vector2.ZERO
-		$Sprite.modulate.a = 1.0
+		$Sprite.modulate = Color.WHITE
 		$Sprite.frame = 6
 		died.emit()
 	else:
