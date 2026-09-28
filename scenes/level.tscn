@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene load_steps=12 format=3]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/operative.tscn" id="2"]
 [ext_resource type="Texture2D" path="res://assets/pixel/hangar_far.png" id="3"]
 [ext_resource type="Texture2D" path="res://assets/pixel/hangar_mid.png" id="4"]
 [ext_resource type="PackedScene" path="res://scenes/mechanical_soldier.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://scenes/defense_mech.tscn" id="6"]
+[ext_resource type="Script" path="res://scripts/level_hud.gd" id="7"]
 
 [sub_resource type="RectangleShape2D" id="LeftGround"]
 size = Vector2(1344, 108)
@@ -97,6 +99,8 @@ position = Vector2(3160, 252)
 [node name="BossSlot" type="Node2D" parent="."]
 position = Vector2(3830, 252)
 
+[node name="DefenseMech" parent="BossSlot" instance=ExtResource("6")]
+
 [node name="ExitDoor" type="Node2D" parent="."]
 position = Vector2(4130, 252)
 
@@ -127,5 +131,72 @@ polygon = PackedVector2Array(-66, -140, 66, -140, 66, -124, -66, -124)
 [node name="Projectiles" type="Node2D" parent="."]
 
 [node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("7")
+
+[node name="LifeLabel" type="Label" parent="HUD"]
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 254.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0.831373, 0.984314, 0.980392, 1)
+theme_override_font_sizes/font_size = 18
+text = "行动员生命  3 / 3"
+
+[node name="MechLabel" type="Label" parent="HUD"]
+visible = false
+offset_left = 16.0
+offset_top = 43.0
+offset_right = 260.0
+offset_bottom = 62.0
+theme_override_colors/font_color = Color(1, 0.815686, 0.529412, 1)
+theme_override_font_sizes/font_size = 14
+text = "防御机甲  120 / 120"
+
+[node name="MechProgress" type="ProgressBar" parent="HUD"]
+visible = false
+offset_left = 16.0
+offset_top = 64.0
+offset_right = 236.0
+offset_bottom = 75.0
+max_value = 120.0
+value = 120.0
+show_percentage = false
+
+[node name="OutcomePanel" type="ColorRect" parent="HUD"]
+visible = false
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(0.0196078, 0.0470588, 0.0705882, 0.84)
+
+[node name="TitleLabel" type="Label" parent="HUD/OutcomePanel"]
+offset_left = 110.0
+offset_top = 112.0
+offset_right = 530.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(1, 0.870588, 0.611765, 1)
+theme_override_font_sizes/font_size = 30
+text = "任务失败"
+horizontal_alignment = 1
+
+[node name="ReasonLabel" type="Label" parent="HUD/OutcomePanel"]
+offset_left = 110.0
+offset_top = 168.0
+offset_right = 530.0
+offset_bottom = 195.0
+theme_override_colors/font_color = Color(0.831373, 0.984314, 0.980392, 1)
+theme_override_font_sizes/font_size = 19
+text = "生命耗尽"
+horizontal_alignment = 1
+
+[node name="RetryLabel" type="Label" parent="HUD/OutcomePanel"]
+offset_left = 110.0
+offset_top = 224.0
+offset_right = 530.0
+offset_bottom = 250.0
+theme_override_colors/font_color = Color(0.831373, 0.984314, 0.980392, 1)
+theme_override_font_sizes/font_size = 18
+text = "按 R 从关卡起点重试"
+horizontal_alignment = 1
 
 [connection signal="projectile_fired" from="Operative/Operative" to="." method="_on_operative_projectile_fired"]
