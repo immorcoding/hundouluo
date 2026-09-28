@@ -34,11 +34,14 @@ func _run() -> void:
 	if mech.health != mech.max_health:
 		_fail("屏外机甲能被击伤")
 		return
-	actor.position = Vector2(3700, 252)
+	actor.position = Vector2(3475, 252)
 	for tick in 4:
 		await physics_frame
 	if not mech.attack_enabled:
 		_fail("机甲完整入镜后未激活")
+		return
+	if not level.get_node("HUD/MechProgress").visible:
+		_fail("机甲已激活时生命进度仍隐藏")
 		return
 	mech.receive_hit()
 	if mech.health != mech.max_health - 1:

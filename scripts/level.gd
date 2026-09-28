@@ -87,10 +87,9 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(_delta: float) -> void:
+	if _state != RunState.PLAYING:
+		return
 	var operative := $Operative/Operative as CharacterBody2D
-	if not _mech_hud_shown and operative.position.x >= FINAL_SECTION_X:
-		_mech_hud_shown = true
-		$HUD.show_mech($BossSlot/DefenseMech.max_health)
 	if not _fall_reported and operative.position.y >= FALL_DEATH_Y:
 		_fall_reported = true
 		operative.health = 0
@@ -110,6 +109,9 @@ func _physics_process(_delta: float) -> void:
 			continue
 		soldier.attack_enabled = soldier.is_fully_visible_in(view_rect)
 	$BossSlot/DefenseMech.update_visibility(view_rect)
+	if not _mech_hud_shown and (operative.position.x >= FINAL_SECTION_X or $BossSlot/DefenseMech.attack_enabled):
+		_mech_hud_shown = true
+		$HUD.show_mech($BossSlot/DefenseMech.max_health)
 
 
 func _on_operative_projectile_fired(projectile: Area2D) -> void:
@@ -122,6 +124,7 @@ func _on_mech_died() -> void:
 	if _state != RunState.PLAYING:
 		return
 	_state = RunState.COMPLETE
+	_stop_gameplay()
 	$ExitDoor/DoorBlocker/CollisionShape2D.set_deferred("disabled", true)
 	$HUD.show_complete()
 
@@ -134,7 +137,19 @@ func _on_operative_died() -> void:
 	if _state != RunState.PLAYING:
 		return
 	_state = RunState.DEAD
+	_stop_gameplay()
 	$HUD.show_death("跌落深渊" if _fell else "生命耗尽")
+
+
+func _stop_gameplay() -> void:
+	# Keep this level alive for R, but freeze every active gameplay subtree.
+	$Operative.process_mode = Node.PROCESS_MODE_DISABLED
+	$Enemies.process_mode = Node.PROCESS_MODE_DISABLED
+	$BossSlot.process_mode = Node.PROCESS_MODE_DISABLED
+	$Projectiles.process_mode = Node.PROCESS_MODE_DISABLED
+	# The winner cannot take a final hit from an already-overlapping projectile.
+	$Operative/Operative.set_deferred("collision_layer", 0)
+	$Operative/Operative.set_deferred("collision_mask", 0)
 
 
 func _unhandled_input(event: InputEvent) -> void:

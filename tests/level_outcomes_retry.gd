@@ -74,10 +74,28 @@ func _run() -> void:
 	if level.get_node("HUD/MechProgress").value != mech.max_health - 1:
 		_fail("机甲血量信号未更新进度")
 		return
+	var active_projectile := (load("res://scenes/enemy_projectile.tscn") as PackedScene).instantiate() as Area2D
+	active_projectile.position = Vector2(3600, 100)
+	level.get_node("Projectiles").add_child(active_projectile)
 	for tick in mech.health:
 		mech.receive_hit()
 	if not level.get_node("HUD/OutcomePanel/TitleLabel").text.contains("任务完成"):
 		_fail("击败机甲后未显示任务完成")
+		return
+	var completed_position := actor.position
+	var soldier := level.get_node("Enemies/PairTwoA") as MechanicalSoldier
+	var soldier_position := soldier.position
+	var projectile_position := active_projectile.position
+	var fired := [0]
+	actor.projectile_fired.connect(func(_projectile: Area2D) -> void: fired[0] += 1)
+	Input.action_press("move_right")
+	Input.action_press("shoot")
+	for tick in 12:
+		await physics_frame
+	Input.action_release("move_right")
+	Input.action_release("shoot")
+	if actor.position != completed_position or fired[0] != 0 or soldier.position != soldier_position or active_projectile.position != projectile_position:
+		_fail("通关遮罩下行动员、敌人或弹丸仍在运行")
 		return
 	await _retry()
 	level = current_scene
