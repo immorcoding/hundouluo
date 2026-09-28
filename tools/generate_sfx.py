@@ -6,6 +6,7 @@ import argparse
 import math
 import struct
 import wave
+from collections.abc import Callable
 from pathlib import Path
 
 
@@ -27,18 +28,25 @@ def _write_wave(path: Path, samples: list[float]) -> None:
         output.writeframes(pcm)
 
 
-def _player_shot() -> list[float]:
-    duration = 0.105
+def _render_samples(duration: float, waveform_at: Callable[[float, float], float]) -> list[float]:
     frame_count = round(duration * SAMPLE_RATE)
     samples: list[float] = []
     for frame in range(frame_count):
         time = (frame + 0.5) / SAMPLE_RATE
-        progress = time / duration
+        samples.append(waveform_at(time, time / duration))
+    return samples
+
+
+def _player_shot() -> list[float]:
+    duration = 0.105
+
+    def waveform_at(time: float, progress: float) -> float:
         phase = 2.0 * math.pi * (980.0 * time - 190.0 * time * progress)
         envelope = math.sin(math.pi * progress) ** 1.15
         tone = math.sin(phase) + 0.12 * math.sin(2.0 * phase)
-        samples.append(0.16 * envelope * tone)
-    return samples
+        return 0.16 * envelope * tone
+
+    return _render_samples(duration, waveform_at)
 
 
 def _swept_tone(
@@ -49,11 +57,7 @@ def _swept_tone(
     harmonics: tuple[tuple[int, float], ...] = (),
     envelope_power: float = 1.0,
 ) -> list[float]:
-    frame_count = round(duration * SAMPLE_RATE)
-    samples: list[float] = []
-    for frame in range(frame_count):
-        time = (frame + 0.5) / SAMPLE_RATE
-        progress = time / duration
+    def waveform_at(time: float, progress: float) -> float:
         phase = 2.0 * math.pi * (
             start_frequency * time
             + 0.5 * (end_frequency - start_frequency) * time * progress
@@ -62,8 +66,9 @@ def _swept_tone(
         tone = math.sin(phase)
         for multiplier, level in harmonics:
             tone += level * math.sin(multiplier * phase)
-        samples.append(gain * envelope * tone)
-    return samples
+        return gain * envelope * tone
+
+    return _render_samples(duration, waveform_at)
 
 
 def _enemy_shot() -> list[float]:
@@ -79,11 +84,8 @@ def _enemy_shot() -> list[float]:
 
 def _hit_confirm() -> list[float]:
     duration = 0.132
-    frame_count = round(duration * SAMPLE_RATE)
-    samples: list[float] = []
-    for frame in range(frame_count):
-        time = (frame + 0.5) / SAMPLE_RATE
-        progress = time / duration
+
+    def waveform_at(time: float, progress: float) -> float:
         envelope = math.exp(-4.2 * progress)
         phase = 2.0 * math.pi * time
         metallic_ping = (
@@ -91,8 +93,9 @@ def _hit_confirm() -> list[float]:
             + 0.30 * math.sin(1270.0 * phase)
             + 0.12 * math.sin(420.0 * phase)
         )
-        samples.append(0.31 * envelope * metallic_ping)
-    return samples
+        return 0.31 * envelope * metallic_ping
+
+    return _render_samples(duration, waveform_at)
 
 
 def _operative_hurt() -> list[float]:
@@ -108,11 +111,8 @@ def _operative_hurt() -> list[float]:
 
 def _enemy_warning() -> list[float]:
     duration = 0.32
-    frame_count = round(duration * SAMPLE_RATE)
-    samples: list[float] = []
-    for frame in range(frame_count):
-        time = (frame + 0.5) / SAMPLE_RATE
-        progress = time / duration
+
+    def waveform_at(time: float, progress: float) -> float:
         phase = 2.0 * math.pi * (690.0 * time + 210.0 * time * progress)
         if progress < 0.31:
             pulse_progress = progress / 0.31
@@ -123,24 +123,23 @@ def _enemy_warning() -> list[float]:
         else:
             envelope = 0.0
         tone = math.sin(phase) + 0.16 * math.sin(2.0 * phase)
-        samples.append(0.50 * envelope * tone)
-    return samples
+        return 0.50 * envelope * tone
+
+    return _render_samples(duration, waveform_at)
 
 
 def _mech_charge_warning() -> list[float]:
     duration = 0.52
-    frame_count = round(duration * SAMPLE_RATE)
-    samples: list[float] = []
-    for frame in range(frame_count):
-        time = (frame + 0.5) / SAMPLE_RATE
-        progress = time / duration
+
+    def waveform_at(time: float, progress: float) -> float:
         phase = 2.0 * math.pi * (118.0 * time + 71.0 * time * progress)
         swell = math.sin(0.5 * math.pi * progress)
         tail = min(1.0, (1.0 - progress) / 0.20)
         pulse = 0.74 + 0.26 * math.sin(2.0 * math.pi * 3.0 * progress) ** 2
         motor = math.sin(phase) + 0.38 * math.sin(2.0 * phase) + 0.12 * math.sin(3.0 * phase)
-        samples.append(0.48 * swell * tail * pulse * motor)
-    return samples
+        return 0.48 * swell * tail * pulse * motor
+
+    return _render_samples(duration, waveform_at)
 
 
 def _death_health() -> list[float]:
@@ -156,17 +155,15 @@ def _death_health() -> list[float]:
 
 def _death_fall() -> list[float]:
     duration = 0.39
-    frame_count = round(duration * SAMPLE_RATE)
-    samples: list[float] = []
-    for frame in range(frame_count):
-        time = (frame + 0.5) / SAMPLE_RATE
-        progress = time / duration
+
+    def waveform_at(time: float, progress: float) -> float:
         phase = 2.0 * math.pi * (840.0 * time - 330.0 * time * progress)
         airy_fall = 0.23 * math.sin(phase) * math.sin(math.pi * progress) ** 0.9
         impact_envelope = math.exp(-0.5 * ((progress - 0.84) / 0.055) ** 2)
         impact = 0.25 * impact_envelope * math.sin(2.0 * math.pi * 96.0 * time)
-        samples.append(airy_fall + impact)
-    return samples
+        return airy_fall + impact
+
+    return _render_samples(duration, waveform_at)
 
 
 def generate(output_dir: Path) -> list[Path]:
