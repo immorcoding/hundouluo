@@ -1,0 +1,3 @@
+*.log
+captures/
+capture_clean.gd
