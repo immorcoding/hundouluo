@@ -18,7 +18,7 @@
 | --- | --- | --- |
 | [Contra III: The Alien Wars 原版手册](https://www.nintendo.co.jp/clvs/manuals/common/pdf/CLV-P-SACCE.pdf) | 印刷/PDF p5 死亡与继续；p9 Battlefield；p12–13 关卡截图 | 可核对游玩 HUD 和继续规则；没有足够清晰的 GAME OVER / 最终完成 UI 正面图，不能给其字号、边框和占比下结论。 |
 | [Mega Man X 原版手册](https://www.nintendo.co.jp/clvs/manuals/common/pdf/CLV-P-SABCE.pdf) | 印刷/PDF p12 能量；p13 武器；p14 状态画面 | 可核对竖向生命条与“运行时简洁、暂停时丰富”的差别；不能把暂停系统画面当死亡/通关画面。 |
-| [Super Metroid 原版手册](https://www.nintendo.co.jp/clvs/manuals/common/pdf/CLV-P-SAAHE.pdf) | 印刷 p12/PDF p13 HUD；印刷 p13/PDF p14 地图；印刷 p8–9/PDF p9–10 开始/设置 | 可核对顶部资源与地图分组、生命归零及保存相关信息；未获得清晰死亡/完成静帧，不量化其最终结算布局。 |
+| [Super Metroid 原版手册](https://www.nintendo.co.jp/clvs/manuals/common/pdf/CLV-P-SAAHE.pdf) | 印刷 p12/PDF p13 HUD；印刷 p13/PDF p14 地图；印刷 p8–9/PDF p9–10 开始/设置 | 可核对顶部资源与地图分组、生命归零及保存相关信息；手册无清晰死亡/完成静帧，重试版式另由下文官方 VC 图补充。 |
 | [Super Mario World 原版手册](https://www.nintendo.co.jp/clvs/manuals/common/pdf/CLV-P-SAAAE.pdf) | 印刷 p6/PDF p7 HUD；印刷 p7/PDF p8 死亡；印刷 p8/PDF p9 中点/终点 | 可核对透明顶部统计、终点在场景中的表现及生命耗尽规则；终点接触图不是 COURSE CLEAR 结算正面图。 |
 
 研究边界必须保留：**四款 HUD 的视觉对照已完成；另补了两张官方死亡/重试图与一张原版手册完成图，仍不是四套完整结算画面的视觉测量。** 补充材料详见下面“死亡/完成空间关系”，不能把样本之一的观察泛化到四款。未见到的画面不用记忆补造，也不以搜索缩略图假冒实测。若下一轮要直接借鉴其他经典结算版式，须先补官方完整录像时间点或合法原版运行静帧，明确版本，并分别区分死亡、继续、关卡完成、最终结局四种语义。
@@ -45,7 +45,7 @@
 
 手册“THE GAME SCREEN”把生命/能量罐置左，武器图标与库存放中，小地图置右。HUD 活跃带约为画面高度 12–15%，字高约 3–4%；组间有间隔，图标和数值上下对齐。地图需要自己的边界，数字并不因此都要加相同盒子。地图暂停画面则有大范围边框，承担另一种阅读任务。[印刷 p12–13，PDF p13–14](https://www.nintendo.co.jp/clvs/manuals/common/pdf/CLV-P-SAAHE.pdf#page=13)
 
-手册明确能量归零意味着游戏结束，并在地图说明中标示最后保存位置；这是持续探索和保存结构，不能移植成本项目的“检查点复活”。没有直接证据支持本研究指定它的死亡字级或结局排版。[同手册 PDF p13–14](https://www.nintendo.co.jp/clvs/manuals/common/pdf/CLV-P-SAAHE.pdf#page=14)
+手册明确能量归零意味着游戏结束，并在地图说明中标示最后保存位置；这是持续探索和保存结构，不能移植成本项目的“检查点复活”。手册本身不足以确定死亡字级或结局排版；下文用官方 VC 重试图补充其中一种状态。[同手册 PDF p13–14](https://www.nintendo.co.jp/clvs/manuals/common/pdf/CLV-P-SAAHE.pdf#page=14)
 
 **可迁移的判断：** 主生命和临时机甲信息可以共享基线、颜色规则、字级，外形无需同构；空白是分组工具。**不迁移：** 铺满整条顶部资源带、地图、能量罐、探索数字。本项目信息量远少于它，不能用“经典 HUD 常有很多数字”替现稿冗余辩护。
 
