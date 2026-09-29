@@ -1,3 +1,5 @@
+**本页为已退回的上一轮精修稿。当前待选方向见 [THROWAWAY A/B 粗排与查看器](throwaway-ab/README.md)，采用 #28 后 42 HP 主线截图。**
+
 # #27 · 救援机库 UI 返工稿
 
 **待用户审阅，未批准、未接入。** 分支 `codex/issue-27-ui-art`。按 [用户返工意见](https://github.com/immorcoding/hundouluo/issues/27#issuecomment-5883085443) 和 [Sol 调研](RESEARCH.md) 重做；唯一延续的认可元素是任务失败金属外框轮廓。上一稿完整版本保留在 Git 提交 `0a64617` 中。

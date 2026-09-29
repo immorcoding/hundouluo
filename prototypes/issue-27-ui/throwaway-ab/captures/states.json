@@ -1,0 +1,17 @@
+{
+	"combat": {
+		"boss": 28,
+		"life": 3,
+		"max": 42
+	},
+	"complete": {
+		"boss": 0,
+		"life": 3,
+		"max": 42
+	},
+	"failure": {
+		"boss": 28,
+		"life": 0,
+		"max": 42
+	}
+}
