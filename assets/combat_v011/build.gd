@@ -45,4 +45,3 @@ func _initialize() -> void:
 	file.store_string(JSON.stringify(manifest, "\t") + "\n")
 	print("Built independent combat atlas 192x320")
 	quit()
-

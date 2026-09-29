@@ -6,6 +6,10 @@ func _initialize() -> void:
 	call_deferred("capture")
 
 func capture() -> void:
+	if DirAccess.make_dir_recursive_absolute(OUT + "frames") != OK:
+		push_error("Could not create preview frame directory")
+		quit(1)
+		return
 	root.content_scale_size = Vector2i(640, 360)
 	root.size = Vector2i(640, 360)
 	var level := (load("res://scenes/level.tscn") as PackedScene).instantiate()
