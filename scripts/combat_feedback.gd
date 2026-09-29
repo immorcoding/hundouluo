@@ -22,6 +22,7 @@ const VOLUME_DB := {
 	"death_health": -5.0,
 	"death_fall": -5.0,
 }
+const IMPACT_ATLAS := preload("res://assets/combat_v011/atlas.png")
 
 var _players: Dictionary = {}
 var _marks: Array[Dictionary] = []
@@ -44,27 +45,24 @@ func play_cue(cue: String) -> void:
 
 
 func impact(at: Vector2, hit_target: bool) -> void:
-	_marks.append({"position": to_local(at), "remaining": 0.16,
-		"color": Color(0.65, 1.0, 0.94) if hit_target else Color(1.0, 0.71, 0.35)})
+	var sprite := Sprite2D.new()
+	sprite.texture = IMPACT_ATLAS
+	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	sprite.hframes = 4
+	sprite.vframes = 8
+	sprite.frame = 20 if hit_target else 24
+	sprite.position = to_local(at)
+	add_child(sprite)
+	_marks.append({"sprite": sprite, "row": 5 if hit_target else 6, "remaining": 0.16})
 	play_cue("hit_confirm")
-	queue_redraw()
 
 
 func _process(delta: float) -> void:
-	var had_marks := not _marks.is_empty()
 	for index in range(_marks.size() - 1, -1, -1):
 		_marks[index]["remaining"] -= delta
 		if _marks[index]["remaining"] <= 0.0:
+			(_marks[index]["sprite"] as Sprite2D).queue_free()
 			_marks.remove_at(index)
-	if had_marks:
-		queue_redraw()
-
-
-func _draw() -> void:
-	for mark in _marks:
-		var at: Vector2 = mark["position"]
-		var color: Color = mark["color"]
-		color.a = minf(1.0, mark["remaining"] / 0.12)
-		draw_arc(at, 5.0, 0.0, TAU, 12, color, 1.5)
-		draw_line(at + Vector2(-8, 0), at + Vector2(-4, 0), color, 1.5)
-		draw_line(at + Vector2(4, 0), at + Vector2(8, 0), color, 1.5)
+		else:
+			(_marks[index]["sprite"] as Sprite2D).frame = 4 * _marks[index]["row"] \
+				+ mini(3, int((0.16 - _marks[index]["remaining"]) / 0.04))
