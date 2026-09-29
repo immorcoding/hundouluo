@@ -12,7 +12,9 @@ def gif(frames, path):
     sample = Image.new("RGB", (frames[0].width, frames[0].height * 6))
     for row, index in enumerate((20, 32, 41, 50, 90, 110)):
         sample.paste(frames[index], (0, row * frames[0].height))
-    palette = sample.quantize(colors=256)
+    # Scrolling passage loops need a smaller palette to fit GitHub's image
+    # attachment limit at native resolution, without changing their timing.
+    palette = sample.quantize(colors=128 if path.name.startswith("passage-") else 256)
     indexed = [frame.quantize(palette=palette, dither=Image.Dither.NONE) for frame in frames]
     indexed[0].save(path, save_all=True, append_images=indexed[1:],
                     duration=[20, 10, 20] * 50, loop=0, optimize=True, disposal=1)
