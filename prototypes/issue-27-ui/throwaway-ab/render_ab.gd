@@ -1,6 +1,6 @@
 extends SceneTree
-# THROWAWAY A/B/C: compare lightweight A with conventional bottom-left portrait C.
-# C outcomes deliberately match A, isolating the HUD variable.
+# THROWAWAY A/B/C/D: D adds a current-rifle silhouette without growing C housing.
+# C/D outcomes deliberately match A, isolating the HUD variable.
 const DIR := "res://prototypes/issue-27-ui/throwaway-ab/"
 
 class Layout extends Control:
@@ -26,7 +26,7 @@ class Layout extends Control:
 		font.allow_system_fallback = false
 		background = ImageTexture.create_from_image(Image.load_from_file(DIR + "captures/" + state + ".png"))
 		panel = ImageTexture.create_from_image(Image.load_from_file("res://prototypes/issue-27-ui/source/console-panel.png"))
-		if variant == "C":
+		if variant in ["C", "D"]:
 			portrait = ImageTexture.create_from_image(Image.load_from_file(DIR + "source/operative-portrait.png"))
 	func text(value: String, x: int, y: int, size_px: int, color: Color) -> void:
 		draw_string_outline(font, Vector2(x, y), value, HORIZONTAL_ALIGNMENT_LEFT, -1, size_px, 2, DARK)
@@ -46,6 +46,34 @@ class Layout extends Control:
 		draw_rect(Rect2(x, y, width, 6), Color("31434e"))
 		if record.boss > 0:
 			draw_rect(Rect2(x, y, maxi(1, int(width * float(record.boss) / record.max)), 6), AMBER)
+	func current_rifle(at: Vector2) -> void:
+		# Original native pixel interpretation of #22 operative-sheet.png's rifle:
+		# white receiver, cyan upper rail, dark short muzzle; no ammo/weapon switch.
+		draw_set_transform(at)
+		draw_rect(Rect2(0, 4, 14, 7), Color("607b88"))
+		draw_rect(Rect2(2, 5, 10, 4), WHITE)
+		draw_rect(Rect2(10, 2, 36, 11), Color("314c5b"))
+		draw_rect(Rect2(12, 4, 32, 7), WHITE)
+		draw_rect(Rect2(24, 0, 20, 5), Color("254653"))
+		draw_rect(Rect2(26, 2, 16, 2), CYAN)
+		draw_rect(Rect2(14, 9, 28, 2), Color("869da6"))
+		draw_rect(Rect2(44, 4, 14, 7), DARK)
+		draw_rect(Rect2(44, 5, 12, 4), Color("607b88"))
+		draw_rect(Rect2(54, 6, 4, 3), Color("29434f"))
+		draw_rect(Rect2(16, 11, 6, 5), Color("607b88"))
+		draw_rect(Rect2(18, 11, 4, 4), Color("29434f"))
+		draw_rect(Rect2(32, 11, 8, 3), Color("29434f"))
+		draw_set_transform(Vector2.ZERO)
+	func d_life() -> void:
+		# One semantic life display; no duplicate fraction or resource counters.
+		text("生命", 62, 342, 12, WHITE)
+		for i in 3:
+			var cell := Rect2(90 + i * 22, 333, 18, 9)
+			draw_rect(cell.grow(1), DARK)
+			if i < record.life:
+				draw_rect(cell, AMBER if record.life == 1 else CYAN)
+			else:
+				draw_rect(cell, CYAN, false, 1)
 	func _draw() -> void:
 		draw_texture(background, Vector2.ZERO)
 		if state not in ["failure", "complete"]:
@@ -77,10 +105,16 @@ class Layout extends Control:
 				draw_rect(Rect2(14, 307, 148, 39), Color("142532"))
 				draw_rect(Rect2(16, 307, 143, 1), Color("9aafbd"))
 				draw_texture_rect_region(portrait, Rect2(18, 309, 36, 36), Rect2(310, 184, 656, 632))
-				text("生命", 62, 321, 12, WHITE)
-				if record.life == 1:
-					text("危险", 128, 321, 12, AMBER)
-				lives(62, 328)
+				if variant == "C":
+					text("生命", 62, 321, 12, WHITE)
+					if record.life == 1:
+						text("危险", 128, 321, 12, AMBER)
+					lives(62, 328)
+				else:
+					current_rifle(Vector2(62, 310))
+					if record.life == 1:
+						text("危险", 128, 321, 12, AMBER)
+					d_life()
 				if boss_visible:
 					text("防御机甲", 224, 24, 12, WHITE)
 					text("%d/%d" % [record.boss, record.max], 376, 24, 12, AMBER)
@@ -109,7 +143,7 @@ func render() -> void:
 	var records: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(DIR + "captures/states.json"))
 	for state in ["normal", "low", "combat", "gap-left", "failure", "complete"]:
 		root.content_scale_size = Vector2i(640, 360)
-		for variant in ["A", "B", "C"]:
+		for variant in ["A", "B", "C", "D"]:
 			var layout := Layout.new()
 			layout.variant = variant
 			layout.state = state
@@ -120,7 +154,7 @@ func render() -> void:
 			root.get_texture().get_image().save_png(DIR + "images/" + variant + "-" + state + ".png")
 			layout.queue_free()
 			await process_frame
-		for pair in [["A", "B", "compare-"], ["A", "C", "compare-AC-"]]:
+		for pair in [["A", "B", "compare-"], ["A", "C", "compare-AC-"], ["C", "D", "compare-CD-"]]:
 			root.content_scale_size = Vector2i(1280, 360)
 			var both := Control.new()
 			root.add_child(both)
