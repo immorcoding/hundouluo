@@ -1,0 +1,4 @@
+frames/
+*.png.import
+*.gif.import
+*-tests.txt
