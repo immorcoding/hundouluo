@@ -1,0 +1,51 @@
+{
+  "approved_commit": "2092f7076e55b398a439ed21e4943e9371abf08a",
+  "approval_comment": "https://github.com/immorcoding/hundouluo/issues/27#issuecomment-5885875724",
+  "scope": "S6 combat HUD only; outcomes pending approval",
+  "files": {
+    "prototypes/issue-27-ui/throwaway-portrait-match/images/six-auto-combat.png": {
+      "sha256": "55434484ec5035c387ff3544d92f7afbb6e2f917348c1c771a82f6cecda4a519",
+      "normalization": "none"
+    },
+    "prototypes/issue-27-ui/throwaway-portrait-match/images/six-auto-gap-left.png": {
+      "sha256": "5c46dd0c9cdb5b03abec2e41f60fef15fcd3185bd74d4fa22ab05976bd31373f",
+      "normalization": "none"
+    },
+    "prototypes/issue-27-ui/throwaway-portrait-match/images/six-auto-low.png": {
+      "sha256": "3c7d87e53898c7e2ebf0159be4af00cfdb7c31073f7a350cb19754df9da68748",
+      "normalization": "none"
+    },
+    "prototypes/issue-27-ui/throwaway-portrait-match/images/six-auto-normal.png": {
+      "sha256": "9a0de33cc00a59f1c7eb70cb617a5e5966779229189a0a1da273ca287406b2c6",
+      "normalization": "none"
+    },
+    "prototypes/issue-27-ui/throwaway-portrait-match/images/six-semi-combat.png": {
+      "sha256": "ef29f00f6325e928816e98dedd2732fae4551e3656777911a5190eea97eb76c9",
+      "normalization": "none"
+    },
+    "prototypes/issue-27-ui/throwaway-portrait-match/images/six-semi-gap-left.png": {
+      "sha256": "4d0a6f1487bb48dd383a050692373de193e2fdd7556dc9a89aa43a92b9fb181c",
+      "normalization": "none"
+    },
+    "prototypes/issue-27-ui/throwaway-portrait-match/images/six-semi-low.png": {
+      "sha256": "5f948a93de9e5d84e1c63d0719d3524e4aa28ba72ceb53aaa2362926dc652da9",
+      "normalization": "none"
+    },
+    "prototypes/issue-27-ui/throwaway-portrait-match/images/six-semi-normal.png": {
+      "sha256": "fa5fac4b2c5910ce93e278689051c10ae4841dae2d467451dcd790e1e65517f7",
+      "normalization": "none"
+    },
+    "prototypes/issue-27-ui/throwaway-portrait-match/source/rifle.png": {
+      "sha256": "6f0af8c279a7a2b5a03492736c2c37a616271037b9c4f1e0f98ef5f6300af64c",
+      "normalization": "none"
+    },
+    "prototypes/issue-27-ui/throwaway-ab/source/operative-portrait.png": {
+      "sha256": "b75806042e0db94436d921c4a69ccf4fb8a366fa75d66249743a1ce4cefc95af",
+      "normalization": "none"
+    },
+    "prototypes/issue-27-ui/throwaway-portrait-match/render.gd": {
+      "sha256": "4a7100db4dced414fb267e3acda4e167d1c22be1771660211aa0578f418f025b",
+      "normalization": "LF"
+    }
+  }
+}
