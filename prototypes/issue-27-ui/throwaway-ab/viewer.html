@@ -2,56 +2,62 @@
 <html lang="zh-CN">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>#27 临时 A/B 粗排原型 — 未定稿</title>
+<title>#27 临时 A/B/C 粗排原型 — 未定稿</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#111822;color:#d9e5ec;font:15px system-ui,sans-serif;padding:24px 24px 112px}h1{font-size:22px;margin:0 0 8px}p{margin:8px 0;color:#aabdc9}a{color:#8de9ed}header{max-width:1100px}button{font:inherit;background:#243647;border:1px solid #526b7e;color:#e5f2f2;padding:9px 16px;cursor:pointer}button[aria-pressed=true]{background:#8de9ed;color:#09141f}button:focus-visible{outline:3px solid #ffcb7b;outline-offset:3px}.states{display:flex;gap:8px;margin:18px 0}.images{display:flex;gap:24px;width:max-content}figure{margin:0}figcaption{margin:0 0 8px;color:#ffcb7b}img{display:block;width:640px;height:360px;image-rendering:pixelated}.double img{width:1280px;height:720px}.switcher{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:12px;background:#263346;padding:12px 18px;border:2px solid #738b9e;box-shadow:0 3px 20px #000;white-space:nowrap;z-index:2}#current{min-width:270px;text-align:center}#status{margin-top:16px;color:#d9e5ec}small{display:block;margin-top:12px;color:#aabdc9}
 </style>
 <header>
-<h1>THROWAWAY · #27 A/B 临时粗排原型</h1>
+<h1>THROWAWAY · #27 A/B/C 临时粗排原型</h1>
 <p>只比较信息层级、对齐与留白。未定稿，未接入正式游戏。字体仅作为相同对照条件，并非已获批准。</p>
-<p>共用 main <code>3f970aa</code> 的真实 #28 后场景；机甲上限 42 HP。每种状态的 A/B 使用完全相同的源截图、文字和字体。</p>
-<p>A：轻量 HUD ＋ 居中文字结算。B：薄仪表条 ＋ 单层面板、左对齐结算。</p>
+<p>共用 main <code>3f970aa</code> 的真实 #28 后场景；机甲上限 42 HP。每种状态的 A/B/C 使用完全相同的源截图、文字和字体。</p>
+<p>A：轻量 HUD ＋ 居中文字结算。B：薄仪表条 ＋ 单层面板。C：左下头像生命框 ＋ 顶部居中 Boss；C 结算与 A 完全相同。</p>
 </header>
 <div class="states" aria-label="状态">
-<button data-state="combat">1 战斗</button><button data-state="failure">2 失败</button><button data-state="complete">3 完成</button>
-<button id="compare">并排 A/B</button><button id="scale">原生 640×360</button>
+<button data-state="normal">1 普通交火</button><button data-state="low">2 低血 1/3</button><button data-state="combat">3 机甲战</button><button data-state="gap-left">4 左侧缺口</button><button data-state="failure">5 失败</button><button data-state="complete">6 完成</button>
+<button id="compare">并排 A/C</button><button id="compareAB">并排 A/B</button><button id="scale">原生 640×360</button>
 </div>
 <div class="images" id="images">
 <figure><figcaption id="caption"></figcaption><img id="primary" alt="当前 UI 原型"></figure>
-<figure id="second" hidden><figcaption>B · 薄仪表条 / 单层面板</figcaption><img id="secondary" alt="B 对照原型"></figure>
+<figure id="second" hidden><figcaption id="second-caption"></figcaption><img id="secondary" alt="B 对照原型"></figure>
 </div>
 <p id="status" aria-live="polite"></p>
-<small>判断：更想保留 A 的场景连续感，还是 B 的明确承托？也可分别选战斗 HUD 与结算方向。此查看器只切静态原生渲染图，不模拟玩法；R 文案不在本页触发重试。</small>
-<p><a href="README.md">设计问题、来源、重建说明</a> · ← / → 切方案，1 / 2 / 3 切状态；可复制含 ?variant=A 或 B 的地址。</p>
+<small>A 仍是当前偏好；C 是额外探索。重点看左下生命是否更好找，以及“左侧缺口”时 C 遮住下部竖边的代价。C 失败/完成与 A 一致，专门隔离 HUD 差异。此查看器只切静态原生渲染图，不模拟玩法；R 文案不在本页触发重试。</small>
+<p><a href="README.md">设计问题、来源、重建说明</a> · ← / → 切方案，1–6 切状态；可复制含 ?variant=A / B / C 的地址。</p>
 <nav class="switcher" aria-label="原型切换器（非游戏 UI）"><button id="prev" aria-label="上一方案">←</button><strong id="current"></strong><button id="next" aria-label="下一方案">→</button></nav>
 <script>
-// THROWAWAY static comparator; no storage or gameplay mutations.
-const names={A:'轻量信息 / 文字结算',B:'薄仪表 / 单层面板'};
-const states={combat:'战斗',failure:'失败 · 生命耗尽',complete:'任务完成'};
+// THROWAWAY static comparator. Current frame data are embedded for offline file use.
+const names={A:'轻量信息 / 文字结算',B:'薄仪表 / 单层面板',C:'左下头像生命 / 顶中 Boss'};
+const states={normal:'普通交火',low:'低血1/3',combat:'机甲战','gap-left':'左侧缺口（遮挡检查）',failure:'失败 · 生命耗尽',complete:'任务完成'};
+const records={"combat": {"boss": 28.0, "life": 3.0, "max": 42.0}, "complete": {"boss": 0.0, "life": 3.0, "max": 42.0}, "failure": {"boss": 28.0, "life": 0.0, "max": 42.0}, "gap-left": {"boss": 42, "boss_visible": false, "life": 3, "max": 42}, "low": {"boss": 28, "boss_visible": true, "life": 1, "max": 42}, "normal": {"boss": 42, "boss_visible": false, "life": 3, "max": 42}};
 const query=new URLSearchParams(location.search);
-let variant=query.get('variant')==='B'?'B':'A';
+const variants=['A','B','C'],stateKeys=Object.keys(states);
+let variant=variants.includes(query.get('variant'))?query.get('variant'):'A';
 let state=Object.hasOwn(states,query.get('state'))?query.get('state'):'combat';
-let compare=false,double=false;
+let pair=null,double=false;
 function render(){
- const left=compare?'A':variant;
+ const left=pair?'A':variant,right=pair==='AB'?'B':'C',r=records[state];
  document.getElementById('primary').src=`images/${left}-${state}.png`;
- document.getElementById('secondary').src=`images/B-${state}.png`;
- document.getElementById('second').hidden=!compare;
+ document.getElementById('secondary').src=`images/${right}-${state}.png`;
+ document.getElementById('second').hidden=!pair;
  document.getElementById('caption').textContent=`${left} · ${names[left]}`;
+ document.getElementById('second-caption').textContent=`${right} · ${names[right]}`;
  document.getElementById('current').textContent=`临时原型 ${variant} · ${names[variant]}`;
- document.getElementById('status').textContent=`当前变体 ${variant} | ${states[state]} | 行动员 ${state==='failure'?0:3}/3 | 防御机甲 ${state==='complete'?0:28}/42 | ${compare?'并排 A/B':'单图'} | ${double?'2× 1280×720':'原生 640×360'}`;
+ const boss=r.boss_visible===false?'未激活 / 隐藏':`${r.boss}/${r.max}`;
+ document.getElementById('status').textContent=`当前变体 ${variant} | ${states[state]} | 行动员 ${r.life}/3 | 机甲 ${boss} | ${pair?'并排 '+pair:'单图'} | ${double?'2× 1280×720':'原生 640×360'}${['failure','complete'].includes(state)?' | C 与 A 结算相同':''}`;
  document.getElementById('images').classList.toggle('double',double);
  document.querySelectorAll('[data-state]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.state===state));
- document.getElementById('compare').setAttribute('aria-pressed',compare);
+ document.getElementById('compare').setAttribute('aria-pressed',pair==='AC');
+ document.getElementById('compareAB').setAttribute('aria-pressed',pair==='AB');
  document.getElementById('scale').textContent=double?'2× 1280×720':'原生 640×360';
  const url=new URL(location.href);url.searchParams.set('variant',variant);url.searchParams.set('state',state);history.replaceState(null,'',url);
 }
-function flip(){variant=variant==='A'?'B':'A';compare=false;render()}
-document.getElementById('prev').onclick=flip;document.getElementById('next').onclick=flip;
+function flip(step){variant=variants[(variants.indexOf(variant)+step+3)%3];pair=null;render()}
+document.getElementById('prev').onclick=()=>flip(-1);document.getElementById('next').onclick=()=>flip(1);
 document.querySelectorAll('[data-state]').forEach(b=>b.onclick=()=>{state=b.dataset.state;render()});
-document.getElementById('compare').onclick=()=>{compare=!compare;render()};
+document.getElementById('compare').onclick=()=>{pair=pair==='AC'?null:'AC';render()};
+document.getElementById('compareAB').onclick=()=>{pair=pair==='AB'?null:'AB';render()};
 document.getElementById('scale').onclick=()=>{double=!double;render()};
-document.addEventListener('keydown',e=>{if(e.target.matches('input,textarea,[contenteditable]'))return;if(['ArrowLeft','ArrowRight'].includes(e.key)){e.preventDefault();flip()}if(['1','2','3'].includes(e.key)){state=['combat','failure','complete'][Number(e.key)-1];render()}});
+document.addEventListener('keydown',e=>{if(e.target.matches('input,textarea,[contenteditable]'))return;if(['ArrowLeft','ArrowRight'].includes(e.key)){e.preventDefault();flip(e.key==='ArrowLeft'?-1:1)}if(['1','2','3','4','5','6'].includes(e.key)){state=stateKeys[Number(e.key)-1];render()}});
 render();
 </script>
 </html>

@@ -1,4 +1,4 @@
-**本页为已退回的上一轮精修稿。当前待选方向见 [THROWAWAY A/B 粗排与查看器](throwaway-ab/README.md)，采用 #28 后 42 HP 主线截图。**
+**本页为已退回的上一轮精修稿。当前待选方向见 [THROWAWAY A/B/C 粗排与查看器](throwaway-ab/README.md)，采用 #28 后 42 HP 主线截图。**
 
 # #27 · 救援机库 UI 返工稿
 

@@ -1,17 +1,35 @@
 {
 	"combat": {
-		"boss": 28,
-		"life": 3,
-		"max": 42
+		"boss": 28.0,
+		"life": 3.0,
+		"max": 42.0
 	},
 	"complete": {
-		"boss": 0,
+		"boss": 0.0,
+		"life": 3.0,
+		"max": 42.0
+	},
+	"failure": {
+		"boss": 28.0,
+		"life": 0.0,
+		"max": 42.0
+	},
+	"gap-left": {
+		"boss": 42,
+		"boss_visible": false,
 		"life": 3,
 		"max": 42
 	},
-	"failure": {
+	"low": {
 		"boss": 28,
-		"life": 0,
+		"boss_visible": true,
+		"life": 1,
+		"max": 42
+	},
+	"normal": {
+		"boss": 42,
+		"boss_visible": false,
+		"life": 3,
 		"max": 42
 	}
 }
