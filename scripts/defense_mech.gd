@@ -86,20 +86,22 @@ func _physics_process(delta: float) -> void:
 		$Sprite.frame = 0
 	if _phase == Phase.CHARGE:
 		var progress := 1.0 - _remaining / maxf(charge_duration, 0.01)
-		$Muzzle.scale = Vector2.ONE * (1.0 + 0.45 * progress)
+		$Muzzle.frame = 28 + mini(3, int(progress * 4.0))
 	else:
-		$Muzzle.scale = Vector2.ONE
+		$Muzzle.frame = 28
 
 
 func _begin_charge() -> void:
 	_phase = Phase.CHARGE
 	_remaining = charge_duration
 	$Muzzle.visible = true
+	$Muzzle.frame = 28
 	charge_started.emit()
 
 
 func _fire_low_projectile() -> void:
 	var projectile := ENEMY_PROJECTILE.instantiate() as Area2D
+	projectile.visual_variant = 1
 	projectile.global_position = to_global(Vector2(-62, -18))
 	projectile.direction = -1
 	projectile_fired.emit(projectile)

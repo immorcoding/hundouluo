@@ -1,0 +1,78 @@
+{
+	"cell": [
+		48,
+		40
+	],
+	"columns": 4,
+	"filter": "nearest",
+	"pivot": [
+		24,
+		20
+	],
+	"rows": [
+		{
+			"max_size": [
+				18,
+				4
+			],
+			"name": "friendly",
+			"row": 0
+		},
+		{
+			"max_size": [
+				14,
+				4
+			],
+			"name": "soldier",
+			"row": 1
+		},
+		{
+			"max_size": [
+				22,
+				8
+			],
+			"name": "mech",
+			"row": 2
+		},
+		{
+			"max_size": [
+				20,
+				10
+			],
+			"name": "friendly_muzzle",
+			"row": 3
+		},
+		{
+			"max_size": [
+				17,
+				14
+			],
+			"name": "enemy_muzzle",
+			"row": 4
+		},
+		{
+			"max_size": [
+				24,
+				21
+			],
+			"name": "armor_hit",
+			"row": 5
+		},
+		{
+			"max_size": [
+				18,
+				15
+			],
+			"name": "wall_hit",
+			"row": 6
+		},
+		{
+			"max_size": [
+				32,
+				32
+			],
+			"name": "mech_charge",
+			"row": 7
+		}
+	]
+}

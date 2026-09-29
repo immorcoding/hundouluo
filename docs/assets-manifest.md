@@ -42,3 +42,7 @@ The visual files below predate this audio preparation and are not modified here.
 | `assets/pixel/base_tiles.png` | Original program-drawn tiles recorded in `tools/legacy_pixel_art.py`; the build and historical-art boundaries are described in `docs/art/README.md`. |
 
 The generated visual-source PNGs are project-specific original art, not downloaded art packs. The project documentation does not describe them as hand-drawn or as an exclusive-rights guarantee. The audio assets have likewise been composed from scratch in code and do not reuse the sounds of existing games.
+
+## #29 original combat art integration
+
+`assets/combat_v011/atlas.png` is the sole newly referenced runtime bitmap: a 192×320 atlas containing the friendly, mechanical-soldier and defense-mech projectiles, both muzzle flashes, two impact effects and the charge ring. `assets/combat_v011/source.png`, `PROMPT.txt`, `build.gd`, `atlas.json` and `README.md` preserve the original ImageGen-assisted source, exact prompt, deterministic processing and frame contract from the approved #26 branch (`afc81bd`, art correction `3004d42`). No third-party pack was added. The source and exported atlas ship under this repository's MIT `LICENSE`. Review-only staged captures and the high-barrel-to-low-lane proposal were not imported into runtime assets; see [`art/issue-29-validation.md`](art/issue-29-validation.md).

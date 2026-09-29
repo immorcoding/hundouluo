@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="Script" path="res://scripts/defense_mech.gd" id="1"]
 [ext_resource type="Texture2D" path="res://assets/pixel/defense_mech.png" id="2"]
+[ext_resource type="Texture2D" path="res://assets/combat_v011/atlas.png" id="3"]
 
 [sub_resource type="RectangleShape2D" id="Body"]
 size = Vector2(88, 80)
@@ -24,11 +25,15 @@ texture_filter = 1
 texture = ExtResource("2")
 hframes = 6
 
-[node name="Muzzle" type="Polygon2D" parent="."]
+[node name="Muzzle" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(-57, -18)
-color = Color(1, 0.67, 0.12, 1)
-polygon = PackedVector2Array(-7, -6, 7, -6, 7, 6, -7, 6)
+z_index = 1
+texture_filter = 1
+texture = ExtResource("3")
+hframes = 4
+vframes = 8
+frame = 28
 
 [node name="Contact" type="Area2D" parent="."]
 collision_layer = 0

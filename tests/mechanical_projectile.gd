@@ -27,8 +27,10 @@ func _run() -> void:
 		return
 	var hostile := (load("res://scenes/enemy_projectile.tscn") as PackedScene).instantiate() as Area2D
 	var friendly := (load("res://scenes/friendly_projectile.tscn") as PackedScene).instantiate() as Area2D
-	if hostile.get_node("Core").color == friendly.get_node("Glow").color \
-			or hostile.get_node("Core").polygon == friendly.get_node("Glow").polygon:
+	var hostile_signature := _signature(hostile.get_node("Sprite") as Sprite2D)
+	var friendly_signature := _signature(friendly.get_node("Sprite") as Sprite2D)
+	if hostile_signature.x <= hostile_signature.y or friendly_signature.y <= friendly_signature.x \
+			or hostile_signature.z == friendly_signature.z:
 		_fail("敌我弹丸需同时以色彩和形状区分")
 		return
 	hostile.free()
@@ -74,3 +76,23 @@ func _fail(message: String) -> void:
 	Input.action_release("jump")
 	push_error(message)
 	quit(1)
+
+
+func _signature(sprite: Sprite2D) -> Vector3:
+	var image := sprite.texture.get_image()
+	var red := 0.0
+	var blue := 0.0
+	var pixels := 0
+	var left := 48
+	var right := 0
+	var origin_y := sprite.frame / 4 * 40
+	for y in 40:
+		for x in 48:
+			var color := image.get_pixel(x, origin_y + y)
+			if color.a > 0.3:
+				red += color.r
+				blue += color.b
+				pixels += 1
+				left = mini(left, x)
+				right = maxi(right, x)
+	return Vector3(red / maxf(1, pixels), blue / maxf(1, pixels), right - left + 1)
