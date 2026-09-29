@@ -2,6 +2,8 @@
 
 **后续人审返工：** [A/B 左移、下探与墙中门原型](ab/README.md)。以下内容及本目录原图保留为上一轮历史，不是最新候选坐标。
 
+**最新 B 位置微调：** [再左移16px / 24px，并核对实际射程与安全位置](b-left/README.md)。
+
 基准：`3f970aafdd4628d0da931997197e630a7736735b`（#28 后 main），沿用 #22 已认可的救援机库。仅提供独立美术和真实关卡上的临时预览；未接入正式 CombatEntry。需求权威：[GitHub #32](https://github.com/immorcoding/hundouluo/issues/32)，后续工程接入为 #33。
 
 ## 设计

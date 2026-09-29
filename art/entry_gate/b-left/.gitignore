@@ -1,0 +1,14 @@
+frames/
+*.gif
+*.log
+__pycache__/
+left*/entry-late.png
+left*/boundary-open.png
+left*/boundary-warning.png
+left*/boundary-closed.png
+left*/cancel-open.png
+left*/cancel-warning.png
+left*/walk-open.png
+left*/walk-late.png
+left*/jump-open.png
+left*/jump-late.png
