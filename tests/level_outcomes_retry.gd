@@ -19,6 +19,10 @@ func _run() -> void:
 		for hit in soldier.health:
 			soldier.receive_hit()
 	await process_frame
+	for soldier in level.get_node("Enemies").get_children():
+		if soldier.health != 0 or soldier.get_node("Sprite").frame != 6:
+			_fail("机械兵死亡应留在场景中作为倒地残骸")
+			return
 	if hud.get_node("OutcomePanel").visible or level.get_node("ExitDoor/DoorBlocker/CollisionShape2D").disabled:
 		_fail("普通敌人全灭不应通关或开门")
 		return
@@ -38,6 +42,10 @@ func _run() -> void:
 	if level == null or level.get_node("Operative/Operative").health != 3 or level.get_node("Enemies").get_child_count() != 5:
 		_fail("终点生命死亡重试未恢复生命与敌人")
 		return
+	for soldier in level.get_node("Enemies").get_children():
+		if soldier.health != soldier.max_health or soldier.get_node("Sprite").frame == 6:
+			_fail("整关重试未恢复机械兵的生命和站姿")
+			return
 	if level.get_node("Operative/Operative").position.x != 140.0:
 		_fail("终点死亡未从起点重试")
 		return

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3]
+[gd_scene load_steps=14 format=3]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/operative.tscn" id="2"]
@@ -17,6 +17,9 @@ size = Vector2(2880, 108)
 
 [sub_resource type="RectangleShape2D" id="DoorBarrier"]
 size = Vector2(18, 140)
+
+[sub_resource type="RectangleShape2D" id="EntryBarrier"]
+size = Vector2(14, 148)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1")
@@ -101,6 +104,27 @@ position = Vector2(3160, 252)
 position = Vector2(3830, 252)
 
 [node name="DefenseMech" parent="BossSlot" instance=ExtResource("6")]
+
+[node name="CombatEntry" type="Node2D" parent="."]
+position = Vector2(3444, 252)
+
+[node name="EntryMarker" type="Polygon2D" parent="CombatEntry"]
+color = Color(0.929412, 0.643137, 0.247059, 1)
+polygon = PackedVector2Array(-10, -152, 10, -152, 10, -144, -10, -144)
+
+[node name="Barrier" type="StaticBody2D" parent="CombatEntry"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CombatEntry/Barrier"]
+position = Vector2(0, -74)
+shape = SubResource("EntryBarrier")
+disabled = true
+
+[node name="Shutter" type="Polygon2D" parent="CombatEntry"]
+visible = false
+color = Color(0.713726, 0.815686, 0.807843, 1)
+polygon = PackedVector2Array(-7, -148, 7, -148, 7, 0, -7, 0)
 
 [node name="ExitDoor" type="Node2D" parent="."]
 position = Vector2(4130, 252)

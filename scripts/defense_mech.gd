@@ -6,7 +6,7 @@ signal died
 signal projectile_fired(projectile: Area2D)
 signal charge_started
 
-@export_range(1, 200, 1) var max_health := 120
+@export_range(1, 200, 1) var max_health := 42
 @export var attack_range := 420.0
 @export var charge_duration := 1.0
 @export var shot_spacing := 0.22
@@ -16,7 +16,7 @@ const ENEMY_PROJECTILE := preload("res://scenes/enemy_projectile.tscn")
 
 enum Phase { IDLE, CHARGE, VOLLEY, RECOVERY }
 
-var health := 120
+var health := 42
 var attack_enabled := false
 var target: Node2D
 

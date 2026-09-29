@@ -25,7 +25,7 @@ func _run() -> void:
 	var defeated := false
 	for frame in 220:
 		await physics_frame
-		if not is_instance_valid(soldier):
+		if soldier.health == 0:
 			defeated = true
 			break
 	Input.action_release("shoot")
@@ -52,7 +52,7 @@ func _run() -> void:
 			passed = true
 			break
 	Input.action_release("move_right")
-	if not passed or not is_instance_valid(soldier):
+	if not passed or soldier.health == 0:
 		_fail("行动员未能绕过仍存活的机械兵")
 		return
 	print("PASS: 机械兵缓慢巡逻，行动员可击败或绕过")

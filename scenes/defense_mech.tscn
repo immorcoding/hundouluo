@@ -19,7 +19,7 @@ position = Vector2(0, -40)
 shape = SubResource("Body")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(0, -45)
+position = Vector2(0, -33)
 texture_filter = 1
 texture = ExtResource("2")
 hframes = 6

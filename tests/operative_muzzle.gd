@@ -16,11 +16,12 @@ func _run() -> void:
 	var image := sprite.texture.get_image()
 	# Visually inspected barrel ends, in the actor's local coordinates. These
 	# separately check scene data against emitted projectiles and atlas pixels.
-	var expected := [Vector2(28, -38), Vector2(31, -36), Vector2(31, -36),
-			Vector2(23, -37), Vector2(21, -37), Vector2(26, -40)]
+	var expected := [Vector2(28, -26), Vector2(31, -24), Vector2(31, -24),
+			Vector2(23, -25), Vector2(21, -25), Vector2(26, -28)]
 	for frame in expected.size():
 		var point: Vector2 = expected[frame]
-		var pixel := Vector2i(frame * 72 + 36 + int(point.x) - 1, 60 + int(point.y))
+		var pixel := Vector2i(frame * 72 + 36 + int(point.x) - 1,
+				30 + int(point.y - sprite.position.y))
 		if image.get_pixelv(pixel).a < 0.9:
 			_fail("muzzle point no longer touches the visible barrel, frame " + str(frame))
 			return

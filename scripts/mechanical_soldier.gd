@@ -82,9 +82,15 @@ func receive_hit() -> void:
 		return
 	health -= 1
 	if health == 0:
+		velocity = Vector2.ZERO
+		_warning_remaining = 0.0
+		attack_enabled = false
 		$Muzzle.visible = false
+		$Sprite.frame = 6
+		set_deferred("collision_layer", 0)
+		set_deferred("collision_mask", 0)
+		$Contact.set_deferred("monitoring", false)
 		died.emit()
-		queue_free()
 	else:
 		$Sprite.frame = 5
 

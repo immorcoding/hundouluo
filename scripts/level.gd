@@ -7,6 +7,10 @@ const DECK := preload("res://assets/pixel/hangar_deck.png")
 const ART_SECTION_WIDTH := 1440
 const FALL_DEATH_Y := 410.0
 const FINAL_SECTION_X := 3500.0
+const ENTRY_COMMIT_X := 3463.0
+const ENTRY_SAFE_X := 3463.0
+const ENTRY_CAMERA_MIN_X := 3580.0
+const ENTRY_WARNING_TIME := 0.22
 const FRIENDLY_PROJECTILE_LAYER := 1 << 3
 
 enum RunState { PLAYING, DEAD, COMPLETE }
@@ -14,6 +18,8 @@ enum RunState { PLAYING, DEAD, COMPLETE }
 var _fall_reported := false
 var _fell := false
 var _mech_hud_shown := false
+var _entry_warning_remaining := -1.0
+var _entry_closed := false
 var _state := RunState.PLAYING
 
 
@@ -87,10 +93,10 @@ func _ground_top(body: StaticBody2D) -> int:
 
 func _process(_delta: float) -> void:
 	var lead_x: float = $Operative/Operative.position.x + 115.0
-	$Camera2D.position.x = clampf(lead_x, 320.0, 4000.0)
+	$Camera2D.position.x = clampf(lead_x, ENTRY_CAMERA_MIN_X if _entry_closed else 320.0, 4000.0)
 
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if _state != RunState.PLAYING:
 		return
 	var operative := $Operative/Operative as CharacterBody2D
@@ -114,9 +120,29 @@ func _physics_process(_delta: float) -> void:
 			continue
 		soldier.attack_enabled = soldier.is_fully_visible_in(view_rect)
 	$BossSlot/DefenseMech.update_visibility(view_rect)
+	_update_combat_entry(operative, delta)
 	if not _mech_hud_shown and (operative.position.x >= FINAL_SECTION_X or $BossSlot/DefenseMech.attack_enabled):
 		_mech_hud_shown = true
 		$HUD.show_mech($BossSlot/DefenseMech.max_health)
+
+
+func _update_combat_entry(operative: CharacterBody2D, delta: float) -> void:
+	if _entry_closed:
+		return
+	var mech := $BossSlot/DefenseMech as DefenseMech
+	# Keep the entrance open if the operative backs away during the warning.
+	if not mech.attack_enabled or operative.position.x < ENTRY_SAFE_X:
+		_entry_warning_remaining = -1.0
+		return
+	if _entry_warning_remaining < 0.0:
+		if operative.position.x >= ENTRY_COMMIT_X and $BossSlot/DefenseMech/Muzzle.visible:
+			_entry_warning_remaining = ENTRY_WARNING_TIME
+		return
+	_entry_warning_remaining -= delta
+	if _entry_warning_remaining <= 0.0:
+		_entry_closed = true
+		$CombatEntry/Shutter.visible = true
+		$CombatEntry/Barrier/CollisionShape2D.set_deferred("disabled", false)
 
 
 func _on_operative_projectile_fired(projectile: Area2D) -> void:
