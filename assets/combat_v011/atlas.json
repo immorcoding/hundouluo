@@ -69,7 +69,7 @@
 		{
 			"max_size": [
 				32,
-				26
+				32
 			],
 			"name": "mech_charge",
 			"row": 7

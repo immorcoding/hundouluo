@@ -21,9 +21,14 @@ func capture() -> void:
 	effects.set_script(load(OUT + "effects.gd"))
 	effects.atlas = ImageTexture.create_from_image(Image.load_from_file("res://assets/combat_v011/atlas.png"))
 	effects.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	effects.z_index = 100
 	level.add_child(effects)
 	for mode in ["combat", "mech"]:
 		actor.position = Vector2(580 if mode == "combat" else 3550, 252)
+		# Sprite frame 0 visual barrel tips; gameplay offsets remain untouched.
+		effects.friendly_muzzle = actor.to_global(actor.muzzle_offsets[0])
+		effects.soldier_muzzle = level.get_node("Enemies/SoloSoldier").to_global(Vector2(-27, -37))
+		effects.mech_muzzle = level.get_node("BossSlot/DefenseMech").to_global(Vector2(-51, -53))
 		camera.position = Vector2(695 if mode == "combat" else 3665, 180)
 		camera.force_update_scroll()
 		if mode == "mech":
@@ -44,6 +49,8 @@ func capture() -> void:
 				return
 			if mode == "mech" and frame == 9:
 				shot.save_png(OUT + "charge.png")
+			if mode == "combat" and frame == 7:
+				shot.save_png(OUT + "muzzle.png")
 			if frame == (9 if mode == "combat" else 19):
 				shot.save_png(OUT + mode + ".png")
 		print("Captured actual Godot level + isolated art staging: ", mode)

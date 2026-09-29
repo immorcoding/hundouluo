@@ -17,7 +17,12 @@ func _initialize() -> void:
 		var bounds := Rect2i()
 		var frames: Array[Image] = []
 		for col in 4:
-			var frame := source.get_region(Rect2i(Vector2i(col, row) * cell, cell))
+			# ImageGen's final row starts above the mathematical eighth-row line.
+			# Keep the complete rings (solid bounds y=1063..1206), not y>=1092.
+			var region := Rect2i(Vector2i(col, row) * cell, cell)
+			if row == 7:
+				region = Rect2i(col * cell.x, 1040, cell.x, source.get_height() - 1040)
+			var frame := source.get_region(region)
 			frames.append(frame)
 			# Measure solid artwork, excluding nearly invisible generator fringe.
 			var measure := frame.duplicate() as Image

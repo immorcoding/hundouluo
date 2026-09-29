@@ -18,9 +18,17 @@ with Image.open(ASSETS / 'atlas.png') as atlas:
             assert bounds is not None, (row, col)
             assert bounds[0] > 0 and bounds[1] > 0 and bounds[2] < 48 and bounds[3] < 40, (row, col, bounds)
 assert len(metadata['rows']) == 8
-for name in ('combat.png', 'mech.png', 'charge.png'):
+charge_width, charge_height = metadata['rows'][7]['max_size']
+assert 0.9 <= charge_width / charge_height <= 1.1, 'Charge ring was clipped into a flattened shape'
+for name in ('combat.png', 'mech.png', 'charge.png', 'muzzle.png'):
     with Image.open(PREVIEWS / name) as image:
         assert image.size == (640, 360)
+with Image.open(PREVIEWS / 'muzzle.png') as image:
+    # Frame 7, 33 ms after enemy firing: warm projectile/flash must touch the
+    # visible barrel corridor at y=215, not the old gameplay lane at y=234.
+    mouth = image.crop((389, 208, 413, 222)).convert('RGB')
+    assert sum(r > 150 and r > g * 1.4 and r > b * 1.5
+               for r, g, b in mouth.getdata()) >= 3, 'Shot missing from visible soldier muzzle'
 for name in ('combat.gif', 'mech.gif'):
     with Image.open(PREVIEWS / name) as image:
         assert image.size == (640, 360) and image.info['loop'] == 0
