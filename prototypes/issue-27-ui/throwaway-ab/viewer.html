@@ -2,59 +2,69 @@
 <html lang="zh-CN">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>#27 临时 A/B/C/D 粗排原型 — 未定稿</title>
+<title>#27 临时 A/B/C/D/E 粗排原型 — 未定稿</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#111822;color:#d9e5ec;font:15px system-ui,sans-serif;padding:24px 24px 112px}h1{font-size:22px;margin:0 0 8px}p{margin:8px 0;color:#aabdc9}a{color:#8de9ed}header{max-width:1100px}button{font:inherit;background:#243647;border:1px solid #526b7e;color:#e5f2f2;padding:9px 16px;cursor:pointer}button[aria-pressed=true]{background:#8de9ed;color:#09141f}button:focus-visible{outline:3px solid #ffcb7b;outline-offset:3px}.states{display:flex;gap:8px;margin:18px 0}.images{display:flex;gap:24px;width:max-content}figure{margin:0}figcaption{margin:0 0 8px;color:#ffcb7b}img{display:block;width:640px;height:360px;image-rendering:pixelated}.double img{width:1280px;height:720px}.switcher{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:12px;background:#263346;padding:12px 18px;border:2px solid #738b9e;box-shadow:0 3px 20px #000;white-space:nowrap;z-index:2}#current{min-width:270px;text-align:center}#status{margin-top:16px;color:#d9e5ec}small{display:block;margin-top:12px;color:#aabdc9}
+*{box-sizing:border-box}body{margin:0;background:#111822;color:#d9e5ec;font:15px system-ui,sans-serif;padding:24px 24px 112px}h1{font-size:22px;margin:0 0 8px}p{margin:8px 0;color:#aabdc9}a{color:#8de9ed}header{max-width:1100px}button{font:inherit;background:#243647;border:1px solid #526b7e;color:#e5f2f2;padding:9px 16px;cursor:pointer}button[aria-pressed=true]{background:#8de9ed;color:#09141f}button:focus-visible{outline:3px solid #ffcb7b;outline-offset:3px}.states{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}.images{display:flex;gap:24px;width:max-content}figure{margin:0}figcaption{margin:0 0 8px;color:#ffcb7b}img{display:block;width:640px;height:360px;image-rendering:pixelated}.double img{width:1280px;height:720px}.switcher{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:12px;background:#263346;padding:12px 18px;border:2px solid #738b9e;box-shadow:0 3px 20px #000;white-space:nowrap;z-index:2}#current{min-width:270px;text-align:center}#status{margin-top:16px;color:#d9e5ec}small{display:block;margin-top:12px;color:#aabdc9}
 </style>
 <header>
-<h1>THROWAWAY · #27 A/B/C/D 临时粗排原型</h1>
+<h1>THROWAWAY · #27 A/B/C/D/E 临时粗排原型</h1>
 <p>只比较信息层级、对齐与留白。未定稿，未接入正式游戏。字体仅作为相同对照条件，并非已获批准。</p>
-<p>共用 main <code>3f970aa</code> 的真实 #28 后场景；机甲上限 42 HP。每种状态的 A/B/C/D 使用完全相同的源截图、文字和字体。</p>
-<p>A：轻量 HUD ＋ 居中文字结算。B：薄仪表条 ＋ 单层面板。C：左下头像生命框 ＋ 顶部居中 Boss；D：C 同尺寸框内加入当前枪械、重排血量；C/D 结算与 A 完全相同。</p>
+<p>共用 main <code>3f970aa</code> 的真实 #28 后场景；机甲上限 42 HP。每种状态的 A/B/C/D/E 使用完全相同的源截图、文字和字体。</p>
+<p>A：轻量 HUD ＋ 居中文字结算。B：薄仪表条 ＋ 单层面板。C：左下头像生命框 ＋ 顶部居中 Boss；E：取消危险文字，铜色竖排弹壳表示射击模式概念；横排青色三格仅为生命。C/D/E结算与A相同。</p>
 </header>
 <div class="states" aria-label="状态">
 <button data-state="normal">1 普通交火</button><button data-state="low">2 低血 1/3</button><button data-state="combat">3 机甲战</button><button data-state="gap-left">4 左侧缺口</button><button data-state="failure">5 失败</button><button data-state="complete">6 完成</button>
-<button id="compareCD">并排 C/D</button><button id="compare">并排 A/C</button><button id="compareAB">并排 A/B</button><button id="scale">原生 640×360</button>
+<button id="semi">E 半自动示意（1枚实心）</button><button id="auto">E 全自动示意（3枚实心）</button><button id="modes">同血量模式对照</button><button id="compareDE">并排 D/E</button><button id="compareCD">并排 C/D</button><button id="compare">并排 A/C</button><button id="compareAB">并排 A/B</button><button id="scale">原生 640×360</button>
 </div>
 <div class="images" id="images">
 <figure><figcaption id="caption"></figcaption><img id="primary" alt="当前 UI 原型"></figure>
 <figure id="second" hidden><figcaption id="second-caption"></figcaption><img id="secondary" alt="B 对照原型"></figure>
 </div>
 <p id="status" aria-live="polite"></p>
-<small>用户认可 C 作为下一轮基底；D 比较头像、现用枪械与三格生命的组织。框未增大，但缺口下部遮挡仍在。枪械仅是识别图标，无弹药或切枪。C/D 结算与 A 一致。此查看器只切静态原生渲染图，不模拟玩法；R 文案不在本页触发重试。</small>
-<p><a href="README.md">设计问题、来源、重建说明</a> · ← / → 切方案，1–6 切状态；可复制含 ?variant=A / B / C / D 的地址。</p>
+<small>E 仅为射击模式的美术示意，不是弹药数量。正式游戏只有按住shoot、每0.16秒连续射击，没有半/全自动切换；此查看器不改变实际玩法。框未增大，缺口下部遮挡仍在。此查看器只切静态原生渲染图，不模拟玩法；R 文案不在本页触发重试。</small>
+<p><a href="README.md">设计问题、来源、重建说明</a> · ← / → 切方案，1–6 切状态；可复制含 ?variant=A / B / C / D / E 的地址。</p>
 <nav class="switcher" aria-label="原型切换器（非游戏 UI）"><button id="prev" aria-label="上一方案">←</button><strong id="current"></strong><button id="next" aria-label="下一方案">→</button></nav>
 <script>
 // THROWAWAY static comparator. Current frame data are embedded for offline file use.
-const names={A:'轻量信息 / 文字结算',B:'薄仪表 / 单层面板',C:'左下头像生命 / 顶中 Boss',D:'头像＋现用枪械＋三格生命'};
+const names={A:'轻量信息 / 文字结算',B:'薄仪表 / 单层面板',C:'左下头像生命 / 顶中 Boss',D:'头像＋现用枪械＋三格生命',E:'铜色竖排模式 / 青色横排生命'};
 const states={normal:'普通交火',low:'低血1/3',combat:'机甲战','gap-left':'左侧缺口（遮挡检查）',failure:'失败 · 生命耗尽',complete:'任务完成'};
 const records={"combat": {"boss": 28.0, "life": 3.0, "max": 42.0}, "complete": {"boss": 0.0, "life": 3.0, "max": 42.0}, "failure": {"boss": 28.0, "life": 0.0, "max": 42.0}, "gap-left": {"boss": 42, "boss_visible": false, "life": 3, "max": 42}, "low": {"boss": 28, "boss_visible": true, "life": 1, "max": 42}, "normal": {"boss": 42, "boss_visible": false, "life": 3, "max": 42}};
 const query=new URLSearchParams(location.search);
-const variants=['A','B','C','D'],stateKeys=Object.keys(states);
-let variant=variants.includes(query.get('variant'))?query.get('variant'):'D';
+const variants=['A','B','C','D','E'],stateKeys=Object.keys(states);
+let variant=variants.includes(query.get('variant'))?query.get('variant'):'E';
 let state=Object.hasOwn(states,query.get('state'))?query.get('state'):'combat';
-let pair=null,double=false;
+let pair=null,double=false,mode=query.get('mode')==='semi'?'semi':'auto';
 function render(){
- const left=pair?pair[0]:variant,right=pair?pair[1]:'D',r=records[state];
- document.getElementById('primary').src=`images/${left}-${state}.png`;
- document.getElementById('secondary').src=`images/${right}-${state}.png`;
+ const left=pair==='modes'?'E-semi':(pair?pair[0]:variant),right=pair==='modes'?'E-auto':(pair?pair[1]:'E'),r=records[state];
+ const file=v=>v==='E'?`E-${mode}`:v;
+ const label=v=>v==='E-semi'?'E · 半自动概念（1枚实心）':v==='E-auto'?'E · 全自动概念（3枚实心）':`${v} · ${names[v]}`;
+ document.getElementById('primary').src=`images/${file(left)}-${state}.png`;
+ document.getElementById('secondary').src=`images/${file(right)}-${state}.png`;
  document.getElementById('second').hidden=!pair;
- document.getElementById('caption').textContent=`${left} · ${names[left]}`;
- document.getElementById('second-caption').textContent=`${right} · ${names[right]}`;
- document.getElementById('current').textContent=`临时原型 ${variant} · ${names[variant]}`;
+ document.getElementById('caption').textContent=label(left);
+ document.getElementById('second-caption').textContent=label(right);
+ document.getElementById('current').textContent=`临时原型 ${variant} · ${names[variant]}${variant==='E'?' · '+(mode==='semi'?'半自动示意':'全自动示意'):''}`;
  const boss=r.boss_visible===false?'未激活 / 隐藏':`${r.boss}/${r.max}`;
- document.getElementById('status').textContent=`当前变体 ${variant} | ${states[state]} | 行动员 ${r.life}/3 | 机甲 ${boss} | ${pair?'并排 '+pair:'单图'} | ${double?'2× 1280×720':'原生 640×360'}${['failure','complete'].includes(state)?' | C/D 与 A 结算相同':''}`;
+ document.getElementById('status').textContent=`当前变体 ${variant} | ${states[state]} | 行动员 ${r.life}/3 | 机甲 ${boss} | ${pair?'并排 '+pair:'单图'} | ${double?'2× 1280×720':'原生 640×360'}${['failure','complete'].includes(state)?' | C/D/E 与 A 结算相同':''}`;
  document.getElementById('images').classList.toggle('double',double);
  document.querySelectorAll('[data-state]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.state===state));
+ document.getElementById('semi').setAttribute('aria-pressed',variant==='E'&&mode==='semi');
+ document.getElementById('auto').setAttribute('aria-pressed',variant==='E'&&mode==='auto');
+ document.getElementById('compareDE').setAttribute('aria-pressed',pair==='DE');
+ document.getElementById('modes').setAttribute('aria-pressed',pair==='modes');
  document.getElementById('compareCD').setAttribute('aria-pressed',pair==='CD');
  document.getElementById('compare').setAttribute('aria-pressed',pair==='AC');
  document.getElementById('compareAB').setAttribute('aria-pressed',pair==='AB');
  document.getElementById('scale').textContent=double?'2× 1280×720':'原生 640×360';
- const url=new URL(location.href);url.searchParams.set('variant',variant);url.searchParams.set('state',state);history.replaceState(null,'',url);
+ const url=new URL(location.href);url.searchParams.set('variant',variant);url.searchParams.set('state',state);url.searchParams.set('mode',mode);history.replaceState(null,'',url);
 }
 function flip(step){variant=variants[(variants.indexOf(variant)+step+variants.length)%variants.length];pair=null;render()}
 document.getElementById('prev').onclick=()=>flip(-1);document.getElementById('next').onclick=()=>flip(1);
 document.querySelectorAll('[data-state]').forEach(b=>b.onclick=()=>{state=b.dataset.state;render()});
+document.getElementById('semi').onclick=()=>{variant='E';mode='semi';pair=null;render()};
+document.getElementById('auto').onclick=()=>{variant='E';mode='auto';pair=null;render()};
+document.getElementById('modes').onclick=()=>{variant='E';pair=pair==='modes'?null:'modes';render()};
+document.getElementById('compareDE').onclick=()=>{variant='E';pair=pair==='DE'?null:'DE';render()};
 document.getElementById('compareCD').onclick=()=>{pair=pair==='CD'?null:'CD';render()};
 document.getElementById('compare').onclick=()=>{pair=pair==='AC'?null:'AC';render()};
 document.getElementById('compareAB').onclick=()=>{pair=pair==='AB'?null:'AB';render()};

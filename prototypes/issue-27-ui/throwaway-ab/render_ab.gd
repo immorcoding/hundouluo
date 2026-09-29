@@ -5,6 +5,7 @@ const DIR := "res://prototypes/issue-27-ui/throwaway-ab/"
 
 class Layout extends Control:
 	var variant := "A"
+	var fire_mode := "auto"
 	var state := "combat"
 	var record: Dictionary
 	var background: Texture2D
@@ -26,7 +27,7 @@ class Layout extends Control:
 		font.allow_system_fallback = false
 		background = ImageTexture.create_from_image(Image.load_from_file(DIR + "captures/" + state + ".png"))
 		panel = ImageTexture.create_from_image(Image.load_from_file("res://prototypes/issue-27-ui/source/console-panel.png"))
-		if variant in ["C", "D"]:
+		if variant in ["C", "D", "E"]:
 			portrait = ImageTexture.create_from_image(Image.load_from_file(DIR + "source/operative-portrait.png"))
 	func text(value: String, x: int, y: int, size_px: int, color: Color) -> void:
 		draw_string_outline(font, Vector2(x, y), value, HORIZONTAL_ALIGNMENT_LEFT, -1, size_px, 2, DARK)
@@ -74,6 +75,30 @@ class Layout extends Control:
 				draw_rect(cell, AMBER if record.life == 1 else CYAN)
 			else:
 				draw_rect(cell, CYAN, false, 1)
+	func e_resources() -> void:
+		# Visual concepts only. The game has no semi/auto switch or ammo inventory.
+		text("生命", 62, 342, 12, WHITE)
+		for i in 3:
+			var cell := Rect2(90 + i * 18, 333, 14, 9)
+			draw_rect(cell.grow(1), DARK)
+			if i < record.life:
+				draw_rect(cell, CYAN)
+			else:
+				draw_rect(cell, Color("79949f"), false, 1)
+		draw_rect(Rect2(144, 310, 1, 32), Color("425766"))
+		for i in 3:
+			var y := 310 + i * 11
+			var filled := fire_mode == "auto" or i == 0
+			var brass := Color("d6a368")
+			# Flat open mouth, narrow case body, and projecting base rim (no bullet tip).
+			draw_rect(Rect2(150, y, 4, 2), brass)
+			draw_rect(Rect2(149, y + 2, 6, 6), brass, filled)
+			if not filled:
+				draw_rect(Rect2(150, y + 2, 4, 5), DARK)
+			else:
+				draw_rect(Rect2(150, y + 2, 1, 5), Color("f5c98c"))
+			draw_rect(Rect2(148, y + 8, 8, 1), brass)
+			draw_rect(Rect2(151, y, 2, 1), DARK)
 	func _draw() -> void:
 		draw_texture(background, Vector2.ZERO)
 		if state not in ["failure", "complete"]:
@@ -112,9 +137,12 @@ class Layout extends Control:
 					lives(62, 328)
 				else:
 					current_rifle(Vector2(62, 310))
-					if record.life == 1:
-						text("危险", 128, 321, 12, AMBER)
-					d_life()
+					if variant == "E":
+						e_resources()
+					else:
+						if record.life == 1:
+							text("危险", 128, 321, 12, AMBER)
+						d_life()
 				if boss_visible:
 					text("防御机甲", 224, 24, 12, WHITE)
 					text("%d/%d" % [record.boss, record.max], 376, 24, 12, AMBER)
@@ -143,9 +171,10 @@ func render() -> void:
 	var records: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(DIR + "captures/states.json"))
 	for state in ["normal", "low", "combat", "gap-left", "failure", "complete"]:
 		root.content_scale_size = Vector2i(640, 360)
-		for variant in ["A", "B", "C", "D"]:
+		for variant in ["A", "B", "C", "D", "E-semi", "E-auto"]:
 			var layout := Layout.new()
-			layout.variant = variant
+			layout.variant = "E" if variant.begins_with("E-") else variant
+			layout.fire_mode = "semi" if variant == "E-semi" else "auto"
 			layout.state = state
 			layout.record = records[state]
 			root.add_child(layout)
@@ -154,7 +183,7 @@ func render() -> void:
 			root.get_texture().get_image().save_png(DIR + "images/" + variant + "-" + state + ".png")
 			layout.queue_free()
 			await process_frame
-		for pair in [["A", "B", "compare-"], ["A", "C", "compare-AC-"], ["C", "D", "compare-CD-"]]:
+		for pair in [["A", "B", "compare-"], ["A", "C", "compare-AC-"], ["C", "D", "compare-CD-"], ["D", "E-auto", "compare-DE-"], ["E-semi", "E-auto", "compare-modes-"]]:
 			root.content_scale_size = Vector2i(1280, 360)
 			var both := Control.new()
 			root.add_child(both)
