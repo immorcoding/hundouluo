@@ -19,7 +19,7 @@ func _capture() -> void:
 	for file in ["open", "warning-0", "warning-1", "warning-2", "warning-3",
 			"warning-4", "warning-5", "closed"]:
 		var img := Image.load_from_file(ART + file + ".png")
-		if img == null or img.get_size() != Vector2i(40, 176):
+		if img == null or img.get_size() != Vector2i(96, 252):
 			push_error("Missing/invalid gate art: " + file)
 			quit(1)
 			return
@@ -38,7 +38,8 @@ func _sequence(boundary: bool, retreat := false) -> void:
 	level.get_node("CombatEntry").hide()
 	gate = Sprite2D.new()
 	gate.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	gate.position = Vector2(3444, 164)
+	# Frame pivot (64,252) aligns the 14px moving leaf to (3444,252).
+	gate.position = Vector2(3428, 126)
 	level.add_child(gate)
 	# Draw behind the operative, mech and projectiles, above the existing deck.
 	level.move_child(gate, level.get_node("Operative").get_index())

@@ -43,6 +43,16 @@ def main():
         with Image.open(ROOT / f"{name}.png") as frame:
             sheet.paste(frame, (x, y + 32))
     sheet.save(ROOT / "review-sheet.png")
+    comparison = Image.new("RGB", (1280, 784), "#101c26")
+    labels = ImageDraw.Draw(comparison)
+    for row, state in enumerate(("closed", "open")):
+        for column, folder in enumerate((ROOT / "first-pass", ROOT)):
+            x, y = column * 640, row * 392
+            label = "FIRST PASS / " if column == 0 else "ENVIRONMENT REVISION / "
+            labels.text((x + 12, y + 9), label + state.upper(), fill="#e6bc78")
+            with Image.open(folder / f"scene-{state}.png") as frame:
+                comparison.paste(frame, (x, y + 32))
+    comparison.save(ROOT / "first-pass-comparison.png")
     print("Packaged three 2.2s loops (GIF + lossless APNG) and 1:1 review sheet")
 
 
