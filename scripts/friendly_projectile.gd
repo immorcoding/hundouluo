@@ -2,7 +2,7 @@ extends Area2D
 
 signal impacted(at: Vector2, hit_target: bool)
 
-const FLASH := preload("res://scenes/combat_flash.tscn")
+const FLASH_VISUAL := preload("res://scripts/combat_flash.gd")
 
 @export var speed := 520.0
 @export var max_distance := 960.0
@@ -17,12 +17,7 @@ func _ready() -> void:
 
 
 func _spawn_muzzle_flash() -> void:
-	if not is_inside_tree():
-		return
-	var flash := FLASH.instantiate() as Sprite2D
-	flash.flip_h = direction < 0
-	get_parent().add_child(flash)
-	flash.global_position = global_position
+	FLASH_VISUAL.spawn_from(self, 12, direction < 0)
 
 
 func _physics_process(delta: float) -> void:

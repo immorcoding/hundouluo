@@ -4,6 +4,16 @@ extends Sprite2D
 var _elapsed := 0.0
 
 
+static func spawn_from(projectile: Area2D, initial_frame: int, mirrored: bool) -> void:
+	if not projectile.is_inside_tree():
+		return
+	var flash := (load("res://scenes/combat_flash.tscn") as PackedScene).instantiate() as Sprite2D
+	flash.first_frame = initial_frame
+	flash.flip_h = mirrored
+	projectile.get_parent().add_child(flash)
+	flash.global_position = projectile.global_position
+
+
 func _ready() -> void:
 	frame = first_frame
 

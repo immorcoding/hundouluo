@@ -13,6 +13,7 @@ signal charge_started
 @export var recovery_duration := 2.4
 
 const ENEMY_PROJECTILE := preload("res://scenes/enemy_projectile.tscn")
+const ENEMY_PROJECTILE_SCRIPT := preload("res://scripts/enemy_projectile.gd")
 
 enum Phase { IDLE, CHARGE, VOLLEY, RECOVERY }
 
@@ -101,7 +102,7 @@ func _begin_charge() -> void:
 
 func _fire_low_projectile() -> void:
 	var projectile := ENEMY_PROJECTILE.instantiate() as Area2D
-	projectile.visual_variant = 1
+	projectile.visual_variant = ENEMY_PROJECTILE_SCRIPT.VisualVariant.MECH
 	projectile.global_position = to_global(Vector2(-62, -18))
 	projectile.direction = -1
 	projectile_fired.emit(projectile)

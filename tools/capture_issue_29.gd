@@ -22,6 +22,34 @@ func _capture() -> void:
 	await process_frame
 	if not _save("combat"):
 		return
+	var feedback := level.get_node("CombatFeedback") as Node2D
+	for tick in 18:
+		await physics_frame
+		if _has_impact(feedback):
+			break
+	for tick in 3:
+		await physics_frame
+	await process_frame
+	if not _has_impact(feedback) or not _save("enemy-hit"):
+		push_error("Could not capture a real enemy impact")
+		quit(1)
+		return
+	for tick in 14:
+		await physics_frame
+	var wall_shot := (load("res://scenes/friendly_projectile.tscn") as PackedScene).instantiate() as Area2D
+	wall_shot.global_position = Vector2(720, 258)
+	actor.projectile_fired.emit(wall_shot)
+	for tick in 8:
+		await physics_frame
+		if _has_impact(feedback):
+			break
+	for tick in 3:
+		await physics_frame
+	await process_frame
+	if not _has_impact(feedback) or not _save("wall-hit"):
+		push_error("Could not capture a real terrain impact")
+		quit(1)
+		return
 	actor.position = Vector2(3700, 252)
 	actor.velocity = Vector2.ZERO
 	for tick in 26:
@@ -35,6 +63,13 @@ func _capture() -> void:
 	if not _save("mech-shot"):
 		return
 	quit(0)
+
+
+func _has_impact(feedback: Node2D) -> bool:
+	for child in feedback.get_children():
+		if child is Sprite2D:
+			return true
+	return false
 
 
 func _save(name: String) -> bool:
