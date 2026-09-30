@@ -13,12 +13,33 @@ signal died
 @export var muzzle_offsets := PackedVector2Array([Vector2(30, -31)])
 
 const PROJECTILE := preload("res://scenes/friendly_projectile.tscn")
+const MUZZLE_FLASH := preload("res://scenes/combat_flash.tscn")
 
 var _facing := 1
 var _fire_cooldown := 0.0
 var _invulnerable_remaining := 0.0
 var _receives_hits := true
 var health := 3
+
+
+func _ready() -> void:
+	died.connect($Muzzle.hide)
+
+
+func _process(_delta: float) -> void:
+	# Hits can change the visible pose after this actor's physics callback.
+	# Anchor feedback to the pose actually drawn, including turns and jumps.
+	_update_muzzle()
+
+
+func _muzzle_position() -> Vector2:
+	var muzzle := muzzle_offsets[mini($Sprite.frame, muzzle_offsets.size() - 1)]
+	return Vector2(_facing * muzzle.x, muzzle.y)
+
+
+func _update_muzzle() -> void:
+	$Muzzle.position = _muzzle_position()
+	$Muzzle.scale.x = _facing
 
 
 func _physics_process(delta: float) -> void:
@@ -48,13 +69,17 @@ func _physics_process(delta: float) -> void:
 			$Sprite.frame = 1 + int(Time.get_ticks_msec() / 125) % 2
 		else:
 			$Sprite.frame = 0
+	# Victory can freeze this subtree before its next idle callback.
+	_update_muzzle()
 	if Input.is_action_pressed("shoot"):
 		_fire_cooldown -= delta
 		if _fire_cooldown <= 0.0:
 			var projectile := PROJECTILE.instantiate() as Area2D
-			var muzzle := muzzle_offsets[mini($Sprite.frame, muzzle_offsets.size() - 1)]
-			projectile.global_position = to_global(Vector2(_facing * muzzle.x, muzzle.y))
+			projectile.global_position = to_global(_muzzle_position())
 			projectile.direction = _facing
+			projectile.muzzle_flash_enabled = false
+			# A muzzle flash belongs to the moving gun; the projectile does not.
+			$Muzzle.add_child(MUZZLE_FLASH.instantiate())
 			projectile_fired.emit(projectile)
 			_fire_cooldown = fire_interval
 	else:
@@ -74,6 +99,7 @@ func receive_hit() -> void:
 	else:
 		_invulnerable_remaining = invulnerability_duration
 		$Sprite.frame = 5
+		_update_muzzle()
 
 
 func stop_receiving_hits() -> void:

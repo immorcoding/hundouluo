@@ -1,0 +1,7 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: 接近缺口时两侧边缘未同时入镜
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _fail (res://tests/level_gap_camera.gd:63)
+       [1] _run (res://tests/level_gap_camera.gd:35)

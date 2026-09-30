@@ -1,0 +1,66 @@
+{
+	"disclosure": "Spawn is normal level; follow teleports initially to (470,252); fixed to (3462,252), then normal input closes gate. Tick 125 calls public receive_hit for hurt pose; movement/firing use Input. No gameplay tuning.",
+	"engine": "4.7.2-stable (official)",
+	"failures": [],
+	"flash_samples": 0,
+	"flight_samples": 0,
+	"mode": "no-shot",
+	"native_size": [
+		640,
+		360
+	],
+	"physics_hz": 60,
+	"probe": "none",
+	"scenario": "spawn",
+	"shots": [],
+	"trace": [
+		{
+			"actor": [
+				143.5,
+				252.0
+			],
+			"barrel": [
+				174.5,
+				228.0
+			],
+			"camera_x": 320.0,
+			"direction": 1,
+			"flashes": [],
+			"health": 3,
+			"on_floor": true,
+			"physics_frame": 3,
+			"pose": 2,
+			"projectiles": [],
+			"scenario": "spawn",
+			"screen_barrel": [
+				174.5,
+				228.0
+			],
+			"tick": 0
+		},
+		{
+			"actor": [
+				147.0,
+				252.0
+			],
+			"barrel": [
+				178.0,
+				228.0
+			],
+			"camera_x": 320.0,
+			"direction": 1,
+			"flashes": [],
+			"health": 3,
+			"on_floor": true,
+			"physics_frame": 4,
+			"pose": 1,
+			"projectiles": [],
+			"scenario": "spawn",
+			"screen_barrel": [
+				178.0,
+				228.0
+			],
+			"tick": 1
+		}
+	]
+}

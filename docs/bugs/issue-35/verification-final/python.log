@@ -1,0 +1,39 @@
+test_all_original_cues_are_wired_and_have_quiet_shots (test_combat_feedback.CombatFeedbackWiringTest.test_all_original_cues_are_wired_and_have_quiet_shots) ... ok
+test_level_connects_feedback_without_transferring_damage_to_hud (test_combat_feedback.CombatFeedbackWiringTest.test_level_connects_feedback_without_transferring_damage_to_hud) ... ok
+test_runtime_frames_equal_approved_b_left16_exports (test_entry_gate_assets.EntryGateAssetsTests.test_runtime_frames_equal_approved_b_left16_exports) ... ok
+test_character_frames_are_detailed_at_playable_scale (test_hangar_art.HangarArtTests.test_character_frames_are_detailed_at_playable_scale) ... ok
+test_display_is_integer_scaled_from_640_by_360 (test_hangar_art.HangarArtTests.test_display_is_integer_scaled_from_640_by_360) ... ok
+test_far_and_midground_are_separate_original_pixel_layers (test_hangar_art.HangarArtTests.test_far_and_midground_are_separate_original_pixel_layers) ... ok
+test_animation_refs_facing_and_gap_edge_variants (test_pixel_art.PixelArtTests.test_animation_refs_facing_and_gap_edge_variants) ... ok
+test_atlas_dimensions_alpha_and_palette (test_pixel_art.PixelArtTests.test_atlas_dimensions_alpha_and_palette) ... ok
+test_manifest_traces_generated_audio_and_existing_original_art (test_sfx_assets.SoundAssetTests.test_manifest_traces_generated_audio_and_existing_original_art) ... ok
+test_player_shot_is_a_repeatable_short_mono_pcm_wave (test_sfx_assets.SoundAssetTests.test_player_shot_is_a_repeatable_short_mono_pcm_wave) ... ok
+test_sound_set_has_distinct_short_feedback_and_prioritizes_danger (test_sfx_assets.SoundAssetTests.test_sound_set_has_distinct_short_feedback_and_prioritizes_danger) ... ok
+test_acceptance_images_use_exact_nearest_integer_double (test_ui_assets.ApprovedUIAssetsTests.test_acceptance_images_use_exact_nearest_integer_double) ... ok
+test_font_is_original_and_distribution_manifest_carries_complete_notices (test_ui_assets.ApprovedUIAssetsTests.test_font_is_original_and_distribution_manifest_carries_complete_notices) ... ok
+test_frozen_s6_sources_and_reference_images_are_unchanged (test_ui_assets.ApprovedUIAssetsTests.test_frozen_s6_sources_and_reference_images_are_unchanged) ... ok
+test_live_ui_matches_approved_overlay_with_local_color_tolerances (test_ui_assets.ApprovedUIAssetsTests.test_live_ui_matches_approved_overlay_with_local_color_tolerances) ... ok
+test_runtime_crops_preserve_approved_source_pixels (test_ui_assets.ApprovedUIAssetsTests.test_runtime_crops_preserve_approved_source_pixels) ... ok
+test_archives_match_source_and_unpacked_executable_starts (test_windows_package.WindowsPackageTests.test_archives_match_source_and_unpacked_executable_starts) ... FAIL
+test_preflight_accepts_installed_official_toolchain (test_windows_package.WindowsPackageTests.test_preflight_accepts_installed_official_toolchain) ... ok
+
+======================================================================
+FAIL: test_archives_match_source_and_unpacked_executable_starts (test_windows_package.WindowsPackageTests.test_archives_match_source_and_unpacked_executable_starts)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Projects\game_hundouluo_codex_worktree\issue-35-running-muzzle\.scratch\issue-35\verification-source\tests\test_windows_package.py", line 64, in test_archives_match_source_and_unpacked_executable_starts
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : Error: Can't run project: no main scene defined in the project.
+
+
+Exception: E:\Projects\game_hundouluo_codex_worktree\issue-35-running-muzzle\.scratch\issue-35\verification-source\tools\package_windows.ps1:75
+Line |
+  75 |          throw "$Operation failed with exit code $operationExitCode."
+     |          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | Godot resource import failed with exit code -1.
+
+
+----------------------------------------------------------------------
+Ran 18 tests in 338.994s
+
+FAILED (failures=1)

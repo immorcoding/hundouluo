@@ -20,3 +20,5 @@ position = Vector2(0, -18)
 texture_filter = 1
 texture = ExtResource("2")
 hframes = 7
+
+[node name="Muzzle" type="Marker2D" parent="."]

@@ -1,0 +1,6 @@
+before-spawn: 120 exact 60fps frames, pixel alignment 39/162
+after-spawn: 120 exact 60fps frames, pixel alignment 161/162
+before-follow: 60 exact 60fps frames, pixel alignment 46/162
+after-follow: 60 exact 60fps frames, pixel alignment 162/162
+before-fixed: 90 exact 60fps frames, pixel alignment 46/162
+after-fixed: 90 exact 60fps frames, pixel alignment 160/162

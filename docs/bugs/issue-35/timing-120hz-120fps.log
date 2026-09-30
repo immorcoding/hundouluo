@@ -1,0 +1,4 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ISSUE35 shots=12 flashes=295 flight_samples=1292 failures=0
+PASS: 跑射/变向/跳跃落地/受击枪口对齐，弹丸独立飞行

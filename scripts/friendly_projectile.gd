@@ -7,13 +7,15 @@ const FLASH_VISUAL := preload("res://scripts/combat_flash.gd")
 @export var speed := 520.0
 @export var max_distance := 960.0
 var direction := 1
+var muzzle_flash_enabled := true
 var _spent := false
 var _distance := 0.0
 var _visual_elapsed := 0.0
 
 
 func _ready() -> void:
-	call_deferred("_spawn_muzzle_flash")
+	if muzzle_flash_enabled:
+		call_deferred("_spawn_muzzle_flash")
 
 
 func _spawn_muzzle_flash() -> void:
