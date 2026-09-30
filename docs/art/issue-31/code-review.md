@@ -21,3 +21,5 @@
 Standards：明确违规0/阻塞0/非阻塞heuristic1。Spec：复审未解决可行动问题0；最终构建检查待后续落实，人工验收继续开放。
 
 最后增量`0443bd7..b42d415`由两路独立复审：首帧音频fixture在行为断言之后增150ms播放初始化等待，正常伤害/音效不变；运行器先Python/端到端，再Godot导入/全套，仍检查同一干净提交、没有stage或跳过严格检查。首轮失败及定点五次结果保留披露。新增Standards明确违规/阻塞/smell均0；Spec新增缺失/越界/错误实现0。最终完整结果继续以交付verification实际记录为准。
+
+打包进程增量`cdfa2d0..44c9272`两轴复审无新问题：明确等待GUI真实进程、异步两输出避免阻塞、ExitCode及诊断双门禁、ArgumentList/Windows argv回退均不经过shell且转义正确。root定点使用实际导出GUI的不支持`--main-pack`参数产生exit1/ERROR，新调用器明确拒绝并返回expected failure；普通headless/graphical90帧独立等待均实际exit0。此负探针是有意失败的调用器验证，不混入游戏严格成功日志。最终包仍须从新稳定提交全套验证并重构。
