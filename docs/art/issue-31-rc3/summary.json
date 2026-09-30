@@ -1,0 +1,413 @@
+{
+  "source_commit": "3806da865a6e52d371ccb0942d6ca9926180df51",
+  "native_size": [
+    640,
+    360
+  ],
+  "conditions": "OpenGL compatibility; fixed-fps60 + each process_frame17ms wall pacing; outcomes physics120/fixed-fps30",
+  "full_issue31_suite": "Recorded separately by root; these are eight graphical fixture checks per phase, not the full48 result",
+  "phases": {
+    "source": {
+      "run_record": "E:\\Projects\\game_hundouluo_codex_artifacts\\v0.1.1-rc.3\\render-evidence\\source\\capture\\run-record.json",
+      "presentation": "E:\\Projects\\game_hundouluo_codex_artifacts\\v0.1.1-rc.3\\render-evidence\\source\\presentation\\presentation-results.json",
+      "strict_pass": true,
+      "complete_suite": true,
+      "checks": 8,
+      "source_start": {
+        "head": "3806da865a6e52d371ccb0942d6ca9926180df51",
+        "status": [],
+        "normalized_diff": [],
+        "staged_diff": []
+      },
+      "source_end": {
+        "head": "3806da865a6e52d371ccb0942d6ca9926180df51",
+        "status": [],
+        "normalized_diff": [],
+        "staged_diff": []
+      },
+      "executable": "C:\\Users\\22137\\tools\\godot-4.7.2\\Godot_v4.7.2-stable_win64_console.exe",
+      "executable_sha256": "c8f0a6bc45a19b33541501e57f6f7cd972ab18453743266339d495cbbe846643",
+      "gun_seams": [
+        {
+          "scenario": "spawn",
+          "paired_frames": 180,
+          "paired_samples": 180,
+          "flash_samples": 214,
+          "max_changed_gun_pixels": 0,
+          "max_visible_rear_error_px": 1,
+          "max_mask_pixels": 104,
+          "camera_min": 320.0,
+          "camera_max": 395.032531738281,
+          "poses": [
+            "0:False",
+            "0:True",
+            "1:False",
+            "1:True",
+            "2:False",
+            "2:True",
+            "3:False",
+            "3:True",
+            "5:False",
+            "5:True"
+          ]
+        },
+        {
+          "scenario": "follow",
+          "paired_frames": 180,
+          "paired_samples": 180,
+          "flash_samples": 214,
+          "max_changed_gun_pixels": 0,
+          "max_visible_rear_error_px": 0,
+          "max_mask_pixels": 104,
+          "camera_min": 550.032531738281,
+          "camera_max": 725.032531738281,
+          "poses": [
+            "0:False",
+            "0:True",
+            "1:False",
+            "1:True",
+            "2:False",
+            "2:True",
+            "3:False",
+            "3:True",
+            "5:False",
+            "5:True"
+          ]
+        },
+        {
+          "scenario": "fixed",
+          "paired_frames": 180,
+          "paired_samples": 180,
+          "flash_samples": 214,
+          "max_changed_gun_pixels": 0,
+          "max_visible_rear_error_px": 1,
+          "max_mask_pixels": 104,
+          "camera_min": 3580.0,
+          "camera_max": 3580.0,
+          "poses": [
+            "0:False",
+            "0:True",
+            "1:False",
+            "1:True",
+            "2:False",
+            "2:True",
+            "3:False",
+            "3:True",
+            "5:False",
+            "5:True"
+          ]
+        }
+      ],
+      "flights": [
+        {
+          "scenario": "spawn",
+          "shots": 18,
+          "flash_samples": 214,
+          "flight_samples": 1304,
+          "max_birth_error": 0.0,
+          "max_flight_error": 0.0009765625
+        },
+        {
+          "scenario": "follow",
+          "shots": 18,
+          "flash_samples": 214,
+          "flight_samples": 1199,
+          "max_birth_error": 0.0,
+          "max_flight_error": 0.001708984375
+        },
+        {
+          "scenario": "fixed",
+          "shots": 18,
+          "flash_samples": 214,
+          "flight_samples": 280,
+          "max_birth_error": 0.0,
+          "max_flight_error": 0.003173828125
+        }
+      ],
+      "corpse_checks": [
+        {
+          "name": "soldier-standing",
+          "overlap_pixels": 243,
+          "operative_front_pixels": 243,
+          "corpse_visible_pixels": 673,
+          "foreground_ratio": 1.0
+        },
+        {
+          "name": "soldier-moving-right",
+          "overlap_pixels": 130,
+          "operative_front_pixels": 130,
+          "corpse_visible_pixels": 673,
+          "foreground_ratio": 1.0
+        },
+        {
+          "name": "soldier-moving-left",
+          "overlap_pixels": 97,
+          "operative_front_pixels": 97,
+          "corpse_visible_pixels": 673,
+          "foreground_ratio": 1.0
+        },
+        {
+          "name": "mech-victory",
+          "overlap_pixels": 1169,
+          "operative_front_pixels": 1169,
+          "corpse_visible_pixels": 3687,
+          "foreground_ratio": 1.0
+        }
+      ],
+      "animations": [
+        {
+          "file": "motion-spawn-loop.png",
+          "frames": 180,
+          "fps": 60,
+          "seconds": 2.9999999999999942,
+          "native_size": [
+            640,
+            360
+          ],
+          "lossless": true,
+          "sampling": "Every physics frame"
+        },
+        {
+          "file": "motion-follow-loop.png",
+          "frames": 180,
+          "fps": 60,
+          "seconds": 2.9999999999999942,
+          "native_size": [
+            640,
+            360
+          ],
+          "lossless": true,
+          "sampling": "Every physics frame"
+        },
+        {
+          "file": "motion-fixed-loop.png",
+          "frames": 180,
+          "fps": 60,
+          "seconds": 2.9999999999999942,
+          "native_size": [
+            640,
+            360
+          ],
+          "lossless": true,
+          "sampling": "Every physics frame"
+        },
+        {
+          "file": "legal-run-loop.png",
+          "frames": 116,
+          "fps": 5,
+          "seconds": 23.19999999999995,
+          "native_size": [
+            640,
+            360
+          ],
+          "lossless": true,
+          "sampling": "Every 12 physics frames at 5fps; not a 60fps recording",
+          "actual_physics_frame_delta_min": 12,
+          "actual_physics_frame_delta_max": 12
+        }
+      ],
+      "frozen_sprite_origin_pose_facing": true
+    },
+    "windows": {
+      "run_record": "E:\\Projects\\game_hundouluo_codex_artifacts\\v0.1.1-rc.3\\render-evidence\\windows\\capture\\run-record.json",
+      "presentation": "E:\\Projects\\game_hundouluo_codex_artifacts\\v0.1.1-rc.3\\render-evidence\\windows\\presentation\\presentation-results.json",
+      "strict_pass": true,
+      "complete_suite": true,
+      "checks": 8,
+      "source_start": {
+        "head": "3806da865a6e52d371ccb0942d6ca9926180df51",
+        "status": [],
+        "normalized_diff": [],
+        "staged_diff": []
+      },
+      "source_end": {
+        "head": "3806da865a6e52d371ccb0942d6ca9926180df51",
+        "status": [],
+        "normalized_diff": [],
+        "staged_diff": []
+      },
+      "executable": "E:\\Projects\\game_hundouluo_codex_artifacts\\v0.1.1-rc.3\\implementation-play-3806da8\\轨道基地.exe",
+      "executable_sha256": "16ce231d4b1910ac6ec14eb2f3ffaf9b81cb5bd5b064c82dc0f6ade16fc30a66",
+      "gun_seams": [
+        {
+          "scenario": "spawn",
+          "paired_frames": 180,
+          "paired_samples": 180,
+          "flash_samples": 214,
+          "max_changed_gun_pixels": 0,
+          "max_visible_rear_error_px": 1,
+          "max_mask_pixels": 104,
+          "camera_min": 320.0,
+          "camera_max": 395.032531738281,
+          "poses": [
+            "0:False",
+            "0:True",
+            "1:False",
+            "1:True",
+            "2:False",
+            "2:True",
+            "3:False",
+            "3:True",
+            "5:False",
+            "5:True"
+          ]
+        },
+        {
+          "scenario": "follow",
+          "paired_frames": 180,
+          "paired_samples": 180,
+          "flash_samples": 214,
+          "max_changed_gun_pixels": 0,
+          "max_visible_rear_error_px": 0,
+          "max_mask_pixels": 104,
+          "camera_min": 550.032531738281,
+          "camera_max": 725.032531738281,
+          "poses": [
+            "0:False",
+            "0:True",
+            "1:False",
+            "1:True",
+            "2:False",
+            "2:True",
+            "3:False",
+            "3:True",
+            "5:False",
+            "5:True"
+          ]
+        },
+        {
+          "scenario": "fixed",
+          "paired_frames": 180,
+          "paired_samples": 180,
+          "flash_samples": 214,
+          "max_changed_gun_pixels": 0,
+          "max_visible_rear_error_px": 1,
+          "max_mask_pixels": 104,
+          "camera_min": 3580.0,
+          "camera_max": 3580.0,
+          "poses": [
+            "0:False",
+            "0:True",
+            "1:False",
+            "1:True",
+            "2:False",
+            "2:True",
+            "3:False",
+            "3:True",
+            "5:False",
+            "5:True"
+          ]
+        }
+      ],
+      "flights": [
+        {
+          "scenario": "spawn",
+          "shots": 18,
+          "flash_samples": 214,
+          "flight_samples": 1304,
+          "max_birth_error": 0.0,
+          "max_flight_error": 0.0009765625
+        },
+        {
+          "scenario": "follow",
+          "shots": 18,
+          "flash_samples": 214,
+          "flight_samples": 1199,
+          "max_birth_error": 0.0,
+          "max_flight_error": 0.001708984375
+        },
+        {
+          "scenario": "fixed",
+          "shots": 18,
+          "flash_samples": 214,
+          "flight_samples": 280,
+          "max_birth_error": 0.0,
+          "max_flight_error": 0.003173828125
+        }
+      ],
+      "corpse_checks": [
+        {
+          "name": "soldier-standing",
+          "overlap_pixels": 243,
+          "operative_front_pixels": 243,
+          "corpse_visible_pixels": 673,
+          "foreground_ratio": 1.0
+        },
+        {
+          "name": "soldier-moving-right",
+          "overlap_pixels": 130,
+          "operative_front_pixels": 130,
+          "corpse_visible_pixels": 673,
+          "foreground_ratio": 1.0
+        },
+        {
+          "name": "soldier-moving-left",
+          "overlap_pixels": 97,
+          "operative_front_pixels": 97,
+          "corpse_visible_pixels": 673,
+          "foreground_ratio": 1.0
+        },
+        {
+          "name": "mech-victory",
+          "overlap_pixels": 1169,
+          "operative_front_pixels": 1169,
+          "corpse_visible_pixels": 3687,
+          "foreground_ratio": 1.0
+        }
+      ],
+      "animations": [
+        {
+          "file": "motion-spawn-loop.png",
+          "frames": 180,
+          "fps": 60,
+          "seconds": 2.9999999999999942,
+          "native_size": [
+            640,
+            360
+          ],
+          "lossless": true,
+          "sampling": "Every physics frame"
+        },
+        {
+          "file": "motion-follow-loop.png",
+          "frames": 180,
+          "fps": 60,
+          "seconds": 2.9999999999999942,
+          "native_size": [
+            640,
+            360
+          ],
+          "lossless": true,
+          "sampling": "Every physics frame"
+        },
+        {
+          "file": "motion-fixed-loop.png",
+          "frames": 180,
+          "fps": 60,
+          "seconds": 2.9999999999999942,
+          "native_size": [
+            640,
+            360
+          ],
+          "lossless": true,
+          "sampling": "Every physics frame"
+        },
+        {
+          "file": "legal-run-loop.png",
+          "frames": 116,
+          "fps": 5,
+          "seconds": 23.19999999999995,
+          "native_size": [
+            640,
+            360
+          ],
+          "lossless": true,
+          "sampling": "Every 12 physics frames at 5fps; not a 60fps recording",
+          "actual_physics_frame_delta_min": 12,
+          "actual_physics_frame_delta_max": 12
+        }
+      ],
+      "frozen_sprite_origin_pose_facing": true
+    }
+  }
+}

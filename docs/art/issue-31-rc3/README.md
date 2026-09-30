@@ -1,5 +1,7 @@
 # #31 v0.1.1-rc.3 增量集成
 
+最终实现/完整实测`3806da865a6e52d371ccb0942d6ca9926180df51`：干净新鲜串行副本48条严格通过（44Godot/21Python无skip/导入/两主启动），源码8与实际Windows EXE8也通过。[双轴审查](code-review.md) P3/P2已解决，各轴未解决0。最终构建与尾部仅证据文档差异、独立解压/许可/SHA见持久交付DELIVERY/BUILD_INFO，不将文档提交冒称重新跑全48。
+
 基线已推送main `dc46c7601291a3c3175c0dafc680605fe0f19391`，包含#36最终`c4952b649633a0ce0861b4ea23391241a2cd2f93`（实现c7cc81f、完整实测a176c9a，到最终仅本票证据文档）。指定工作树`E:\Projects\game_hundouluo_codex_worktree\issue-31-v011-acceptance`、分支`codex/issue-31-v011-acceptance`；沿用已初始化主目录只读代理/领域配置，实际权限danger-full-access/never，本轮gpt-6.1-sol/high。不清理旧工作树、包、用户原文或被策略拒绝删除的#33缓存。
 
 已完整读取#25/#31/#34/#35/#36正文、评论与原生依赖：#29/#30/#33已关闭；#34/#35/#36开放是最终人工闸门，不阻止为合入修复制包。用户#36原话直接报障，不要求先填旧试玩单。rc.1其他通过项与机甲“时间差不多”有效，#34/#35尚未确认；本轮仅新火光/枪身主项和保留两bug及最小通关/R，见[定点复测单](../../retest-v0.1.1-rc.3.md)。五票均OPEN，不合并main/建tag/release/封milestone，由协调最终复核。
@@ -21,3 +23,23 @@
 15cdbef增量Spec P2发现独立GL fixture只复制capture_issue_36工具、遗漏新增autoload/UID，导致保持原project配置时缺资源。实际单模块红为exit5/0tests/errors1且3ERROR；完整Python为exit1/18tests/errors1及4诊断，不能说21执行或通过。已同步复制该普通启动依赖与UID，不删project配置、不屏蔽导入诊断/不跳过测试，后续新干净完整提交重跑，原15失败保留。
 
 补依赖后该独立真实GL模块3/3实际exit0、零诊断（69.631s），只是定点green不是全套。15实际release用户参数开发probe也取得12对640×360帧、枪身0/接缝0；unknown实际exit1、默认无flagGL90实际exit0均零引擎诊断。它证明验证入口可行，最终仍需新固定提交的完整source/Windows8及全48，不能把12帧开发probe算完整矩阵。
+
+## 最终380完整检查与导入异常边界
+
+实际入口`tools/check_issue_31.py --clock paced`在全新独立Git副本`.godot/issue31-rc3/verified-project-3806da8-serial`执行，TEMP为被测checkout外E盘`temp-3806da8-serial`。44递归Godot（含继承式running_muzzle）、21Python无skip（含Windows端到端2及真实GL3），导入和headless/GL各90帧，总48记录全部实际exit0、ERROR/SCRIPT ERROR/WARNING零，strict_pass/complete_suite=true；Python113.744s。固定60fps+每process_frame17ms墙钟，victory120/30，原断言不变。
+
+开始HEAD380/status空；结束HEAD相同、25个.import行尾/stat标志，normalized/staged diff空，未stage掩盖。完整argv/inventory/results/raw日志位于verification-final/及持久交付verification。此轮未并发其他Godot捕获、打包或Editor导入，避免把未控制的并发条件混入最终记录。
+
+380首次同实现完整运行失败仍保留：helper import返回失败但原assert未打印内层实际退出，Python18tests/errors1，Godot44/全项目import/两启动通过，strict_pass=false；不能据无engine ERROR声称import exit0。原因未知，不补造3221225477或宣布缓存/并发为已定根因。原副本两次重新import实际exit0/无诊断，只是后续观察，不能恢复首次未记录的退出。失败在verification-first-3806da8及持久diagnostics，重导入argv/实际退出在import-exit-probe。旧36未知异常也不借此宣称已解决。
+
+## 实际源码与原封Windows包的同级图形证据
+
+[汇总](summary.json)、[源码记录](source/run-record.json)、[Windows记录](windows/run-record.json) 均8/8实际exit0、timeout=null、零诊断，前后HEAD380/status/diff/staged空；OpenGL/NVIDIA4060、640×360、固定60模拟+17ms墙钟；终局120Hz/30fps。Windows仅原封EXE+固定userargs入口，无--script/path/外部mainpack，验证时EXE SHA256 `16CE231D4B1910AC6EC14EB2F3FFAF9B81CB5BD5B064C82DC0F6ADE16FC30A66`。普通玩家启动无验证参数、不留下验证节点/信号/后台工作，不新增玩家功能。
+
+两套每套各540配对/642短帧，三个镜头枪身变化0、后沿误差1/0/1px；十种双向站/跑/跳/受击姿态完整。paired首次真实非fatal生命事件后普通Input右2左2并恢复计划；tick125调用可能被正常无敌期挡住，未伪称强制造伤。配对暂停只用于同姿态有无己方反馈差分；原速motion不隐藏效果。两套每套54发/2783独立飞行样本，birth0、maxflight0.003173828px。跟随550.03..725.03、固定3580。
+
+残骸四组243/243、130/130、97/97、1169/1169均行动员前景，尸体673/3687像素仍可见。静态设姿/传送/公开受击组件fixture单独披露；正常起点合法Input全关另证五兵+42机甲有效命中、health1胜利，物理R恢复140/3HP/42机甲。真赢弹120/30变向前后冻结枪管origin/pose/facing相同，死亡无短帧、实体R重建后枪身/接缝正确。模拟机甲时间不替换真人“时间差不多”。
+
+每套三条180帧/60fps/3秒APNG解码逐帧与raw全等；合法全关116帧/5fps，115个实际相邻physics delta全12，明确抽样不冒称60fps。41张精选PNG跨source/EXE有27字节相同、14不同（跑步pose用实际Time.get_ticks_msec/125），不宣称后端/时间跨运行全等；每套自己的真实掩码/枪口证据均过。
+
+完整raw/日志/trace与所有呈现及3663项SHA持久于`E:\Projects\game_hundouluo_codex_artifacts\v0.1.1-rc.3\render-evidence`，不依赖临时worktree。根代理实际查看Windows固定射击与左向残骸图，枪身/火光/独立弹道/门/HUD同屏清楚；所有像素/原速/合法Input证据仅工程确认，三票人工仍未确认。官方release两次不可用CLI入口、辅助movie超时、包合同红/GL依赖红及首次完整失败全部保留，见持久diagnostics。

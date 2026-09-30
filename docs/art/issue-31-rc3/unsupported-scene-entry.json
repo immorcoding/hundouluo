@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "E:/Projects/game_hundouluo_codex_artifacts/v0.1.1-rc.3/implementation-play-344d151/\u8f68\u9053\u57fa\u5730.exe",
+    "res://scenes/operative.tscn",
+    "--rendering-method",
+    "gl_compatibility",
+    "--resolution",
+    "640x360",
+    "--quit-after",
+    "2",
+    "--write-movie",
+    "E:\\Projects\\game_hundouluo_codex_worktree\\issue-31-v011-acceptance\\.godot\\issue31-rc3\\windows-scene-probe\\frame.png"
+  ],
+  "exit": 3221225620
+}

@@ -1,0 +1,1444 @@
+{
+  "disclosure": "Legal-run: normal spawn, only Input, physical R. Layers: initial actor teleport/public enemy.receive_hit; pause/freeze camera and Sprite frame 0 or 1 only for component visibility renders. Mech-victory layers use direct public hits and actor teleport after victory; true winning projectile separately captured by rc3_outcomes at 120Hz/30fps. Neither fixtures nor simulated mech timing are new human acceptance.",
+  "engine": "4.7.2-stable (official)",
+  "failures": [],
+  "fixed_fps": 60,
+  "frame_samples": [
+    {
+      "physics_frame": 3,
+      "sequence": "legal-run",
+      "tick": 0
+    },
+    {
+      "physics_frame": 15,
+      "sequence": "legal-run",
+      "tick": 12
+    },
+    {
+      "physics_frame": 27,
+      "sequence": "legal-run",
+      "tick": 24
+    },
+    {
+      "physics_frame": 39,
+      "sequence": "legal-run",
+      "tick": 36
+    },
+    {
+      "physics_frame": 51,
+      "sequence": "legal-run",
+      "tick": 48
+    },
+    {
+      "physics_frame": 63,
+      "sequence": "legal-run",
+      "tick": 60
+    },
+    {
+      "physics_frame": 75,
+      "sequence": "legal-run",
+      "tick": 72
+    },
+    {
+      "physics_frame": 87,
+      "sequence": "legal-run",
+      "tick": 84
+    },
+    {
+      "physics_frame": 99,
+      "sequence": "legal-run",
+      "tick": 96
+    },
+    {
+      "physics_frame": 111,
+      "sequence": "legal-run",
+      "tick": 108
+    },
+    {
+      "physics_frame": 123,
+      "sequence": "legal-run",
+      "tick": 120
+    },
+    {
+      "physics_frame": 135,
+      "sequence": "legal-run",
+      "tick": 132
+    },
+    {
+      "physics_frame": 147,
+      "sequence": "legal-run",
+      "tick": 144
+    },
+    {
+      "physics_frame": 159,
+      "sequence": "legal-run",
+      "tick": 156
+    },
+    {
+      "physics_frame": 171,
+      "sequence": "legal-run",
+      "tick": 168
+    },
+    {
+      "physics_frame": 183,
+      "sequence": "legal-run",
+      "tick": 180
+    },
+    {
+      "physics_frame": 195,
+      "sequence": "legal-run",
+      "tick": 192
+    },
+    {
+      "physics_frame": 207,
+      "sequence": "legal-run",
+      "tick": 204
+    },
+    {
+      "physics_frame": 219,
+      "sequence": "legal-run",
+      "tick": 216
+    },
+    {
+      "physics_frame": 231,
+      "sequence": "legal-run",
+      "tick": 228
+    },
+    {
+      "physics_frame": 243,
+      "sequence": "legal-run",
+      "tick": 240
+    },
+    {
+      "physics_frame": 255,
+      "sequence": "legal-run",
+      "tick": 252
+    },
+    {
+      "physics_frame": 267,
+      "sequence": "legal-run",
+      "tick": 264
+    },
+    {
+      "physics_frame": 279,
+      "sequence": "legal-run",
+      "tick": 276
+    },
+    {
+      "physics_frame": 291,
+      "sequence": "legal-run",
+      "tick": 288
+    },
+    {
+      "physics_frame": 303,
+      "sequence": "legal-run",
+      "tick": 300
+    },
+    {
+      "physics_frame": 315,
+      "sequence": "legal-run",
+      "tick": 312
+    },
+    {
+      "physics_frame": 327,
+      "sequence": "legal-run",
+      "tick": 324
+    },
+    {
+      "physics_frame": 339,
+      "sequence": "legal-run",
+      "tick": 336
+    },
+    {
+      "physics_frame": 351,
+      "sequence": "legal-run",
+      "tick": 348
+    },
+    {
+      "physics_frame": 363,
+      "sequence": "legal-run",
+      "tick": 360
+    },
+    {
+      "physics_frame": 375,
+      "sequence": "legal-run",
+      "tick": 372
+    },
+    {
+      "physics_frame": 387,
+      "sequence": "legal-run",
+      "tick": 384
+    },
+    {
+      "physics_frame": 399,
+      "sequence": "legal-run",
+      "tick": 396
+    },
+    {
+      "physics_frame": 411,
+      "sequence": "legal-run",
+      "tick": 408
+    },
+    {
+      "physics_frame": 423,
+      "sequence": "legal-run",
+      "tick": 420
+    },
+    {
+      "physics_frame": 435,
+      "sequence": "legal-run",
+      "tick": 432
+    },
+    {
+      "physics_frame": 447,
+      "sequence": "legal-run",
+      "tick": 444
+    },
+    {
+      "physics_frame": 459,
+      "sequence": "legal-run",
+      "tick": 456
+    },
+    {
+      "physics_frame": 471,
+      "sequence": "legal-run",
+      "tick": 468
+    },
+    {
+      "physics_frame": 483,
+      "sequence": "legal-run",
+      "tick": 480
+    },
+    {
+      "physics_frame": 495,
+      "sequence": "legal-run",
+      "tick": 492
+    },
+    {
+      "physics_frame": 507,
+      "sequence": "legal-run",
+      "tick": 504
+    },
+    {
+      "physics_frame": 519,
+      "sequence": "legal-run",
+      "tick": 516
+    },
+    {
+      "physics_frame": 531,
+      "sequence": "legal-run",
+      "tick": 528
+    },
+    {
+      "physics_frame": 543,
+      "sequence": "legal-run",
+      "tick": 540
+    },
+    {
+      "physics_frame": 555,
+      "sequence": "legal-run",
+      "tick": 552
+    },
+    {
+      "physics_frame": 567,
+      "sequence": "legal-run",
+      "tick": 564
+    },
+    {
+      "physics_frame": 579,
+      "sequence": "legal-run",
+      "tick": 576
+    },
+    {
+      "physics_frame": 591,
+      "sequence": "legal-run",
+      "tick": 588
+    },
+    {
+      "physics_frame": 603,
+      "sequence": "legal-run",
+      "tick": 600
+    },
+    {
+      "physics_frame": 615,
+      "sequence": "legal-run",
+      "tick": 612
+    },
+    {
+      "physics_frame": 627,
+      "sequence": "legal-run",
+      "tick": 624
+    },
+    {
+      "physics_frame": 639,
+      "sequence": "legal-run",
+      "tick": 636
+    },
+    {
+      "physics_frame": 651,
+      "sequence": "legal-run",
+      "tick": 648
+    },
+    {
+      "physics_frame": 663,
+      "sequence": "legal-run",
+      "tick": 660
+    },
+    {
+      "physics_frame": 675,
+      "sequence": "legal-run",
+      "tick": 672
+    },
+    {
+      "physics_frame": 687,
+      "sequence": "legal-run",
+      "tick": 684
+    },
+    {
+      "physics_frame": 699,
+      "sequence": "legal-run",
+      "tick": 696
+    },
+    {
+      "physics_frame": 711,
+      "sequence": "legal-run",
+      "tick": 708
+    },
+    {
+      "physics_frame": 723,
+      "sequence": "legal-run",
+      "tick": 720
+    },
+    {
+      "physics_frame": 735,
+      "sequence": "legal-run",
+      "tick": 732
+    },
+    {
+      "physics_frame": 747,
+      "sequence": "legal-run",
+      "tick": 744
+    },
+    {
+      "physics_frame": 759,
+      "sequence": "legal-run",
+      "tick": 756
+    },
+    {
+      "physics_frame": 771,
+      "sequence": "legal-run",
+      "tick": 768
+    },
+    {
+      "physics_frame": 783,
+      "sequence": "legal-run",
+      "tick": 780
+    },
+    {
+      "physics_frame": 795,
+      "sequence": "legal-run",
+      "tick": 792
+    },
+    {
+      "physics_frame": 807,
+      "sequence": "legal-run",
+      "tick": 804
+    },
+    {
+      "physics_frame": 819,
+      "sequence": "legal-run",
+      "tick": 816
+    },
+    {
+      "physics_frame": 831,
+      "sequence": "legal-run",
+      "tick": 828
+    },
+    {
+      "physics_frame": 843,
+      "sequence": "legal-run",
+      "tick": 840
+    },
+    {
+      "physics_frame": 855,
+      "sequence": "legal-run",
+      "tick": 852
+    },
+    {
+      "physics_frame": 867,
+      "sequence": "legal-run",
+      "tick": 864
+    },
+    {
+      "physics_frame": 879,
+      "sequence": "legal-run",
+      "tick": 876
+    },
+    {
+      "physics_frame": 891,
+      "sequence": "legal-run",
+      "tick": 888
+    },
+    {
+      "physics_frame": 903,
+      "sequence": "legal-run",
+      "tick": 900
+    },
+    {
+      "physics_frame": 915,
+      "sequence": "legal-run",
+      "tick": 912
+    },
+    {
+      "physics_frame": 927,
+      "sequence": "legal-run",
+      "tick": 924
+    },
+    {
+      "physics_frame": 939,
+      "sequence": "legal-run",
+      "tick": 936
+    },
+    {
+      "physics_frame": 951,
+      "sequence": "legal-run",
+      "tick": 948
+    },
+    {
+      "physics_frame": 963,
+      "sequence": "legal-run",
+      "tick": 960
+    },
+    {
+      "physics_frame": 975,
+      "sequence": "legal-run",
+      "tick": 972
+    },
+    {
+      "physics_frame": 987,
+      "sequence": "legal-run",
+      "tick": 984
+    },
+    {
+      "physics_frame": 999,
+      "sequence": "legal-run",
+      "tick": 996
+    },
+    {
+      "physics_frame": 1011,
+      "sequence": "legal-run",
+      "tick": 1008
+    },
+    {
+      "physics_frame": 1023,
+      "sequence": "legal-run",
+      "tick": 1020
+    },
+    {
+      "physics_frame": 1035,
+      "sequence": "legal-run",
+      "tick": 1032
+    },
+    {
+      "physics_frame": 1047,
+      "sequence": "legal-run",
+      "tick": 1044
+    },
+    {
+      "physics_frame": 1059,
+      "sequence": "legal-run",
+      "tick": 1056
+    },
+    {
+      "physics_frame": 1071,
+      "sequence": "legal-run",
+      "tick": 1068
+    },
+    {
+      "physics_frame": 1083,
+      "sequence": "legal-run",
+      "tick": 1080
+    },
+    {
+      "physics_frame": 1095,
+      "sequence": "legal-run",
+      "tick": 1092
+    },
+    {
+      "physics_frame": 1107,
+      "sequence": "legal-run",
+      "tick": 1104
+    },
+    {
+      "physics_frame": 1119,
+      "sequence": "legal-run",
+      "tick": 1116
+    },
+    {
+      "physics_frame": 1131,
+      "sequence": "legal-run",
+      "tick": 1128
+    },
+    {
+      "physics_frame": 1143,
+      "sequence": "legal-run",
+      "tick": 1140
+    },
+    {
+      "physics_frame": 1155,
+      "sequence": "legal-run",
+      "tick": 1152
+    },
+    {
+      "physics_frame": 1167,
+      "sequence": "legal-run",
+      "tick": 1164
+    },
+    {
+      "physics_frame": 1179,
+      "sequence": "legal-run",
+      "tick": 1176
+    },
+    {
+      "physics_frame": 1191,
+      "sequence": "legal-run",
+      "tick": 1188
+    },
+    {
+      "physics_frame": 1203,
+      "sequence": "legal-run",
+      "tick": 1200
+    },
+    {
+      "physics_frame": 1215,
+      "sequence": "legal-run",
+      "tick": 1212
+    },
+    {
+      "physics_frame": 1227,
+      "sequence": "legal-run",
+      "tick": 1224
+    },
+    {
+      "physics_frame": 1239,
+      "sequence": "legal-run",
+      "tick": 1236
+    },
+    {
+      "physics_frame": 1251,
+      "sequence": "legal-run",
+      "tick": 1248
+    },
+    {
+      "physics_frame": 1263,
+      "sequence": "legal-run",
+      "tick": 1260
+    },
+    {
+      "physics_frame": 1275,
+      "sequence": "legal-run",
+      "tick": 1272
+    },
+    {
+      "physics_frame": 1287,
+      "sequence": "legal-run",
+      "tick": 1284
+    },
+    {
+      "physics_frame": 1299,
+      "sequence": "legal-run",
+      "tick": 1296
+    },
+    {
+      "physics_frame": 1311,
+      "sequence": "legal-run",
+      "tick": 1308
+    },
+    {
+      "physics_frame": 1323,
+      "sequence": "legal-run",
+      "tick": 1320
+    },
+    {
+      "physics_frame": 1335,
+      "sequence": "legal-run",
+      "tick": 1332
+    },
+    {
+      "physics_frame": 1347,
+      "sequence": "legal-run",
+      "tick": 1344
+    },
+    {
+      "physics_frame": 1359,
+      "sequence": "legal-run",
+      "tick": 1356
+    },
+    {
+      "physics_frame": 1371,
+      "sequence": "legal-run",
+      "tick": 1368
+    },
+    {
+      "physics_frame": 1383,
+      "sequence": "legal-run",
+      "tick": 1380
+    }
+  ],
+  "layers": [
+    {
+      "actor_z": 0,
+      "corpse_health": 0,
+      "corpse_position": [
+        809.533325195313,
+        251.925277709961
+      ],
+      "corpse_z": -1,
+      "left": false,
+      "name": "soldier-standing",
+      "pose": 0
+    },
+    {
+      "actor_z": 0,
+      "corpse_health": 0,
+      "corpse_position": [
+        809.533325195313,
+        251.925277709961
+      ],
+      "corpse_z": -1,
+      "left": false,
+      "name": "soldier-moving-right",
+      "pose": 1
+    },
+    {
+      "actor_z": 0,
+      "corpse_health": 0,
+      "corpse_position": [
+        809.533325195313,
+        251.925277709961
+      ],
+      "corpse_z": -1,
+      "left": true,
+      "name": "soldier-moving-left",
+      "pose": 1
+    },
+    {
+      "actor_z": 0,
+      "corpse_health": 0,
+      "corpse_position": [
+        3830.0,
+        252.0
+      ],
+      "corpse_z": -1,
+      "left": false,
+      "name": "mech-victory",
+      "pose": 0
+    }
+  ],
+  "native_size": [
+    640,
+    360
+  ],
+  "physics_hz": 60,
+  "sequences": [
+    {
+      "actor_health": 1,
+      "actor_x": 3542.03247070313,
+      "actor_y": 251.92399597168,
+      "camera_x": 3580.0,
+      "charges": 2,
+      "combat_seconds": 7.26666666666667,
+      "combat_start_physics_frame": 953,
+      "effective_hit_events": [
+        {
+          "actor_x": 3482.53247070313,
+          "actor_y": 251.925186157227,
+          "health_after": 41,
+          "health_before": 42,
+          "physics_frame": 957
+        },
+        {
+          "actor_x": 3503.53247070313,
+          "actor_y": 251.925186157227,
+          "health_after": 40,
+          "health_before": 41,
+          "physics_frame": 963
+        },
+        {
+          "actor_x": 3524.53247070313,
+          "actor_y": 251.925186157227,
+          "health_after": 39,
+          "health_before": 40,
+          "physics_frame": 969
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.925186157227,
+          "health_after": 38,
+          "health_before": 39,
+          "physics_frame": 975
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.925186157227,
+          "health_after": 37,
+          "health_before": 38,
+          "physics_frame": 981
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.925186157227,
+          "health_after": 36,
+          "health_before": 37,
+          "physics_frame": 987
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.925186157227,
+          "health_after": 35,
+          "health_before": 36,
+          "physics_frame": 993
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.925186157227,
+          "health_after": 34,
+          "health_before": 35,
+          "physics_frame": 999
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.925186157227,
+          "health_after": 33,
+          "health_before": 34,
+          "physics_frame": 1009
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.925186157227,
+          "health_after": 32,
+          "health_before": 33,
+          "physics_frame": 1019
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.925186157227,
+          "health_after": 31,
+          "health_before": 32,
+          "physics_frame": 1029
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.925186157227,
+          "health_after": 30,
+          "health_before": 31,
+          "physics_frame": 1039
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 203.174026489258,
+          "health_after": 29,
+          "health_before": 30,
+          "physics_frame": 1049
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 179.424026489258,
+          "health_after": 28,
+          "health_before": 29,
+          "physics_frame": 1059
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 180.674026489258,
+          "health_after": 27,
+          "health_before": 28,
+          "physics_frame": 1069
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.924026489258,
+          "health_after": 26,
+          "health_before": 27,
+          "physics_frame": 1109
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.924026489258,
+          "health_after": 25,
+          "health_before": 26,
+          "physics_frame": 1119
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.924026489258,
+          "health_after": 24,
+          "health_before": 25,
+          "physics_frame": 1129
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.924026489258,
+          "health_after": 23,
+          "health_before": 24,
+          "physics_frame": 1139
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.924026489258,
+          "health_after": 22,
+          "health_before": 23,
+          "physics_frame": 1149
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.924026489258,
+          "health_after": 21,
+          "health_before": 22,
+          "physics_frame": 1159
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.924026489258,
+          "health_after": 20,
+          "health_before": 21,
+          "physics_frame": 1169
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.924026489258,
+          "health_after": 19,
+          "health_before": 20,
+          "physics_frame": 1179
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.924026489258,
+          "health_after": 18,
+          "health_before": 19,
+          "physics_frame": 1189
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.924026489258,
+          "health_after": 17,
+          "health_before": 18,
+          "physics_frame": 1199
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.924026489258,
+          "health_after": 16,
+          "health_before": 17,
+          "physics_frame": 1209
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.924026489258,
+          "health_after": 15,
+          "health_before": 16,
+          "physics_frame": 1219
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.924026489258,
+          "health_after": 14,
+          "health_before": 15,
+          "physics_frame": 1229
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.924026489258,
+          "health_after": 13,
+          "health_before": 14,
+          "physics_frame": 1239
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.924026489258,
+          "health_after": 12,
+          "health_before": 13,
+          "physics_frame": 1249
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.924026489258,
+          "health_after": 11,
+          "health_before": 12,
+          "physics_frame": 1259
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.924026489258,
+          "health_after": 10,
+          "health_before": 11,
+          "physics_frame": 1269
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 215.17399597168,
+          "health_after": 9,
+          "health_before": 10,
+          "physics_frame": 1279
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 183.92399597168,
+          "health_after": 8,
+          "health_before": 9,
+          "physics_frame": 1289
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 177.67399597168,
+          "health_after": 7,
+          "health_before": 8,
+          "physics_frame": 1299
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 196.42399597168,
+          "health_after": 6,
+          "health_before": 7,
+          "physics_frame": 1309
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.92399597168,
+          "health_after": 5,
+          "health_before": 6,
+          "physics_frame": 1339
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.92399597168,
+          "health_after": 4,
+          "health_before": 5,
+          "physics_frame": 1349
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.92399597168,
+          "health_after": 3,
+          "health_before": 4,
+          "physics_frame": 1359
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.92399597168,
+          "health_after": 2,
+          "health_before": 3,
+          "physics_frame": 1369
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.92399597168,
+          "health_after": 1,
+          "health_before": 2,
+          "physics_frame": 1379
+        },
+        {
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.92399597168,
+          "health_after": 0,
+          "health_before": 1,
+          "physics_frame": 1389
+        }
+      ],
+      "effective_mech_hits": 42,
+      "end_physics_frame": 1389,
+      "enemy_shots": 6,
+      "first_effective_mech_hit_physics_frame": 957,
+      "gap_jump": true,
+      "gate_closed": true,
+      "gate_frame": 7,
+      "jump_physics_frames": [
+        323,
+        1040,
+        1273
+      ],
+      "mech_health": 0,
+      "mech_visible": false,
+      "on_floor": true,
+      "outcome": true,
+      "physics_frame": 1389,
+      "player_shots": 139,
+      "reason": "防御机甲已击败",
+      "retry": {
+        "actor_health": 3,
+        "actor_x": 140.0,
+        "actor_y": 252.0,
+        "camera_x": 320.0,
+        "charges": 0,
+        "enemy_shots": 0,
+        "gate_closed": false,
+        "gate_frame": 0,
+        "mech_health": 42,
+        "mech_visible": false,
+        "on_floor": true,
+        "outcome": false,
+        "physics_frame": 1392,
+        "player_shots": 0,
+        "reason": "生命耗尽"
+      },
+      "run_seconds": 23.1166666666667,
+      "sequence": "legal-run",
+      "setup": "Normal level spawn. Only move_right, shoot, one gap jump and projectile-triggered boss jumps, then physical R key event.",
+      "soldiers_defeated": 5,
+      "start_physics_frame": 2,
+      "timeline": [
+        {
+          "actor_health": 3,
+          "actor_x": 143.5,
+          "actor_y": 252.0,
+          "camera_x": 320.0,
+          "charges": 0,
+          "enemy_shots": 0,
+          "gate_closed": false,
+          "gate_frame": 0,
+          "mech_health": 42,
+          "mech_visible": false,
+          "on_floor": true,
+          "outcome": false,
+          "physics_frame": 3,
+          "player_shots": 1,
+          "reason": "生命耗尽",
+          "tick": 0
+        },
+        {
+          "actor_health": 3,
+          "actor_x": 353.5,
+          "actor_y": 252.0,
+          "camera_x": 468.5,
+          "charges": 0,
+          "enemy_shots": 0,
+          "gate_closed": false,
+          "gate_frame": 0,
+          "mech_health": 42,
+          "mech_visible": false,
+          "on_floor": true,
+          "outcome": false,
+          "physics_frame": 63,
+          "player_shots": 7,
+          "reason": "生命耗尽",
+          "tick": 60
+        },
+        {
+          "actor_health": 3,
+          "actor_x": 563.5,
+          "actor_y": 252.0,
+          "camera_x": 678.5,
+          "charges": 0,
+          "enemy_shots": 0,
+          "gate_closed": false,
+          "gate_frame": 0,
+          "mech_health": 42,
+          "mech_visible": false,
+          "on_floor": true,
+          "outcome": false,
+          "physics_frame": 123,
+          "player_shots": 13,
+          "reason": "生命耗尽",
+          "tick": 120
+        },
+        {
+          "actor_health": 3,
+          "actor_x": 773.5,
+          "actor_y": 252.0,
+          "camera_x": 888.5,
+          "charges": 0,
+          "enemy_shots": 0,
+          "gate_closed": false,
+          "gate_frame": 0,
+          "mech_health": 42,
+          "mech_visible": false,
+          "on_floor": true,
+          "outcome": false,
+          "physics_frame": 183,
+          "player_shots": 19,
+          "reason": "生命耗尽",
+          "tick": 180
+        },
+        {
+          "actor_health": 3,
+          "actor_x": 983.5,
+          "actor_y": 252.0,
+          "camera_x": 1098.5,
+          "charges": 0,
+          "enemy_shots": 0,
+          "gate_closed": false,
+          "gate_frame": 0,
+          "mech_health": 42,
+          "mech_visible": false,
+          "on_floor": true,
+          "outcome": false,
+          "physics_frame": 243,
+          "player_shots": 25,
+          "reason": "生命耗尽",
+          "tick": 240
+        },
+        {
+          "actor_health": 3,
+          "actor_x": 1193.5,
+          "actor_y": 252.0,
+          "camera_x": 1308.5,
+          "charges": 0,
+          "enemy_shots": 0,
+          "gate_closed": false,
+          "gate_frame": 0,
+          "mech_health": 42,
+          "mech_visible": false,
+          "on_floor": true,
+          "outcome": false,
+          "physics_frame": 303,
+          "player_shots": 31,
+          "reason": "生命耗尽",
+          "tick": 300
+        },
+        {
+          "actor_health": 3,
+          "actor_x": 1403.53247070313,
+          "actor_y": 210.944244384766,
+          "camera_x": 1518.53247070313,
+          "charges": 0,
+          "enemy_shots": 0,
+          "gate_closed": false,
+          "gate_frame": 0,
+          "mech_health": 42,
+          "mech_visible": false,
+          "on_floor": false,
+          "outcome": false,
+          "physics_frame": 363,
+          "player_shots": 37,
+          "reason": "生命耗尽",
+          "tick": 360
+        },
+        {
+          "actor_health": 3,
+          "actor_x": 1613.53247070313,
+          "actor_y": 251.925186157227,
+          "camera_x": 1728.53247070313,
+          "charges": 0,
+          "enemy_shots": 0,
+          "gate_closed": false,
+          "gate_frame": 0,
+          "mech_health": 42,
+          "mech_visible": false,
+          "on_floor": true,
+          "outcome": false,
+          "physics_frame": 423,
+          "player_shots": 43,
+          "reason": "生命耗尽",
+          "tick": 420
+        },
+        {
+          "actor_health": 3,
+          "actor_x": 1823.53247070313,
+          "actor_y": 251.925186157227,
+          "camera_x": 1938.53247070313,
+          "charges": 0,
+          "enemy_shots": 0,
+          "gate_closed": false,
+          "gate_frame": 0,
+          "mech_health": 42,
+          "mech_visible": false,
+          "on_floor": true,
+          "outcome": false,
+          "physics_frame": 483,
+          "player_shots": 49,
+          "reason": "生命耗尽",
+          "tick": 480
+        },
+        {
+          "actor_health": 3,
+          "actor_x": 2033.53247070313,
+          "actor_y": 251.925186157227,
+          "camera_x": 2148.53247070313,
+          "charges": 0,
+          "enemy_shots": 0,
+          "gate_closed": false,
+          "gate_frame": 0,
+          "mech_health": 42,
+          "mech_visible": false,
+          "on_floor": true,
+          "outcome": false,
+          "physics_frame": 543,
+          "player_shots": 55,
+          "reason": "生命耗尽",
+          "tick": 540
+        },
+        {
+          "actor_health": 3,
+          "actor_x": 2243.53247070313,
+          "actor_y": 251.925186157227,
+          "camera_x": 2358.53247070313,
+          "charges": 0,
+          "enemy_shots": 0,
+          "gate_closed": false,
+          "gate_frame": 0,
+          "mech_health": 42,
+          "mech_visible": false,
+          "on_floor": true,
+          "outcome": false,
+          "physics_frame": 603,
+          "player_shots": 61,
+          "reason": "生命耗尽",
+          "tick": 600
+        },
+        {
+          "actor_health": 3,
+          "actor_x": 2453.53247070313,
+          "actor_y": 251.925186157227,
+          "camera_x": 2568.53247070313,
+          "charges": 0,
+          "enemy_shots": 0,
+          "gate_closed": false,
+          "gate_frame": 0,
+          "mech_health": 42,
+          "mech_visible": false,
+          "on_floor": true,
+          "outcome": false,
+          "physics_frame": 663,
+          "player_shots": 67,
+          "reason": "生命耗尽",
+          "tick": 660
+        },
+        {
+          "actor_health": 3,
+          "actor_x": 2663.53247070313,
+          "actor_y": 251.925186157227,
+          "camera_x": 2778.53247070313,
+          "charges": 0,
+          "enemy_shots": 0,
+          "gate_closed": false,
+          "gate_frame": 0,
+          "mech_health": 42,
+          "mech_visible": false,
+          "on_floor": true,
+          "outcome": false,
+          "physics_frame": 723,
+          "player_shots": 73,
+          "reason": "生命耗尽",
+          "tick": 720
+        },
+        {
+          "actor_health": 3,
+          "actor_x": 2873.53247070313,
+          "actor_y": 251.925186157227,
+          "camera_x": 2988.53247070313,
+          "charges": 0,
+          "enemy_shots": 0,
+          "gate_closed": false,
+          "gate_frame": 0,
+          "mech_health": 42,
+          "mech_visible": false,
+          "on_floor": true,
+          "outcome": false,
+          "physics_frame": 783,
+          "player_shots": 79,
+          "reason": "生命耗尽",
+          "tick": 780
+        },
+        {
+          "actor_health": 3,
+          "actor_x": 3083.53247070313,
+          "actor_y": 251.925186157227,
+          "camera_x": 3198.53247070313,
+          "charges": 0,
+          "enemy_shots": 0,
+          "gate_closed": false,
+          "gate_frame": 0,
+          "mech_health": 42,
+          "mech_visible": false,
+          "on_floor": true,
+          "outcome": false,
+          "physics_frame": 843,
+          "player_shots": 85,
+          "reason": "生命耗尽",
+          "tick": 840
+        },
+        {
+          "actor_health": 3,
+          "actor_x": 3293.53247070313,
+          "actor_y": 251.925186157227,
+          "camera_x": 3408.53247070313,
+          "charges": 0,
+          "enemy_shots": 0,
+          "gate_closed": false,
+          "gate_frame": 0,
+          "mech_health": 42,
+          "mech_visible": false,
+          "on_floor": true,
+          "outcome": false,
+          "physics_frame": 903,
+          "player_shots": 91,
+          "reason": "生命耗尽",
+          "tick": 900
+        },
+        {
+          "actor_health": 3,
+          "actor_x": 3503.53247070313,
+          "actor_y": 251.925186157227,
+          "camera_x": 3618.53247070313,
+          "charges": 1,
+          "enemy_shots": 0,
+          "gate_closed": false,
+          "gate_frame": 5,
+          "mech_health": 40,
+          "mech_visible": true,
+          "on_floor": true,
+          "outcome": false,
+          "physics_frame": 963,
+          "player_shots": 97,
+          "reason": "生命耗尽",
+          "tick": 960
+        },
+        {
+          "actor_health": 3,
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.925186157227,
+          "camera_x": 3580.0,
+          "charges": 1,
+          "enemy_shots": 1,
+          "gate_closed": true,
+          "gate_frame": 7,
+          "mech_health": 32,
+          "mech_visible": true,
+          "on_floor": true,
+          "outcome": false,
+          "physics_frame": 1023,
+          "player_shots": 103,
+          "reason": "生命耗尽",
+          "tick": 1020
+        },
+        {
+          "actor_health": 3,
+          "actor_x": 3542.03247070313,
+          "actor_y": 224.424026489258,
+          "camera_x": 3580.0,
+          "charges": 1,
+          "enemy_shots": 3,
+          "gate_closed": true,
+          "gate_frame": 7,
+          "mech_health": 27,
+          "mech_visible": true,
+          "on_floor": false,
+          "outcome": false,
+          "physics_frame": 1083,
+          "player_shots": 109,
+          "reason": "生命耗尽",
+          "tick": 1080
+        },
+        {
+          "actor_health": 2,
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.924026489258,
+          "camera_x": 3580.0,
+          "charges": 1,
+          "enemy_shots": 3,
+          "gate_closed": true,
+          "gate_frame": 7,
+          "mech_health": 23,
+          "mech_visible": true,
+          "on_floor": true,
+          "outcome": false,
+          "physics_frame": 1143,
+          "player_shots": 115,
+          "reason": "生命耗尽",
+          "tick": 1140
+        },
+        {
+          "actor_health": 2,
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.924026489258,
+          "camera_x": 3580.0,
+          "charges": 2,
+          "enemy_shots": 3,
+          "gate_closed": true,
+          "gate_frame": 7,
+          "mech_health": 17,
+          "mech_visible": true,
+          "on_floor": true,
+          "outcome": false,
+          "physics_frame": 1203,
+          "player_shots": 121,
+          "reason": "生命耗尽",
+          "tick": 1200
+        },
+        {
+          "actor_health": 2,
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.924026489258,
+          "camera_x": 3580.0,
+          "charges": 2,
+          "enemy_shots": 5,
+          "gate_closed": true,
+          "gate_frame": 7,
+          "mech_health": 11,
+          "mech_visible": true,
+          "on_floor": true,
+          "outcome": false,
+          "physics_frame": 1263,
+          "player_shots": 127,
+          "reason": "生命耗尽",
+          "tick": 1260
+        },
+        {
+          "actor_health": 1,
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.92399597168,
+          "camera_x": 3580.0,
+          "charges": 2,
+          "enemy_shots": 6,
+          "gate_closed": true,
+          "gate_frame": 7,
+          "mech_health": 6,
+          "mech_visible": true,
+          "on_floor": true,
+          "outcome": false,
+          "physics_frame": 1323,
+          "player_shots": 133,
+          "reason": "生命耗尽",
+          "tick": 1320
+        },
+        {
+          "actor_health": 1,
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.92399597168,
+          "camera_x": 3580.0,
+          "charges": 2,
+          "enemy_shots": 6,
+          "gate_closed": true,
+          "gate_frame": 7,
+          "mech_health": 1,
+          "mech_visible": true,
+          "on_floor": true,
+          "outcome": false,
+          "physics_frame": 1383,
+          "player_shots": 139,
+          "reason": "生命耗尽",
+          "tick": 1380
+        },
+        {
+          "actor_health": 1,
+          "actor_x": 3542.03247070313,
+          "actor_y": 251.92399597168,
+          "camera_x": 3580.0,
+          "charges": 2,
+          "enemy_shots": 6,
+          "gate_closed": true,
+          "gate_frame": 7,
+          "mech_health": 0,
+          "mech_visible": false,
+          "on_floor": true,
+          "outcome": true,
+          "physics_frame": 1389,
+          "player_shots": 139,
+          "reason": "防御机甲已击败",
+          "tick": 1386
+        }
+      ]
+    }
+  ],
+  "wall_clock_pacing": "process_frame OS.delay_msec(17)"
+}
