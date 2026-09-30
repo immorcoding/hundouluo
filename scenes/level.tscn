@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3]
+[gd_scene load_steps=24 format=3]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/operative.tscn" id="2"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" path="res://scenes/defense_mech.tscn" id="6"]
 [ext_resource type="Script" path="res://scripts/level_hud.gd" id="7"]
 [ext_resource type="Script" path="res://scripts/combat_feedback.gd" id="8"]
+[ext_resource type="Texture2D" path="res://assets/entry_gate_v011/gate.png" id="gate"]
 
 [ext_resource type="Texture2D" path="res://assets/ui_v011/hud.png" id="ui_hud"]
 [ext_resource type="Texture2D" path="res://assets/ui_v011/life-full.png" id="ui_life-full"]
@@ -101,6 +102,24 @@ shape = SubResource("RightGround")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(320, 180)
 
+[node name="CombatEntry" type="Node2D" parent="."]
+position = Vector2(3396, 252)
+
+[node name="Artwork" type="Sprite2D" parent="CombatEntry"]
+position = Vector2(0, -108)
+texture_filter = 1
+texture = ExtResource("gate")
+hframes = 8
+
+[node name="Barrier" type="StaticBody2D" parent="CombatEntry"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CombatEntry/Barrier"]
+position = Vector2(0, -74)
+shape = SubResource("EntryBarrier")
+disabled = true
+
 [node name="Operative" type="Node2D" parent="."]
 
 [node name="Operative" parent="Operative" instance=ExtResource("2")]
@@ -126,27 +145,6 @@ position = Vector2(3160, 252)
 position = Vector2(3830, 252)
 
 [node name="DefenseMech" parent="BossSlot" instance=ExtResource("6")]
-
-[node name="CombatEntry" type="Node2D" parent="."]
-position = Vector2(3444, 252)
-
-[node name="EntryMarker" type="Polygon2D" parent="CombatEntry"]
-color = Color(0.929412, 0.643137, 0.247059, 1)
-polygon = PackedVector2Array(-10, -152, 10, -152, 10, -144, -10, -144)
-
-[node name="Barrier" type="StaticBody2D" parent="CombatEntry"]
-collision_layer = 4
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CombatEntry/Barrier"]
-position = Vector2(0, -74)
-shape = SubResource("EntryBarrier")
-disabled = true
-
-[node name="Shutter" type="Polygon2D" parent="CombatEntry"]
-visible = false
-color = Color(0.713726, 0.815686, 0.807843, 1)
-polygon = PackedVector2Array(-7, -148, 7, -148, 7, 0, -7, 0)
 
 [node name="ExitDoor" type="Node2D" parent="."]
 position = Vector2(4130, 252)

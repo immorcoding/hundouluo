@@ -14,8 +14,8 @@ func _run() -> void:
 	var mech := level.get_node("BossSlot/DefenseMech") as DefenseMech
 	var mech_max_health := mech.max_health
 	var barrier := level.get_node_or_null("CombatEntry/Barrier/CollisionShape2D") as CollisionShape2D
-	var shutter := level.get_node_or_null("CombatEntry/Shutter") as CanvasItem
-	if barrier == null or shutter == null or not barrier.disabled or shutter.visible:
+	var artwork := level.get_node_or_null("CombatEntry/Artwork") as Sprite2D
+	if barrier == null or artwork == null or not barrier.disabled or artwork.frame != 0:
 		_fail("终点战斗区需要初始可见入口、尚未闭合的闸门")
 		return
 	actor.position = Vector2(3400, 252)
@@ -49,14 +49,14 @@ func _run() -> void:
 		if not barrier.disabled:
 			closure_frame = tick
 			break
-	if closure_frame < 6 or not shutter.visible or shots[0] != 0:
+	if closure_frame < 6 or artwork.frame != 7 or shots[0] != 0:
 		_fail("可见蓄力预告后、首发弹丸前才闭合左入口")
 		return
 	Input.action_press("move_left")
 	for tick in 38:
 		await physics_frame
 	Input.action_release("move_left")
-	if actor.position.x < 3462 or not mech.attack_enabled or mech.health != mech.max_health:
+	if absf(actor.position.x - 3415.075) > 0.2 or not mech.attack_enabled or mech.health != mech.max_health:
 		_fail("入口须阻止左退，保持机甲完整入镜且不可从屏外受击")
 		return
 	actor.invulnerability_duration = 0.0
@@ -65,7 +65,7 @@ func _run() -> void:
 	await _retry()
 	level = current_scene
 	if level == null or not level.get_node("CombatEntry/Barrier/CollisionShape2D").disabled \
-			or level.get_node("CombatEntry/Shutter").visible \
+			or level.get_node("CombatEntry/Artwork").frame != 0 \
 			or level.get_node("BossSlot/DefenseMech").health != mech_max_health:
 		_fail("死亡重试须重新打开入口并复位机甲")
 		return
