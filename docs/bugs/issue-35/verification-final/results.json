@@ -1,0 +1,822 @@
+{
+  "tested_commit": "782b2d368f168cec5eb9fe90b1b101ca30e8ed52",
+  "strict_pass": false,
+  "checks": [
+    {
+      "name": "python",
+      "exit": 1,
+      "diagnostics": [],
+      "pass_messages": [],
+      "log": "python.log",
+      "command": [
+        "E:\\Anaconda\\Anaconda3\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ]
+    },
+    {
+      "name": "import",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [],
+      "log": "import.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--editor",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--import"
+      ]
+    },
+    {
+      "name": "combat_art_feedback",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 敌人/墙面独立命中短帧及清理"
+      ],
+      "log": "combat_art_feedback.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/combat_art_feedback.gd"
+      ]
+    },
+    {
+      "name": "defense_mech_art",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 完整蓄力环、机甲宽弹及原低弹道"
+      ],
+      "log": "defense_mech_art.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/defense_mech_art.gd"
+      ]
+    },
+    {
+      "name": "defense_mech_behavior",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 机甲体量、完整入镜激活和隔屏防护"
+      ],
+      "log": "defense_mech_behavior.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/defense_mech_behavior.gd"
+      ]
+    },
+    {
+      "name": "defense_mech_contact",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 未入镜安全、入镜机甲接触造成一次伤害"
+      ],
+      "log": "defense_mech_contact.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/defense_mech_contact.gd"
+      ]
+    },
+    {
+      "name": "defense_mech_cycle",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 可见蓄力、三发低弹、空档及离镜取消／重新预告"
+      ],
+      "log": "defense_mech_cycle.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/defense_mech_cycle.gd"
+      ]
+    },
+    {
+      "name": "defense_mech_damage",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 弹丸命中、全程生命信号、死亡终止"
+      ],
+      "log": "defense_mech_damage.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/defense_mech_damage.gd"
+      ]
+    },
+    {
+      "name": "defense_mech_dodge",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 低弹可由普通跳跃规避"
+      ],
+      "log": "defense_mech_dodge.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/defense_mech_dodge.gd"
+      ]
+    },
+    {
+      "name": "defense_mech_tuning",
+      "exit": 0,
+      "diagnostics": [
+        "WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+        "ERROR: 1 resources still in use at exit (run with --verbose for details)."
+      ],
+      "pass_messages": [
+        "PASS: 机甲 42 HP，按 #12 有效命中率推算 42 秒；全程可受击"
+      ],
+      "log": "defense_mech_tuning.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/defense_mech_tuning.gd"
+      ]
+    },
+    {
+      "name": "friendly_projectile_expiry",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 未命中弹丸有限飞行距离"
+      ],
+      "log": "friendly_projectile_expiry.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/friendly_projectile_expiry.gd"
+      ]
+    },
+    {
+      "name": "friendly_projectile_hit",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 己方弹丸一次命中提交"
+      ],
+      "log": "friendly_projectile_hit.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/friendly_projectile_hit.gd"
+      ]
+    },
+    {
+      "name": "hangar_play_smoke",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: hangar scene supports run/jump/fire and its visible gap is open"
+      ],
+      "log": "hangar_play_smoke.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/hangar_play_smoke.gd"
+      ]
+    },
+    {
+      "name": "hangar_scene_smoke",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 640x360 hangar layers and gap visuals match terrain collision"
+      ],
+      "log": "hangar_scene_smoke.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/hangar_scene_smoke.gd"
+      ]
+    },
+    {
+      "name": "input_smoke",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: simultaneous movement, jump and shoot bindings are distinct"
+      ],
+      "log": "input_smoke.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/input_smoke.gd"
+      ]
+    },
+    {
+      "name": "level_boss_wiring",
+      "exit": 1,
+      "diagnostics": [
+        "ERROR: 机甲完整入镜后未激活",
+        "WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+        "ERROR: 2 resources still in use at exit (run with --verbose for details)."
+      ],
+      "pass_messages": [],
+      "log": "level_boss_wiring.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/level_boss_wiring.gd"
+      ]
+    },
+    {
+      "name": "level_combat_entry",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 双方入镜预告后入口闭合，退避边界与重试复位"
+      ],
+      "log": "level_combat_entry.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/level_combat_entry.gd"
+      ]
+    },
+    {
+      "name": "level_enemy_fire",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 关卡实际机械兵完整入镜、预告后才将敌弹交给关卡"
+      ],
+      "log": "level_enemy_fire.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/level_enemy_fire.gd"
+      ]
+    },
+    {
+      "name": "level_entry_camera",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 闭门固定镜头、三者完整入镜、死亡/通关冻结及R恢复跟随"
+      ],
+      "log": "level_entry_camera.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/level_entry_camera.gd"
+      ]
+    },
+    {
+      "name": "level_entry_fairness",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: x3396贴门交战、单帧探身射击与左向跳跃均可反击且不可左退"
+      ],
+      "log": "level_entry_fairness.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/level_entry_fairness.gd"
+      ]
+    },
+    {
+      "name": "level_entry_passage",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [],
+      "log": "level_entry_passage.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/level_entry_passage.gd"
+      ]
+    },
+    {
+      "name": "level_entry_warning",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 六帧下降/14步警告；早、中、末期左退取消且不锁镜头"
+      ],
+      "log": "level_entry_warning.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/level_entry_warning.gd"
+      ]
+    },
+    {
+      "name": "level_feedback",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 完整关卡音效接线、危险/击中/受击/机甲进度/两种死因反馈"
+      ],
+      "log": "level_feedback.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/level_feedback.gd"
+      ]
+    },
+    {
+      "name": "level_gap_camera",
+      "exit": 1,
+      "diagnostics": [
+        "ERROR: 接近缺口时两侧边缘未同时入镜"
+      ],
+      "pass_messages": [],
+      "log": "level_gap_camera.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/level_gap_camera.gd"
+      ]
+    },
+    {
+      "name": "level_operative_wiring",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 关卡通过信号安置行动员弹丸"
+      ],
+      "log": "level_operative_wiring.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/level_operative_wiring.gd"
+      ]
+    },
+    {
+      "name": "level_outcomes_retry",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 两种死因、死亡信号顺序、HUD、无限整关重试与通关"
+      ],
+      "log": "level_outcomes_retry.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/level_outcomes_retry.gd"
+      ]
+    },
+    {
+      "name": "level_progression",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 五段布置、五个机械兵、终点接缝、镜头和跌落事件"
+      ],
+      "log": "level_progression.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/level_progression.gd"
+      ]
+    },
+    {
+      "name": "mechanical_contact",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 接触与敌弹各造成单次受击，行动员短暂无敌生效"
+      ],
+      "log": "mechanical_contact.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/mechanical_contact.gd"
+      ]
+    },
+    {
+      "name": "mechanical_paths",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 机械兵缓慢巡逻，行动员可击败或绕过"
+      ],
+      "log": "mechanical_paths.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/mechanical_paths.gd"
+      ]
+    },
+    {
+      "name": "mechanical_projectile",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 敌弹单次命中、敌我弹丸可区分、预告后可跳跃规避"
+      ],
+      "log": "mechanical_projectile.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/mechanical_projectile.gd"
+      ]
+    },
+    {
+      "name": "mechanical_warning",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 入镜预告早于水平敌弹，镜头外不会袭击"
+      ],
+      "log": "mechanical_warning.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/mechanical_warning.gd"
+      ]
+    },
+    {
+      "name": "mechanical_wreck",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 机械兵倒地残骸惰性且场景重载复位"
+      ],
+      "log": "mechanical_wreck.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/mechanical_wreck.gd"
+      ]
+    },
+    {
+      "name": "operative_behavior",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 行动员左右移动和地面跳跃"
+      ],
+      "log": "operative_behavior.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/operative_behavior.gd"
+      ]
+    },
+    {
+      "name": "operative_damage",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 3 点生命、短暂无敌、生命与死亡信号"
+      ],
+      "log": "operative_damage.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/operative_damage.gd"
+      ]
+    },
+    {
+      "name": "operative_muzzle",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: atlas barrels match standing/running/jumping and mirrored projectile origins"
+      ],
+      "log": "operative_muzzle.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/operative_muzzle.gd"
+      ]
+    },
+    {
+      "name": "operative_muzzle_victory",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 真实弹丸获胜前变向，冻结枪口仍对齐当前枪形"
+      ],
+      "log": "operative_muzzle_victory.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/operative_muzzle_victory.gd"
+      ]
+    },
+    {
+      "name": "operative_shooting",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 跑跳连续射击及面向方向"
+      ],
+      "log": "operative_shooting.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/operative_shooting.gd"
+      ]
+    },
+    {
+      "name": "project_smoke",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: single-level entry loads"
+      ],
+      "log": "project_smoke.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/project_smoke.gd"
+      ]
+    },
+    {
+      "name": "projectile_art",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 三类获批弹丸轮廓、循环及原碰撞层"
+      ],
+      "log": "projectile_art.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/projectile_art.gd"
+      ]
+    },
+    {
+      "name": "projectile_density",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 80 发密集交火均按原距离销毁且短帧清理"
+      ],
+      "log": "projectile_density.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/projectile_density.gd"
+      ]
+    },
+    {
+      "name": "projectile_muzzle_art",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 双方枪口短帧留在发弹原点并清理"
+      ],
+      "log": "projectile_muzzle_art.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/projectile_muzzle_art.gd"
+      ]
+    },
+    {
+      "name": "scene_slots_smoke",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: single scene exposes the operative, enemies, projectiles and HUD slots"
+      ],
+      "log": "scene_slots_smoke.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/scene_slots_smoke.gd"
+      ]
+    },
+    {
+      "name": "ui_hud_contract",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: S6 生命变化、机甲进度与获批结算状态"
+      ],
+      "log": "ui_hud_contract.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/ui_hud_contract.gd"
+      ]
+    },
+    {
+      "name": "visual_grounding",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 行动员跑动与机甲脚底视觉落地，碰撞地面未改"
+      ],
+      "log": "visual_grounding.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/visual_grounding.gd"
+      ]
+    },
+    {
+      "name": "windows_export_preset_smoke",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: Windows export preset is portable, x86_64, and self-contained."
+      ],
+      "log": "windows_export_preset_smoke.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--script",
+        "tests/windows_export_preset_smoke.gd"
+      ]
+    },
+    {
+      "name": "main-headless",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [],
+      "log": "main-headless.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--quit-after",
+        "90"
+      ]
+    },
+    {
+      "name": "main-graphical",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [],
+      "log": "main-graphical.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--rendering-method",
+        "gl_compatibility",
+        "--quit-after",
+        "90"
+      ]
+    },
+    {
+      "name": "operative_running_muzzle",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 跑射/变向/跳跃落地/受击枪口对齐，弹丸独立飞行"
+      ],
+      "log": "operative_running_muzzle.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\verification-source",
+        "--fixed-fps",
+        "60",
+        "--script",
+        "tests/operative_running_muzzle.gd"
+      ]
+    }
+  ],
+  "note": "Logs and exit codes are both gates; not human visual/audio/play acceptance."
+}

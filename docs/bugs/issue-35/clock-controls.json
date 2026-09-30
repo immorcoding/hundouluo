@@ -1,0 +1,92 @@
+{
+  "baseline": "bb36822575c2adbdc464bcb8cf8d6dac7e8de266",
+  "note": "Unchanged original baseline fixtures. fixed-paced wrapper only connects process_frame to OS.delay_msec(17), then invokes super._initialize. No original assertions altered. CLI fixed-fps alone disables real-time synchronization.",
+  "records": [
+    {
+      "name": "level_gap_camera",
+      "clock": "default",
+      "command": "Godot_v4.7.2-stable_win64_console.exe --headless --path E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\baseline --script tests/level_gap_camera.gd",
+      "exit": 1,
+      "diagnostics": [
+        "ERROR: 接近缺口时两侧边缘未同时入镜\r"
+      ],
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\nERROR: 接近缺口时两侧边缘未同时入镜\r\n   at: push_error (core/variant/variant_utility.cpp:1023)\r\n   GDScript backtrace (most recent call first):\r\n       [0] _fail (res://tests/level_gap_camera.gd:63)\r\n       [1] _run (res://tests/level_gap_camera.gd:35)\r\n"
+    },
+    {
+      "name": "level_gap_camera",
+      "clock": "fixed-fast",
+      "command": "Godot_v4.7.2-stable_win64_console.exe --headless --path E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\baseline --fixed-fps 60 --script tests/level_gap_camera.gd",
+      "exit": 0,
+      "diagnostics": [
+        "WARNING: 7 ObjectDB instances were leaked at exit (run with `--verbose` for details).\r",
+        "ERROR: 2 resources still in use at exit (run with --verbose for details).\r"
+      ],
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\nPASS: 缺口两侧可见、常规跳跃落地、同屏上限与终点镜头\r\nWARNING: 7 ObjectDB instances were leaked at exit (run with `--verbose` for details).\r\n   at: cleanup (core/object/object.cpp:2536)\r\nERROR: 2 resources still in use at exit (run with --verbose for details).\r\n   at: clear (core/io/resource.cpp:822)\r\n"
+    },
+    {
+      "name": "level_gap_camera",
+      "clock": "fixed-paced",
+      "command": "Godot_v4.7.2-stable_win64_console.exe --headless --path E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\baseline --fixed-fps 60 --script tools/paced_gap.gd",
+      "exit": 0,
+      "diagnostics": [],
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\nPASS: 缺口两侧可见、常规跳跃落地、同屏上限与终点镜头\r\n"
+    },
+    {
+      "name": "level_boss_wiring",
+      "clock": "default",
+      "command": "Godot_v4.7.2-stable_win64_console.exe --headless --path E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\baseline --script tests/level_boss_wiring.gd",
+      "exit": 0,
+      "diagnostics": [],
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\nPASS: 机甲像素视口、弹丸接线、击败门槛\r\n"
+    },
+    {
+      "name": "level_boss_wiring",
+      "clock": "fixed-fast",
+      "command": "Godot_v4.7.2-stable_win64_console.exe --headless --path E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\baseline --fixed-fps 60 --script tests/level_boss_wiring.gd",
+      "exit": 0,
+      "diagnostics": [
+        "WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details).\r",
+        "ERROR: 2 resources still in use at exit (run with --verbose for details).\r"
+      ],
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\nPASS: 机甲像素视口、弹丸接线、击败门槛\r\nWARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details).\r\n   at: cleanup (core/object/object.cpp:2536)\r\nERROR: 2 resources still in use at exit (run with --verbose for details).\r\n   at: clear (core/io/resource.cpp:822)\r\n"
+    },
+    {
+      "name": "level_boss_wiring",
+      "clock": "fixed-paced",
+      "command": "Godot_v4.7.2-stable_win64_console.exe --headless --path E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\baseline --fixed-fps 60 --script tools/paced_boss.gd",
+      "exit": 0,
+      "diagnostics": [],
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\nPASS: 机甲像素视口、弹丸接线、击败门槛\r\n"
+    },
+    {
+      "name": "defense_mech_tuning",
+      "clock": "default",
+      "command": "Godot_v4.7.2-stable_win64_console.exe --headless --path E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\baseline --script tests/defense_mech_tuning.gd",
+      "exit": 0,
+      "diagnostics": [
+        "WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).\r",
+        "ERROR: 1 resources still in use at exit (run with --verbose for details).\r"
+      ],
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\nPASS: 机甲 42 HP，按 #12 有效命中率推算 42 秒；全程可受击\r\nWARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).\r\n   at: cleanup (core/object/object.cpp:2536)\r\nERROR: 1 resources still in use at exit (run with --verbose for details).\r\n   at: clear (core/io/resource.cpp:822)\r\n"
+    },
+    {
+      "name": "defense_mech_tuning",
+      "clock": "fixed-fast",
+      "command": "Godot_v4.7.2-stable_win64_console.exe --headless --path E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\baseline --fixed-fps 60 --script tests/defense_mech_tuning.gd",
+      "exit": 0,
+      "diagnostics": [
+        "WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).\r",
+        "ERROR: 1 resources still in use at exit (run with --verbose for details).\r"
+      ],
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\nPASS: 机甲 42 HP，按 #12 有效命中率推算 42 秒；全程可受击\r\nWARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).\r\n   at: cleanup (core/object/object.cpp:2536)\r\nERROR: 1 resources still in use at exit (run with --verbose for details).\r\n   at: clear (core/io/resource.cpp:822)\r\n"
+    },
+    {
+      "name": "defense_mech_tuning",
+      "clock": "fixed-paced",
+      "command": "Godot_v4.7.2-stable_win64_console.exe --headless --path E:\\Projects\\game_hundouluo_codex_worktree\\issue-35-running-muzzle\\.scratch\\issue-35\\baseline --fixed-fps 60 --script tools/paced_tuning.gd",
+      "exit": 0,
+      "diagnostics": [],
+      "output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\nPASS: 机甲 42 HP，按 #12 有效命中率推算 42 秒；全程可受击\r\n"
+    }
+  ]
+}

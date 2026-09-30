@@ -23,3 +23,11 @@
 审查代理以fixed-fps60加速既有level_outcomes_retry时观察音频退出泄漏；同命令在原始基线同样发生，判定不是本diff引入、不列Spec发现。正式严格套件保持原生命周期/运行命令，不以行为PASS掩盖诊断。
 
 Standards：硬性违规0，初审P3已解决，增量新增0。Spec：初审时序发现已用红/绿回归修复，未解决可行动项0。
+
+## 测试时钟与门禁最终增量
+
+`782b2d3..974ac4d` 两轴只读复审确认：生成的继承wrapper仅连接process_frame的17ms墙钟等待，再调用原_initialize；原43个直接SceneTree与1个继承式测试均纳入，连同Python/导入/两主场景共48条。没有改源测试、断言或包守卫，没有过滤ERROR/SCRIPT ERROR/WARNING，非零退出仍失败；时钟、victory30fps特例、默认失败与基线对照均明确记录。
+
+Spec提出P2门禁格式误报：既有level_entry_passage输出PASS passage，而运行器只收PASS:。`6f1ddea`修正为行首PASS后接空白或冒号；两轴增量确认接受合法标记，拒绝PASSAGE/PASSING/FAIL/ERROR，退出/诊断门禁不变。原误报全套保留在verification-paced，随后从稳定6f1ddea再次完整运行，verification-strict实际48条全部exit0、零诊断、strict_pass=true。
+
+最终Standards硬性违规0、未解决判断建议0；Spec未解决可行动发现0。后续仅补充本文与验证日志，没有运行源码或测试工具变化。

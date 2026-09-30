@@ -49,12 +49,13 @@ Godot_v4.7.2-stable_win64_console.exe --path E:\Projects\game_hundouluo_codex_wo
 ```powershell
 python tools/check_issue_35.py --godot (Get-Command Godot_v4.7.2-stable_win64_console.exe).Source --baseline E:\Projects\game_hundouluo_codex_worktree\issue-35-running-muzzle\.scratch\issue-35\baseline
 python tools/present_issue_35.py
-git archive HEAD -o .scratch/issue-35/verification-source.zip
-Expand-Archive -LiteralPath .scratch/issue-35/verification-source.zip -DestinationPath .scratch/issue-35/verification-source
-python .scratch/issue-35/verification-source/tools/check_issue_35_suite.py --godot (Get-Command Godot_v4.7.2-stable_win64_console.exe).Source --output E:\Projects\game_hundouluo_codex_worktree\issue-35-running-muzzle\docs\bugs\issue-35\verification-final --temp E:\Projects\game_hundouluo_codex_worktree\issue-35-running-muzzle\.scratch\issue-35\package-temp
+# New temporary Git repository, entirely inside the assigned E-drive worktree.
+git clone --shared --no-checkout E:\Projects\game_hundouluo_codex_worktree\issue-35-running-muzzle E:\Projects\game_hundouluo_codex_worktree\issue-35-running-muzzle\.scratch\issue-35\verification-rebuilt-repo
+git -C .scratch/issue-35/verification-rebuilt-repo checkout --detach (git rev-parse HEAD)
+python .scratch/issue-35/verification-rebuilt-repo/tools/check_issue_35_suite.py --godot (Get-Command Godot_v4.7.2-stable_win64_console.exe).Source --output E:\Projects\game_hundouluo_codex_worktree\issue-35-running-muzzle\docs\bugs\issue-35\verification-rebuilt --temp E:\Projects\game_hundouluo_codex_worktree\issue-35-running-muzzle\.scratch\issue-35\package-temp-rebuilt
 ```
 
-独立双轴 code-review 已完成，初审和增量见 [code-review.md](code-review.md)；完整套件结果将在完成后补充。既有枪口图集、双阵营独立短帧清理、行动员连射方向三项已通过，无诊断。运行器保持既有打包的干净提交守卫；原有测试工具仍会先运行全部 Python（含 Windows 两项端到端）、导入、全部 SceneTree 行为、主场景无界面/图形90帧，再追加本票继承式 SceneTree 回归。
+独立双轴 code-review 已完成，初审和增量见 [code-review.md](code-review.md)；最终完整套件 [verification-strict/results.json](verification-strict/results.json) 已严格通过：验证提交 `6f1ddeab6b2e6df0eb556f99613cb81a151dd69b`，48条实际执行记录全部exit0、无ERROR/SCRIPT ERROR/WARNING；44/44 Godot行为、18/18 Python（含Windows端到端2项）、导入、无界面/图形主场景90帧。此后交付提交只增加诊断/验证记录，运行源码与测试工具不变。既有枪口图集、双阵营独立短帧清理、行动员连射方向三项已通过，无诊断。运行器保持既有打包的干净提交守卫；本票运行器先运行全部Python（含Windows两项端到端）、导入，再运行原43个直接SceneTree及本票继承式跑射测试，最后主场景无界面/图形90帧。每个行为测试用继承wrapper仅在process_frame加入17ms墙钟等待，再调用原_initialize；源测试/断言不变。模拟fixed-fps60，胜利专用fixed-fps30/physics120，完整原命令记录在JSON中。
 
 ## 原生画面与独立像素证据
 
@@ -65,8 +66,14 @@ python .scratch/issue-35/verification-source/tools/check_issue_35_suite.py --god
 
 独立像素 probe 以批准战斗图集的 >94% 不透明短帧亮点匹配实际视口，不读取生产枪口偏移或重画背景，容许25RGB的真实背景混合差异和1.5px对角栅格误差。修前350个高置信样本明确错位；修后483/486样本明确对齐、0明确错位，3帧因透明混合仅17/23亮点符合而保留“置信不足”，其最优匹配位置仍仅0.5px。没有把置信不足改成通过；短帧最后一帧是低透明余迹，没有可匹配不透明亮点，使用实际节点对齐与逐帧图补充。该 probe 是画面证据，不替代完整行为回归或人工复测。
 
-独立 Spec 审查发现并证实了一项新增修复的终局时序风险：120Hz物理/30fps显示，同帧变向后真实赢弹碰撞会在 _process 前冻结行动员，保留旧枪口朝向。tests/operative_muzzle_victory.gd 使用初始传送与公开机甲受击降低fixture时间，实际射击、变向、赢弹碰撞均用正常路径；94b6f28副本红（[victory-before.log](victory-before.log)），b72673c绿（[victory-after.log](victory-after.log)）。修复只在物理姿态和受击变化后立即同步锚点；同一私有局部枪口函数供锚点与弹丸使用，解决Standards的P3重复计算建议。两名代理增量复审均无未解决可行动项。完整套件另保留不加固定fps的既有音频fixture生命周期；独立审查加速60fps运行旧结局fixture暴露音频退出诊断，在原始基线同样发生，非本票引入，未改其测试来掩盖问题。
+独立 Spec 审查发现并证实了一项新增修复的终局时序风险：120Hz物理/30fps显示，同帧变向后真实赢弹碰撞会在 _process 前冻结行动员，保留旧枪口朝向。tests/operative_muzzle_victory.gd 使用初始传送与公开机甲受击降低fixture时间，实际射击、变向、赢弹碰撞均用正常路径；94b6f28副本红（[victory-before.log](victory-before.log)），b72673c绿（[victory-after.log](victory-after.log)）。修复只在物理姿态和受击变化后立即同步锚点；同一私有局部枪口函数供锚点与弹丸使用，解决Standards的P3重复计算建议。两名代理增量复审均无未解决可行动项。独立审查加速60fps运行旧结局fixture暴露音频退出诊断，在原始基线同样发生，未改其源测试。完整套件用明确墙钟等待保留真实音频线程退休时间。
 
-首轮完整回归 [verification/results.json](verification/results.json)：43个Godot行为与导入/启动全部exit0无诊断，Python18项中17通过，唯Windows包测试因TEMP在被测试projectRoot之内被既有目录守卫拒绝。最终验证用当前Git提交原样解压到本工作树 .scratch/issue-35/verification-source，TEMP用其兄弟目录，既遵守包守卫又把所有临时文件留在指定E盘工作树。未修改或绕过共享打包工具；该副本由原提交的git archive产生，包仍对应同一提交。首次失败明确保留。
+首轮完整回归 [verification/results.json](verification/results.json)：43个Godot行为与导入/启动全部exit0无诊断，Python18项中17通过，唯Windows包测试因TEMP在被测试projectRoot之内被既有目录守卫拒绝。第二轮 [verification-final/results.json](verification-final/results.json) 的解压副本没有独立Git根，子目录git archive产生62字节空源码包，已停止该空项目的导入；同时暴露默认相机/音频fixture时序。第三轮 [verification-committed/results.json](verification-committed/results.json) 改为本工作树内、固定提交的独立Git克隆：Python18项通过，但默认Godot时序问题仍严格失败。第四轮 [verification-paced/results.json](verification-paced/results.json) 用17ms墙钟测试节拍，48条exit0无诊断，却因运行器只接受PASS:而误拒既有PASS passage标记；修正为^PASS(?:\\s|:)后重新完整执行，第五轮verification-strict严格通过。所有失败与实际诊断保留，没有从旧记录删除失败。
+
+基线时钟对照 [clock-controls.json](clock-controls.json)：原始bb提交相机/音频fixture的默认、fixed-fast、fixed-paced三组共9条命令/真实退出/完整输出。固定模拟时钟先解决每绘制帧多物理步的相机断言，process_frame的17ms明确等待再给音频线程真实退休时间；CLI fixed-fps会关闭真实同步，max-fps/frame-delay尝试不能代替该墙钟等待。最终48测试与初修前的所有断言仍相同。时钟对照不是运行玩法更改，也不覆盖多帧步风险：9组物理/显示、5组真实图形以及120/30赢弹冻结回归仍保留。
+
+最终运行源码下再次执行原始180帧图形循环，18发/214短帧/1304飞行样本/0失败，见 [verification-final/original-loop/trace.json](verification-final/original-loop/trace.json)；原始帧在同目录frames/。原速APNG与9组矩阵来自初修采集，后续物理即刻同步仅处理同显示帧获胜冻结，普通绘制锚点仍按同一枪口更新；新增终局回归独立锁定该增量。
+
+风险与交接：本票没有需要协调写入的共享文件，scenes/level.tscn遵循#34独占边界。默认既有相机/音频测试在基线也不稳定，协调集成可沿用此明确测试时钟，并另行处理fixture生命周期；不要把默认失败、包测试或测试时钟误当真人试玩结果。保留3个像素probe置信不足帧、全部原生PNG/临时Git副本于E盘，未请求或绕过任何删除策略。#35保持OPEN，协调负责与#34合并、新候选包和用户复测，不创建PR/tag/release。
 
 PNG联系表仅用于导航，见 [contact-sheet.png](contact-sheet.png)，原生单图与APNG才是视觉尺度基准。编辑器缓存、基线副本和包测试临时文件均留在本 E盘工作树的忽略目录；未触碰旧 #33。

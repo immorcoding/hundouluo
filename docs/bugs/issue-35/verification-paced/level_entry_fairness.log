@@ -1,0 +1,4 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+FAIRNESS rest_x=3415.07470703125 range_margin=5.07470703125 enemy_muzzle=(3768.0, 234.0) rest_health=2 final_health=1 mech_health=41 shots=6
+PASS: x3396贴门交战、单帧探身射击与左向跳跃均可反击且不可左退
