@@ -91,6 +91,11 @@ class WindowsPackageTests(unittest.TestCase):
                 self.assertIn("BUILD_INFO.txt", windows_entries)
                 self.assertIn("试玩说明.txt", windows_entries)
                 self.assertIn("docs/assets-manifest.md", windows_entries)
+                self.assertIn("docs/acceptance-v0.1.1.md", windows_entries)
+                self.assertIn("docs/known-issues-v0.1.1.md", windows_entries)
+                self.assertIn("GODOT_LICENSE.txt", windows_entries)
+                self.assertIn("GODOT_COPYRIGHT.json", windows_entries)
+                self.assertIn("GODOT_THIRD_PARTY_LICENSES.json", windows_entries)
                 self.assertFalse(any(path.lower().endswith(".pck") for path in windows_entries))
                 build_info = windows_archive.read("BUILD_INFO.txt").decode("utf-8")
                 self.assertIn("source_commit=", build_info)
@@ -98,6 +103,9 @@ class WindowsPackageTests(unittest.TestCase):
                 play_info = windows_archive.read("试玩说明.txt").decode("utf-8")
                 self.assertIn("双击", play_info)
                 self.assertIn("按住 J", play_info)
+                self.assertIn("preparation", play_info)
+                self.assertIn("docs/acceptance-v0.1.1.md", play_info)
+                self.assertNotIn("v0.1.0", play_info)
                 self.assertNotIn(str(PROJECT_ROOT), build_info)
 
 

@@ -74,7 +74,11 @@ func _run() -> void:
 		_fail("唯一缺口跌落未恰好触发一次死亡事件")
 		return
 	print("PASS: 五段布置、五个机械兵、终点接缝、镜头和跌落事件")
-	quit(0)
+	# Release the scene before quitting so active WAV playbacks can retire.
+	level.queue_free()
+	await process_frame
+	await create_timer(0.1).timeout
+	call_deferred("quit", 0)
 
 
 func _fail(message: String) -> void:

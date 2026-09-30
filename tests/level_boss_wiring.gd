@@ -54,7 +54,11 @@ func _run() -> void:
 		_fail("机甲击败后未开门并展示任务完成")
 		return
 	print("PASS: 机甲像素视口、弹丸接线、击败门槛")
-	quit(0)
+	# Release the scene before quitting so active WAV playbacks can retire.
+	level.queue_free()
+	await process_frame
+	await create_timer(0.1).timeout
+	call_deferred("quit", 0)
 
 
 func _fail(message: String) -> void:

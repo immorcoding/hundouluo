@@ -32,7 +32,11 @@ func _run() -> void:
 		_fail("机械兵的敌弹未接入关卡弹丸槽")
 		return
 	print("PASS: 关卡实际机械兵完整入镜、预告后才将敌弹交给关卡")
-	quit(0)
+	# Release the scene before quitting so active WAV playbacks can retire.
+	level.queue_free()
+	await process_frame
+	await create_timer(0.1).timeout
+	call_deferred("quit", 0)
 
 
 func _fail(message: String) -> void:

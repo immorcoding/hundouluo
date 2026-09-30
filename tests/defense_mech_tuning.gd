@@ -31,7 +31,11 @@ func _run() -> void:
 		_fail("调参后必须仍可全程受击并在归零时通关")
 		return
 	print("PASS: 机甲 %d HP，按 #12 有效命中率推算 %.0f 秒；全程可受击" % [max_health, projected_seconds])
-	quit(0)
+	# Release the scene before quitting so active WAV playbacks can retire.
+	level.queue_free()
+	await process_frame
+	await create_timer(0.1).timeout
+	call_deferred("quit", 0)
 
 
 func _fail(message: String) -> void:
