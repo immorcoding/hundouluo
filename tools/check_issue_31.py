@@ -39,6 +39,9 @@ def main():
         print(f"{name}: exit={result.returncode}, diagnostics={len(diagnostics)}", flush=True)
 
     commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
+    # Packaging checks consume the untouched commit. Import can rewrite .import
+    # line endings/stat metadata; keep its clean-source guard fully intact.
+    run("python", [sys.executable, "-m", "unittest", "discover", "-s", "tests", "-v"])
     run("import", [args.godot, "--headless", "--editor", "--path", str(ROOT), "--import"])
     for script in sorted((ROOT / "tests").glob("*.gd")):
         if re.search(r"^extends SceneTree\s*$", script.read_text(encoding="utf-8"), re.MULTILINE):
@@ -47,7 +50,6 @@ def main():
     run("main-headless", [args.godot, "--headless", "--path", str(ROOT), "--quit-after", "90"])
     run("main-graphical", [args.godot, "--path", str(ROOT), "--rendering-method",
                            "gl_compatibility", "--quit-after", "90"])
-    run("python", [sys.executable, "-m", "unittest", "discover", "-s", "tests", "-v"])
     passed = all(r["exit"] == 0 and not r["diagnostics"] for r in records)
     (args.output / "results.json").write_text(json.dumps({
         "tested_commit": commit, "strict_pass": passed, "checks": records,

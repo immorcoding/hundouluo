@@ -67,7 +67,11 @@
       "after_exit": 0,
       "after_log": [
         "PASS: 关卡通过信号安置行动员弹丸"
-      ]
+      ],
+      "final_initial_recurrence": [
+        "0443bd7: PASS and exit 0, but AudioStreamWAV/Playback still leaked at fast headless startup; one process frame alone was not deterministic."
+      ],
+      "final_cleanup": "150ms real playback initialization before queue_free; all 5 verbose targeted runs exit 0, PASS, no diagnostics; final full gate is separately recorded."
     },
     {
       "test": "level_progression",

@@ -45,6 +45,8 @@ Spec独立审查进一步指出：延后冻结期间，同批已排队碰撞可�
 
 运行 `tools/check_issue_31.py --godot <4.7.2-console> --output <日志目录> --temp <E盘临时目录>`；对干净最终提交的隔离E盘副本执行（temp在副本外、仍在本worktree），完整枚举所有extends SceneTree脚本、Python全部检查、导入、主场景headless与有图形90帧。严格要求每项exit0且无ERROR/SCRIPT ERROR/WARNING；完整日志、准确测试数和tested_commit留在交付verification。定点修复日志为上面的red/green证据；后续不无理由重复全套。
 
+首次最终轮在0443bd7仍抓到首帧己射的音频竞态：单个process_frame不保证真实混音线程已建立播放引用。fixture补150ms启动等待后再释放、后等待退出，五次verbose定点重跑全部无诊断；不是改音效或过滤错误。同轮Python的Windows检查被Godot重写.import行尾/时间戳触发干净源码保护拒绝，代码差异为空；runner调整为先对原封干净提交跑Python/端到端包检查，之后才导入并跑Godot检查，保留保护、不stage/掩盖潜在资产改动。失败完整日志仍留在E盘scratch并随最终verification-before交付，最终稳定提交重新跑完整闸门。
+
 运动采集：`Godot ... --path . --rendering-method gl_compatibility --fixed-fps 60 --script tools/capture_issue_31.gd`，然后 `python tools/present_issue_31.py`。raw frames保留在本worktree被忽略目录，精选静图/APNG入源码；APNG为证据动画，不是新运行素材。
 
 本次主运动采集实际使用Vulkan/Forward+（见capture.log），补图及批准oracle使用OpenGL/Compatibility。以上命令是兼容性复现示例，若要复现同一后端需使用`--rendering-method forward_plus`；两者都保留640×360及60Hz物理时基，不宣称跨后端每个像素完全一致。

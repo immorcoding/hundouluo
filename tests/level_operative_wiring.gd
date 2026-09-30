@@ -23,6 +23,7 @@ func _run() -> void:
 	print("PASS: 关卡通过信号安置行动员弹丸")
 	# This fixture emits the shot in its first frame; let audio start first.
 	await process_frame
+	await create_timer(0.15).timeout
 	# Release the scene before quitting so active WAV playbacks can retire.
 	level.queue_free()
 	await process_frame
