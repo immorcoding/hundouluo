@@ -1,0 +1,69 @@
+{
+  "working_directory": "E:\\Projects\\game_hundouluo_codex_worktree\\issue-31-v011-acceptance",
+  "source_commit_before": "f17973ccc3e4cb7f25e0a6eb2587996a9517a09c",
+  "source_commit_after": "f17973ccc3e4cb7f25e0a6eb2587996a9517a09c",
+  "source_state_commands": [
+    "git rev-parse HEAD",
+    "git status --short",
+    "git diff --name-only",
+    "git diff --name-only HEAD -- scripts scenes assets tools project.godot export_presets.cfg",
+    "git diff --name-only 148d74f9069c80bed7f1f7f0cfc471b814815fbb HEAD -- scripts scenes assets"
+  ],
+  "source_state_before": {
+    "git_status_short": ["?? docs/art/issue-31-rc2/"],
+    "tracked_diff": [],
+    "scripts_scenes_assets_diff_from_148d74f": []
+  },
+  "source_state_after": {
+    "git_status_short": ["?? docs/art/issue-31-rc2/"],
+    "scripts_scenes_assets_tools_project_export_diff_from_HEAD": [],
+    "scripts_scenes_assets_diff_from_148d74f": []
+  },
+  "commands": [
+    {
+      "argv": ["C:\\Users\\22137\\tools\\godot-4.7.2\\Godot_v4.7.2-stable_win64_console.exe", "--path", ".", "--rendering-method", "gl_compatibility", "--fixed-fps", "60", "--script", "res://tools/capture_issue_31_rc2.gd", "--log-file", "docs/art/issue-31-rc2/capture.log"],
+      "actual_exit_code": 0,
+      "raw_log": "capture.log",
+      "diagnostic_matches": []
+    },
+    {
+      "argv": ["C:\\Users\\22137\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe", "tools/present_issue_31_rc2.py"],
+      "shell_output_capture": "2>&1 | Tee-Object -FilePath docs/art/issue-31-rc2/presentation.log; $presentationExit = $LASTEXITCODE; exit $presentationExit",
+      "actual_exit_code": 0,
+      "raw_log": "presentation.log",
+      "diagnostic_matches": []
+    }
+  ],
+  "conditions": {
+    "native_viewport": [640, 360],
+    "physics_hz": 60,
+    "fixed_fps": 60,
+    "process_frame_wall_clock_wait_ms": 17,
+    "renderer": "OpenGL Compatibility / NVIDIA GeForce RTX 4060 Laptop GPU",
+    "audio_driver": "Default engine audio selection; no --audio-driver override",
+    "fixtures": "Only legal Input in full run; component fixtures disclose initial teleport/public receive_hit and visibility/pose setup. See capture-results.json disclosure."
+  },
+  "results": {
+    "capture_failures": [],
+    "visible_muzzle_samples": 428,
+    "independent_projectile_samples": 1717,
+    "maximum_projectile_error_px": 0.003662109375,
+    "follow_camera_x_range": [825.532775878906, 1000.53332519531],
+    "closed_camera_x_range": [3580.0, 3580.0],
+    "corpse_front_pixel_ratios": {"standing": "243/243", "running_pose_right": "130/130", "running_pose_left": "97/97", "mech_victory": "1154/1154"},
+    "corpse_pixels_visible": {"soldier": 673, "mech": 3687},
+    "legal_run": "Normal spawn Input-only: all five soldiers defeated, mech defeated, operative health 1, physical R restores spawn x140/health3.",
+    "simulated_mech_combat_seconds": 7.26666666666667,
+    "victory_freeze_and_retry": "Verified by actual Input and public final state in capture-results.json; screenshot victory-freeze.png and fixture-retry.png.",
+    "animations": "corpse-follow/gate-fixed each 180 native lossless frames at 60fps, 3s. Legal run is 116 frames sampled every 12 physics frames at 5fps; cadence preserved and explicitly not a 60fps recording.",
+    "prior_issue_35_pixel_probe_status": "Three prior low-confidence atlas pixel probes remain inconclusive; no claim of all pixel probes passed.",
+    "human_acceptance": "Simulated evidence is not a new human timing/art/audio/feel acceptance. Previously approved items remain approved; two bugs await targeted human retest."
+  },
+  "sha256": {
+    "tools/capture_issue_31_rc2.gd": "626D8D2A4DDAE4AEBF8634360E3C1502734579B6313B5B06BF65F8984506456A",
+    "tools/present_issue_31_rc2.py": "857405F3BA4AEE5533F165D39A4C2A47670C68B537F0067084C7BDD15419D3A3",
+    "capture.log": "E93ED19010BDFB3F4EF6F524267C2AEE69BF78C9D6BD18BE52D350051E70A972",
+    "presentation-results.json": "B936989CF2D8DF68027AE403A618DCF29C87005665EED7720BAE78B94C5ECA52"
+  },
+  "history": "Earlier local harness type-inference/local-vs-global fixture mistakes were fixed before f17973c; earlier debug artifacts remain in .godot/issue31-rc2. This record describes only the final fixed-commit run."
+}

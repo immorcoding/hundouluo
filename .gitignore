@@ -1,6 +1,11 @@
 # Godot editor cache (generated locally)
 .godot/
 
+# rc.2 review captures are evidence, not runtime imports.
+docs/art/issue-31-rc2/frames/
+docs/art/issue-31-rc2/**/*.png.import
+docs/art/issue-31-rc2/**/*.gif.import
+
 # Python-generated files from art tooling
 __pycache__/
 *.pyc

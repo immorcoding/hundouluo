@@ -1,8 +1,10 @@
 # Asset provenance manifest
 
-This manifest records the original sounds and visual assets used by the integrated v0.1.1-rc.1 candidate, with source, rebuild and redistribution notices. Engineering integration does not establish final human acceptance.
+This manifest records the original sounds and visual assets used by v0.1.1-rc.2, with source, rebuild and redistribution notices. rc.1 human acceptance passed the other items; rc.2 only awaits the two reported bug fixes and minimal retry/completion retest.
 
 ## #31 integrated candidate inventory
+
+rc.2 adds no image, sound, font or license dependency. #34 changes scene-owned background/deck depths and dead Sprite depth; #35 attaches the existing muzzle flash to the operative's visible-gun anchor while projectiles still fly independently. Art pixels, tuning, gate/HUD and provenance below are unchanged. The original human record and rc.1 packages remain preserved; see `docs/retest-v0.1.1-rc.2.md` and `docs/art/issue-31-rc2/` for the incremental evidence.
 
 The runtime continues to use the existing seven pixel atlases/layers, eight original WAV cues, the approved combat atlas, eight-frame entry gate atlas and approved UI slices/font below. #31 creates no new game artwork or sound and does not modify approved source pixels. Runtime scenes/scripts have 41 distinct `res://` dependencies, all present in the complete Git source archive. Source ZIP preserves editable art, prompts, processing tools and original license files; Windows ZIP embeds runtime resources and includes this manifest with all font notices.
 
