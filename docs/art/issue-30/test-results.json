@@ -1,0 +1,273 @@
+{
+  "tested_commit": "b6d150471b735b13ff974fad0e86e9eca7bc8ad9",
+  "baseline_commit": "2a3c76224ed021220c87be9b4f6e1ff509bdd13e",
+  "godot_version": "4.7.2.stable.official.ed1daf0bf",
+  "godot_tests": [
+    {
+      "test": "combat_art_feedback.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "defense_mech_art.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "defense_mech_behavior.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "defense_mech_contact.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "defense_mech_cycle.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "defense_mech_damage.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "defense_mech_dodge.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "defense_mech_tuning.gd",
+      "exit": 0,
+      "diagnostics": [
+        "WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+        "ERROR: 1 resources still in use at exit (run with --verbose for details)."
+      ]
+    },
+    {
+      "test": "friendly_projectile_expiry.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "friendly_projectile_hit.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "hangar_play_smoke.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "hangar_scene_smoke.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "input_smoke.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "level_boss_wiring.gd",
+      "exit": 0,
+      "diagnostics": [
+        "WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+        "ERROR: 2 resources still in use at exit (run with --verbose for details)."
+      ]
+    },
+    {
+      "test": "level_combat_entry.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "level_enemy_fire.gd",
+      "exit": 0,
+      "diagnostics": [
+        "WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+        "ERROR: 1 resources still in use at exit (run with --verbose for details)."
+      ]
+    },
+    {
+      "test": "level_feedback.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "level_gap_camera.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "level_operative_wiring.gd",
+      "exit": 0,
+      "diagnostics": [
+        "WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+        "ERROR: 1 resources still in use at exit (run with --verbose for details)."
+      ]
+    },
+    {
+      "test": "level_outcomes_retry.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "level_progression.gd",
+      "exit": 0,
+      "diagnostics": [
+        "WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+        "ERROR: 1 resources still in use at exit (run with --verbose for details)."
+      ]
+    },
+    {
+      "test": "mechanical_contact.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "mechanical_paths.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "mechanical_projectile.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "mechanical_warning.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "mechanical_wreck.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "operative_behavior.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "operative_damage.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "operative_muzzle.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "operative_shooting.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "project_smoke.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "projectile_art.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "projectile_density.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "projectile_muzzle_art.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "scene_slots_smoke.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "ui_hud_contract.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "visual_grounding.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "windows_export_preset_smoke.gd",
+      "exit": 0,
+      "diagnostics": []
+    }
+  ],
+  "godot_nonzero_exits": 0,
+  "python_tests": 17,
+  "python_exit": 0,
+  "baseline_cleanup_diagnostics": [
+    {
+      "test": "defense_mech_tuning.gd",
+      "baseline_exit": 0,
+      "baseline_diagnostics": [
+        "WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+        "ERROR: 1 resources still in use at exit (run with --verbose for details)."
+      ],
+      "matches_current": true
+    },
+    {
+      "test": "level_boss_wiring.gd",
+      "baseline_exit": 0,
+      "baseline_diagnostics": [
+        "WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+        "ERROR: 2 resources still in use at exit (run with --verbose for details)."
+      ],
+      "matches_current": true
+    },
+    {
+      "test": "level_enemy_fire.gd",
+      "baseline_exit": 0,
+      "baseline_diagnostics": [
+        "WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+        "ERROR: 1 resources still in use at exit (run with --verbose for details)."
+      ],
+      "matches_current": true
+    },
+    {
+      "test": "level_operative_wiring.gd",
+      "baseline_exit": 0,
+      "baseline_diagnostics": [
+        "WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+        "ERROR: 1 resources still in use at exit (run with --verbose for details)."
+      ],
+      "matches_current": true
+    },
+    {
+      "test": "level_progression.gd",
+      "baseline_exit": 0,
+      "baseline_diagnostics": [
+        "WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+        "ERROR: 1 resources still in use at exit (run with --verbose for details)."
+      ],
+      "matches_current": true
+    }
+  ],
+  "all_remaining_diagnostics_match_baseline": true,
+  "script_parse_or_runtime_errors": [],
+  "startup_90_frames_diagnostics": [],
+  "explicit_windows_package_log_commit": "29ae0453c4a93e27733a28f85b914e53efcf0e1e",
+  "explicit_windows_package_diagnostics": [],
+  "windows_package_regression_at_tested_commit": "passed: source archive, embedded executable, fresh extraction startup",
+  "visual_states": 13,
+  "visual_material_changes": 0,
+  "review_standards_findings": 0,
+  "review_spec_findings": 0,
+  "note": "38 Godot behavioral checks and 17 Python checks pass. A zero-diagnostic gate still flags five unchanged test shutdown audio cleanup diagnostics reproduced at baseline. The new entry fixture shutdown diagnostic was diagnosed as WAV playback cleanup and fixed; all modified tests are diagnostic-free. Temporary raw logs are summarized here before removal."
+}

@@ -38,4 +38,20 @@ python -m unittest discover -s tests -p test_ui_assets.py -v
 
 三轮 red→green 分别验证三格生命接线、机甲准确数字/最后生命点、结算隐藏战斗 HUD；旧文本生命断言迁移到实槽/空槽。两种死因、冻结游戏和无限整关重试的既有回归保留。早期测试退出曾产生 ObjectDB/resource 清理警告；本票涉及的测试已释放场景并等待异步音频清理，最近单项运行没有错误或警告。
 
-完整测试与双轴 code-review 的最终结果将在完成后更新此处。截图与自动事件回归不等于真人运动可读性或听感验收；#31 仍需整包试玩，#33 的门体与镜头锁定不在本票实施。
+## 最终完整验证
+
+实现提交 `29ae045`；入口测试清理修正后，最终全套验证对应 `b6d150471b735b13ff974fad0e86e9eca7bc8ad9`。后续提交只归档本验证记录，不再改变运行时代码。
+
+- 38 个继承 SceneTree 的 Godot 检查全部完成，退出码均为 0，无解析或运行脚本错误。
+- Python 全套 17 项通过，包括新增 5 项 UI 来源/切片/字体随包许可/原生对照/nearest 二倍检查，以及 Windows 源码包、内嵌 EXE 与全新解压启动。
+- 正式主场景连续 90 帧启动无错误/警告。另实际读取 Windows 导入、导出及解压启动完整日志，无 SCRIPT ERROR、Parse Error、ERROR 或 WARNING；生产代码未在后续清理修正中改变。
+- 13 态实机截图及同底图获批稿对照通过限定区域误差检查，源字体和冻结 S6 文件校验通过。
+- [双轴 code-review](code-review.md) 与增量复核均为 Standards 0、Spec 0，无待修复审查项。
+
+**全套不是“零诊断通过”。** 五个未改动的测试仍在退出时输出 ObjectDB 泄漏 WARNING 及 resource-in-use ERROR：`defense_mech_tuning`、`level_boss_wiring`、`level_enemy_fire`、`level_operative_wiring`、`level_progression`。这五项已在 E 盘 `2a3c762` 基线源码副本逐一重现，退出码及诊断文字一致；严格零诊断门禁仍会报失败，不能隐藏成绿色。它们不是脚本解析/运行错误，本票没有扩大范围修改这些旧测试。
+
+完整测试首次还发现入口测试在 R 重载后马上退出产生新清理诊断；详细对象报告只指向 `operative_hurt.wav` / `death_health.wav` 的 AudioStreamWAV/Playback。现已按其他本票测试相同方式释放场景并等待异步音频清理，复测以及最终全套中均无诊断；入口断言与关卡规则未改。
+
+机器可读的逐项退出码、原始诊断文字、基线对照、发行包验证及审查结论保留在 [test-results.json](test-results.json)。临时源码副本、打包产物和原始日志完成归档后清理，截图及独立 oracle 全部保留。
+
+截图与自动事件回归不等于真人运动可读性或听感验收；#31 仍需整包试玩，#33 的门体与镜头锁定不在本票实施。
