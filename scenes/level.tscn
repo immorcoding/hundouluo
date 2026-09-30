@@ -49,35 +49,42 @@ script = ExtResource("1")
 
 [node name="HangarFar" type="Sprite2D" parent="."]
 position = Vector2(720, 180)
+z_index = -3
 texture_filter = 1
 texture = ExtResource("3")
 
 [node name="HangarMid" type="Sprite2D" parent="."]
 position = Vector2(720, 180)
+z_index = -3
 texture_filter = 1
 texture = ExtResource("4")
 
 [node name="HangarFar2" type="Sprite2D" parent="."]
 position = Vector2(2160, 180)
+z_index = -3
 texture_filter = 1
 texture = ExtResource("3")
 
 [node name="HangarMid2" type="Sprite2D" parent="."]
 position = Vector2(2160, 180)
+z_index = -3
 texture_filter = 1
 texture = ExtResource("4")
 
 [node name="HangarFar3" type="Sprite2D" parent="."]
 position = Vector2(3600, 180)
+z_index = -3
 texture_filter = 1
 texture = ExtResource("3")
 
 [node name="HangarMid3" type="Sprite2D" parent="."]
 position = Vector2(3600, 180)
+z_index = -3
 texture_filter = 1
 texture = ExtResource("4")
 
 [node name="Ground" type="Node2D" parent="."]
+z_index = -2
 
 [node name="Left" type="StaticBody2D" parent="Ground"]
 collision_layer = 4

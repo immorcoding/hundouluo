@@ -43,7 +43,9 @@ exit_code=1
 
 ## 修复后回归
 
-最终层级设置只在真实敌人死亡时运行。背景降到 -3、整段甲板降到 -2、尸体 Sprite 降到 -1；行动员和仍存活的机械兵维持原来的 0。死亡组件仍留在原位置，使用原 Sprite 节点和死亡帧，不改碰撞、攻击、伤害或美术素材。场景重载会自然恢复全部默认层级。
+绘制层级由各自所有者负责：正式场景在初始配置中把六个机库背景节点设为 z=-3，把 Ground 设为 z=-2；机械兵或防御机甲死亡时只把自己的 Sprite 设为 z=-1。行动员和存活敌人维持 z=0。敌人脚本不再查找或修改关卡背景节点。重试重载场景后，背景/甲板仍保持正式场景的静态深度，机械兵与防御机甲 Sprite 恢复为 z=0。
+
+真实渲染捕获现通过 process-frame 节拍器补足每帧到 16,667 微秒；与 `--fixed-fps 60` 配合，避免固定步长在无节拍时高速模拟。左右移动各采集 27 张原生 640×360 帧，PNG 写盘在运动采样后执行。
 
 像素回归命令：
 
@@ -53,6 +55,8 @@ Godot_v4.7.2-stable_win64_console.exe --path . --audio-driver Dummy --rendering-
 python tools/present_issue_34.py
 ```
 
-修后机械兵站立 `243/243`、向右跑 `124/124`、向左跑 `170/170` 的可判读重叠像素均由行动员获胜；三态残骸各有 673 个可见像素。两次相同命令给出相同结果。机甲站立重叠为 `801/801`，残骸有 3315 个可见像素。活动状态的机械兵及行动员精灵仍在 z=0；R 重试后背景、甲板、机械兵和机甲均恢复原始状态。左右各保留 27 帧、约 60 Hz 的原生 APNG 短循环。修前/修后的背景比较图在两类场景下均为 0 个变化像素，确认没有重绘或移动美术。
+修后机械兵站立 `243/243`、向右跑 `124/124`、向左跑 `170/170` 的可判读重叠像素均由行动员获胜；残骸各有 673 个可见像素。移动的 26 个物理帧分别耗时 423.607ms 与 429.154ms，平均每物理帧 16.293ms 与 16.506ms。机甲站立重叠为 `801/801`，残骸有 3315 个可见像素；正式胜利 HUD 保持可见。重试后静态世界层维持 -3/-2，机械兵与机甲恢复 z=0。
+
+另以提交 `d309625` 的场景渲染为参照，在 30 帧真实节拍后分别捕获背景、存活机械兵、行动员及两者同屏。重构后的四张 640×360 图片相对参照都为 0 个变化像素。两次测量的平均 process-frame 间隔为 16.566ms 和 16.647ms。对照图、层级 JSON 和复现说明位于 [`scene-config-comparison`](../../art/issue-34/scene-config-comparison/README.md)。
 
 原生图：修前机械兵 [combined.png](../../art/issue-34/before/soldier-standing/combined.png)、修后 [standing.png](../../art/issue-34/after/soldier-standing/standing.png)、[move_right.png](../../art/issue-34/after/soldier-standing/move_right.png)、[move_left.png](../../art/issue-34/after/soldier-standing/move_left.png)；原速循环：[walk-right-loop.png](../../art/issue-34/after/soldier-standing/walk-right-loop.png)、[walk-left-loop.png](../../art/issue-34/after/soldier-standing/walk-left-loop.png)。修前机甲 [combined.png](../../art/issue-34/before/mech-standing/combined.png)、修后 [standing.png](../../art/issue-34/after/mech-standing/standing.png)。机甲截图保留正式胜利 HUD；其身体层级结论来自截图上逐像素合成比较。

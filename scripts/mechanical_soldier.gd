@@ -14,12 +14,7 @@ signal warning_started
 @export var fire_interval := 1.6
 
 const ENEMY_PROJECTILE := preload("res://scenes/enemy_projectile.tscn")
-const BACKGROUND_Z_INDEX := -3
-const GROUND_Z_INDEX := -2
 const WRECK_Z_INDEX := -1
-const BACKGROUND_NODES := [
-	"HangarFar", "HangarMid", "HangarFar2", "HangarMid2", "HangarFar3", "HangarMid3",
-]
 
 var health := 3
 var target: Node2D
@@ -93,7 +88,7 @@ func receive_hit() -> void:
 		attack_enabled = false
 		$Muzzle.visible = false
 		$Sprite.frame = 6
-		_set_wreck_render_depth()
+		$Sprite.z_index = WRECK_Z_INDEX
 		set_deferred("collision_layer", 0)
 		set_deferred("collision_mask", 0)
 		$Contact.set_deferred("monitoring", false)
@@ -105,16 +100,3 @@ func receive_hit() -> void:
 func _on_contact_body_entered(body: Node2D) -> void:
 	if health > 0 and body.has_method("receive_hit"):
 		body.receive_hit()
-
-
-func _set_wreck_render_depth() -> void:
-	var level := get_tree().current_scene
-	if level == null or not level.has_node("Ground") or not level.has_node("HangarFar"):
-		return
-	# Reserve depth bands for backdrop, deck, and wreck while live actors stay at z=0.
-	for node_path in BACKGROUND_NODES:
-		var background := level.get_node_or_null(node_path) as CanvasItem
-		if background != null:
-			background.z_index = BACKGROUND_Z_INDEX
-	(level.get_node("Ground") as CanvasItem).z_index = GROUND_Z_INDEX
-	($Sprite as Sprite2D).z_index = WRECK_Z_INDEX

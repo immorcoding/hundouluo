@@ -1,0 +1,14 @@
+{
+	"average_ms_per_process_frame": 16.6470333333333,
+	"background_z": -3,
+	"elapsed_ms": 499.411,
+	"ground_z": -2,
+	"live_soldier_sprite_z": 0,
+	"native_size": [
+		640,
+		360
+	],
+	"operative_sprite_z": 0,
+	"output_dir": "res://docs/art/issue-34/scene-config-comparison/after",
+	"paced_process_frames": 30
+}

@@ -5,6 +5,7 @@ extends SceneTree
 
 const DEFAULT_OUTPUT := "res://docs/art/issue-34/after/soldier-standing"
 const RAW_FRAME_ROOT := "res://.godot/issue-34-frames"
+const TARGET_FRAME_INTERVAL_USEC := 16667
 
 var output_dir := DEFAULT_OUTPUT
 var enemy_kind := "soldier"
@@ -15,9 +16,13 @@ var wreck_sprite: Sprite2D
 var wreck_position := Vector2.ZERO
 var failures: Array[String] = []
 var cases: Array[Dictionary] = []
+var _last_process_start_usec := 0
+var _last_frame_sleep_usec := 0
+var _motion_frames: Dictionary = {}
 
 
 func _initialize() -> void:
+	process_frame.connect(_pace_to_real_60_hz)
 	var args := OS.get_cmdline_user_args()
 	for index in range(args.size() - 1):
 		if args[index] == "--output":
@@ -44,6 +49,7 @@ func _run() -> void:
 	await process_frame
 	await physics_frame
 	await process_frame
+	_reset_frame_pacing_measurement()
 
 	var level := current_scene
 	actor = level.get_node("Operative/Operative") as CharacterBody2D
@@ -119,6 +125,25 @@ func _run() -> void:
 	_finish()
 
 
+func _pace_to_real_60_hz() -> void:
+	var frame_start_usec := Time.get_ticks_usec()
+	var sleep_usec := TARGET_FRAME_INTERVAL_USEC
+	if _last_process_start_usec > 0:
+		var previous_interval := frame_start_usec - _last_process_start_usec
+		var previous_work := maxi(0, previous_interval - _last_frame_sleep_usec)
+		sleep_usec = maxi(0, TARGET_FRAME_INTERVAL_USEC - previous_work)
+	var sleep_start_usec := Time.get_ticks_usec()
+	if sleep_usec > 0:
+		OS.delay_usec(sleep_usec)
+	_last_frame_sleep_usec = Time.get_ticks_usec() - sleep_start_usec
+	_last_process_start_usec = frame_start_usec
+
+
+func _reset_frame_pacing_measurement() -> void:
+	_last_process_start_usec = Time.get_ticks_usec()
+	_last_frame_sleep_usec = 0
+
+
 func _walk_through_wreck(action: String, directory: String) -> Dictionary:
 	var direction := 1 if action == "move_right" else -1
 	Input.action_release("move_left")
@@ -128,13 +153,15 @@ func _walk_through_wreck(action: String, directory: String) -> Dictionary:
 	actor.global_position = enemy.global_position - Vector2(64.0 * direction, 0.0)
 	await _step()
 	var start_x := actor.global_position.x
-	await _save_motion_frame(action, 0)
+	await _save_motion_frame(action)
+	var motion_started_usec := Time.get_ticks_usec()
 	Input.action_press(action)
 	var ticks := 0
 	while ticks < 40 and direction * (actor.global_position.x - enemy.global_position.x) < 24.0:
 		await _step()
 		ticks += 1
-		await _save_motion_frame(action, ticks)
+		await _save_motion_frame(action)
+	var motion_elapsed_usec := Time.get_ticks_usec() - motion_started_usec
 	Input.action_release(action)
 	var crossed_center := direction * (actor.global_position.x - enemy.global_position.x) >= 24.0
 	if not crossed_center:
@@ -143,9 +170,12 @@ func _walk_through_wreck(action: String, directory: String) -> Dictionary:
 	actor.set_physics_process(false)
 	actor_sprite.frame = 1
 	var comparison := await _capture_layer_set(action, false, directory)
+	_write_motion_frames(action)
 	comparison["actor_state"] = "running"
 	comparison["input_action"] = action
 	comparison["physics_ticks"] = ticks
+	comparison["motion_elapsed_ms"] = float(motion_elapsed_usec) / 1000.0
+	comparison["ms_per_physics_tick"] = float(motion_elapsed_usec) / maxf(float(ticks), 1.0) / 1000.0
 	comparison["motion_frame_count"] = ticks + 1
 	comparison["start_x"] = start_x
 	comparison["end_x"] = actor.global_position.x
@@ -156,15 +186,26 @@ func _walk_through_wreck(action: String, directory: String) -> Dictionary:
 	return comparison
 
 
-func _save_motion_frame(action: String, frame_index: int) -> void:
-	var directory := ProjectSettings.globalize_path(RAW_FRAME_ROOT.path_join(action))
-	DirAccess.make_dir_recursive_absolute(directory)
+func _save_motion_frame(action: String) -> void:
 	await RenderingServer.frame_post_draw
 	var image := root.get_texture().get_image()
 	if image.get_size() != Vector2i(640, 360):
 		_fail("Unexpected motion render size for %s" % action)
 		return
-	image.save_png(directory.path_join("frame-%03d.png" % frame_index))
+	if not _motion_frames.has(action):
+		_motion_frames[action] = []
+	(_motion_frames[action] as Array).append(image)
+
+
+func _write_motion_frames(action: String) -> void:
+	var frame_paths := ProjectSettings.globalize_path(RAW_FRAME_ROOT.path_join(action))
+	DirAccess.make_dir_recursive_absolute(frame_paths)
+	var frames := _motion_frames.get(action, []) as Array
+	for frame_index in range(frames.size()):
+		var image := frames[frame_index] as Image
+		var error := image.save_png(frame_paths.path_join("frame-%03d.png" % frame_index))
+		if error != OK:
+			_fail("Unable to save motion frame %s #%d: %s" % [action, frame_index, error_string(error)])
 
 
 func _capture_layer_set(case_name: String, save_components: bool, directory: String) -> Dictionary:
