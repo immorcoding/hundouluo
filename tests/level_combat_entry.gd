@@ -70,7 +70,10 @@ func _run() -> void:
 		_fail("死亡重试须重新打开入口并复位机甲")
 		return
 	print("PASS: 双方入镜预告后入口闭合，退避边界与重试复位")
-	quit(0)
+	current_scene.queue_free()
+	await process_frame
+	await create_timer(0.1).timeout
+	call_deferred("_finish")
 
 
 func _retry() -> void:
@@ -89,3 +92,7 @@ func _fail(message: String) -> void:
 	Input.action_release("move_left")
 	push_error(message)
 	quit(1)
+
+
+func _finish() -> void:
+	quit(0)
