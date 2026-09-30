@@ -84,3 +84,21 @@ Python自动发现新增3项图形回归：站立接缝、三种镜头动作矩�
 首次完整检查74bcc83保留在 `verification-first-74bcc83/`：44 Godot与两种主场景均通过，但新增Python图形回归在统一入口的Python先行阶段缺少导入缓存，记录1024条诊断且失败；随后独立import异常退出3221225477，不能据其“完成导入”文本判通过。引擎异常本身未确定根因。本票新增测试现自行复制相同正式运行文件到TEMP中的独立fixture并先严格导入，原测试源码副本不受修改；证据目录用 `.gdignore` 排除出运行资源导入。没有改统一入口顺序或原测试断言。
 
 默认时钟追加对照 `default-baseline/` 与 `default-implementation/` 分别从独立干净eec9adf与74bcc83 archive执行；本次两个定点（gap_camera、mech_tuning）都exit0/无诊断，属于subset，不推翻旧失败记录，也不代表默认全套通过。
+
+第二次完整1f85c45保留在 `verification-second-1f85c45/`：资源导入、44 Godot、两种主场景与Python21项行为检查均完成，但Windows临时项目删除产生WinError145，仍是exit1/strict_pass=false。目录删除失败是观察事实，缓存写入竞态是推断；没有把该错误改成通过。最终测试改为显式保留E-TEMP导入fixture供诊断，所有行为/退出/诊断断言保持不变，不调用ignore_cleanup_errors，不再尝试删除该fixture。
+
+## 最终固定提交完整回归
+
+真实测试提交 `a176c9a0b073a517da962c60a50d641119f49d54`，实际完整入口：
+
+```powershell
+python .scratch/issue-36/verification-source-a176c9a/tools/check_issue_31.py --godot (Get-Command Godot_v4.7.2-stable_win64_console.exe).Source --output docs/bugs/issue-36/verification-final --temp .scratch/issue-36/verification-temp-a176c9a --clock paced
+```
+
+实际调用使用上述各路径的绝对路径，见 `verification-final/results.json`。源码由显式 `git archive --format=zip a176c9a` 提取到E盘全新目录，自己的Git对象/HEAD/index来自no-checkout/no-hardlinks克隆，再read-tree；起始status为空，HEAD为a176c9a，archive comment及1707成员验证见 `archive-verification-final.json`，没有借外层Git或生成空archive。Python/Windows包合同与Godot均从该同一实现执行，TEMP在被测checkout外的E盘兄弟目录，包目录守卫未改。
+
+最终 `verification-final/results.json` 为 `strict_pass=true`、`complete_suite=true`。44 Godot全部实发现/执行，Python21/21（原18+新增3，含Windows端到端2项，无skip），导入与主场景headless/真实图形各90帧，共48条记录全部exit0、ERROR/SCRIPT ERROR/WARNING均0。完整原始日志与合法PASS门禁保留。paced固定模拟60fps、每process_frame等待17ms；原胜利测试120Hz/30fps，新增图形终局同120/30。Python实际GL像素检查按自身60fps/终局30fps，初始化导入复制同一正式运行文件，不用无头坐标替代画面。
+
+结束HEAD相同；25个.import仅有行尾/stat标志，normalized_diff与staged_diff均为空，`normalized_source_unchanged=true`，未stage掩盖变更。原生产素材、共享关卡、版本及打包配置保持不变；最终交付后的提交仅补本票证据/审查文档，不冒称这些尾部文档提交重新跑过全套。
+
+两轴独立最终审查见 `code-review.md`：Standards硬性违规0、已解决P3一项、未解决0；Spec未解决0。当前条件下无未解决工程项；默认完整时钟未验证、旧低置信probe及未知历史import异常仍按上述边界保留。用户最终视觉确认仍留新候选包。

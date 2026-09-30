@@ -25,3 +25,13 @@
 完整Godot/Python当时仍在运行，该审查不提前宣告全套通过、关闭议题、封版或新包交付。
 
 Standards：硬性违规0，P3已解决，未解决0。Spec：未解决可行动项0。首次全套发现的测试准备问题随后由主代理修正，相关增量复审及最终全量记录另补，不能用本报告掩盖首次失败。
+
+## 测试准备与最终固定提交增量
+
+两轴独立复审 `74bcc83...1f85c45` 均0个可行动发现：新增setUpClass复制同一正式运行源码到独立E-TEMP，严格导入后执行原真实GL/Input断言，未改seam、统一入口、原测试或包守卫；`.gdignore`仅排除本票证据导入。首次1024诊断/Python失败、import异常退出及默认两项subset均如实保留。
+
+两轴独立复审 `1f85c45...a176c9a` 均0个可行动发现：21项Python的行为断言完成后，Windows删除目录失败仍保留为整体失败；显式保留导入fixture用于诊断属于授权范围，没有ignore_cleanup_errors或放宽断言。Standards提醒缓存写入竞态应视为推断，README已区分它与日志中的WinError145事实。
+
+最终主代理实际完成a176c9a干净archive的统一全量：44 Godot、21 Python无skip，导入/两种90帧主场景，共48条全exit0、零诊断、strict_pass=true/complete_suite=true。审查未代替该执行；完整最终记录在verification-final。a176c9a之后只有本票文档/日志证据差异，没有运行或测试源码变化。
+
+Standards：硬性违规0、未解决判断建议0（初审P3已解决）；Spec：未解决可行动项0。
