@@ -18,7 +18,7 @@
 
 15启动配置增量P2：project注册bootstrap但独立GL fixture仅复制36工具，漏新增autoload及UID。380精确补这两依赖，保留project/诊断，不跳过或过滤；独立核对red0tests/3ERROR、green3/3/69.631s。P2已解决、旧P3仍已解决、新增未解决0。
 
-其余启动配置符合必要实际EXE验证范围：固定模式，不加载用户给定脚本/场景/执行文件路径或方法；未知/重复模式exit1，无flag先queue_free返回且不接信号/后台任务/改Input。输出目录是生成PNG/trace目的地，非可执行资源输入，由正式捕获器限制新E盘目录；不将这一参数解释成任意资源执行。默认正常游戏仍按原main，未改release模板路径覆盖或系统设置；该验证接缝不是玩家功能。15及380普通启动/显式probe实际结果由主代理另外核验，审查不替代检查。
+历史15/380审查曾认为输出目录由正式Python捕获器限制新E盘即可。协调复核已退回这一判断：原封f208 EXE可绕过捕获器直接将--out交给旧fixture，实际覆盖已有输出；此处历史“未解决0”不能作为输出边界通过结论。固定模式、无任意可执行资源输入以及默认无flag返回的判断继续有效；输出边界改由EXE入口自身负责，见下文增量范围。
 
 ## 实际核对与剩余边界
 
@@ -27,3 +27,11 @@
 同380源码8/实际Windows8均真实exit0/零诊断、前后干净同HEAD；默认无flag90和unknown mode实际exit1 probe分别留证。源/EXE图形独立记录，不互相冒称，后续证据文档提交不冒称重跑完整48。最终新包独立Git/导入/实际启动/许可证/哈希以及最终文档增量仍需交付记录核对。
 
 Standards：硬违反0、smell0、未解决0。Spec：P3/P2已解决，未解决0；历史未知import异常/默认时钟失败/旧低置信probe继续披露。
+
+## f208输出边界返工范围
+
+基线固定为f208911d8b6712407c68dbac2a2b5bd675d3e211。保留旧审查及失败事实，不重做#36美术/诊断。真实旧EXE红测在新自有E目录内覆盖47字节哨兵为491字节trace，EXE实际exit0并进入fixture；拒绝契约测试exit1、strict_pass=false。原包及既有证据未改，原始日志/前后SHA保留在持久交付目录的新增输出边界诊断中。
+
+新入口在load固定fixture前要求唯一非空--out、规范化绝对E路径、固定rc.3证据根内的既存非链接父目录和不存在的目标。拒绝res/user/相对/其他盘、重复参数、dot/dotdot、Windows名称别名、已有文件/目录、链接祖先和缺失父目录；原子make_dir预留新leaf，失败exit1且不加载fixture。两个固定根是本E工作树的.godot/issue31-rc3与E:/Projects/game_hundouluo_codex_artifacts/v0.1.1-rc.3；正斜杠及反斜杠均接受。仍只输出既有PNG/trace，无任意资源/方法入口。无flag在校验前返回，原测试和生产行为不变。
+
+新增tools/check_rc3_output_boundary.py只作为实际原封EXE的独立CLI契约检查，不增加unittest类或改变21项计数。非法pixels参数以headless运行防止守卫退化时误写res/user输出；任何fixture marker都判失败，不能借旧fixture自身的headless失败冒称入口拒绝。合法新E目录用真实GL、原PASS及640×360 PNG核验。新实现独立两轴审查、完整44Godot/21Python与Windows八项结果以新提交对应的持久交付记录为准，本段不预先宣称通过。
