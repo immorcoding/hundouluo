@@ -40,8 +40,36 @@ function Invoke-GodotChecked {
 		[Parameter(Mandatory = $true)][string]$Operation
 	)
 
-	$operationOutput = @(& $Executable @GodotArguments 2>&1)
-	$operationExitCode = $LASTEXITCODE
+	# PowerShell does not reliably wait for a GUI-subsystem EXE or refresh
+	# LASTEXITCODE. Own the process so exported-game checks use its real result.
+	$startInfo = [Diagnostics.ProcessStartInfo]::new()
+	$startInfo.FileName = $Executable
+	$startInfo.UseShellExecute = $false
+	$startInfo.CreateNoWindow = $true
+	$startInfo.RedirectStandardOutput = $true
+	$startInfo.RedirectStandardError = $true
+	if ($null -ne $startInfo.PSObject.Properties['ArgumentList']) {
+		foreach ($argument in $GodotArguments) { $startInfo.ArgumentList.Add($argument) }
+	} else {
+		# .NET Framework/Windows PowerShell: quote argv without invoking a shell.
+		$quotedArguments = foreach ($argument in $GodotArguments) {
+			$escaped = [regex]::Replace($argument, '(\\*)"', '$1$1\"')
+			'"' + [regex]::Replace($escaped, '(\\+)$', '$1$1') + '"'
+		}
+		$startInfo.Arguments = $quotedArguments -join ' '
+	}
+	$process = [Diagnostics.Process]::new()
+	$process.StartInfo = $startInfo
+	try {
+		if (-not $process.Start()) { throw "Could not start $Operation." }
+		$stdout = $process.StandardOutput.ReadToEndAsync()
+		$stderr = $process.StandardError.ReadToEndAsync()
+		$process.WaitForExit()
+		$operationExitCode = $process.ExitCode
+		$operationOutput = @($stdout.GetAwaiter().GetResult(), $stderr.GetAwaiter().GetResult())
+	} finally {
+		$process.Dispose()
+	}
 	$operationOutput | Write-Output
 	if ($operationExitCode -ne 0) {
 		throw "$Operation failed with exit code $operationExitCode."
