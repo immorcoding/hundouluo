@@ -1,0 +1,29 @@
+{
+  "native_size": [
+    640,
+    360
+  ],
+  "fps": 60,
+  "loops": [
+    {
+      "action": "move_right",
+      "file": "walk-right-loop.png",
+      "frames": 27,
+      "frame_duration_ms": 17,
+      "resolution": [
+        640,
+        360
+      ]
+    },
+    {
+      "action": "move_left",
+      "file": "walk-left-loop.png",
+      "frames": 27,
+      "frame_duration_ms": 17,
+      "resolution": [
+        640,
+        360
+      ]
+    }
+  ]
+}

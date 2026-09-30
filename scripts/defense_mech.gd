@@ -14,6 +14,7 @@ signal charge_started
 
 const ENEMY_PROJECTILE := preload("res://scenes/enemy_projectile.tscn")
 const ENEMY_PROJECTILE_SCRIPT := preload("res://scripts/enemy_projectile.gd")
+const WRECK_Z_INDEX := -1
 
 enum Phase { IDLE, CHARGE, VOLLEY, RECOVERY }
 
@@ -126,6 +127,7 @@ func receive_hit() -> void:
 		attack_enabled = false
 		_reset_attack()
 		$Sprite.frame = 5
+		$Sprite.z_index = WRECK_Z_INDEX
 		died.emit()
 	else:
 		_hurt_remaining = 0.12

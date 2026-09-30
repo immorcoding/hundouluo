@@ -1,0 +1,79 @@
+{
+	"actor_health": 3,
+	"background_z_index": -3,
+	"cases": [
+		{
+			"actor_state": "standing",
+			"operative_front_pixels": 243,
+			"operative_front_ratio": 1.0,
+			"operative_visible_pixels": 1249,
+			"other_pixels": 0,
+			"overlap_pixels": 243,
+			"wreck_front_pixels": 0,
+			"wreck_visible_pixels": 673
+		},
+		{
+			"actor_state": "running",
+			"crossed_center": true,
+			"end_x": 836.533325195313,
+			"facing_left": false,
+			"input_action": "move_right",
+			"motion_elapsed_ms": 423.607,
+			"motion_frame_count": 27,
+			"ms_per_physics_tick": 16.2925769230769,
+			"operative_front_pixels": 124,
+			"operative_front_ratio": 1.0,
+			"operative_visible_pixels": 1238,
+			"other_pixels": 0,
+			"overlap_pixels": 124,
+			"physics_ticks": 26,
+			"run_frame": 1,
+			"start_x": 745.533325195313,
+			"wreck_front_pixels": 0,
+			"wreck_position_unchanged": true,
+			"wreck_visible_pixels": 673
+		},
+		{
+			"actor_state": "running",
+			"crossed_center": true,
+			"end_x": 782.533325195313,
+			"facing_left": true,
+			"input_action": "move_left",
+			"motion_elapsed_ms": 429.154,
+			"motion_frame_count": 27,
+			"ms_per_physics_tick": 16.5059230769231,
+			"operative_front_pixels": 170,
+			"operative_front_ratio": 1.0,
+			"operative_visible_pixels": 1238,
+			"other_pixels": 0,
+			"overlap_pixels": 170,
+			"physics_ticks": 26,
+			"run_frame": 1,
+			"start_x": 873.533325195313,
+			"wreck_front_pixels": 0,
+			"wreck_position_unchanged": true,
+			"wreck_visible_pixels": 673
+		}
+	],
+	"enemy_health": 0,
+	"enemy_sprite_z_index": -1,
+	"engine": "4.7.2-stable (official)",
+	"failures": [],
+	"fixture": "Production level; soldier defeated with receive_hit; actor standing or moving through wreck with production input actions",
+	"ground_z_index": -2,
+	"live_soldier_z_index": 0,
+	"native_size": [
+		640,
+		360
+	],
+	"operative_sprite_z_index": 0,
+	"outcome_panel_visible": false,
+	"output_dir": "res://docs/art/issue-34/after/soldier-standing",
+	"physics_ticks_per_second": 60,
+	"renderer": "OpenGL Compatibility",
+	"wreck_frame": 6,
+	"wreck_position": [
+		809.533325195313,
+		251.925277709961
+	]
+}

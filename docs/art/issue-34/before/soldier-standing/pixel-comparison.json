@@ -1,0 +1,16 @@
+{
+	"actor_health": 3,
+	"fixture": "Production level, SoloSoldier defeated by receive_hit, operative standing at wreck position",
+	"native_size": [
+		640,
+		360
+	],
+	"operative_front_pixels": 0,
+	"operative_front_ratio": 0.0,
+	"other_pixels": 0,
+	"output_dir": "res://docs/art/issue-34/before/soldier-standing",
+	"overlap_pixels": 243,
+	"soldier_health": 0,
+	"wreck_frame": 6,
+	"wreck_front_pixels": 243
+}

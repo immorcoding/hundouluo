@@ -14,6 +14,7 @@ signal warning_started
 @export var fire_interval := 1.6
 
 const ENEMY_PROJECTILE := preload("res://scenes/enemy_projectile.tscn")
+const WRECK_Z_INDEX := -1
 
 var health := 3
 var target: Node2D
@@ -87,6 +88,7 @@ func receive_hit() -> void:
 		attack_enabled = false
 		$Muzzle.visible = false
 		$Sprite.frame = 6
+		$Sprite.z_index = WRECK_Z_INDEX
 		set_deferred("collision_layer", 0)
 		set_deferred("collision_mask", 0)
 		$Contact.set_deferred("monitoring", false)

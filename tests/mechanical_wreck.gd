@@ -38,8 +38,89 @@ func _run() -> void:
 			or soldier.collision_layer != 2:
 		_fail("重载场景须恢复可交战机械兵")
 		return
-	print("PASS: 机械兵倒地残骸惰性且场景重载复位")
+	if not await _verify_production_depth_and_retry():
+		return
+	print("PASS: 机械兵残骸惰性、前后绘制层级和重试复位")
 	quit(0)
+
+
+func _verify_production_depth_and_retry() -> bool:
+	change_scene_to_file("res://scenes/level.tscn")
+	await process_frame
+	await process_frame
+	var level := current_scene
+	if level == null:
+		_fail("正式关卡未能加载")
+		return false
+	var actor := level.get_node("Operative/Operative") as CharacterBody2D
+	var soldier := level.get_node("Enemies/SoloSoldier") as MechanicalSoldier
+	if not _has_world_depth(level) or (soldier.get_node("Sprite") as Sprite2D).z_index != 0:
+		_fail("正式关卡须静态配置背景/地板层，存活敌人保持默认层级")
+		return false
+	for hit in soldier.health:
+		soldier.receive_hit()
+	await physics_frame
+	if not _has_world_depth(level) \
+			or not _has_wreck_depth(soldier.get_node("Sprite") as Sprite2D) \
+			or (level.get_node("Enemies/PairOneA/Sprite") as Sprite2D).z_index != 0:
+		_fail("机械兵死亡应只下沉自身残骸，保留静态世界层和活敌层级")
+		return false
+	for hit in 3:
+		actor.receive_hit()
+		for frame in 43:
+			await physics_frame
+	if actor.health != 0 or not level.get_node("HUD/OutcomePanel").visible:
+		_fail("正式关卡死亡 fixture 未触发 R 重试入口")
+		return false
+	await _retry()
+	level = current_scene
+	if level == null or not _has_world_depth(level) \
+			or level.get_node("Operative/Operative").health != 3 \
+			or level.get_node("Enemies/SoloSoldier").health != 3 \
+			or (level.get_node("Enemies/SoloSoldier/Sprite") as Sprite2D).z_index != 0:
+		_fail("机械兵残骸层级须由 R 重试重置")
+		return false
+	var mech := level.get_node("BossSlot/DefenseMech") as DefenseMech
+	mech.attack_enabled = true
+	for hit in mech.health:
+		mech.receive_hit()
+	await physics_frame
+	if mech.health != 0 or not _has_world_depth(level) \
+			or not _has_wreck_depth(mech.get_node("Sprite") as Sprite2D) \
+			or (level.get_node("Enemies/SoloSoldier/Sprite") as Sprite2D).z_index != 0:
+		_fail("防御机甲死亡应只下沉自身残骸，保留静态世界层和活敌层级")
+		return false
+	await _retry()
+	level = current_scene
+	if level == null or not _has_world_depth(level) \
+			or level.get_node("BossSlot/DefenseMech").health != 42 \
+			or (level.get_node("BossSlot/DefenseMech/Sprite") as Sprite2D).z_index != 0:
+		_fail("防御机甲残骸层级须由 R 重试重置")
+		return false
+	return true
+
+
+func _has_world_depth(level: Node) -> bool:
+	for background_name in ["HangarFar", "HangarMid", "HangarFar2", "HangarMid2", "HangarFar3", "HangarMid3"]:
+		if (level.get_node(background_name) as CanvasItem).z_index != -3:
+			return false
+	return (level.get_node("Ground") as CanvasItem).z_index == -2
+
+
+func _has_wreck_depth(wreck_sprite: Sprite2D) -> bool:
+	return wreck_sprite.z_index == -1
+
+
+func _retry() -> void:
+	var event := InputEventKey.new()
+	event.physical_keycode = KEY_R
+	event.pressed = true
+	Input.parse_input_event(event)
+	await process_frame
+	await process_frame
+	event.pressed = false
+	Input.parse_input_event(event)
+	await process_frame
 
 
 func _fail(message: String) -> void:
