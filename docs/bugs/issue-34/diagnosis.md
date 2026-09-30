@@ -60,3 +60,15 @@ python tools/present_issue_34.py
 另以提交 `d309625` 的场景渲染为参照，在 30 帧真实节拍后分别捕获背景、存活机械兵、行动员及两者同屏。重构后的四张 640×360 图片相对参照都为 0 个变化像素。两次测量的平均 process-frame 间隔为 16.566ms 和 16.647ms。对照图、层级 JSON 和复现说明位于 [`scene-config-comparison`](../../art/issue-34/scene-config-comparison/README.md)。
 
 原生图：修前机械兵 [combined.png](../../art/issue-34/before/soldier-standing/combined.png)、修后 [standing.png](../../art/issue-34/after/soldier-standing/standing.png)、[move_right.png](../../art/issue-34/after/soldier-standing/move_right.png)、[move_left.png](../../art/issue-34/after/soldier-standing/move_left.png)；原速循环：[walk-right-loop.png](../../art/issue-34/after/soldier-standing/walk-right-loop.png)、[walk-left-loop.png](../../art/issue-34/after/soldier-standing/walk-left-loop.png)。修前机甲 [combined.png](../../art/issue-34/before/mech-standing/combined.png)、修后 [standing.png](../../art/issue-34/after/mech-standing/standing.png)。机甲截图保留正式胜利 HUD；其身体层级结论来自截图上逐像素合成比较。
+
+## 完整回归与基线对照
+
+提交 `d309625de50a167af83b550402da220411b1e16d` 的原始默认严格全量记录为 `strict_pass=false`：`level_gap_camera` 以“接近缺口时两侧边缘未同时入镜”退出 1；`defense_mech_tuning` 退出 0，但报告 `2 ObjectDB instances were leaked` 和 `1 resources still in use`。隔离的原始基线 `bb36822575c2adbdc464bcb8cf8d6dac7e8de266` 对这两项复现相同结果；该基线的默认 headless `level_progression` 与 `level_boss_wiring` 单项镜头断言也有相同失败记录。提交 d309 的逐项默认日志保留在本 worktree 的 `.godot/issue-34-verification/`；隔离基线快照位于 `.godot/issue-34-baseline-probe/`，逐项命令和已记录输出见 [`baseline-default-results.md`](baseline-default-results.md)。
+
+为收口这些物理帧/绘制时序与音频清理敏感项，新增的完整运行器保持原始 GDScript 测试和断言不变，在每个继承测试的 `process_frame` 上等待 17ms，并以 `--fixed-fps 60` 固定模拟时钟。运行器只在干净提交上记录 tested_commit，exit code 和 `ERROR`/`SCRIPT ERROR`/`WARNING` 都作为严格门槛。最终命令为：
+
+```powershell
+python tools/check_issue_34_paced.py --godot <Godot 4.7.2 console executable> --output .godot/issue-34-verification-paced-final --temp <E-drive scratch directory outside the checkout>
+```
+
+最终结果 `tested_commit=f5aa2107253cb16ad8594a9095efb0bcaf4d5700`、`strict_pass=true`，46 项全部通过：Python 18 项、导入、42 个 Godot 场景测试、headless 与 graphical 主场景检查；无诊断。原默认失败日志仍保留以便与此稳定命令对照。完整的本次逐项命令、退出码和原始输出保存在该 worktree 的 `.godot/issue-34-verification-paced-final/`。
