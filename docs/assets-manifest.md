@@ -47,6 +47,10 @@ The generated visual-source PNGs are project-specific original art, not download
 
 `assets/combat_v011/atlas.png` is the sole newly referenced runtime bitmap: a 192×320 atlas containing the friendly, mechanical-soldier and defense-mech projectiles, both muzzle flashes, two impact effects and the charge ring. `assets/combat_v011/source.png`, `PROMPT.txt`, `build.gd`, `atlas.json` and `README.md` preserve the original ImageGen-assisted source, exact prompt, deterministic processing and frame contract from the approved #26 branch (`afc81bd`, art correction `3004d42`). No third-party pack was added. The source and exported atlas ship under this repository's MIT `LICENSE`. Review-only staged captures and the high-barrel-to-low-lane proposal were not imported into runtime assets; see [`art/issue-29-validation.md`](art/issue-29-validation.md).
 
+## #33 approved entry gate integration
+
+`assets/entry_gate_v011/gate.png` losslessly packs the eight approved #32 B-left16 PNG exports at 1:1. The production position is x3396; the x3388 range-gap candidate is excluded. Editable geometry, palette, deck-source crops and SVGs remain in `art/entry_gate/b-left/`, `art/entry_gate/ab/` and `art/entry_gate/build.py`. See [`assets/entry_gate_v011/README.md`](../assets/entry_gate_v011/README.md) for the frame/anchor contract and reconstruction command. Gate panels and frames are original program-drawn artwork under this repository's MIT license; wall/foundation textures reuse the original #22 `hangar_deck.png` material with provenance in `assets/art_source/README.md`. No new generated image or third-party pack was added.
+
 ## #30 approved UI and font distribution notices
 
 The production HUD/outcome artwork in `assets/ui_v011/` reuses the user-approved #27 originals. Source regions, ImageGen provenance, native layout and reconstruction are recorded in [`assets/ui_v011/README.md`](../assets/ui_v011/README.md). No new image generation or third-party art pack was introduced.

@@ -5,6 +5,11 @@
 __pycache__/
 *.pyc
 
+# #33 reproducible raw capture frames and review-image import caches.
+docs/art/issue-33/frames/
+docs/art/issue-33/*.png.import
+docs/art/issue-33/*.gif.import
+
 # Review-only captures/previews are re-imported locally by the editor.
 docs/art/*.png.import
 docs/art/concepts/*.png.import

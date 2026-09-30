@@ -1,0 +1,104 @@
+{
+	"approved_comparisons": [
+		{
+			"pixels_identical": true,
+			"source_pose": "open",
+			"state": "entry-open"
+		},
+		{
+			"pixels_identical": true,
+			"source_pose": "warning-3",
+			"state": "entry-warning"
+		},
+		{
+			"pixels_identical": true,
+			"source_pose": "closed",
+			"state": "entry-closed"
+		},
+		{
+			"pixels_identical": true,
+			"source_pose": "closed",
+			"state": "entry-late"
+		}
+	],
+	"sequences": [
+		{
+			"actor_health": 3,
+			"actor_x": 3465.5,
+			"camera_x": 3580.0,
+			"closure_frame": 46,
+			"enemy_shots": 3,
+			"fps": 60,
+			"frames": 150,
+			"mech_health": 38,
+			"mech_visible": true,
+			"sequence": "entry",
+			"warning_frame": 32
+		},
+		{
+			"actor_health": 3,
+			"actor_x": 3462.0,
+			"camera_x": 3577.0,
+			"closure_frame": -1,
+			"enemy_shots": 0,
+			"fps": 60,
+			"frames": 150,
+			"mech_health": 42,
+			"mech_visible": false,
+			"sequence": "cancel",
+			"warning_frame": 32
+		},
+		{
+			"actor_health": 1,
+			"actor_x": 3415.07495117188,
+			"camera_x": 3580.0,
+			"closure_frame": 46,
+			"enemy_shots": 6,
+			"fps": 60,
+			"frames": 450,
+			"mech_health": 41,
+			"mech_visible": true,
+			"sequence": "boundary",
+			"warning_frame": 32
+		},
+		{
+			"actor_health": 2,
+			"actor_x": 3438.5,
+			"camera_x": 3553.5,
+			"closure_frame": -1,
+			"enemy_shots": 0,
+			"fps": 60,
+			"frames": 150,
+			"mech_health": 42,
+			"mech_visible": false,
+			"sequence": "walk",
+			"warning_frame": -1
+		},
+		{
+			"actor_health": 2,
+			"actor_x": 3438.53247070313,
+			"camera_x": 3553.53247070313,
+			"closure_frame": -1,
+			"enemy_shots": 0,
+			"fps": 60,
+			"frames": 150,
+			"mech_health": 42,
+			"mech_visible": false,
+			"sequence": "jump",
+			"warning_frame": -1
+		},
+		{
+			"actor_health": 2,
+			"actor_x": 3724.5,
+			"camera_x": 3580.0,
+			"closure_frame": 46,
+			"enemy_shots": 3,
+			"fps": 60,
+			"frames": 150,
+			"mech_health": 42,
+			"mech_visible": true,
+			"sequence": "advance",
+			"warning_frame": 32
+		}
+	]
+}
