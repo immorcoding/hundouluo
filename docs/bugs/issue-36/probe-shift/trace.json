@@ -1,0 +1,14 @@
+[
+	{
+		"changed_gun_pixels": 2,
+		"flash_count": 1,
+		"flip": false,
+		"pose": 0,
+		"sprite_origin": [
+			140.0,
+			234.0
+		],
+		"tick": 0,
+		"visible_rear_error_px": 0
+	}
+]

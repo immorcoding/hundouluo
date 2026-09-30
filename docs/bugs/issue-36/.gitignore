@@ -1,0 +1,3 @@
+# Raw native captures stay on the E worktree; selected images/APNGs are tracked.
+**/frames/
+**/*.png.import

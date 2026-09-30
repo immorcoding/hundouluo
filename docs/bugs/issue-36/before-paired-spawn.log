@@ -1,0 +1,363 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.47 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4060 Laptop GPU
+
+FAIL: tick0 gun body changed 23 pixels
+FAIL: tick0 visible flash rear misses barrel edge by -7px
+FAIL: tick1 gun body changed 23 pixels
+FAIL: tick1 visible flash rear misses barrel edge by -7px
+FAIL: tick2 gun body changed 48 pixels
+FAIL: tick2 visible flash rear misses barrel edge by -10px
+FAIL: tick3 gun body changed 48 pixels
+FAIL: tick3 visible flash rear misses barrel edge by -10px
+FAIL: tick4 gun body changed 48 pixels
+FAIL: tick4 visible flash rear misses barrel edge by -10px
+FAIL: tick5 gun body changed 49 pixels
+FAIL: tick5 visible flash rear misses barrel edge by -10px
+FAIL: tick6 gun body changed 28 pixels
+FAIL: tick6 visible flash rear misses barrel edge by -8px
+FAIL: tick7 gun body changed 31 pixels
+FAIL: tick7 visible flash rear misses barrel edge by -8px
+FAIL: tick8 gun body changed 28 pixels
+FAIL: tick8 visible flash rear misses barrel edge by -8px
+FAIL: tick9 gun body changed 19 pixels
+FAIL: tick9 visible flash rear misses barrel edge by -6px
+FAIL: tick10 gun body changed 23 pixels
+FAIL: tick10 visible flash rear misses barrel edge by -7px
+FAIL: tick11 gun body changed 28 pixels
+FAIL: tick11 visible flash rear misses barrel edge by -7px
+FAIL: tick12 gun body changed 49 pixels
+FAIL: tick12 visible flash rear misses barrel edge by -10px
+FAIL: tick13 gun body changed 50 pixels
+FAIL: tick13 visible flash rear misses barrel edge by -10px
+FAIL: tick14 gun body changed 49 pixels
+FAIL: tick14 visible flash rear misses barrel edge by -10px
+FAIL: tick15 gun body changed 51 pixels
+FAIL: tick15 visible flash rear misses barrel edge by -10px
+FAIL: tick16 gun body changed 31 pixels
+FAIL: tick16 visible flash rear misses barrel edge by -8px
+FAIL: tick17 gun body changed 28 pixels
+FAIL: tick17 visible flash rear misses barrel edge by -8px
+FAIL: tick18 gun body changed 31 pixels
+FAIL: tick18 visible flash rear misses barrel edge by -8px
+FAIL: tick19 gun body changed 17 pixels
+FAIL: tick19 visible flash rear misses barrel edge by -7px
+FAIL: tick20 gun body changed 23 pixels
+FAIL: tick20 visible flash rear misses barrel edge by -7px
+FAIL: tick21 gun body changed 23 pixels
+FAIL: tick21 visible flash rear misses barrel edge by -7px
+FAIL: tick22 gun body changed 51 pixels
+FAIL: tick22 visible flash rear misses barrel edge by -10px
+FAIL: tick23 gun body changed 51 pixels
+FAIL: tick23 visible flash rear misses barrel edge by -10px
+FAIL: tick24 gun body changed 51 pixels
+FAIL: tick24 visible flash rear misses barrel edge by -10px
+FAIL: tick25 gun body changed 51 pixels
+FAIL: tick25 visible flash rear misses barrel edge by -10px
+FAIL: tick26 gun body changed 29 pixels
+FAIL: tick26 visible flash rear misses barrel edge by -8px
+FAIL: tick27 gun body changed 29 pixels
+FAIL: tick27 visible flash rear misses barrel edge by -8px
+FAIL: tick28 gun body changed 29 pixels
+FAIL: tick28 visible flash rear misses barrel edge by -8px
+FAIL: tick29 gun body changed 17 pixels
+FAIL: tick29 visible flash rear misses barrel edge by -7px
+FAIL: tick30 gun body changed 23 pixels
+FAIL: tick30 visible flash rear misses barrel edge by -7px
+FAIL: tick31 gun body changed 23 pixels
+FAIL: tick31 visible flash rear misses barrel edge by -7px
+FAIL: tick32 gun body changed 51 pixels
+FAIL: tick32 visible flash rear misses barrel edge by -10px
+FAIL: tick33 gun body changed 51 pixels
+FAIL: tick33 visible flash rear misses barrel edge by -10px
+FAIL: tick34 gun body changed 51 pixels
+FAIL: tick34 visible flash rear misses barrel edge by -10px
+FAIL: tick35 gun body changed 51 pixels
+FAIL: tick35 visible flash rear misses barrel edge by -10px
+FAIL: tick36 gun body changed 29 pixels
+FAIL: tick36 visible flash rear misses barrel edge by -8px
+FAIL: tick37 gun body changed 29 pixels
+FAIL: tick37 visible flash rear misses barrel edge by -8px
+FAIL: tick38 gun body changed 29 pixels
+FAIL: tick38 visible flash rear misses barrel edge by -8px
+FAIL: tick39 gun body changed 17 pixels
+FAIL: tick39 visible flash rear misses barrel edge by -7px
+FAIL: tick40 gun body changed 23 pixels
+FAIL: tick40 visible flash rear misses barrel edge by -7px
+FAIL: tick41 gun body changed 23 pixels
+FAIL: tick41 visible flash rear misses barrel edge by -7px
+FAIL: tick42 gun body changed 51 pixels
+FAIL: tick42 visible flash rear misses barrel edge by -10px
+FAIL: tick43 gun body changed 51 pixels
+FAIL: tick43 visible flash rear misses barrel edge by -10px
+FAIL: tick44 gun body changed 51 pixels
+FAIL: tick44 visible flash rear misses barrel edge by -10px
+FAIL: tick45 gun body changed 51 pixels
+FAIL: tick45 visible flash rear misses barrel edge by -10px
+FAIL: tick46 gun body changed 29 pixels
+FAIL: tick46 visible flash rear misses barrel edge by -8px
+FAIL: tick47 gun body changed 29 pixels
+FAIL: tick47 visible flash rear misses barrel edge by -8px
+FAIL: tick48 gun body changed 29 pixels
+FAIL: tick48 visible flash rear misses barrel edge by -8px
+FAIL: tick49 gun body changed 17 pixels
+FAIL: tick49 visible flash rear misses barrel edge by -7px
+FAIL: tick50 gun body changed 23 pixels
+FAIL: tick50 visible flash rear misses barrel edge by -7px
+FAIL: tick51 gun body changed 23 pixels
+FAIL: tick51 visible flash rear misses barrel edge by -7px
+FAIL: tick52 gun body changed 51 pixels
+FAIL: tick52 visible flash rear misses barrel edge by -10px
+FAIL: tick53 gun body changed 51 pixels
+FAIL: tick53 visible flash rear misses barrel edge by -10px
+FAIL: tick54 gun body changed 51 pixels
+FAIL: tick54 visible flash rear misses barrel edge by -10px
+FAIL: tick55 gun body changed 51 pixels
+FAIL: tick55 visible flash rear misses barrel edge by -10px
+FAIL: tick56 gun body changed 29 pixels
+FAIL: tick56 visible flash rear misses barrel edge by -8px
+FAIL: tick57 gun body changed 29 pixels
+FAIL: tick57 visible flash rear misses barrel edge by -8px
+FAIL: tick58 gun body changed 29 pixels
+FAIL: tick58 visible flash rear misses barrel edge by -8px
+FAIL: tick59 gun body changed 17 pixels
+FAIL: tick59 visible flash rear misses barrel edge by -7px
+FAIL: tick60 gun body changed 23 pixels
+FAIL: tick60 visible flash rear misses barrel edge by -7px
+FAIL: tick61 gun body changed 23 pixels
+FAIL: tick61 visible flash rear misses barrel edge by -7px
+FAIL: tick62 gun body changed 51 pixels
+FAIL: tick62 visible flash rear misses barrel edge by -10px
+FAIL: tick63 gun body changed 51 pixels
+FAIL: tick63 visible flash rear misses barrel edge by -10px
+FAIL: tick64 gun body changed 51 pixels
+FAIL: tick64 visible flash rear misses barrel edge by -10px
+FAIL: tick65 gun body changed 51 pixels
+FAIL: tick65 visible flash rear misses barrel edge by -10px
+FAIL: tick66 gun body changed 29 pixels
+FAIL: tick66 visible flash rear misses barrel edge by -8px
+FAIL: tick67 gun body changed 29 pixels
+FAIL: tick67 visible flash rear misses barrel edge by -8px
+FAIL: tick68 gun body changed 29 pixels
+FAIL: tick68 visible flash rear misses barrel edge by -8px
+FAIL: tick69 gun body changed 19 pixels
+FAIL: tick69 visible flash rear misses barrel edge by -6px
+FAIL: tick70 gun body changed 23 pixels
+FAIL: tick70 visible flash rear misses barrel edge by -7px
+FAIL: tick71 gun body changed 23 pixels
+FAIL: tick71 visible flash rear misses barrel edge by -7px
+FAIL: tick72 gun body changed 50 pixels
+FAIL: tick72 visible flash rear misses barrel edge by -10px
+FAIL: tick73 gun body changed 49 pixels
+FAIL: tick73 visible flash rear misses barrel edge by -10px
+FAIL: tick74 gun body changed 50 pixels
+FAIL: tick74 visible flash rear misses barrel edge by -10px
+FAIL: tick75 gun body changed 49 pixels
+FAIL: tick75 visible flash rear misses barrel edge by -10px
+FAIL: tick76 gun body changed 31 pixels
+FAIL: tick76 visible flash rear misses barrel edge by -8px
+FAIL: tick77 gun body changed 28 pixels
+FAIL: tick77 visible flash rear misses barrel edge by -8px
+FAIL: tick78 gun body changed 31 pixels
+FAIL: tick78 visible flash rear misses barrel edge by -8px
+FAIL: tick79 gun body changed 17 pixels
+FAIL: tick79 visible flash rear misses barrel edge by -7px
+FAIL: tick80 gun body changed 26 pixels
+FAIL: tick80 visible flash rear misses barrel edge by -7px
+FAIL: tick81 gun body changed 26 pixels
+FAIL: tick81 visible flash rear misses barrel edge by -7px
+FAIL: tick82 gun body changed 49 pixels
+FAIL: tick82 visible flash rear misses barrel edge by -10px
+FAIL: tick83 gun body changed 50 pixels
+FAIL: tick83 visible flash rear misses barrel edge by -10px
+FAIL: tick84 gun body changed 49 pixels
+FAIL: tick84 visible flash rear misses barrel edge by -10px
+FAIL: tick85 gun body changed 50 pixels
+FAIL: tick85 visible flash rear misses barrel edge by -10px
+FAIL: tick86 gun body changed 28 pixels
+FAIL: tick86 visible flash rear misses barrel edge by -8px
+FAIL: tick87 gun body changed 31 pixels
+FAIL: tick87 visible flash rear misses barrel edge by -8px
+FAIL: tick88 gun body changed 28 pixels
+FAIL: tick88 visible flash rear misses barrel edge by -8px
+FAIL: tick89 gun body changed 19 pixels
+FAIL: tick89 visible flash rear misses barrel edge by -6px
+FAIL: tick90 gun body changed 23 pixels
+FAIL: tick90 visible flash rear misses barrel edge by -7px
+FAIL: tick91 gun body changed 23 pixels
+FAIL: tick91 visible flash rear misses barrel edge by -7px
+FAIL: tick92 gun body changed 50 pixels
+FAIL: tick92 visible flash rear misses barrel edge by -10px
+FAIL: tick93 gun body changed 49 pixels
+FAIL: tick93 visible flash rear misses barrel edge by -10px
+FAIL: tick94 gun body changed 50 pixels
+FAIL: tick94 visible flash rear misses barrel edge by -10px
+FAIL: tick95 gun body changed 48 pixels
+FAIL: tick95 visible flash rear misses barrel edge by -10px
+FAIL: tick96 gun body changed 29 pixels
+FAIL: tick96 visible flash rear misses barrel edge by -8px
+FAIL: tick97 gun body changed 29 pixels
+FAIL: tick97 visible flash rear misses barrel edge by -8px
+FAIL: tick98 gun body changed 29 pixels
+FAIL: tick98 visible flash rear misses barrel edge by -8px
+FAIL: tick99 gun body changed 16 pixels
+FAIL: tick99 visible flash rear misses barrel edge by -7px
+FAIL: tick100 gun body changed 23 pixels
+FAIL: tick100 visible flash rear misses barrel edge by -7px
+FAIL: tick101 gun body changed 23 pixels
+FAIL: tick101 visible flash rear misses barrel edge by -7px
+FAIL: tick102 gun body changed 48 pixels
+FAIL: tick102 visible flash rear misses barrel edge by -10px
+FAIL: tick103 gun body changed 48 pixels
+FAIL: tick103 visible flash rear misses barrel edge by -10px
+FAIL: tick104 gun body changed 48 pixels
+FAIL: tick104 visible flash rear misses barrel edge by -10px
+FAIL: tick105 gun body changed 48 pixels
+FAIL: tick105 visible flash rear misses barrel edge by -10px
+FAIL: tick106 gun body changed 29 pixels
+FAIL: tick106 visible flash rear misses barrel edge by -8px
+FAIL: tick107 gun body changed 29 pixels
+FAIL: tick107 visible flash rear misses barrel edge by -8px
+FAIL: tick108 gun body changed 29 pixels
+FAIL: tick108 visible flash rear misses barrel edge by -8px
+FAIL: tick109 gun body changed 16 pixels
+FAIL: tick109 visible flash rear misses barrel edge by -7px
+FAIL: tick110 gun body changed 23 pixels
+FAIL: tick110 visible flash rear misses barrel edge by -7px
+FAIL: tick111 gun body changed 23 pixels
+FAIL: tick111 visible flash rear misses barrel edge by -7px
+FAIL: tick112 gun body changed 48 pixels
+FAIL: tick112 visible flash rear misses barrel edge by -10px
+FAIL: tick113 gun body changed 48 pixels
+FAIL: tick113 visible flash rear misses barrel edge by -10px
+FAIL: tick114 gun body changed 48 pixels
+FAIL: tick114 visible flash rear misses barrel edge by -10px
+FAIL: tick115 gun body changed 48 pixels
+FAIL: tick115 visible flash rear misses barrel edge by -10px
+FAIL: tick116 gun body changed 29 pixels
+FAIL: tick116 visible flash rear misses barrel edge by -8px
+FAIL: tick117 gun body changed 29 pixels
+FAIL: tick117 visible flash rear misses barrel edge by -8px
+FAIL: tick118 gun body changed 29 pixels
+FAIL: tick118 visible flash rear misses barrel edge by -8px
+FAIL: tick119 gun body changed 16 pixels
+FAIL: tick119 visible flash rear misses barrel edge by -7px
+FAIL: tick120 gun body changed 23 pixels
+FAIL: tick120 visible flash rear misses barrel edge by -7px
+FAIL: tick121 gun body changed 23 pixels
+FAIL: tick121 visible flash rear misses barrel edge by -7px
+FAIL: tick122 gun body changed 48 pixels
+FAIL: tick122 visible flash rear misses barrel edge by -10px
+FAIL: tick123 gun body changed 48 pixels
+FAIL: tick123 visible flash rear misses barrel edge by -10px
+FAIL: tick124 gun body changed 48 pixels
+FAIL: tick124 visible flash rear misses barrel edge by -10px
+FAIL: tick125 gun body changed 51 pixels
+FAIL: tick125 visible flash rear misses barrel edge by -10px
+FAIL: tick126 gun body changed 32 pixels
+FAIL: tick126 visible flash rear misses barrel edge by -8px
+FAIL: tick127 gun body changed 32 pixels
+FAIL: tick127 visible flash rear misses barrel edge by -8px
+FAIL: tick128 gun body changed 32 pixels
+FAIL: tick128 visible flash rear misses barrel edge by -8px
+FAIL: tick129 gun body changed 21 pixels
+FAIL: tick129 visible flash rear misses barrel edge by -7px
+FAIL: tick130 gun body changed 26 pixels
+FAIL: tick130 visible flash rear misses barrel edge by -7px
+FAIL: tick131 gun body changed 26 pixels
+FAIL: tick131 visible flash rear misses barrel edge by -7px
+FAIL: tick132 gun body changed 52 pixels
+FAIL: tick132 visible flash rear misses barrel edge by -10px
+FAIL: tick133 gun body changed 51 pixels
+FAIL: tick133 visible flash rear misses barrel edge by -10px
+FAIL: tick134 gun body changed 51 pixels
+FAIL: tick134 visible flash rear misses barrel edge by -10px
+FAIL: tick135 gun body changed 50 pixels
+FAIL: tick135 visible flash rear misses barrel edge by -10px
+FAIL: tick136 gun body changed 30 pixels
+FAIL: tick136 visible flash rear misses barrel edge by -8px
+FAIL: tick137 gun body changed 31 pixels
+FAIL: tick137 visible flash rear misses barrel edge by -8px
+FAIL: tick138 gun body changed 32 pixels
+FAIL: tick138 visible flash rear misses barrel edge by -8px
+FAIL: tick139 gun body changed 21 pixels
+FAIL: tick139 visible flash rear misses barrel edge by -7px
+FAIL: tick140 gun body changed 26 pixels
+FAIL: tick140 visible flash rear misses barrel edge by -7px
+FAIL: tick141 gun body changed 25 pixels
+FAIL: tick141 visible flash rear misses barrel edge by -7px
+FAIL: tick142 gun body changed 51 pixels
+FAIL: tick142 visible flash rear misses barrel edge by -10px
+FAIL: tick143 gun body changed 50 pixels
+FAIL: tick143 visible flash rear misses barrel edge by -10px
+FAIL: tick144 gun body changed 51 pixels
+FAIL: tick144 visible flash rear misses barrel edge by -10px
+FAIL: tick145 gun body changed 51 pixels
+FAIL: tick145 visible flash rear misses barrel edge by -10px
+FAIL: tick146 gun body changed 34 pixels
+FAIL: tick146 visible flash rear misses barrel edge by -8px
+FAIL: tick147 gun body changed 31 pixels
+FAIL: tick147 visible flash rear misses barrel edge by -8px
+FAIL: tick148 gun body changed 32 pixels
+FAIL: tick148 visible flash rear misses barrel edge by -8px
+FAIL: tick149 gun body changed 20 pixels
+FAIL: tick149 visible flash rear misses barrel edge by -7px
+FAIL: tick150 gun body changed 26 pixels
+FAIL: tick150 visible flash rear misses barrel edge by -7px
+FAIL: tick151 gun body changed 26 pixels
+FAIL: tick151 visible flash rear misses barrel edge by -7px
+FAIL: tick152 gun body changed 51 pixels
+FAIL: tick152 visible flash rear misses barrel edge by -10px
+FAIL: tick153 gun body changed 51 pixels
+FAIL: tick153 visible flash rear misses barrel edge by -10px
+FAIL: tick154 gun body changed 51 pixels
+FAIL: tick154 visible flash rear misses barrel edge by -10px
+FAIL: tick155 gun body changed 51 pixels
+FAIL: tick155 visible flash rear misses barrel edge by -10px
+FAIL: tick156 gun body changed 32 pixels
+FAIL: tick156 visible flash rear misses barrel edge by -8px
+FAIL: tick157 gun body changed 32 pixels
+FAIL: tick157 visible flash rear misses barrel edge by -8px
+FAIL: tick158 gun body changed 32 pixels
+FAIL: tick158 visible flash rear misses barrel edge by -8px
+FAIL: tick159 gun body changed 21 pixels
+FAIL: tick159 visible flash rear misses barrel edge by -7px
+FAIL: tick160 gun body changed 26 pixels
+FAIL: tick160 visible flash rear misses barrel edge by -7px
+FAIL: tick161 gun body changed 26 pixels
+FAIL: tick161 visible flash rear misses barrel edge by -7px
+FAIL: tick162 gun body changed 51 pixels
+FAIL: tick162 visible flash rear misses barrel edge by -10px
+FAIL: tick163 gun body changed 51 pixels
+FAIL: tick163 visible flash rear misses barrel edge by -10px
+FAIL: tick164 gun body changed 51 pixels
+FAIL: tick164 visible flash rear misses barrel edge by -10px
+FAIL: tick165 gun body changed 51 pixels
+FAIL: tick165 visible flash rear misses barrel edge by -10px
+FAIL: tick166 gun body changed 29 pixels
+FAIL: tick166 visible flash rear misses barrel edge by -8px
+FAIL: tick167 gun body changed 29 pixels
+FAIL: tick167 visible flash rear misses barrel edge by -8px
+FAIL: tick168 gun body changed 29 pixels
+FAIL: tick168 visible flash rear misses barrel edge by -8px
+FAIL: tick169 gun body changed 16 pixels
+FAIL: tick169 visible flash rear misses barrel edge by -7px
+FAIL: tick170 gun body changed 23 pixels
+FAIL: tick170 visible flash rear misses barrel edge by -7px
+FAIL: tick171 gun body changed 23 pixels
+FAIL: tick171 visible flash rear misses barrel edge by -7px
+FAIL: tick172 gun body changed 48 pixels
+FAIL: tick172 visible flash rear misses barrel edge by -10px
+FAIL: tick173 gun body changed 48 pixels
+FAIL: tick173 visible flash rear misses barrel edge by -10px
+FAIL: tick174 gun body changed 48 pixels
+FAIL: tick174 visible flash rear misses barrel edge by -10px
+FAIL: tick175 gun body changed 48 pixels
+FAIL: tick175 visible flash rear misses barrel edge by -10px
+FAIL: tick176 gun body changed 29 pixels
+FAIL: tick176 visible flash rear misses barrel edge by -8px
+FAIL: tick177 gun body changed 29 pixels
+FAIL: tick177 visible flash rear misses barrel edge by -8px
+FAIL: tick178 gun body changed 29 pixels
+FAIL: tick178 visible flash rear misses barrel edge by -8px
+FAIL: tick179 gun body changed 16 pixels
+FAIL: tick179 visible flash rear misses barrel edge by -7px

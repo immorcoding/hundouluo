@@ -1,0 +1,27 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.47 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4060 Laptop GPU
+
+FAIL: tick0 gun body changed 23 pixels
+FAIL: tick0 visible flash rear misses barrel edge by -7px
+FAIL: tick1 gun body changed 23 pixels
+FAIL: tick1 visible flash rear misses barrel edge by -7px
+FAIL: tick2 gun body changed 48 pixels
+FAIL: tick2 visible flash rear misses barrel edge by -10px
+FAIL: tick3 gun body changed 48 pixels
+FAIL: tick3 visible flash rear misses barrel edge by -10px
+FAIL: tick4 gun body changed 48 pixels
+FAIL: tick4 visible flash rear misses barrel edge by -10px
+FAIL: tick5 gun body changed 48 pixels
+FAIL: tick5 visible flash rear misses barrel edge by -10px
+FAIL: tick6 gun body changed 29 pixels
+FAIL: tick6 visible flash rear misses barrel edge by -8px
+FAIL: tick7 gun body changed 29 pixels
+FAIL: tick7 visible flash rear misses barrel edge by -8px
+FAIL: tick8 gun body changed 29 pixels
+FAIL: tick8 visible flash rear misses barrel edge by -8px
+FAIL: tick9 gun body changed 16 pixels
+FAIL: tick9 visible flash rear misses barrel edge by -7px
+FAIL: tick10 gun body changed 23 pixels
+FAIL: tick10 visible flash rear misses barrel edge by -7px
+FAIL: tick11 gun body changed 23 pixels
+FAIL: tick11 visible flash rear misses barrel edge by -7px

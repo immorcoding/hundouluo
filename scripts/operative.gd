@@ -78,8 +78,12 @@ func _physics_process(delta: float) -> void:
 			projectile.global_position = to_global(_muzzle_position())
 			projectile.direction = _facing
 			projectile.muzzle_flash_enabled = false
+			projectile.muzzle_visual_anchor = $Muzzle
 			# A muzzle flash belongs to the moving gun; the projectile does not.
-			$Muzzle.add_child(MUZZLE_FLASH.instantiate())
+			var flash := MUZZLE_FLASH.instantiate() as Sprite2D
+			flash.attach_muzzle_rear = true
+			flash.z_index = 0
+			$Muzzle.add_child(flash)
 			projectile_fired.emit(projectile)
 			_fire_cooldown = fire_interval
 	else:
