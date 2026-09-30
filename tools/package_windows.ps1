@@ -40,10 +40,42 @@ function Invoke-GodotChecked {
 		[Parameter(Mandatory = $true)][string]$Operation
 	)
 
-	& $Executable @GodotArguments
-	$operationExitCode = $LASTEXITCODE
+	# PowerShell does not reliably wait for a GUI-subsystem EXE or refresh
+	# LASTEXITCODE. Own the process so exported-game checks use its real result.
+	$startInfo = [Diagnostics.ProcessStartInfo]::new()
+	$startInfo.FileName = $Executable
+	$startInfo.UseShellExecute = $false
+	$startInfo.CreateNoWindow = $true
+	$startInfo.RedirectStandardOutput = $true
+	$startInfo.RedirectStandardError = $true
+	if ($null -ne $startInfo.PSObject.Properties['ArgumentList']) {
+		foreach ($argument in $GodotArguments) { $startInfo.ArgumentList.Add($argument) }
+	} else {
+		# .NET Framework/Windows PowerShell: quote argv without invoking a shell.
+		$quotedArguments = foreach ($argument in $GodotArguments) {
+			$escaped = [regex]::Replace($argument, '(\\*)"', '$1$1\"')
+			'"' + [regex]::Replace($escaped, '(\\+)$', '$1$1') + '"'
+		}
+		$startInfo.Arguments = $quotedArguments -join ' '
+	}
+	$process = [Diagnostics.Process]::new()
+	$process.StartInfo = $startInfo
+	try {
+		if (-not $process.Start()) { throw "Could not start $Operation." }
+		$stdout = $process.StandardOutput.ReadToEndAsync()
+		$stderr = $process.StandardError.ReadToEndAsync()
+		$process.WaitForExit()
+		$operationExitCode = $process.ExitCode
+		$operationOutput = @($stdout.GetAwaiter().GetResult(), $stderr.GetAwaiter().GetResult())
+	} finally {
+		$process.Dispose()
+	}
+	$operationOutput | Write-Output
 	if ($operationExitCode -ne 0) {
 		throw "$Operation failed with exit code $operationExitCode."
+	}
+	if ($operationOutput | Select-String -Pattern '(?m)^\s*(ERROR:|SCRIPT ERROR:|WARNING:)') {
+		throw "$Operation emitted diagnostics despite exit code 0; inspect the output above."
 	}
 }
 
@@ -171,16 +203,21 @@ try {
 	New-Item -ItemType Directory -Path $packageDocs | Out-Null
 	Copy-Item -LiteralPath (Join-Path $projectCopy 'docs\assets-manifest.md') -Destination $packageDocs
 	Copy-Item -LiteralPath (Join-Path $projectCopy 'docs\release-prep.md') -Destination $packageDocs
+	Copy-Item -LiteralPath (Join-Path $projectCopy 'docs\acceptance-v0.1.1.md') -Destination $packageDocs
+	Copy-Item -LiteralPath (Join-Path $projectCopy 'docs\known-issues-v0.1.1.md') -Destination $packageDocs
+	Invoke-GodotChecked -Executable $resolvedGodotPath -GodotArguments @('--headless', '--path', $projectCopy, '--script', 'tools/export_engine_notices.gd', '--', $packageDirectory) -Operation 'Engine distribution notices'
 	$playInstructions = @(
-		'轨道基地 v0.1.0 · Windows 试玩说明'
+		"轨道基地 $PackageLabel · Windows 候选试玩说明"
 		''
 		'将 ZIP 完整解压到一个文件夹；双击“轨道基地.exe”即可运行，无需安装 Godot。'
 		'系统：Windows x86_64。若未启动，请记录 Windows 版本与错误提示。'
 		'按键：A / ← 向左，D / → 向右，空格跳跃，按住 J 连续射击。'
 		'死亡或任务完成画面按 R，从关卡起点重新开始。'
 		'建议分别有声、静音各玩一次；最终手感与战斗时长尚待你的试玩记录。'
-		'请复制 GitHub issue #12 的“用户试玩记录单”填写：'
-		'https://github.com/immorcoding/hundouluo/issues/12'
+		'请复制 docs/acceptance-v0.1.1.md 的人工试玩记录单填写，结果提交到：'
+		'https://github.com/immorcoding/hundouluo/issues/31'
+		'这是验收候选，不是正式发布；像素风、手感、声音舒适度和真人机甲战时长等待你判断。'
+		'已知事项见 docs/known-issues-v0.1.1.md；Godot 引擎与第三方完整通知见包根 GODOT_* 文件。'
 		'包版本和源码提交见 BUILD_INFO.txt；素材来源见 docs/assets-manifest.md。'
 	) -join "`r`n"
 	[IO.File]::WriteAllText((Join-Path $packageDirectory '试玩说明.txt'), $playInstructions + "`r`n", [Text.UTF8Encoding]::new($false))

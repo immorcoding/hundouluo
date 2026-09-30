@@ -11,6 +11,10 @@ docs/art/issue-33/*.png.import
 docs/art/issue-33/*.gif.import
 
 # Review-only captures/previews are re-imported locally by the editor.
+docs/art/issue-31/frames/
+docs/art/issue-31/*.png.import
+docs/art/issue-31/*.gif.import
+docs/art/issue-31/*.webp.import
 docs/art/*.png.import
 docs/art/concepts/*.png.import
 assets/art_source/*.png.import

@@ -1,7 +1,12 @@
 extends SceneTree
 
+var output_prefix := "res://docs/art/issue-29-"
+
 
 func _initialize() -> void:
+	var args := OS.get_cmdline_user_args()
+	if args.size() == 2 and args[0] == "--output-prefix":
+		output_prefix = args[1]
 	call_deferred("_capture")
 
 
@@ -62,7 +67,10 @@ func _capture() -> void:
 	await process_frame
 	if not _save("mech-shot"):
 		return
-	quit(0)
+	level.queue_free()
+	await process_frame
+	await create_timer(0.1).timeout
+	call_deferred("quit", 0)
 
 
 func _has_impact(feedback: Node2D) -> bool:
@@ -78,7 +86,7 @@ func _save(name: String) -> bool:
 		push_error("Expected 640x360; got " + str(image.get_size()))
 		quit(1)
 		return false
-	var path := "res://docs/art/issue-29-" + name + ".png"
+	var path := output_prefix + name + ".png"
 	if image.save_png(path) != OK:
 		push_error("Could not capture " + path)
 		quit(1)

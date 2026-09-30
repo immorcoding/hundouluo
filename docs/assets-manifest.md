@@ -1,6 +1,12 @@
 # Asset provenance manifest
 
-This manifest records the original sound assets prepared for issue #20 and the provenance of the existing original visual assets they are intended to accompany. This is a resource-preparation change only: it does not wire audio into scenes or establish complete issue acceptance.
+This manifest records the original sounds and visual assets used by the integrated v0.1.1-rc.1 candidate, with source, rebuild and redistribution notices. Engineering integration does not establish final human acceptance.
+
+## #31 integrated candidate inventory
+
+The runtime continues to use the existing seven pixel atlases/layers, eight original WAV cues, the approved combat atlas, eight-frame entry gate atlas and approved UI slices/font below. #31 creates no new game artwork or sound and does not modify approved source pixels. Runtime scenes/scripts have 41 distinct `res://` dependencies, all present in the complete Git source archive. Source ZIP preserves editable art, prompts, processing tools and original license files; Windows ZIP embeds runtime resources and includes this manifest with all font notices.
+
+Windows distribution additionally contains Godot's engine license and complete third-party copyright/license dictionaries exported from the actual Godot 4.7.2 Engine API (`GODOT_LICENSE.txt`, `GODOT_COPYRIGHT.json`, `GODOT_THIRD_PARTY_LICENSES.json`). Rebuild via `tools/export_engine_notices.gd`; see [official distribution guidance](https://docs.godotengine.org/en/stable/about/complying_with_licenses.html). The project MIT license does not replace the engine or font notices. Candidate evidence and limitations are recorded in `docs/art/issue-31/` and `docs/known-issues-v0.1.1.md`.
 
 ## Generated audio
 

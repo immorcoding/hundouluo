@@ -21,7 +21,14 @@ func _run() -> void:
 		_fail("关卡未在保留世界坐标的情况下将弹丸放入弹丸槽")
 		return
 	print("PASS: 关卡通过信号安置行动员弹丸")
-	quit(0)
+	# This fixture emits the shot in its first frame; let audio start first.
+	await process_frame
+	await create_timer(0.15).timeout
+	# Release the scene before quitting so active WAV playbacks can retire.
+	level.queue_free()
+	await process_frame
+	await create_timer(0.1).timeout
+	call_deferred("quit", 0)
 
 
 func _fail(message: String) -> void:

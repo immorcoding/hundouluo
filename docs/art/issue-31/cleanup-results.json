@@ -1,0 +1,129 @@
+{
+  "baseline": "3401e62334f42d829a59592dcb6f67634c774d78",
+  "notes": "First five fixtures retain all assertions. level_collision_outcomes extends existing level_outcomes_retry.gd to fatal/winning real projectile collisions; red phase emitted two CollisionObject errors, green phase emitted none.",
+  "checks": [
+    {
+      "test": "defense_mech_tuning",
+      "before_exit": 0,
+      "before_log": [
+        "PASS: 机甲 42 HP，按 #12 有效命中率推算 42 秒；全程可受击",
+        "Leaked instance: AudioStreamWAV:9223372075761141386 - Reference count: 1",
+        "Leaked instance: AudioStreamPlaybackWAV:9223372076499338911 - Reference count: 1",
+        "Resource still in use: res://assets/audio/mech_charge_warning.wav (AudioStreamWAV)",
+        "WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+        "ERROR: 1 resources still in use at exit."
+      ],
+      "after_exit": 0,
+      "after_log": [
+        "PASS: 机甲 42 HP，按 #12 有效命中率推算 42 秒；全程可受击"
+      ]
+    },
+    {
+      "test": "level_boss_wiring",
+      "before_exit": 0,
+      "before_log": [
+        "PASS: 机甲像素视口、弹丸接线、击败门槛",
+        "WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+        "Leaked instance: AudioStreamWAV:9223372074871948926 - Reference count: 1",
+        "Leaked instance: AudioStreamWAV:9223372075677255306 - Reference count: 1",
+        "Leaked instance: AudioStreamPlaybackWAV:9223372076767774366 - Reference count: 1",
+        "Leaked instance: AudioStreamPlaybackWAV:9223372076415452831 - Reference count: 1",
+        "ERROR: 2 resources still in use at exit.",
+        "Resource still in use: res://assets/audio/enemy_shot.wav (AudioStreamWAV)",
+        "Resource still in use: res://assets/audio/mech_charge_warning.wav (AudioStreamWAV)"
+      ],
+      "after_exit": 0,
+      "after_log": [
+        "PASS: 机甲像素视口、弹丸接线、击败门槛"
+      ]
+    },
+    {
+      "test": "level_enemy_fire",
+      "before_exit": 0,
+      "before_log": [
+        "PASS: 关卡实际机械兵完整入镜、预告后才将敌弹交给关卡",
+        "WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+        "Leaked instance: AudioStreamWAV:9223372074871948926 - Reference count: 1",
+        "ERROR: 1 resources still in use at exit.",
+        "Leaked instance: AudioStreamPlaybackWAV:9223372076901992098 - Reference count: 1",
+        "Resource still in use: res://assets/audio/enemy_shot.wav (AudioStreamWAV)"
+      ],
+      "after_exit": 0,
+      "after_log": [
+        "PASS: 关卡实际机械兵完整入镜、预告后才将敌弹交给关卡"
+      ]
+    },
+    {
+      "test": "level_operative_wiring",
+      "before_exit": 0,
+      "before_log": [
+        "PASS: 关卡通过信号安置行动员弹丸",
+        "WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+        "Leaked instance: AudioStreamWAV:9223372074586736111 - Reference count: 1",
+        "Leaked instance: AudioStreamPlaybackWAV:9223372076331566751 - Reference count: 1",
+        "Resource still in use: res://assets/audio/player_shot.wav (AudioStreamWAV)",
+        "ERROR: 1 resources still in use at exit."
+      ],
+      "after_exit": 0,
+      "after_log": [
+        "PASS: 关卡通过信号安置行动员弹丸"
+      ],
+      "final_initial_recurrence": [
+        "0443bd7: PASS and exit 0, but AudioStreamWAV/Playback still leaked at fast headless startup; one process frame alone was not deterministic."
+      ],
+      "final_cleanup": "150ms real playback initialization before queue_free; all 5 verbose targeted runs exit 0, PASS, no diagnostics; final full gate is separately recorded."
+    },
+    {
+      "test": "level_progression",
+      "before_exit": 0,
+      "before_log": [
+        "PASS: 五段布置、五个机械兵、终点接缝、镜头和跌落事件",
+        "Leaked instance: AudioStreamWAV:9223372076079908496 - Reference count: 1",
+        "Leaked instance: AudioStreamPlaybackWAV:9223372077438863013 - Reference count: 1",
+        "Resource still in use: res://assets/audio/death_fall.wav (AudioStreamWAV)",
+        "WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+        "ERROR: 1 resources still in use at exit."
+      ],
+      "after_exit": 0,
+      "after_log": [
+        "PASS: 五段布置、五个机械兵、终点接缝、镜头和跌落事件"
+      ]
+    },
+    {
+      "test": "level_collision_outcomes",
+      "before_exit": 0,
+      "before_log": [
+        "ERROR: Disabling a CollisionObject node during a physics callback is not allowed and will cause undesired behavior. Disable with call_deferred() instead.",
+        "ERROR: Disabling a CollisionObject node during a physics callback is not allowed and will cause undesired behavior. Disable with call_deferred() instead.",
+        "PASS: 两种死因、死亡信号顺序、HUD、无限整关重试与通关"
+      ],
+      "after_exit": 0,
+      "after_log": [
+        "PASS: 两种死因、死亡信号顺序、HUD、无限整关重试与通关"
+      ]
+    },
+    {
+      "test": "terminal-late-hit",
+      "before_exit": 1,
+      "before_log": [
+        "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org",
+        "",
+        "ERROR: 通关确定后，同批已排队敌弹碰撞不可继续改变行动员生命",
+        "   at: push_error (core/variant/variant_utility.cpp:1023)",
+        "   GDScript backtrace (most recent call first):",
+        "       [0] _fail (res://tests/level_outcomes_retry.gd:157)",
+        "       [1] _run (res://tests/level_outcomes_retry.gd:115)",
+        "WARNING: 6 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+        "   at: cleanup (core/object/object.cpp:2536)",
+        "ERROR: 3 resources still in use at exit (run with --verbose for details).",
+        "   at: clear (core/io/resource.cpp:822)"
+      ],
+      "after_exit": 0,
+      "after_log": [
+        "Godot Engine v4.7.2.stable.official.ed1daf0bf",
+        "PASS: 两种死因、死亡信号顺序、HUD、无限整关重试与通关"
+      ],
+      "note": "Deterministic delivery of a queued public body_entered event after win. The first green fixture mistakenly reused the consumed projectile in freeze assertions and hit a freed-object script error; fixed with a separate queued projectile, preserving original active projectile freeze assertions."
+    }
+  ]
+}

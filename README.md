@@ -1,4 +1,6 @@
-# 轨道基地 · v0.1.0 工程入口
+# 轨道基地 · v0.1.1 候选工程入口
+
+当前候选为 **v0.1.1-rc.1**，是最终人工试玩前的工程收口。[人工记录单](docs/acceptance-v0.1.1.md) 与 [已知事项](docs/known-issues-v0.1.1.md) 随 Windows 包一起交付；结果记录在 [#31](https://github.com/immorcoding/hundouluo/issues/31)。图像/自动模拟不代表像素统一、听感、手感或真人30–45秒已经通过；#31/#25 保持开放，未创建最终发布 tag。
 
 本仓库是正式的 Godot 4.7.2 标准版 / GDScript 源项目，与 `.scratch/` 中的抛弃式手感灰盒分开。主场景 `scenes/level.tscn` 是五段关卡：行动员可跑跳射击、跨越唯一缺口，五名机械兵可击败或绕过；终点防御机甲完整入镜后激活，必须击败它才能显示任务完成并开启门挡。HUD 展示生命及终点机甲血量。生命耗尽与跌落显示不同死因，按 R 可无限次从起点重载整关。`tests/mechanical_encounter.tscn` 和 `tests/defense_mech_encounter.tscn` 仍可单独观察战斗组件。
 

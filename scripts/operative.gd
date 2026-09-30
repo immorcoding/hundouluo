@@ -17,6 +17,7 @@ const PROJECTILE := preload("res://scenes/friendly_projectile.tscn")
 var _facing := 1
 var _fire_cooldown := 0.0
 var _invulnerable_remaining := 0.0
+var _receives_hits := true
 var health := 3
 
 
@@ -61,7 +62,7 @@ func _physics_process(delta: float) -> void:
 
 
 func receive_hit() -> void:
-	if health == 0 or _invulnerable_remaining > 0.0:
+	if not _receives_hits or health == 0 or _invulnerable_remaining > 0.0:
 		return
 	health -= 1
 	health_changed.emit(health)
@@ -73,3 +74,8 @@ func receive_hit() -> void:
 	else:
 		_invulnerable_remaining = invulnerability_duration
 		$Sprite.frame = 5
+
+
+func stop_receiving_hits() -> void:
+	# Script state can close immediately, even during a physics callback.
+	_receives_hits = false

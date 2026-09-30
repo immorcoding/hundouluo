@@ -33,7 +33,16 @@ func _run() -> void:
 		_fail("受击信号未更新 HUD")
 		return
 	actor.receive_hit()
-	actor.receive_hit()
+	# The fatal hit must also work inside the real physics collision callback.
+	var fatal_projectile := (load("res://scenes/enemy_projectile.tscn") as PackedScene).instantiate() as Area2D
+	fatal_projectile.position = actor.position + Vector2(20, -18)
+	fatal_projectile.direction = -1
+	level.get_node("Projectiles").add_child(fatal_projectile)
+	for tick in 20:
+		await physics_frame
+		await process_frame
+		if actor.health == 0:
+			break
 	if not hud.get_node("OutcomePanel").visible or hud.get_node("LifeDisplay").visible or hud.get_node("OutcomePanel/ReasonLabel").text != "生命耗尽":
 		_fail("生命归零未显示对应失败原因")
 		return
@@ -85,10 +94,28 @@ func _run() -> void:
 	var active_projectile := (load("res://scenes/enemy_projectile.tscn") as PackedScene).instantiate() as Area2D
 	active_projectile.position = Vector2(3600, 100)
 	level.get_node("Projectiles").add_child(active_projectile)
-	for tick in mech.health:
+	var victory_health: int = actor.health
+	var queued_projectile := (load("res://scenes/enemy_projectile.tscn") as PackedScene).instantiate() as Area2D
+	queued_projectile.position = Vector2(3600, 80)
+	level.get_node("Projectiles").add_child(queued_projectile)
+	# A collision already queued in the same physics flush can arrive after win.
+	# Deliver that public signal synchronously after the level's victory handler.
+	mech.died.connect(func() -> void: queued_projectile.body_entered.emit(actor))
+	for tick in mech.health - 1:
 		mech.receive_hit()
+	# Deliver the winning hit through normal input and projectile collision.
+	Input.action_press("shoot")
+	for tick in 60:
+		await physics_frame
+		await process_frame
+		if mech.health == 0:
+			break
+	Input.action_release("shoot")
 	if not level.get_node("HUD/OutcomePanel/TitleLabel").text.contains("任务完成"):
 		_fail("击败机甲后未显示任务完成")
+		return
+	if actor.health != victory_health:
+		_fail("通关确定后，同批已排队敌弹碰撞不可继续改变行动员生命")
 		return
 	var completed_position := actor.position
 	var soldier := level.get_node("Enemies/PairTwoA") as MechanicalSoldier
