@@ -11,6 +11,30 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class OperativeFlashCompositing(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.executable = shutil.which("Godot_v4.7.2-stable_win64_console.exe") or shutil.which("godot")
+        if cls.executable is None:
+            raise AssertionError("Graphical Godot is required")
+        # The unified suite intentionally runs Python before importing its
+        # clean source (the Windows package test requires that clean source).
+        # Import an exact copy of the actual level's runtime files separately.
+        cls.fixture = tempfile.TemporaryDirectory(prefix="issue36-source-", dir=os.environ.get("TEMP"))
+        cls.addClassCleanup(cls.fixture.cleanup)
+        cls.project = Path(cls.fixture.name)
+        for directory in ("assets", "scenes", "scripts"):
+            shutil.copytree(ROOT / directory, cls.project / directory)
+        shutil.copyfile(ROOT / "project.godot", cls.project / "project.godot")
+        (cls.project / "tools").mkdir()
+        for script in ROOT.glob("tools/capture_issue_36*.gd*"):
+            shutil.copyfile(script, cls.project / "tools" / script.name)
+        command = [cls.executable, "--headless", "--editor", "--path", str(cls.project), "--import", "--quit"]
+        result = subprocess.run(command, capture_output=True, text=True, encoding="utf-8",
+                                errors="replace", timeout=120)
+        log = result.stdout + result.stderr
+        if result.returncode or re.search(r"^\s*(ERROR:|SCRIPT ERROR:|WARNING:)", log, re.MULTILINE):
+            raise AssertionError("Runtime fixture import failed:\n" + log)
+
     def test_visible_muzzle_rear_meets_barrel_and_gun_stays_stable(self):
         self.run_capture(["--ticks=12"])
 
@@ -23,10 +47,8 @@ class OperativeFlashCompositing(unittest.TestCase):
         self.run_capture([], script="tools/capture_issue_36_outcomes.gd", fps="30")
 
     def run_capture(self, arguments, script="tools/capture_issue_36.gd", fps="60"):
-        executable = shutil.which("Godot_v4.7.2-stable_win64_console.exe") or shutil.which("godot")
-        self.assertIsNotNone(executable, "Graphical Godot is required")
         with tempfile.TemporaryDirectory(prefix="issue36-render-", dir=os.environ.get("TEMP")) as output:
-            command = [executable, "--path", str(ROOT), "--rendering-method", "gl_compatibility",
+            command = [self.executable, "--path", str(self.project), "--rendering-method", "gl_compatibility",
                        "--fixed-fps", fps, "--script", script, "--",
                        "--out=" + output, *arguments]
             result = subprocess.run(command, cwd=ROOT, capture_output=True, text=True,

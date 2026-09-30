@@ -1,0 +1,171 @@
+{
+  "tested_commit": "eec9adfbf4fc045a24ab7630f26318907d7367c7",
+  "strict_pass": true,
+  "complete_suite": false,
+  "godot_test_count": 2,
+  "discovered_godot_test_count": 44,
+  "inventory": {
+    "tests": [
+      "tests/combat_art_feedback.gd",
+      "tests/defense_mech_art.gd",
+      "tests/defense_mech_behavior.gd",
+      "tests/defense_mech_contact.gd",
+      "tests/defense_mech_cycle.gd",
+      "tests/defense_mech_damage.gd",
+      "tests/defense_mech_dodge.gd",
+      "tests/defense_mech_tuning.gd",
+      "tests/friendly_projectile_expiry.gd",
+      "tests/friendly_projectile_hit.gd",
+      "tests/hangar_play_smoke.gd",
+      "tests/hangar_scene_smoke.gd",
+      "tests/input_smoke.gd",
+      "tests/level_boss_wiring.gd",
+      "tests/level_combat_entry.gd",
+      "tests/level_enemy_fire.gd",
+      "tests/level_entry_camera.gd",
+      "tests/level_entry_fairness.gd",
+      "tests/level_entry_passage.gd",
+      "tests/level_entry_warning.gd",
+      "tests/level_feedback.gd",
+      "tests/level_gap_camera.gd",
+      "tests/level_operative_wiring.gd",
+      "tests/level_outcomes_retry.gd",
+      "tests/level_progression.gd",
+      "tests/mechanical_contact.gd",
+      "tests/mechanical_paths.gd",
+      "tests/mechanical_projectile.gd",
+      "tests/mechanical_warning.gd",
+      "tests/mechanical_wreck.gd",
+      "tests/operative_behavior.gd",
+      "tests/operative_damage.gd",
+      "tests/operative_muzzle.gd",
+      "tests/operative_muzzle_victory.gd",
+      "tests/operative_running_muzzle.gd",
+      "tests/operative_shooting.gd",
+      "tests/project_smoke.gd",
+      "tests/projectile_art.gd",
+      "tests/projectile_density.gd",
+      "tests/projectile_muzzle_art.gd",
+      "tests/scene_slots_smoke.gd",
+      "tests/ui_hud_contract.gd",
+      "tests/visual_grounding.gd",
+      "tests/windows_export_preset_smoke.gd"
+    ],
+    "scene_fixtures": [
+      "tests/defense_mech_encounter.gd",
+      "tests/mechanical_encounter.gd"
+    ],
+    "selected": [
+      "tests/defense_mech_tuning.gd",
+      "tests/level_gap_camera.gd"
+    ]
+  },
+  "source_start": {
+    "head": "eec9adfbf4fc045a24ab7630f26318907d7367c7",
+    "status": [],
+    "normalized_diff": [],
+    "staged_diff": []
+  },
+  "source_end": {
+    "head": "eec9adfbf4fc045a24ab7630f26318907d7367c7",
+    "status": [
+      " M assets/audio/death_fall.wav.import",
+      " M assets/audio/death_health.wav.import",
+      " M assets/audio/enemy_shot.wav.import",
+      " M assets/audio/enemy_warning.wav.import",
+      " M assets/audio/hit_confirm.wav.import",
+      " M assets/audio/mech_charge_warning.wav.import",
+      " M assets/audio/operative_hurt.wav.import",
+      " M assets/audio/player_shot.wav.import",
+      " M assets/combat_v011/atlas.png.import",
+      " M assets/entry_gate_v011/gate.png.import",
+      " M assets/pixel/base_tiles.png.import",
+      " M assets/pixel/defense_mech.png.import",
+      " M assets/pixel/hangar_deck.png.import",
+      " M assets/pixel/hangar_far.png.import",
+      " M assets/pixel/hangar_mid.png.import",
+      " M assets/pixel/mechanical_soldier.png.import",
+      " M assets/pixel/operative.png.import",
+      " M assets/ui_v011/fusion-pixel-12px-proportional-zh_hans.otf.import",
+      " M assets/ui_v011/hud.png.import",
+      " M assets/ui_v011/life-empty.png.import",
+      " M assets/ui_v011/life-full.png.import",
+      " M assets/ui_v011/outcome-bottom.png.import",
+      " M assets/ui_v011/outcome-top.png.import",
+      " M assets/ui_v011/portrait.png.import",
+      " M assets/ui_v011/rifle.png.import"
+    ],
+    "normalized_diff": [],
+    "staged_diff": []
+  },
+  "normalized_source_unchanged": true,
+  "checks": [
+    {
+      "name": "import",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [],
+      "log": "import.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--editor",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-36-muzzle-flash-compositing\\.scratch\\issue-36\\default-baseline",
+        "--import",
+        "--quit"
+      ],
+      "condition": null,
+      "pass": true
+    },
+    {
+      "name": "defense_mech_tuning",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 机甲 42 HP，按 #12 有效命中率推算 42 秒；全程可受击"
+      ],
+      "log": "defense_mech_tuning.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-36-muzzle-flash-compositing\\.scratch\\issue-36\\default-baseline",
+        "--script",
+        "tests/defense_mech_tuning.gd"
+      ],
+      "condition": {
+        "clock": "default",
+        "simulation_fps": null,
+        "process_frame_wall_wait_ms": 0,
+        "physics_hz": 60
+      },
+      "pass": true
+    },
+    {
+      "name": "level_gap_camera",
+      "exit": 0,
+      "diagnostics": [],
+      "pass_messages": [
+        "PASS: 缺口两侧可见、常规跳跃落地、同屏上限与终点镜头"
+      ],
+      "log": "level_gap_camera.log",
+      "command": [
+        "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "E:\\Projects\\game_hundouluo_codex_worktree\\issue-36-muzzle-flash-compositing\\.scratch\\issue-36\\default-baseline",
+        "--script",
+        "tests/level_gap_camera.gd"
+      ],
+      "condition": {
+        "clock": "default",
+        "simulation_fps": null,
+        "process_frame_wall_wait_ms": 0,
+        "physics_hz": 60
+      },
+      "pass": true
+    }
+  ],
+  "note": "All original assertions run unchanged. Paced mode = fixed simulation60fps plus explicit 17ms wall wait per process frame; victory30fps/physics120. Default failures remain separate. Import-only line-ending/stat flags may remain, with empty normalized/staged diffs. Exit/PASS/diagnostics are all gates; not new human acceptance."
+}

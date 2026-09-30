@@ -80,3 +80,7 @@ Python自动发现新增3项图形回归：站立接缝、三种镜头动作矩�
 这仍是工程自动回归，不替用户最终视觉确认；本票与#34/#35/#31/#25保持OPEN，正式rc.3由协调随后制作。旧rc.1/rc.2、人审记录、其他worktree与#33缓存未删除。旧#35三个低置信atlas probe仍为inconclusive，本票不改它们。
 
 默认旧fixture的相机/音频时序失败记录仍见 `docs/bugs/issue-35/clock-controls.json` 与 rc.2报告；完整检查沿用已披露paced条件，不声称默认全套通过。早期本票回归曾红于半透明残留、弹丸首帧覆盖、掩码取整和半像素裁剪边界，这些均在本会话逐项修正；相关开发图像/trace保留在 `.scratch/issue-36/`。最初archive未指定zip格式造成BadZipFile，改为显式 `--format=zip` 后才构建基线，不把失败副本当有效源。
+
+首次完整检查74bcc83保留在 `verification-first-74bcc83/`：44 Godot与两种主场景均通过，但新增Python图形回归在统一入口的Python先行阶段缺少导入缓存，记录1024条诊断且失败；随后独立import异常退出3221225477，不能据其“完成导入”文本判通过。引擎异常本身未确定根因。本票新增测试现自行复制相同正式运行文件到TEMP中的独立fixture并先严格导入，原测试源码副本不受修改；证据目录用 `.gdignore` 排除出运行资源导入。没有改统一入口顺序或原测试断言。
+
+默认时钟追加对照 `default-baseline/` 与 `default-implementation/` 分别从独立干净eec9adf与74bcc83 archive执行；本次两个定点（gap_camera、mech_tuning）都exit0/无诊断，属于subset，不推翻旧失败记录，也不代表默认全套通过。
