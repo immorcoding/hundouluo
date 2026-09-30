@@ -14,6 +14,12 @@ signal charge_started
 
 const ENEMY_PROJECTILE := preload("res://scenes/enemy_projectile.tscn")
 const ENEMY_PROJECTILE_SCRIPT := preload("res://scripts/enemy_projectile.gd")
+const BACKGROUND_Z_INDEX := -3
+const GROUND_Z_INDEX := -2
+const WRECK_Z_INDEX := -1
+const BACKGROUND_NODES := [
+	"HangarFar", "HangarMid", "HangarFar2", "HangarMid2", "HangarFar3", "HangarMid3",
+]
 
 enum Phase { IDLE, CHARGE, VOLLEY, RECOVERY }
 
@@ -126,6 +132,7 @@ func receive_hit() -> void:
 		attack_enabled = false
 		_reset_attack()
 		$Sprite.frame = 5
+		_set_wreck_render_depth()
 		died.emit()
 	else:
 		_hurt_remaining = 0.12
@@ -135,3 +142,16 @@ func receive_hit() -> void:
 func _on_contact_body_entered(body: Node2D) -> void:
 	if attack_enabled and health > 0 and body.has_method("receive_hit"):
 		body.receive_hit()
+
+
+func _set_wreck_render_depth() -> void:
+	var level := get_tree().current_scene
+	if level == null or not level.has_node("Ground") or not level.has_node("HangarFar"):
+		return
+	# Reserve depth bands for backdrop, deck, and wreck while live actors stay at z=0.
+	for node_path in BACKGROUND_NODES:
+		var background := level.get_node_or_null(node_path) as CanvasItem
+		if background != null:
+			background.z_index = BACKGROUND_Z_INDEX
+	(level.get_node("Ground") as CanvasItem).z_index = GROUND_Z_INDEX
+	($Sprite as Sprite2D).z_index = WRECK_Z_INDEX

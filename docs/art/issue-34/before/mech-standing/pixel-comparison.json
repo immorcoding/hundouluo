@@ -1,0 +1,28 @@
+{
+	"actor_health": 3,
+	"background_z_index": 0,
+	"enemy_branch_index": 10,
+	"enemy_health": 0,
+	"enemy_kind": "mech",
+	"enemy_node_z_index": 0,
+	"enemy_sprite_parent": "/root/Level/BossSlot/DefenseMech",
+	"enemy_sprite_z_index": 0,
+	"fixture": "Production level, defense mech defeated via receive_hit, operative standing at same position",
+	"ground_z_index": 0,
+	"native_size": [
+		640,
+		360
+	],
+	"operative_branch_index": 9,
+	"operative_front_pixels": 0,
+	"operative_front_ratio": 0.0,
+	"operative_sprite_z_index": 0,
+	"operative_visible_pixels": 1063,
+	"other_pixels": 0,
+	"output_dir": "res://docs/art/issue-34/before/mech-standing",
+	"overlap_pixels": 801,
+	"probe": "baseline",
+	"wreck_frame": 5,
+	"wreck_front_pixels": 801,
+	"wreck_visible_pixels": 3315
+}
