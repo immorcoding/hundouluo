@@ -15,10 +15,11 @@ muzzle_offsets = PackedVector2Array(28, -26, 31, -24, 31, -24, 23, -25, 21, -25,
 position = Vector2(0, -26)
 shape = SubResource("Body")
 
+[node name="Muzzle" type="Marker2D" parent="."]
+
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -18)
 texture_filter = 1
 texture = ExtResource("2")
 hframes = 7
 
-[node name="Muzzle" type="Marker2D" parent="."]
