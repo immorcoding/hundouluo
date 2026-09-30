@@ -186,6 +186,8 @@ func _on_operative_died() -> void:
 
 
 func _stop_gameplay() -> void:
+	# Ignore collisions already queued after the terminal event in this flush.
+	$Operative/Operative.stop_receiving_hits()
 	# Keep this level alive for R, but freeze every active gameplay subtree.
 	# Death/win can originate in body_entered while physics queries are flushing.
 	$Operative.set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)

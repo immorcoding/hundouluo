@@ -2,6 +2,8 @@
 
 本轮使用 [#31人工记录单](acceptance-v0.1.1.md) 和 [已知事项](known-issues-v0.1.1.md)。历史 v0.1.0 记录保留在下方，当前包身份以 `BUILD_INFO.txt` 的 package_label/source_commit 及交付校验清单为准。
 
+游戏候选版本为`0.1.1-rc.1`；Windows数值file/product version为`0.1.1.1`（原生格式不接受rc字符串），不代表已正式发布。
+
 在本轮指定 E 盘 worktree 中，先将进程 TEMP/TMP 设置为 worktree 的 `.godot/issue-31/temp`；所有源码副本/导入/导出中间产物均落在该目录。最终输出指定 `E:\Projects\game_hundouluo_codex_artifacts\v0.1.1-rc.1`，`-PackageLabel v0.1.1-rc.1`；创建前检查不存在，不覆盖旧交付。脚本从干净 HEAD 制作匹配源 ZIP 和内嵌资源 EXE，任何非零退出或 ERROR/SCRIPT ERROR/WARNING 日志都会阻止打包。最终还从交付ZIP解压并作有图形的90帧启动检查，严格检查日志。
 
 包内含中文记录单、已知事项、项目MIT、完整字体/上游OFL通知。`tools/export_engine_notices.gd` 从实际 Godot 二进制的 Engine API 导出 `GODOT_LICENSE.txt`、`GODOT_COPYRIGHT.json` 和 `GODOT_THIRD_PARTY_LICENSES.json`，包含引擎版权及第三方声明/许可原文，随 Windows 包分发。[Godot官方分发许可说明](https://docs.godotengine.org/en/stable/about/complying_with_licenses.html) 与 [引擎许可](https://godotengine.org/license) 为来源。

@@ -97,6 +97,29 @@
       "after_log": [
         "PASS: 两种死因、死亡信号顺序、HUD、无限整关重试与通关"
       ]
+    },
+    {
+      "test": "terminal-late-hit",
+      "before_exit": 1,
+      "before_log": [
+        "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org",
+        "",
+        "ERROR: 通关确定后，同批已排队敌弹碰撞不可继续改变行动员生命",
+        "   at: push_error (core/variant/variant_utility.cpp:1023)",
+        "   GDScript backtrace (most recent call first):",
+        "       [0] _fail (res://tests/level_outcomes_retry.gd:157)",
+        "       [1] _run (res://tests/level_outcomes_retry.gd:115)",
+        "WARNING: 6 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+        "   at: cleanup (core/object/object.cpp:2536)",
+        "ERROR: 3 resources still in use at exit (run with --verbose for details).",
+        "   at: clear (core/io/resource.cpp:822)"
+      ],
+      "after_exit": 0,
+      "after_log": [
+        "Godot Engine v4.7.2.stable.official.ed1daf0bf",
+        "PASS: 两种死因、死亡信号顺序、HUD、无限整关重试与通关"
+      ],
+      "note": "Deterministic delivery of a queued public body_entered event after win. The first green fixture mistakenly reused the consumed projectile in freeze assertions and hit a freed-object script error; fixed with a separate queued projectile, preserving original active projectile freeze assertions."
     }
   ]
 }

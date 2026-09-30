@@ -94,6 +94,13 @@ func _run() -> void:
 	var active_projectile := (load("res://scenes/enemy_projectile.tscn") as PackedScene).instantiate() as Area2D
 	active_projectile.position = Vector2(3600, 100)
 	level.get_node("Projectiles").add_child(active_projectile)
+	var victory_health: int = actor.health
+	var queued_projectile := (load("res://scenes/enemy_projectile.tscn") as PackedScene).instantiate() as Area2D
+	queued_projectile.position = Vector2(3600, 80)
+	level.get_node("Projectiles").add_child(queued_projectile)
+	# A collision already queued in the same physics flush can arrive after win.
+	# Deliver that public signal synchronously after the level's victory handler.
+	mech.died.connect(func() -> void: queued_projectile.body_entered.emit(actor))
 	for tick in mech.health - 1:
 		mech.receive_hit()
 	# Deliver the winning hit through normal input and projectile collision.
@@ -106,6 +113,9 @@ func _run() -> void:
 	Input.action_release("shoot")
 	if not level.get_node("HUD/OutcomePanel/TitleLabel").text.contains("任务完成"):
 		_fail("击败机甲后未显示任务完成")
+		return
+	if actor.health != victory_health:
+		_fail("通关确定后，同批已排队敌弹碰撞不可继续改变行动员生命")
 		return
 	var completed_position := actor.position
 	var soldier := level.get_node("Enemies/PairTwoA") as MechanicalSoldier

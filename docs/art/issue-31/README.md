@@ -25,6 +25,10 @@ GitHub原生依赖 #29/#30/#33 全部 CLOSED；#26/#27/#32 设计票 CLOSED，�
 
 Windows公开包边界TDD：既有端到端检查增加本轮验收单/已知事项/引擎通知及说明版本要求。在干净E盘源码副本上，旧脚本真实产包后因缺少 `docs/acceptance-v0.1.1.md` 失败（不是工作树保护的伪红）。打包脚本补齐这些内容，并在退出码之外检查Godot错误/警告。完整源/可玩包同时随附项目MIT、完整字体OFL/上游通知、实际Engine API引擎及第三方许可。
 
+Spec独立审查进一步指出：延后冻结期间，同批已排队碰撞可能在COMPLETE后再次扣生命。既有结局测试在真实己弹致胜信号后同步交付敌弹`body_entered`公共事件，旧代码因生命变化exit1；这是明确模拟排队事件的竞态回归，不冒称第二弹的物理轨迹录像。行动员新增同步`stop_receiving_hits()`生命周期入口，终态立刻拒绝后续伤害，物理禁用仍延后；R新场景自动恢复。修后同一断言和原冻结/R均无诊断通过，游戏进行中的伤害数值/无敌时长不变。
+
+严格Windows检查实际拦截了`config/version=0.1.1-rc.1`作为原生文件版本时的格式警告。Windows preset明确数值file/product version `0.1.1.1`，游戏候选标识仍`0.1.1-rc.1`并以BUILD_INFO/包标签为准；不忽略该警告，也不把数值版本当正式发布。
+
 ## 实机与自动模拟证据
 
 `capture-results.json` / `simulation-results.json` 记录fixture设置、实际生命/发弹/门/镜头/时序；原生PNG和无损原速 `*-loop.png` APNG均为正式场景渲染，没有后期抹图或重绘资源。`presentation-results.json` 核验640×360、动画时长与逐帧无损。图形脚本固定60Hz；fixture中的传送/直接受击仅用于指定状态，记录逐项披露。
@@ -42,6 +46,8 @@ Windows公开包边界TDD：既有端到端检查增加本轮验收单/已知事
 运行 `tools/check_issue_31.py --godot <4.7.2-console> --output <日志目录> --temp <E盘临时目录>`；对干净最终提交的隔离E盘副本执行（temp在副本外、仍在本worktree），完整枚举所有extends SceneTree脚本、Python全部检查、导入、主场景headless与有图形90帧。严格要求每项exit0且无ERROR/SCRIPT ERROR/WARNING；完整日志、准确测试数和tested_commit留在交付verification。定点修复日志为上面的red/green证据；后续不无理由重复全套。
 
 运动采集：`Godot ... --path . --rendering-method gl_compatibility --fixed-fps 60 --script tools/capture_issue_31.gd`，然后 `python tools/present_issue_31.py`。raw frames保留在本worktree被忽略目录，精选静图/APNG入源码；APNG为证据动画，不是新运行素材。
+
+本次主运动采集实际使用Vulkan/Forward+（见capture.log），补图及批准oracle使用OpenGL/Compatibility。以上命令是兼容性复现示例，若要复现同一后端需使用`--rendering-method forward_plus`；两者都保留640×360及60Hz物理时基，不宣称跨后端每个像素完全一致。
 
 补图复现：`Godot ... --path . --rendering-method gl_compatibility --fixed-fps 60 --script tools/capture_issue_29.gd -- --output-prefix res://docs/art/issue-31/impact-`。既有工具只增加输出位置与正确退出清理，默认旧证据位置保留。
 
