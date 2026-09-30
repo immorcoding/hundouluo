@@ -1,0 +1,155 @@
+{
+	"disclosure": "Spawn is normal level; follow teleports initially to (470,252); fixed to (3462,252), then normal input closes gate. Tick 125 calls public receive_hit for hurt pose; movement/firing use Input. No gameplay tuning.",
+	"engine": "4.7.2-stable (official)",
+	"failures": [],
+	"flash_samples": 2,
+	"flight_samples": 2,
+	"mode": "minimal",
+	"native_size": [
+		640,
+		360
+	],
+	"physics_hz": 60,
+	"probe": "follow-body",
+	"scenario": "spawn",
+	"shots": [
+		{
+			"barrel": [
+				174.5,
+				228.0
+			],
+			"birth_error": 0.0,
+			"direction": 1,
+			"frame": 3,
+			"origin": [
+				174.5,
+				228.0
+			],
+			"pose": 2
+		}
+	],
+	"trace": [
+		{
+			"actor": [
+				143.5,
+				252.0
+			],
+			"barrel": [
+				174.5,
+				228.0
+			],
+			"camera_x": 320.0,
+			"direction": 1,
+			"flashes": [
+				{
+					"barrel_error": 0.0,
+					"frame": 12,
+					"mirrored": false,
+					"position": [
+						174.5,
+						228.0
+					],
+					"screen": [
+						174.5,
+						228.0
+					]
+				}
+			],
+			"health": 3,
+			"on_floor": true,
+			"physics_frame": 3,
+			"pose": 2,
+			"projectiles": [
+				{
+					"elapsed_ticks": 0,
+					"emission": {
+						"barrel": [
+							174.5,
+							228.0
+						],
+						"birth_error": 0.0,
+						"direction": 1,
+						"frame": 3,
+						"origin": [
+							174.5,
+							228.0
+						],
+						"pose": 2
+					},
+					"flight_error": 0.0,
+					"position": [
+						174.5,
+						228.0
+					]
+				}
+			],
+			"scenario": "spawn",
+			"screen_barrel": [
+				174.5,
+				228.0
+			],
+			"tick": 0
+		},
+		{
+			"actor": [
+				147.0,
+				252.0
+			],
+			"barrel": [
+				178.0,
+				228.0
+			],
+			"camera_x": 320.0,
+			"direction": 1,
+			"flashes": [
+				{
+					"barrel_error": 0.0,
+					"frame": 12,
+					"mirrored": false,
+					"position": [
+						178.0,
+						228.0
+					],
+					"screen": [
+						178.0,
+						228.0
+					]
+				}
+			],
+			"health": 3,
+			"on_floor": true,
+			"physics_frame": 4,
+			"pose": 1,
+			"projectiles": [
+				{
+					"elapsed_ticks": 1,
+					"emission": {
+						"barrel": [
+							174.5,
+							228.0
+						],
+						"birth_error": 0.0,
+						"direction": 1,
+						"frame": 3,
+						"origin": [
+							174.5,
+							228.0
+						],
+						"pose": 2
+					},
+					"flight_error": 0.0,
+					"position": [
+						183.16667175293,
+						228.0
+					]
+				}
+			],
+			"scenario": "spawn",
+			"screen_barrel": [
+				178.0,
+				228.0
+			],
+			"tick": 1
+		}
+	]
+}

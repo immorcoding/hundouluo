@@ -13,12 +13,25 @@ signal died
 @export var muzzle_offsets := PackedVector2Array([Vector2(30, -31)])
 
 const PROJECTILE := preload("res://scenes/friendly_projectile.tscn")
+const MUZZLE_FLASH := preload("res://scenes/combat_flash.tscn")
 
 var _facing := 1
 var _fire_cooldown := 0.0
 var _invulnerable_remaining := 0.0
 var _receives_hits := true
 var health := 3
+
+
+func _ready() -> void:
+	died.connect($Muzzle.hide)
+
+
+func _process(_delta: float) -> void:
+	# Hits can change the visible pose after this actor's physics callback.
+	# Anchor feedback to the pose actually drawn, including turns and jumps.
+	var muzzle := muzzle_offsets[mini($Sprite.frame, muzzle_offsets.size() - 1)]
+	$Muzzle.position = Vector2(_facing * muzzle.x, muzzle.y)
+	$Muzzle.scale.x = _facing
 
 
 func _physics_process(delta: float) -> void:
@@ -55,6 +68,9 @@ func _physics_process(delta: float) -> void:
 			var muzzle := muzzle_offsets[mini($Sprite.frame, muzzle_offsets.size() - 1)]
 			projectile.global_position = to_global(Vector2(_facing * muzzle.x, muzzle.y))
 			projectile.direction = _facing
+			projectile.muzzle_flash_enabled = false
+			# A muzzle flash belongs to the moving gun; the projectile does not.
+			$Muzzle.add_child(MUZZLE_FLASH.instantiate())
 			projectile_fired.emit(projectile)
 			_fire_cooldown = fire_interval
 	else:

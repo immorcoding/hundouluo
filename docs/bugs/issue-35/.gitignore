@@ -1,0 +1,8 @@
+# Reproducible raw native frames remain on the E-drive worktree.
+**/frames/
+# Early diagnostic iterations; final before/after-* fixtures are retained.
+before/
+after/
+atlas-inspection.png
+pixel-probe-initial.json
+verification/

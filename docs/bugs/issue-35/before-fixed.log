@@ -1,0 +1,16 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.47 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4060 Laptop GPU
+
+ISSUE35 shots=18 flashes=214 flight_samples=280 failures=179
+FAIL: fixed tick 5 flash detached 6.801 px
+FAIL: fixed tick 6 flash detached 10.198 px
+FAIL: fixed tick 7 flash detached 13.647 px
+FAIL: fixed tick 8 flash detached 17.117 px
+FAIL: fixed tick 9 flash detached 20.597 px
+FAIL: fixed tick 10 flash detached 24.083 px
+FAIL: fixed tick 11 flash detached 27.573 px
+FAIL: fixed tick 11 flash detached 3.500 px
+FAIL: fixed tick 12 flash detached 7.000 px
+FAIL: fixed tick 13 flash detached 10.500 px
+FAIL: fixed tick 14 flash detached 14.000 px
+FAIL: fixed tick 15 flash detached 17.500 px

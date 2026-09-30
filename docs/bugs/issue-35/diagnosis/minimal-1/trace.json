@@ -1,0 +1,41 @@
+{
+	"failures": [],
+	"trace": [
+		{
+			"actor": [
+				143.5,
+				252.0
+			],
+			"barrel": [
+				174.5,
+				228.0
+			],
+			"birth_error": 0.0,
+			"direction": 1,
+			"emission": {
+				"frame": 3,
+				"origin": [
+					174.5,
+					228.0
+				]
+			},
+			"flashes": [
+				{
+					"barrel_error": 0.0,
+					"frame": 12,
+					"position": [
+						174.5,
+						228.0
+					]
+				}
+			],
+			"physics_frame": 3,
+			"pose": 2,
+			"projectile": [
+				174.5,
+				228.0
+			],
+			"tick": 0
+		}
+	]
+}
