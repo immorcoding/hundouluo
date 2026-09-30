@@ -1,10 +1,12 @@
-# v0.1.1-rc.1 Windows 候选导出与交付核查
+# v0.1.1-rc.2 Windows 定点复测候选
 
-本轮使用 [#31人工记录单](acceptance-v0.1.1.md) 和 [已知事项](known-issues-v0.1.1.md)。历史 v0.1.0 记录保留在下方，当前包身份以 `BUILD_INFO.txt` 的 package_label/source_commit 及交付校验清单为准。
+本轮使用 [两项定点复测单](retest-v0.1.1-rc.2.md) 和 [已知事项](known-issues-v0.1.1.md)，承接rc.1已通过项，不重开美术/声音/手感/时长验收。历史记录保留，包身份以 `BUILD_INFO.txt` 的 package_label/source_commit 及交付校验清单为准。
 
-游戏候选版本为`0.1.1-rc.1`；Windows数值file/product version为`0.1.1.1`（原生格式不接受rc字符串），不代表已正式发布。
+游戏候选版本为`0.1.1-rc.2`；Windows数值file/product version为`0.1.1.2`（原生格式不接受rc字符串），不代表已正式发布。
 
-在本轮指定 E 盘 worktree 中，先将进程 TEMP/TMP 设置为 worktree 的 `.godot/issue-31/temp`；所有源码副本/导入/导出中间产物均落在该目录。最终输出指定 `E:\Projects\game_hundouluo_codex_artifacts\v0.1.1-rc.1`，`-PackageLabel v0.1.1-rc.1`；创建前检查不存在，不覆盖旧交付。脚本从干净 HEAD 制作匹配源 ZIP 和内嵌资源 EXE，任何非零退出或 ERROR/SCRIPT ERROR/WARNING 日志都会阻止打包。最终还从交付ZIP解压并作有图形的90帧启动检查，严格检查日志。
+在本轮指定 E 盘 worktree 中，先将进程 TEMP/TMP 设置为 worktree 的 `.godot/issue31-rc2/temp`；所有源码副本/导入/导出中间产物均落在该目录。最终输出指定 `E:\Projects\game_hundouluo_codex_artifacts\v0.1.1-rc.2`，`-PackageLabel v0.1.1-rc.2`；创建前检查不存在，不覆盖旧交付。脚本从干净 HEAD 制作匹配源 ZIP 和内嵌资源 EXE，真实进程退出码与 ERROR/SCRIPT ERROR/WARNING 日志双门禁；最终从全新目录解压作headless/graphical90帧及源码独立导入/启动检查。日志保留尾部空行，不把它视为引擎错误。
+
+统一完整检查入口为`tools/check_issue_31.py --clock paced`：44行为脚本（包含继承式operative_running_muzzle），固定60fps模拟加每process_frame17ms明确墙钟等待；终局测试120Hz物理/30fps显示。Python/Windows测试先消费原封干净Git提交，再导入/运行Godot，开始/结束HEAD/status与完整命令记录。默认headless失败另留记录，不称默认严格通过。旧#34/#35运行器转发该入口，精确历史复现仍使用历史Git提交。
 
 包内含中文记录单、已知事项、项目MIT、完整字体/上游OFL通知。`tools/export_engine_notices.gd` 从实际 Godot 二进制的 Engine API 导出 `GODOT_LICENSE.txt`、`GODOT_COPYRIGHT.json` 和 `GODOT_THIRD_PARTY_LICENSES.json`，包含引擎版权及第三方声明/许可原文，随 Windows 包分发。[Godot官方分发许可说明](https://docs.godotengine.org/en/stable/about/complying_with_licenses.html) 与 [引擎许可](https://godotengine.org/license) 为来源。
 
