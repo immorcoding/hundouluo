@@ -29,8 +29,16 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	# Hits can change the visible pose after this actor's physics callback.
 	# Anchor feedback to the pose actually drawn, including turns and jumps.
+	_update_muzzle()
+
+
+func _muzzle_position() -> Vector2:
 	var muzzle := muzzle_offsets[mini($Sprite.frame, muzzle_offsets.size() - 1)]
-	$Muzzle.position = Vector2(_facing * muzzle.x, muzzle.y)
+	return Vector2(_facing * muzzle.x, muzzle.y)
+
+
+func _update_muzzle() -> void:
+	$Muzzle.position = _muzzle_position()
 	$Muzzle.scale.x = _facing
 
 
@@ -61,12 +69,13 @@ func _physics_process(delta: float) -> void:
 			$Sprite.frame = 1 + int(Time.get_ticks_msec() / 125) % 2
 		else:
 			$Sprite.frame = 0
+	# Victory can freeze this subtree before its next idle callback.
+	_update_muzzle()
 	if Input.is_action_pressed("shoot"):
 		_fire_cooldown -= delta
 		if _fire_cooldown <= 0.0:
 			var projectile := PROJECTILE.instantiate() as Area2D
-			var muzzle := muzzle_offsets[mini($Sprite.frame, muzzle_offsets.size() - 1)]
-			projectile.global_position = to_global(Vector2(_facing * muzzle.x, muzzle.y))
+			projectile.global_position = to_global(_muzzle_position())
 			projectile.direction = _facing
 			projectile.muzzle_flash_enabled = false
 			# A muzzle flash belongs to the moving gun; the projectile does not.
@@ -90,6 +99,7 @@ func receive_hit() -> void:
 	else:
 		_invulnerable_remaining = invulnerability_duration
 		$Sprite.frame = 5
+		_update_muzzle()
 
 
 func stop_receiving_hits() -> void:
