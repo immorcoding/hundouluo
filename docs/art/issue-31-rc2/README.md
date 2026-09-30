@@ -42,3 +42,5 @@
 实现f17973c的六项定点（以上四个+继承式running_muzzle+120/30victory）在paced条件全部无诊断通过；complete_suite=false明确不是全套。包契约TDD先在4ab干净克隆真实产包后因缺“两项复测单”失败，补入包文件/人审承接BUILD_INFO后在f179干净克隆2/2通过，保留红/绿原始日志。
 
 最终完整48条、Windows内嵌包、全新解压实际进程与源码独立导入/Git核对、所有SHA256留在`E:\Projects\game_hundouluo_codex_artifacts\v0.1.1-rc.2`的DELIVERY/verification（创建前再核对无既有目录）；不以这里的早期定点替代最终结果。原始日志尾部空行保留，普通git diff --check若因此报空行会单独记录，不假称全部无格式诊断；代码与非日志文档检查单列。独立两轴审查见code-review.md。
+
+最终实现/检查冻结为4748bb727e6bcd999f82a1bebe10815b4a61fd66，完整48条真实通过（44Godot/18Python无skip、导入、两主启动），HEAD前后相同、起始干净、结束25个.import行尾/stat标志但归一/staged内容空。其后仅更正文档深处遗留“声音/手感仍未测”句，与顶部及人审通过项统一；最终构建commit单独列出并重新干净制作ZIP。相对4748的scripts/scenes/assets/tools/tests/project/export配置差异为空，不重新跑未变化的48条或把文档提交冒称已跑；实际新包导入/导出/新解压及源码Git验证单独执行。

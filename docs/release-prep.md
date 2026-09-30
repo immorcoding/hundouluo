@@ -30,8 +30,8 @@
 & ./tools/package_windows.ps1 -OutputDirectory 'E:\Projects\hundouluo-v0.1.0-delivery' -PackageLabel v0.1.0
 ```
 
-脚本拒绝未提交改动、项目目录内的输出路径和已有同名 ZIP。它从同一 Git `HEAD` 制作完整源 ZIP，在隔离副本导入资源、检查主场景并导出内嵌 PCK 的 Windows 单体 EXE；Windows ZIP 同时含 README、LICENSE、素材清单与构建信息。最后在另一个临时目录解压 ZIP，实际运行其中的 EXE 两帧并要求退出码为 0。技术启动不等于真人试玩，构建信息保持“未测”。
+脚本拒绝未提交改动、项目目录内的输出路径和已有同名 ZIP。它从同一 Git `HEAD` 制作完整源 ZIP，在隔离副本导入资源、检查主场景并导出内嵌 PCK 的 Windows 单体 EXE；Windows ZIP 同时含README、LICENSE、素材清单、定点复测单与构建信息。最后在另一个临时目录解压ZIP，真实等待EXE两帧并要求exit0且无诊断。BUILD_INFO保留rc.1已通过项来源，只有当前两bug人工复测标未测。
 
 预备阶段在 `747f418` 基线以 Godot `4.7.2.stable.official.ed1daf0bf` 成功导出 109,697,272 字节单体 EXE，并在新目录解压后无界面启动（exit 0）。该结果仅验证导出链路；正式 v0.1.0 包必须在全部玩法与音画反馈合入之后从最终提交重新生成、记录文件名与 SHA-256，并把包及 [#12 试玩记录单](https://github.com/immorcoding/hundouluo/issues/12)交给用户。
 
-历史边界：v0.1.0阶段个别测试退出有资源诊断；本轮在五个fixture中复现并修复音频退出生命周期，保留断言。完整关卡合法输入模拟和最终严格日志见 `art/issue-31/`；真人时间、危险可读性、像素统一与声音仍由用户填写本轮记录单判断。
+历史边界：v0.1.0/rc.1阶段诊断与收口日志保留`art/issue-31/`。当前rc.2条件、默认失败、增量图形与完整检查记录见`art/issue-31-rc2/`和持久交付verification；人审通过项不重开，仅两bug待定点复测。
