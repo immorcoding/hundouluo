@@ -65,3 +65,13 @@ python tools/package_issue_33.py
 ```
 
 原始帧在 `frames/`，可重建且不重复提交。保留精选PNG、GIF、制作/捕获脚本和状态JSON。全套测试与独立两轴审查结果见本目录 `test-results.json`、`code-review.md`。
+
+## 最终检查与限制
+
+- 实施提交 `8e63bd193701318d8aae9633b60f068fefc49841`：Godot4.7.2完整42项行为检查均输出PASS/退出0，37项无诊断；18项Python通过，包含Windows源码包、内嵌EXE包与全新解压启动。新增/修改入口测试无诊断。
+- 严格零诊断门槛**尚未全绿**：`defense_mech_tuning`、`level_boss_wiring`、`level_enemy_fire`、`level_operative_wiring`、`level_progression` 仍输出ObjectDB/资源退出清理日志，其实例/资源数与 #30 记录完全一致，没有新增或变化。留给已约定 #31，不把退出0等同于无错误日志。
+- 正式源场景90帧headless启动无诊断；6组图形捕获无诊断。#30原验收捕获器针对本次关卡另跑13状态比对，0项实质UI差异；详细结果保留为 `ui-comparisons.json`，未改旧验收图片或HUD。
+- 同实施提交保存Windows源码ZIP与可玩ZIP于本工作树 `.godot/packages/`。源码包约248.7MB、Windows包约42.9MB；包含仓库既有源图和原型记录，没有发布版本或tag。全新解压的EXE在headless和OpenGL图形启动均退出0、无诊断，图形运行90帧。
+- 独立Standards和Spec审查各0项发现。验收记录提交不改变已测实施内容。
+
+镜头固定中心根据实际视口确认，完整机甲右侧仍只有6px空间；门位的420px射程余量也只有约5px，未来改资产尺寸/屏障/射程须联合重验。手感、声音舒适度及整关风格统一仍属于 #31 用户最终整包验收，不由本次自动捕获宣称完成。

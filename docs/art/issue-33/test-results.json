@@ -1,0 +1,260 @@
+{
+  "tested_commit": "8e63bd193701318d8aae9633b60f068fefc49841",
+  "baseline_commit": "33dbcd1359b3a6d16f2941e31c483bccabd19ea7",
+  "godot_version": "4.7.2.stable.official.ed1daf0bf",
+  "godot_tests": [
+    {
+      "test": "combat_art_feedback.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "defense_mech_art.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "defense_mech_behavior.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "defense_mech_contact.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "defense_mech_cycle.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "defense_mech_damage.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "defense_mech_dodge.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "defense_mech_tuning.gd",
+      "exit": 0,
+      "diagnostics": [
+        "WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+        "ERROR: 1 resources still in use at exit (run with --verbose for details)."
+      ]
+    },
+    {
+      "test": "friendly_projectile_expiry.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "friendly_projectile_hit.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "hangar_play_smoke.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "hangar_scene_smoke.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "input_smoke.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "level_boss_wiring.gd",
+      "exit": 0,
+      "diagnostics": [
+        "WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+        "ERROR: 2 resources still in use at exit (run with --verbose for details)."
+      ]
+    },
+    {
+      "test": "level_combat_entry.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "level_enemy_fire.gd",
+      "exit": 0,
+      "diagnostics": [
+        "WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+        "ERROR: 1 resources still in use at exit (run with --verbose for details)."
+      ]
+    },
+    {
+      "test": "level_entry_camera.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "level_entry_fairness.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "level_entry_passage.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "level_entry_warning.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "level_feedback.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "level_gap_camera.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "level_operative_wiring.gd",
+      "exit": 0,
+      "diagnostics": [
+        "WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+        "ERROR: 1 resources still in use at exit (run with --verbose for details)."
+      ]
+    },
+    {
+      "test": "level_outcomes_retry.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "level_progression.gd",
+      "exit": 0,
+      "diagnostics": [
+        "WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+        "ERROR: 1 resources still in use at exit (run with --verbose for details)."
+      ]
+    },
+    {
+      "test": "mechanical_contact.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "mechanical_paths.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "mechanical_projectile.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "mechanical_warning.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "mechanical_wreck.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "operative_behavior.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "operative_damage.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "operative_muzzle.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "operative_shooting.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "project_smoke.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "projectile_art.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "projectile_density.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "projectile_muzzle_art.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "scene_slots_smoke.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "ui_hud_contract.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "visual_grounding.gd",
+      "exit": 0,
+      "diagnostics": []
+    },
+    {
+      "test": "windows_export_preset_smoke.gd",
+      "exit": 0,
+      "diagnostics": []
+    }
+  ],
+  "godot_behavioral_checks": 42,
+  "godot_nonzero_exits": 0,
+  "godot_zero_diagnostic_checks": 37,
+  "python_tests": 18,
+  "script_parse_or_runtime_errors": [],
+  "modified_entry_tests_diagnostics": [],
+  "strict_zero_diagnostic_gate": "not fully green: five unchanged test shutdown resource diagnostics remain for #31",
+  "diagnostic_changes_from_issue30": [],
+  "all_remaining_diagnostics_match_baseline": true,
+  "startup_90_frames_exit": 0,
+  "startup_90_frames_diagnostics": [],
+  "python_exit": 0,
+  "python_output": "test_all_original_cues_are_wired_and_have_quiet_shots (test_combat_feedback.CombatFeedbackWiringTest.test_all_original_cues_are_wired_and_have_quiet_shots) ... ok\ntest_level_connects_feedback_without_transferring_damage_to_hud (test_combat_feedback.CombatFeedbackWiringTest.test_level_connects_feedback_without_transferring_damage_to_hud) ... ok\ntest_runtime_frames_equal_approved_b_left16_exports (test_entry_gate_assets.EntryGateAssetsTests.test_runtime_frames_equal_approved_b_left16_exports) ... ok\ntest_character_frames_are_detailed_at_playable_scale (test_hangar_art.HangarArtTests.test_character_frames_are_detailed_at_playable_scale) ... ok\ntest_display_is_integer_scaled_from_640_by_360 (test_hangar_art.HangarArtTests.test_display_is_integer_scaled_from_640_by_360) ... ok\ntest_far_and_midground_are_separate_original_pixel_layers (test_hangar_art.HangarArtTests.test_far_and_midground_are_separate_original_pixel_layers) ... ok\ntest_animation_refs_facing_and_gap_edge_variants (test_pixel_art.PixelArtTests.test_animation_refs_facing_and_gap_edge_variants) ... ok\ntest_atlas_dimensions_alpha_and_palette (test_pixel_art.PixelArtTests.test_atlas_dimensions_alpha_and_palette) ... ok\ntest_manifest_traces_generated_audio_and_existing_original_art (test_sfx_assets.SoundAssetTests.test_manifest_traces_generated_audio_and_existing_original_art) ... ok\ntest_player_shot_is_a_repeatable_short_mono_pcm_wave (test_sfx_assets.SoundAssetTests.test_player_shot_is_a_repeatable_short_mono_pcm_wave) ... ok\ntest_sound_set_has_distinct_short_feedback_and_prioritizes_danger (test_sfx_assets.SoundAssetTests.test_sound_set_has_distinct_short_feedback_and_prioritizes_danger) ... ok\ntest_acceptance_images_use_exact_nearest_integer_double (test_ui_assets.ApprovedUIAssetsTests.test_acceptance_images_use_exact_nearest_integer_double) ... ok\ntest_font_is_original_and_distribution_manifest_carries_complete_notices (test_ui_assets.ApprovedUIAssetsTests.test_font_is_original_and_distribution_manifest_carries_complete_notices) ... ok\ntest_frozen_s6_sources_and_reference_images_are_unchanged (test_ui_assets.ApprovedUIAssetsTests.test_frozen_s6_sources_and_reference_images_are_unchanged) ... ok\ntest_live_ui_matches_approved_overlay_with_local_color_tolerances (test_ui_assets.ApprovedUIAssetsTests.test_live_ui_matches_approved_overlay_with_local_color_tolerances) ... ok\ntest_runtime_crops_preserve_approved_source_pixels (test_ui_assets.ApprovedUIAssetsTests.test_runtime_crops_preserve_approved_source_pixels) ... ok\ntest_archives_match_source_and_unpacked_executable_starts (test_windows_package.WindowsPackageTests.test_archives_match_source_and_unpacked_executable_starts) ... ok\ntest_preflight_accepts_installed_official_toolchain (test_windows_package.WindowsPackageTests.test_preflight_accepts_installed_official_toolchain) ... ok\n\n----------------------------------------------------------------------\nRan 18 tests in 22.415s\n\nOK\n",
+  "python_diagnostics": [],
+  "windows_package_regression": "test_windows_package.py uses this committed revision in an E-drive temporary clone; TEMP/TMP are within the authorized worktree",
+  "explicit_windows_package_commit": "8e63bd193701318d8aae9633b60f068fefc49841",
+  "explicit_windows_package_diagnostics": [],
+  "explicit_windows_package_source": ".godot/packages/hundouluo-issue33-source-8e63bd193701.zip",
+  "explicit_windows_package_binary": ".godot/packages/hundouluo-issue33-windows-x86_64-8e63bd193701.zip",
+  "packaged_fresh_extraction_headless_startup": "exit 0, no diagnostics",
+  "packaged_fresh_extraction_graphical_startup": "90 frames, gl_compatibility, NVIDIA RTX 4060 Laptop, exit 0, no diagnostics",
+  "production_gate_approved_visual_comparisons": 4,
+  "production_gate_pixel_differences": 0,
+  "hud_outcome_visual_comparisons": 13,
+  "hud_outcome_material_differences": 0,
+  "review_standards_findings": 0,
+  "review_spec_findings": 0,
+  "note": "Implementation was tested at the listed commit. Subsequent commits only add acceptance records. All five remaining diagnostic sets exactly match docs/art/issue-30/test-results.json; no new or changed diagnostics. Graphic captures and startup are automated evidence, not human play or audio comfort acceptance."
+}
