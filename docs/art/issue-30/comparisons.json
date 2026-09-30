@@ -1,0 +1,93 @@
+[
+	{
+		"bounds": "[P: (21, 298), S: (125, 46)]",
+		"changed_pixels": 66,
+		"material_changes": 0,
+		"max_channel_delta": 3,
+		"state": "start"
+	},
+	{
+		"bounds": "[P: (21, 298), S: (125, 46)]",
+		"changed_pixels": 66,
+		"material_changes": 0,
+		"max_channel_delta": 3,
+		"state": "gap-left"
+	},
+	{
+		"bounds": "[P: (21, 298), S: (125, 46)]",
+		"changed_pixels": 66,
+		"material_changes": 0,
+		"max_channel_delta": 3,
+		"state": "mech-full"
+	},
+	{
+		"bounds": "[P: (21, 298), S: (125, 46)]",
+		"changed_pixels": 66,
+		"material_changes": 0,
+		"max_channel_delta": 3,
+		"state": "combat"
+	},
+	{
+		"bounds": "[P: (21, 298), S: (125, 46)]",
+		"changed_pixels": 66,
+		"material_changes": 0,
+		"max_channel_delta": 3,
+		"state": "hurt"
+	},
+	{
+		"bounds": "[P: (21, 298), S: (125, 46)]",
+		"changed_pixels": 66,
+		"material_changes": 0,
+		"max_channel_delta": 3,
+		"state": "low"
+	},
+	{
+		"bounds": "[P: (21, 298), S: (125, 46)]",
+		"changed_pixels": 66,
+		"material_changes": 0,
+		"max_channel_delta": 3,
+		"state": "mech-one"
+	},
+	{
+		"bounds": "[P: (0, 1), S: (464, 251)]",
+		"changed_pixels": 1447,
+		"material_changes": 0,
+		"max_channel_delta": 5,
+		"state": "failure"
+	},
+	{
+		"bounds": "[P: (21, 298), S: (125, 46)]",
+		"changed_pixels": 66,
+		"material_changes": 0,
+		"max_channel_delta": 3,
+		"state": "retry-failure"
+	},
+	{
+		"bounds": "[P: (1, 0), S: (464, 252)]",
+		"changed_pixels": 2617,
+		"material_changes": 0,
+		"max_channel_delta": 4,
+		"state": "fall"
+	},
+	{
+		"bounds": "[P: (21, 298), S: (125, 46)]",
+		"changed_pixels": 66,
+		"material_changes": 0,
+		"max_channel_delta": 3,
+		"state": "retry-fall"
+	},
+	{
+		"bounds": "[P: (0, 1), S: (464, 251)]",
+		"changed_pixels": 1375,
+		"material_changes": 0,
+		"max_channel_delta": 5,
+		"state": "complete"
+	},
+	{
+		"bounds": "[P: (21, 298), S: (125, 46)]",
+		"changed_pixels": 66,
+		"material_changes": 0,
+		"max_channel_delta": 3,
+		"state": "retry-complete"
+	}
+]

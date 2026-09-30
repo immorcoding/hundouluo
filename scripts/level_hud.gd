@@ -1,14 +1,23 @@
 extends CanvasLayer
 
 
+const LIFE_FULL := preload("res://assets/ui_v011/life-full.png")
+const LIFE_EMPTY := preload("res://assets/ui_v011/life-empty.png")
+
+
+@onready var _life_cells: Array[TextureRect] = [
+	$LifeDisplay/Life1, $LifeDisplay/Life2, $LifeDisplay/Life3,
+]
+
+
 func show_life(health: int) -> void:
-	$LifeLabel.text = "行动员生命  %d / 3" % health
-	$LifeLabel.add_theme_color_override("font_color",
-		Color(1.0, 0.62, 0.44) if health <= 1 else Color(0.83, 0.98, 0.98))
+	for i in _life_cells.size():
+		_life_cells[i].texture = LIFE_FULL if i < health else LIFE_EMPTY
 
 
 func show_mech(max_health: int) -> void:
 	$MechLabel.visible = true
+	$MechValueLabel.visible = true
 	$MechProgress.visible = true
 	$MechProgress.max_value = max_health
 	show_mech_health(max_health)
@@ -16,20 +25,27 @@ func show_mech(max_health: int) -> void:
 
 func show_mech_health(health: int) -> void:
 	$MechProgress.value = health
-	$MechLabel.text = "防御机甲  %d / %d" % [health, int($MechProgress.max_value)]
-	$MechProgress.modulate = Color(1.0, 0.58, 0.43) \
-		if health <= $MechProgress.max_value / 3.0 else Color(1.0, 0.86, 0.6)
+	# Match the approved native-pixel floor, including a visible final hit point.
+	$MechProgress/Fill.visible = health > 0
+	$MechProgress/Fill.size.x = maxi(1, int(
+		$MechProgress.size.x * $MechProgress.value / $MechProgress.max_value))
+	$MechValueLabel.text = "%d/%d" % [health, int($MechProgress.max_value)]
 
 
 func show_death(reason: String) -> void:
-	$OutcomePanel.visible = true
-	$OutcomePanel/TitleLabel.text = "任务失败"
-	$OutcomePanel/ReasonLabel.text = reason
-	$OutcomePanel/ReasonLabel.add_theme_color_override("font_color",
-		Color(1.0, 0.72, 0.43) if reason == "跌落深渊" else Color(1.0, 0.55, 0.46))
+	_show_outcome("任务失败", reason, Color("ffcb7b"))
 
 
 func show_complete() -> void:
-	$OutcomePanel.visible = true
-	$OutcomePanel/TitleLabel.text = "任务完成"
-	$OutcomePanel/ReasonLabel.text = "防御机甲已击败"
+	_show_outcome("任务完成", "防御机甲已击败", Color("8de9ed"))
+
+
+func _show_outcome(title: String, reason: String, accent: Color) -> void:
+	$LifeDisplay.hide()
+	$MechLabel.hide()
+	$MechValueLabel.hide()
+	$MechProgress.hide()
+	$OutcomePanel.show()
+	$OutcomePanel/TitleLabel.text = title
+	$OutcomePanel/TitleLabel.add_theme_color_override("font_color", accent)
+	$OutcomePanel/ReasonLabel.text = reason

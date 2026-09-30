@@ -73,8 +73,9 @@ func _run() -> void:
 	for tick in 50:
 		await physics_frame
 	actor.receive_hit()
-	if not hud.get_node("LifeLabel").text.contains("1") \
-			or not hud.get_node("LifeLabel").get_theme_color("font_color").r > 0.9:
+	if hud.get_node("LifeDisplay/Life1").texture != load("res://assets/ui_v011/life-full.png") \
+			or hud.get_node("LifeDisplay/Life2").texture != load("res://assets/ui_v011/life-empty.png") \
+			or hud.get_node("LifeDisplay/Life3").texture != load("res://assets/ui_v011/life-empty.png"):
 		_fail("低血量 HUD 缺少强调")
 		return
 	actor.position = Vector2(3700, 252)
@@ -113,6 +114,7 @@ func _run() -> void:
 
 
 func _finish() -> void:
+	await create_timer(0.1).timeout
 	quit(0)
 
 

@@ -12,7 +12,7 @@ func _run() -> void:
 	var level := current_scene
 	var actor := level.get_node("Operative/Operative") as CharacterBody2D
 	var hud := level.get_node("HUD")
-	if not hud.get_node("LifeLabel").text.contains("3") or hud.get_node("MechProgress").visible:
+	if hud.get_node("LifeDisplay/Life3").texture != load("res://assets/ui_v011/life-full.png") or hud.get_node("MechProgress").visible:
 		_fail("开场 HUD 生命或机甲进度不正确")
 		return
 	for soldier in level.get_node("Enemies").get_children():
@@ -29,12 +29,12 @@ func _run() -> void:
 	actor.position = Vector2(3700, 252)
 	actor.invulnerability_duration = 0.0
 	actor.receive_hit()
-	if not hud.get_node("LifeLabel").text.contains("2"):
+	if hud.get_node("LifeDisplay/Life2").texture != load("res://assets/ui_v011/life-full.png") or hud.get_node("LifeDisplay/Life3").texture != load("res://assets/ui_v011/life-empty.png"):
 		_fail("受击信号未更新 HUD")
 		return
 	actor.receive_hit()
 	actor.receive_hit()
-	if not hud.get_node("OutcomePanel").visible or not hud.get_node("OutcomePanel/ReasonLabel").text.contains("生命"):
+	if not hud.get_node("OutcomePanel").visible or hud.get_node("LifeDisplay").visible or hud.get_node("OutcomePanel/ReasonLabel").text != "生命耗尽":
 		_fail("生命归零未显示对应失败原因")
 		return
 	await _retry()
@@ -46,7 +46,7 @@ func _run() -> void:
 		if soldier.health != soldier.max_health or soldier.get_node("Sprite").frame == 6:
 			_fail("整关重试未恢复机械兵的生命和站姿")
 			return
-	if level.get_node("Operative/Operative").position.x != 140.0:
+	if level.get_node("Operative/Operative").position.x != 140.0 or not level.get_node("HUD/LifeDisplay").visible or level.get_node("HUD/OutcomePanel").visible:
 		_fail("终点死亡未从起点重试")
 		return
 	actor = level.get_node("Operative/Operative") as CharacterBody2D
@@ -111,7 +111,10 @@ func _run() -> void:
 		_fail("通关重试未重置机甲和门")
 		return
 	print("PASS: 两种死因、死亡信号顺序、HUD、无限整关重试与通关")
-	quit(0)
+	current_scene.queue_free()
+	await process_frame
+	await create_timer(0.1).timeout
+	call_deferred("_finish")
 
 
 func _retry() -> void:
@@ -129,3 +132,7 @@ func _retry() -> void:
 func _fail(message: String) -> void:
 	push_error(message)
 	quit(1)
+
+
+func _finish() -> void:
+	quit(0)
