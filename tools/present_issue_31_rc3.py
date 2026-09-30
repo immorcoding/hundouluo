@@ -111,7 +111,20 @@ def main():
         raise ValueError("Integrated fixture failed")
     layers = [layer(integrated, name) for name in
         ("soldier-standing", "soldier-moving-right", "soldier-moving-left", "mech-victory")]
-    animations.append(animation(sorted((integrated / "frames/legal-run").glob("*.png")), output / "legal-run-loop.png", 5))
+    legal_paths = sorted((integrated / "frames/legal-run").glob("*.png"))
+    legal_samples = [r for r in capture["frame_samples"] if r["sequence"] == "legal-run"]
+    if len(legal_samples) != len(legal_paths) or len(legal_samples) < 2 \
+        or capture["physics_hz"] != 60:
+        raise ValueError("Missing actual legal-run physics sampling provenance")
+    for sample, path in zip(legal_samples, legal_paths):
+        if path.stem != f'{sample["tick"]:04}':
+            raise ValueError("Legal-run sample/file identity mismatch")
+    cadence = [b["physics_frame"]-a["physics_frame"] for a, b in zip(legal_samples, legal_samples[1:])]
+    if any(delta != 12 for delta in cadence):
+        raise ValueError("Legal-run actual physics cadence differs from 12 ticks")
+    animations.append(animation(legal_paths, output / "legal-run-loop.png", 5))
+    animations[-1]["actual_physics_frame_delta_min"] = min(cadence)
+    animations[-1]["actual_physics_frame_delta_max"] = max(cadence)
     for path in integrated.glob("*.png"):
         image(path).save(output / path.name)
     (output / "capture-results.json").write_text(json.dumps(capture, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
@@ -126,6 +139,7 @@ def main():
         independent_gun_seam_pairs=pairs, independent_flights=flights,
         corpse_pixel_checks=layers, outcomes=outcomes,
         disclosure=capture["disclosure"],
+        paired_motion_disclosure="Paired hurt directions now follow the first real nonfatal health_changed event with ordinary Input right two steps/left two steps then restore planned direction. Existing life, invulnerability and assertions remain. Tick125 public receive_hit can be rejected and does not guarantee damage. Original #35 unpaused motion and legal Input full-run are unchanged.",
         prior_probe_status="Three old #35 low-confidence atlas probes remain inconclusive; #36 paired visible gun/seam checks measure a different explicitly observed symptom.")
     (output / "presentation-results.json").write_text(json.dumps(result, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
     print(json.dumps(result, ensure_ascii=False))

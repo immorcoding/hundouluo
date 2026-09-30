@@ -11,6 +11,11 @@ var scenario := "spawn"
 var full := false
 var paired := true
 var emitted: Array[Area2D] = []
+var hurt_event := {}
+var hurt_inputs_remaining := 0
+var restore_direction := 0.0
+var hurt_override_active := false
+var observed_health := 3
 
 
 func _initialize() -> void:
@@ -56,6 +61,14 @@ func _run() -> void:
 		Input.action_release("move_right")
 		for tick in 40:
 			await _step()
+	observed_health = actor.health
+	actor.health_changed.connect(func(health: int) -> void:
+		if full and health > 0 and hurt_event.is_empty():
+			hurt_event = {"physics_frame": Engine.get_physics_frames(),
+				"health_before": observed_health, "health_after": health}
+			hurt_inputs_remaining = 4
+		observed_health = health
+	)
 	actor.projectile_fired.connect(func(projectile: Area2D) -> void:
 		emitted.append(projectile)
 		if probe == "no-projectile":
@@ -85,6 +98,8 @@ func _run() -> void:
 	if paired and shooting and samples == 0:
 		failures.append("normal shoot Input did not produce any visible muzzle effect")
 	if full:
+		if hurt_event.is_empty():
+			failures.append("no real nonfatal health_changed event for hurt coverage")
 		for key in ["0:false", "0:true", "3:false", "3:true", "5:true", "5:false"]:
 			if not poses.has(key):
 				failures.append("missing exercised pose " + key)
@@ -109,6 +124,9 @@ func _capture_pair(actor: CharacterBody2D, tick: int) -> Dictionary:
 	var sprite := actor.get_node("Sprite") as Sprite2D
 	await RenderingServer.frame_post_draw
 	var record := {"tick": tick, "pose": sprite.frame, "flip": sprite.flip_h,
+		"health": actor.health, "hurt_event": hurt_event.duplicate(),
+		"hurt_input_override": hurt_override_active,
+		"input_direction": Input.get_axis("move_left", "move_right"),
 		"sprite_origin": _xy(sprite.get_global_transform_with_canvas().origin)}
 	var on := root.get_texture().get_image()
 	if on.get_size() != Vector2i(640, 360) or on.save_png(out + "/frames/%03d-on.png" % tick) != OK:
@@ -235,6 +253,27 @@ func _step() -> void:
 
 
 func _inputs(tick: int, actor: CharacterBody2D) -> void:
+	# Tick125's public hit can be rejected by an earlier real hit's invulnerability.
+	# Observe the actual health event and exercise both facings within its normal
+	# 0.7s window using Input. Restore the schedule each tick, including turns
+	# that occur during this four-step overlay; do not alter health or animation.
+	if hurt_override_active:
+		Input.action_release("move_right")
+		Input.action_release("move_left")
+		if restore_direction != 0:
+			Input.action_press("move_right" if restore_direction > 0 else "move_left")
+		hurt_override_active = false
+	_scheduled_inputs(tick, actor)
+	if hurt_inputs_remaining > 0:
+		restore_direction = Input.get_axis("move_left", "move_right")
+		Input.action_release("move_right")
+		Input.action_release("move_left")
+		Input.action_press("move_right" if hurt_inputs_remaining > 2 else "move_left")
+		hurt_inputs_remaining -= 1
+		hurt_override_active = true
+
+
+func _scheduled_inputs(tick: int, actor: CharacterBody2D) -> void:
 	if tick == 5:
 		Input.action_press("move_right")
 	elif tick == 20:

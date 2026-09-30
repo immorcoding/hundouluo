@@ -3,6 +3,7 @@ extends "res://tools/capture_issue_31.gd"
 
 var rc_out := ""
 var layers: Array[Dictionary] = []
+var frame_samples: Array[Dictionary] = []
 
 
 func _initialize() -> void:
@@ -50,7 +51,8 @@ func _run() -> void:
 		"native_size": [640, 360], "physics_hz": 60, "fixed_fps": 60,
 		"wall_clock_pacing": "process_frame OS.delay_msec(17)",
 		"disclosure": "Legal-run: normal spawn, only Input, physical R. Layers: initial actor teleport/public enemy.receive_hit; pause/freeze camera and Sprite frame 0 or 1 only for component visibility renders. Mech-victory layers use direct public hits and actor teleport after victory; true winning projectile separately captured by rc3_outcomes at 120Hz/30fps. Neither fixtures nor simulated mech timing are new human acceptance.",
-		"sequences": records, "layers": layers, "failures": failures}
+		"sequences": records, "layers": layers, "frame_samples": frame_samples,
+		"failures": failures}
 	var file := FileAccess.open(rc_out + "/capture-results.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(report, "\t") + "\n")
 	file.close()
@@ -74,10 +76,26 @@ func _step() -> void:
 
 func _frame(sequence: String, tick: int) -> void:
 	await RenderingServer.frame_post_draw
+	frame_samples.append({"sequence": sequence, "tick": tick,
+		"physics_frame": Engine.get_physics_frames()})
 	var image := root.get_texture().get_image()
 	_check(image.get_size() == Vector2i(640, 360), "non-native viewport")
 	_check(image.save_png(rc_out + "/frames/" + sequence + "/%04d.png" % tick) == OK,
 		"frame save failed")
+
+
+func _state() -> Dictionary:
+	var actor := current_scene.get_node("Operative/Operative") as CharacterBody2D
+	var mech := current_scene.get_node("BossSlot/DefenseMech") as DefenseMech
+	return {"physics_frame": Engine.get_physics_frames(), "actor_x": actor.position.x,
+		"actor_y": actor.position.y, "actor_health": actor.health, "on_floor": actor.is_on_floor(),
+		"mech_health": mech.health, "mech_visible": mech.attack_enabled,
+		"enemy_shots": enemy_shots, "player_shots": player_shots, "charges": charges,
+		"gate_frame": current_scene.get_node("CombatEntry/Artwork").frame,
+		"gate_closed": not current_scene.get_node("CombatEntry/Barrier/CollisionShape2D").disabled,
+		"camera_x": current_scene.get_node("Camera2D").position.x,
+		"outcome": current_scene.get_node("HUD/OutcomePanel").visible,
+		"reason": current_scene.get_node("HUD/OutcomePanel/ReasonLabel").text}
 
 
 func _save(name: String, frame_ready: bool = false) -> void:

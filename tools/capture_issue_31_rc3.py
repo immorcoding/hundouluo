@@ -43,6 +43,18 @@ def main():
     parser.add_argument("--phase", choices=("source", "windows"), required=True)
     parser.add_argument("--expect-commit", required=True)
     args = parser.parse_args()
+    build_info = None
+    if args.phase == "source":
+        if args.project is None or args.project.resolve() != ROOT.resolve():
+            raise ValueError("Source phase must run the exact provenance worktree ROOT")
+    else:
+        if args.project is not None:
+            raise ValueError("Windows phase must use embedded executable resources")
+        info_path = args.executable.resolve().parent / "BUILD_INFO.txt"
+        build_info = info_path.read_text(encoding="utf-8-sig")
+        match = re.search(r"^source_commit=([0-9a-f]{40})\s*$", build_info, re.MULTILINE)
+        if not match or match[1] != args.expect_commit:
+            raise ValueError("Windows BUILD_INFO source_commit differs from provenance commit")
     start = state()
     if start["head"] != args.expect_commit or start["status"]:
         raise ValueError("Formal capture requires specified clean committed source")
@@ -88,14 +100,17 @@ def main():
         succeeded &= run("outcomes", "capture_issue_31_rc3_outcomes.gd", fps=30)
         succeeded &= run("integrated", "capture_issue_31_rc3.gd")
     end = state()
-    source_unchanged = end["head"] == start["head"] and not end["normalized_diff"] and not end["staged_diff"]
+    permitted_end_status = all(re.fullmatch(r" M .+\.import", line) for line in end["status"])
+    source_unchanged = end["head"] == start["head"] and not end["normalized_diff"] \
+        and not end["staged_diff"] and permitted_end_status
     result = dict(phase=args.phase, source_start=start, source_end=end,
         normalized_source_unchanged=source_unchanged,
         executable=str(args.executable.resolve()), executable_sha256=sha(args.executable),
+        build_info=build_info, permitted_end_status=permitted_end_status,
         expected_checks=8, complete_suite=len(records) == 8,
         strict_pass=succeeded and len(records) == 8 and source_unchanged,
         checks=records, native_size=[640, 360], rendering_method="gl_compatibility",
-        disclosure="Paired loops pause only for same-pose on/off measurement; motion loops never hide feedback. Normal Input legal run is separate from teleported/public damage fixtures. Outcomes use 41 public mech hits for initial one-HP setup, a real final projectile collision/turn, and a deterministic public fatal-damage fixture with temporary invulnerability_duration=0; physical R reconstructs normal defaults. Prior default-clock failures and three #35 inconclusive probes remain unchanged.")
+        disclosure="Paired loops pause only for same-pose on/off measurement. Paired hurt directions use a four-step ordinary Input overlay (right two, left two) after the first real nonfatal health_changed event, then restore the planned direction; tick125 public receive_hit can be rejected by normal invulnerability and is not claimed to force damage. Motion #35 original unpaused Input/flight and legal Input full-run remain unchanged. Normal Input legal run is separate from teleported/public damage fixtures. Outcomes use 41 public mech hits for initial one-HP setup, a real final projectile collision/turn, and a deterministic public fatal-damage fixture with temporary invulnerability_duration=0; physical R reconstructs normal defaults. Prior default-clock failures and three #35 inconclusive probes remain unchanged.")
     (output / "run-record.json").write_text(json.dumps(result, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
     return 0 if result["strict_pass"] else 1
 
