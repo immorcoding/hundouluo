@@ -12,6 +12,7 @@
 | #35三帧像素probe | 原票中3帧置信不足原样保留；不是自动通过 | 本轮新增明确像素/事件证据独立记录，不篡改原probe |
 | #36早期回归失败 | 缺缓存导致Python诊断、一次import异常3221225477、两次Windows删除缓存失败原样保留；最终GL测试自建严格导入fixture且保留E-TEMP副本，所有断言不变 | 不宣称历史引擎异常根因已确认；具体新候选结果以固定提交真实日志为准 |
 | rc.3首次受击姿态fixture失败 | 134dd33完整Python固定镜头缺5:false，strict_pass=false；初始等待+12步连续3红，真实生命事件后普通Input双向4步修复同环3绿，生产/所有原断言未改 | [诊断记录](art/issue-31-rc3/fixture-diagnosis.md)；最终完整回归及实际Windows结果另列，不能把初次失败当通过 |
+| release捕获入口 | 官方模板不支持独立script/场景路径覆盖；180秒script timeout、scene错误及辅助movie240秒timeout/3067帧不足3600均保留为失败，未伪造exit0 | 改用显式固定模式的项目tools验证入口，普通启动立即释放；实际新EXE结果另列，不用源码成功代替 |
 | 已人审通过的设计/时间 | 像素风、HUD/门取舍、声音/手感沿用通过；真人时间无精确秒数，自动模拟不能替换它 | 不重开验收；顺路发现具体退化时再记录 |
 
 本候选三bug人工复测未确认；#34/#35/#36/#31/#25保持OPEN，不正式tag/release/milestone。启动失败、崩溃/卡死、具体bug仍存在或通关/R退化为阻塞。BGM、主菜单/设置、多关、新敌人及动作扩展继续延期。最终包commit及严格日志见持久交付DELIVERY/BUILD_INFO与 `docs/art/issue-31-rc3/`；[本轮定点复测单](retest-v0.1.1-rc.3.md)。

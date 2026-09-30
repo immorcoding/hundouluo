@@ -10,6 +10,10 @@ config/version="0.1.1-rc.3"
 run/main_scene="res://scenes/level.tscn"
 config/features=PackedStringArray("4.7")
 
+[autoload]
+
+Rc3RenderVerification="*res://tools/rc3_render_verification.gd"
+
 [display]
 
 window/size/viewport_width=640

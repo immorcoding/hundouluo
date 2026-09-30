@@ -13,3 +13,7 @@
 新捕获工具复用#36实际批准枪管源像素掩码/有无己方反馈同姿态差分、#35合法运动飞行与#36真赢弹120/30；合法Input整关与公开初设/受击/设姿/可见组件fixture分别披露。原速循环必须640×360、180帧/60fps/3秒；全关抽样明确5fps，不冒称原速60fps。最终实际结果随后补入本目录；新增shader及UID入源码包、Windows实际渲染不可仅靠headless启动。
 
 初次134完整检查实际strict_pass=false：Godot/导入/两启动全绿，Python固定镜头缺右向受击姿态；[真实重复红/绿与最小fixture修复](fixture-diagnosis.md)。公开生命事件驱动四步普通左右Input覆盖，保留全部原断言；生产不改。初审Spec P3私有报告字段已删除，采样实际物理帧/source参数及末态门禁也收敛，后续从新干净固定提交重新完整回归与捕获，不拿134旧成功代替。
+
+344d151已实际完整48严格通过、21Python无skip，源码8项GL/呈现也通过；但其Windows独立script入口180秒timeout（子进程exit未取得），scene位置参数探针actual3221225620且明确禁止path overrides。辅助movie仅3067/3600帧后240秒timeout，未发送UI按键，不算火光或成功启动证据。原命令/原始异常与日志保留。
+
+必要最小接缝为纯tools验证Node+project.godot autoload注册：普通无flag立即释放；显式userargs仅选择pixels/motion/outcomes/integrated四个嵌入工具，公共SceneTree.set_script及deferred工具初始化，无任意路径或模板/系统配置更改。源码正常入口开发probe12对画面实际exit0，未知模式exit1、无flag90帧exit0，均零诊断。它是非doc的启动配置增量，因此后续新干净实现必须重新完整48、source/Windows8与构建；344旧成功仅历史，不当最终。

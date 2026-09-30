@@ -69,22 +69,37 @@ def main():
         command = [str(args.executable.resolve())]
         if args.project:
             command += ["--path", str(args.project.resolve())]
-        command += ["--rendering-method", "gl_compatibility", "--fixed-fps", str(fps),
-                    "--script", "res://tools/" + script, "--", "--out=" + str(target), *extra]
+        command += ["--rendering-method", "gl_compatibility", "--fixed-fps", str(fps)]
+        if args.phase == "source":
+            command += ["--script", "res://tools/" + script, "--"]
+        else:
+            modes = {"capture_issue_31_rc3_pixels.gd": "pixels",
+                "capture_issue_31_rc3_motion.gd": "motion",
+                "capture_issue_31_rc3_outcomes.gd": "outcomes", "capture_issue_31_rc3.gd": "integrated"}
+            command += ["--", "--rc3-render-verification=" + modes[script]]
+        command += ["--out=" + str(target), *extra]
         began = time.monotonic()
-        result = subprocess.run(command, cwd=ROOT, capture_output=True, text=True,
-            encoding="utf-8", errors="replace", timeout=180)
-        log = result.stdout + result.stderr
+        timeout = None
+        try:
+            result = subprocess.run(command, cwd=ROOT, capture_output=True, text=True,
+                encoding="utf-8", errors="replace", timeout=180)
+            exit_code = result.returncode
+            log = result.stdout + result.stderr
+        except subprocess.TimeoutExpired as error:
+            def decoded(value):
+                return value.decode("utf-8", errors="replace") if isinstance(value, bytes) else (value or "")
+            log = decoded(error.stdout) + decoded(error.stderr) + "\nCAPTURE_TIMEOUT: 180 seconds; no normal executable exit returned\n"
+            exit_code, timeout = None, 180
         (output / (name + ".log")).write_text(log, encoding="utf-8")
         diagnostics = [line for line in log.splitlines() if DIAGNOSTIC.match(line)]
         signal = bool(re.search(r"^PASS(?:\s|:)", log, re.MULTILINE))
-        passed = result.returncode == 0 and not diagnostics and signal
-        records.append(dict(name=name, argv=command, exit=result.returncode,
+        passed = timeout is None and exit_code == 0 and not diagnostics and signal
+        records.append(dict(name=name, argv=command, exit=exit_code, timeout_seconds=timeout,
             diagnostics=diagnostics, pass_signal=signal, passed=passed,
             wall_seconds=round(time.monotonic()-began, 3), fixed_fps=fps,
             physics_hz=120 if fps == 30 else 60,
             pacing="process_frame OS.delay_msec(17)", log_sha256=sha(output / (name + ".log"))))
-        print(f"{args.phase}/{name}: exit={result.returncode} diagnostics={len(diagnostics)} passed={passed}", flush=True)
+        print(f"{args.phase}/{name}: exit={exit_code} timeout={timeout} diagnostics={len(diagnostics)} passed={passed}", flush=True)
         # A real export incompatibility is retained and reported before further runs.
         return passed
 

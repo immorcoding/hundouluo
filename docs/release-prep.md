@@ -8,6 +8,8 @@
 
 统一完整检查入口为`tools/check_issue_31.py --clock paced`：44行为脚本（包含继承式operative_running_muzzle）及21项Python无skip（含2项Windows端到端、3项#36真实GL），导入与两主场景90帧，合计48条记录。固定60fps模拟加每process_frame17ms明确墙钟等待；终局测试120Hz物理/30fps显示。Python/Windows测试先消费原封干净Git提交；新增GL测试自行严格导入相同运行文件的E-TEMP fixture并保留诊断副本，再导入/运行Godot，开始/结束HEAD/status与完整命令记录。默认旧相机/音频失败及#36早期导入异常/清理失败另留记录，未知异常不冒称已确认根因；不称默认全套严格通过。旧#34/#35运行器转发该入口，精确历史复现仍使用历史Git提交。
 
+官方release模板无独立`--script`入口且禁止scene路径覆盖。实际探针的180秒timeout及路径覆盖错误均保留失败，不能把源码捕获冒称EXE。项目增加纯tools验证Node及autoload注册：无显式flag立即释放；`--rc3-render-verification=pixels|motion|outcomes|integrated`仅选择固定嵌入工具，不接受任意资源路径，不修改模板或生产场景。Windows捕获经正常EXE用户参数进入，同源码工具执行真实GL/原断言/进程退出与原始日志门禁。这个启动配置变更必须在最终完整测试提交中；普通无参数启动也重新检查，不以文档差异豁免。
+
 包内含中文记录单、已知事项、项目MIT、完整字体/上游OFL通知。`tools/export_engine_notices.gd` 从实际 Godot 二进制的 Engine API 导出 `GODOT_LICENSE.txt`、`GODOT_COPYRIGHT.json` 和 `GODOT_THIRD_PARTY_LICENSES.json`，包含引擎版权及第三方声明/许可原文，随 Windows 包分发。[Godot官方分发许可说明](https://docs.godotengine.org/en/stable/about/complying_with_licenses.html) 与 [引擎许可](https://godotengine.org/license) 为来源。
 
 玩家拿到 Windows ZIP 后应完整解压，阅读包根目录的 `试玩说明.txt`，双击 `轨道基地.exe`；A/D 或方向键移动、空格跳跃、按住 J 射击，死亡或任务完成时按 R 重试。无需在玩家电脑安装 Godot。
