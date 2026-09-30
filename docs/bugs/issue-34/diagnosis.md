@@ -71,4 +71,4 @@ python tools/present_issue_34.py
 python tools/check_issue_34_paced.py --godot <Godot 4.7.2 console executable> --output .godot/issue-34-verification-paced-final --temp <E-drive scratch directory outside the checkout>
 ```
 
-最终结果 `tested_commit=f5aa2107253cb16ad8594a9095efb0bcaf4d5700`、`strict_pass=true`，46 项全部通过：Python 18 项、导入、42 个 Godot 场景测试、headless 与 graphical 主场景检查；无诊断。原默认失败日志仍保留以便与此稳定命令对照。完整的本次逐项命令、退出码和原始输出保存在该 worktree 的 `.godot/issue-34-verification-paced-final/`。
+最终结果 `tested_commit=f5aa2107253cb16ad8594a9095efb0bcaf4d5700`、`strict_pass=true`，46 项全部通过：Python 18 项、导入、42 个 Godot 场景测试、headless 与 graphical 主场景检查；无诊断。默认失败与稳定通过两次完整运行的逐项命令、退出码、诊断和原始输出都已归档在 [`verification-logs.zip`](verification-logs.zip)，原始目录也保留在本 worktree 的 `.godot/issue-34-verification/` 与 `.godot/issue-34-verification-paced-final/`。
