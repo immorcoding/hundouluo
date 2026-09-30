@@ -35,3 +35,5 @@ Standards：硬违反0、smell0、未解决0。Spec：P3/P2已解决，未解决
 新入口在load固定fixture前要求唯一非空--out、规范化绝对E路径、固定rc.3证据根内的既存非链接父目录和不存在的目标。拒绝res/user/相对/其他盘、重复参数、dot/dotdot、Windows名称别名、已有文件/目录、链接祖先和缺失父目录；原子make_dir预留新leaf，失败exit1且不加载fixture。两个固定根是本E工作树的.godot/issue31-rc3与E:/Projects/game_hundouluo_codex_artifacts/v0.1.1-rc.3；正斜杠及反斜杠均接受。仍只输出既有PNG/trace，无任意资源/方法入口。无flag在校验前返回，原测试和生产行为不变。
 
 新增tools/check_rc3_output_boundary.py只作为实际原封EXE的独立CLI契约检查，不增加unittest类或改变21项计数。非法pixels参数以headless运行防止守卫退化时误写res/user输出；任何fixture marker都判失败，不能借旧fixture自身的headless失败冒称入口拒绝。合法新E目录用真实GL、原PASS及640×360 PNG核验。新实现独立两轴审查、完整44Godot/21Python与Windows八项结果以新提交对应的持久交付记录为准，本段不预先宣称通过。
+
+eb2原封EXE第一次边界矩阵33/34，strict_pass=false，日志/实际新建目录保留。唯一失败为原始参数尾空格已在Godot进入脚本前裁掉，不能由GDScript观察，最小探针确认；官方main/main.cpp同样先strip_edges再unescape_cmdline。独立Spec复核认可把真实seam明确为OS.get_cmdline_user_args：尾空格拒绝例改以%20实际送达API，原exit1/无marker/目标不变断言保留；增加原始尾空格alias既存目标拒绝及规范化新目标真实GL合法例。没有引入native读取/扩展、修改模板或放宽实际输出合同；eb2原失败不被新结果覆盖。参考官方源码：https://github.com/godotengine/godot/blob/master/main/main.cpp。

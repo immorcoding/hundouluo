@@ -44,6 +44,7 @@ func _ready() -> void:
 
 
 func _reserve_output() -> bool:
+	# Godot supplies parsed user args: raw edges were stripped, %20 then decoded.
 	var outputs: Array[String] = []
 	for argument in OS.get_cmdline_user_args():
 		if argument.begins_with("--out="):

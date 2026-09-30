@@ -5,6 +5,9 @@ use headless mode so a regressed guard cannot write res:// or user:// output:
 the existing pixel fixture rejects headless before any capture file access.
 The verification marker still proves that loading a fixture is a failure.
 Legal green uses real GL and requires a native image plus the original PASS.
+Godot strips raw argument edges before exposing user args, then decodes %20.
+Encoded whitespace tests the guard's real input; raw aliases test new/existing
+targets separately. The original 33/34 expectation mismatch remains archived.
 This standalone CLI does not add a Python unittest class or change its count.
 """
 import argparse
@@ -182,7 +185,7 @@ def main():
             ("dotdot", ["--out="+str(dot_parent)+"/../dotdot-leaf"], (candidate("dotdot-leaf"),), ()),
             ("leading-whitespace", ["--out= "+str(candidate("leading-space"))],
                 (candidate("leading-space"),), ()),
-            ("trailing-whitespace", ["--out="+str(candidate("trailing-whitespace"))+" "],
+            ("trailing-whitespace", ["--out="+str(candidate("trailing-whitespace"))+"%20"],
                 (candidate("trailing-whitespace"),), ()),
             ("unc", ["--out=//localhost/E$/boundary-invalid-"+output.name], (), ()),
             ("duplicate-slash", ["--out="+str(candidates)+"//double-slash-leaf"],
@@ -199,6 +202,7 @@ def main():
             ("device-con", ["--out="+str(candidate("CON"))], (), ()),
             ("device-com1", ["--out="+str(candidate("COM1"))], (), ()),
             ("existing-directory", ["--out="+str(existing)], (existing,), (sentinel,)),
+            ("raw-space-existing-alias", ["--out="+str(existing)+" "], (existing,), (sentinel,)),
             ("existing-file", ["--out="+str(file_target)], (file_target,), ()),
             ("file-parent", ["--out="+str(file_target / "leaf")], (file_target,), ()),
             ("outside-owned", ["--out="+str(outside_parent / "leaf")], (outside_parent / "leaf",), ()),
@@ -213,6 +217,9 @@ def main():
                 run(mode + "-missing-out", ["--rc3-render-verification="+mode, "--ticks=1"], 1)
         legal = candidate("legal-new")
         run("legal-new-GL", [*pixel, "--out="+str(legal)], 0, (legal,), headless=False)
+        raw_normalized = candidate("raw-space-normalized-new")
+        run("raw-space-normalized-new-GL", [*pixel, "--out="+str(raw_normalized)+" "],
+            0, (raw_normalized,), headless=False)
         run("unknown-mode", ["--rc3-render-verification=unknown", "--out="+str(candidate("unknown"))],
             1, (candidate("unknown"),))
         run("repeated-mode", [*pixel, "--rc3-render-verification=motion", "--out="+str(candidate("repeated"))],
@@ -230,6 +237,7 @@ def main():
         executable=str(executable), executable_sha256=sha(executable), checks=records,
         strict_pass=strict, baseline_bug_reproduced=reproduced,
         invalid_fixture_safety="Invalid pixel cases are headless: if a guard regresses, the pixel fixture stops before filesystem output; its verification marker still fails the guard contract.",
+        argument_boundary="OS.get_cmdline_user_args after Godot strips raw argument edges then decodes %20; encoded tail space reaches the guard and must be rejected. Raw trailing space normalizes to a canonical path: existing alias still rejected, new owned E leaf allowed. Original eb2 33/34 expectation mismatch preserved separately.",
         disclosure="Red explicitly records dirty development source and the untouched old packaged EXE; never represents new formal implementation. Formal green is standalone CLI evidence, not extra unittest discovery or a new 21-test count.")
     (output / "results.json").write_text(json.dumps(report, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
     print("REPORT " + str(output / "results.json"), flush=True)
