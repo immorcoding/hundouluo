@@ -36,7 +36,7 @@ def main():
         log = result.stdout + result.stderr
         (args.output / (name + ".log")).write_text(log, encoding="utf-8")
         diagnostics = [line for line in log.splitlines() if DIAGNOSTIC.match(line)]
-        messages = [line for line in log.splitlines() if line.startswith("PASS:")]
+        messages = [line for line in log.splitlines() if re.match(r"^PASS(?:\s|:)", line)]
         records.append({"name": name, "exit": result.returncode, "diagnostics": diagnostics,
                         "pass_messages": messages, "log": name + ".log", "command": command,
                         "pass": result.returncode == 0 and not diagnostics and
