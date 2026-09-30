@@ -19,9 +19,10 @@ class OperativeFlashCompositing(unittest.TestCase):
         # The unified suite intentionally runs Python before importing its
         # clean source (the Windows package test requires that clean source).
         # Import an exact copy of the actual level's runtime files separately.
-        cls.fixture = tempfile.TemporaryDirectory(prefix="issue36-source-", dir=os.environ.get("TEMP"))
-        cls.addClassCleanup(cls.fixture.cleanup)
-        cls.project = Path(cls.fixture.name)
+        # Retain the imported project for failure inspection. Windows can
+        # still refresh .godot/editor files after the engine process exits;
+        # deleting that directory in test teardown races those cache writes.
+        cls.project = Path(tempfile.mkdtemp(prefix="issue36-source-", dir=os.environ.get("TEMP")))
         for directory in ("assets", "scenes", "scripts"):
             shutil.copytree(ROOT / directory, cls.project / directory)
         shutil.copyfile(ROOT / "project.godot", cls.project / "project.godot")
