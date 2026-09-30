@@ -1,0 +1,32 @@
+[
+  {
+    "repeat": 1,
+    "argv": [
+      "C:/Users/22137/tools/godot-4.7.2/Godot_v4.7.2-stable_win64_console.exe",
+      "--headless",
+      "--editor",
+      "--path",
+      "E:\\Projects\\game_hundouluo_codex_worktree\\issue-31-v011-acceptance\\.godot\\issue31-rc3\\temp-3806da8\\issue36-source-3fqvys8b",
+      "--import",
+      "--quit"
+    ],
+    "actual_exit": 0,
+    "diagnostics": [],
+    "condition": "Reimport preserved failed fixture; this cannot recover the first subprocess's unprinted exit or establish root cause"
+  },
+  {
+    "repeat": 2,
+    "argv": [
+      "C:/Users/22137/tools/godot-4.7.2/Godot_v4.7.2-stable_win64_console.exe",
+      "--headless",
+      "--editor",
+      "--path",
+      "E:\\Projects\\game_hundouluo_codex_worktree\\issue-31-v011-acceptance\\.godot\\issue31-rc3\\temp-3806da8\\issue36-source-3fqvys8b",
+      "--import",
+      "--quit"
+    ],
+    "actual_exit": 0,
+    "diagnostics": [],
+    "condition": "Reimport preserved failed fixture; this cannot recover the first subprocess's unprinted exit or establish root cause"
+  }
+]

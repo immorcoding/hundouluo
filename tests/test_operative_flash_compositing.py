@@ -29,6 +29,10 @@ class OperativeFlashCompositing(unittest.TestCase):
         (cls.project / "tools").mkdir()
         for script in ROOT.glob("tools/capture_issue_36*.gd*"):
             shutil.copyfile(script, cls.project / "tools" / script.name)
+        # Preserve the project's ordinary startup dependency as well. Its
+        # verification branch stays dormant without the explicit user flag.
+        for name in ("rc3_render_verification.gd", "rc3_render_verification.gd.uid"):
+            shutil.copyfile(ROOT / "tools" / name, cls.project / "tools" / name)
         command = [cls.executable, "--headless", "--editor", "--path", str(cls.project), "--import", "--quit"]
         result = subprocess.run(command, capture_output=True, text=True, encoding="utf-8",
                                 errors="replace", timeout=120)

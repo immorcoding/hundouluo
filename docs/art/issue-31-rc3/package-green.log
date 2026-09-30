@@ -1,0 +1,7 @@
+test_archives_match_source_and_unpacked_executable_starts (test_windows_package.WindowsPackageTests.test_archives_match_source_and_unpacked_executable_starts) ... ok
+test_preflight_accepts_installed_official_toolchain (test_windows_package.WindowsPackageTests.test_preflight_accepts_installed_official_toolchain) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 40.594s
+
+OK

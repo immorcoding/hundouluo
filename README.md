@@ -1,6 +1,6 @@
 # 轨道基地 · v0.1.1 候选工程入口
 
-当前候选为 **v0.1.1-rc.2**，仅集成残骸遮人 #34 和跑射枪口亮点错位 #35 修复。[rc.1人审](https://github.com/immorcoding/hundouluo/issues/31#issuecomment-5911543601) 的其他项已通过，真人机甲时间保留“时间差不多”，不重新调整美术或平衡。随包 [两项定点复测单](docs/retest-v0.1.1-rc.2.md) 和 [已知事项](docs/known-issues-v0.1.1.md)；只复测两bug及必要通关/R防退化，不要求重填旧单。#34/#35/#31/#25 保持开放，未创建正式发布tag。
+当前候选为 **v0.1.1-rc.3**，新增枪口火光接缝与枪身闪烁 #36 修复，并保留已修但尚未确认的残骸遮人 #34、跑射枪口 #35。[rc.1人审](https://github.com/immorcoding/hundouluo/issues/31#issuecomment-5911543601) 的其他项已通过，真人机甲时间保留“时间差不多”，不重新调整美术、声音或平衡。随包 [定点复测单](docs/retest-v0.1.1-rc.3.md) 和 [已知事项](docs/known-issues-v0.1.1.md)；仅三bug及最小通关/R，不要求重填旧单。#34/#35/#36/#31/#25 保持开放，旧rc.1/rc.2及用户原文保留，未创建正式发布tag。
 
 本仓库是正式的 Godot 4.7.2 标准版 / GDScript 源项目，与 `.scratch/` 中的抛弃式手感灰盒分开。主场景 `scenes/level.tscn` 是五段关卡：行动员可跑跳射击、跨越唯一缺口，五名机械兵可击败或绕过；终点防御机甲完整入镜后激活，必须击败它才能显示任务完成并开启门挡。HUD 展示生命及终点机甲血量。生命耗尽与跌落显示不同死因，按 R 可无限次从起点重载整关。`tests/mechanical_encounter.tscn` 和 `tests/defense_mech_encounter.tscn` 仍可单独观察战斗组件。
 
@@ -62,4 +62,6 @@ python -m unittest discover -s tests -v
 ```
 
 首次在新目录运行脚本前，先用 `--headless --editor --path . --import` 导入资源。上方仅列部分入口；完整44脚本（含间接继承）由`tools/check_issue_31.py --clock paced`统一发现，`mechanical_encounter.gd`与`defense_mech_encounter.gd`是场景fixture。完整检查须用干净隔离Git副本和位于副本外的E盘临时目录；固定模拟60fps加17ms明确墙钟等待，终局120Hz/30fps。默认headless音频/相机fixture失败另记，不宣称无条件全绿。
-自动化不代替真人结论；rc.1缺口、死因/R、静音危险、像素风、声音等已通过，机甲真人时间沿用“时间差不多”。本轮只按两项复测单确认修复与必要通关/R，不要求重新有声/静音整包验收。实机证据见`docs/art/issue-31-rc2/`。
+release的显式`--rc3-render-verification=<固定模式>`在EXE入口自身校验输出：以Godot解析后`OS.get_cmdline_user_args()`为参数边界，唯一非空`--out`须为规范化绝对E路径，位于本E工作树`.godot/issue31-rc3`或`E:/Projects/game_hundouluo_codex_artifacts/v0.1.1-rc.3`内，父目录既存且祖先无链接，目标文件/目录必须不存在。入口先原子创建新目录才加载固定fixture，拒绝时exit1、不进入fixture；普通无flag启动保持原main。Godot先裁去原始参数两端空白，再解码`%20`；守卫不声称能拒绝引擎已裁去的原始字节。编码尾空格实际送达API后拒绝；原始尾空格被引擎规范化后仍按新目标／已有目标分别校验。原封EXE契约CLI为`tools/check_rc3_output_boundary.py`，独立于21项Python unittest。f208旧包覆盖哨兵的失败、此前仅依赖调用者校验的审查误判以及eb2原33/34预期不匹配均保留。
+
+自动化不代替真人结论；rc.1缺口、死因/R、静音危险、像素风、声音等已通过，机甲真人时间沿用“时间差不多”。本轮只按rc.3三bug复测单确认修复与必要通关/R，不要求重新有声/静音整包验收。实机证据见`docs/art/issue-31-rc3/`。

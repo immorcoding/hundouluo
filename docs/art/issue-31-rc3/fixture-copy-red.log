@@ -1,0 +1,143 @@
+setUpClass (test_operative_flash_compositing.OperativeFlashCompositing) ... ERROR
+
+======================================================================
+ERROR: setUpClass (test_operative_flash_compositing.OperativeFlashCompositing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Projects\game_hundouluo_codex_worktree\issue-31-v011-acceptance\.godot\issue31-rc3\verified-project-15cdbef\tests\test_operative_flash_compositing.py", line 37, in setUpClass
+    raise AssertionError("Runtime fixture import failed:\n" + log)
+AssertionError: Runtime fixture import failed:
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] first_scan_filesystem | Started 项目初始化 (5 steps)
+[   0% ] first_scan_filesystem | 正在扫描文件结构……
+[  16% ] first_scan_filesystem | 正在加载全局类名……
+[  33% ] first_scan_filesystem | 正在校验 GDExtension……
+[  50% ] first_scan_filesystem | 正在创建自动加载脚本……
+[  66% ] first_scan_filesystem | 正在初始化插件……
+[  83% ] first_scan_filesystem | 正在启动文件扫描……
+[ DONE ] first_scan_filesystem
+
+[   0% ] update_scripts_classes | Started 正在注册全局类…… (13 steps)
+[   0% ] update_scripts_classes | 
+[   7% ] update_scripts_classes | 
+[  14% ] update_scripts_classes | 
+[  21% ] update_scripts_classes | DefenseMech
+[  28% ] update_scripts_classes | 
+[  35% ] update_scripts_classes | 
+[  42% ] update_scripts_classes | 
+[  50% ] update_scripts_classes | 
+[  57% ] update_scripts_classes | MechanicalSoldier
+[  64% ] update_scripts_classes | 
+[  71% ] update_scripts_classes | 
+[  78% ] update_scripts_classes | 
+[  85% ] update_scripts_classes | 
+[ DONE ] update_scripts_classes
+
+[   0% ] _update_scan_actions | Started 正在扫描动作…… (26 steps)
+[   0% ] _update_scan_actions | death_fall.wav
+[   3% ] _update_scan_actions | death_health.wav
+[   7% ] _update_scan_actions | enemy_shot.wav
+[  11% ] _update_scan_actions | enemy_warning.wav
+[  14% ] _update_scan_actions | hit_confirm.wav
+[  18% ] _update_scan_actions | mech_charge_warning.wav
+[  22% ] _update_scan_actions | operative_hurt.wav
+[  25% ] _update_scan_actions | player_shot.wav
+[  29% ] _update_scan_actions | atlas.png
+[  33% ] _update_scan_actions | source.png
+[  37% ] _update_scan_actions | gate.png
+[  40% ] _update_scan_actions | base_tiles.png
+[  44% ] _update_scan_actions | defense_mech.png
+[  48% ] _update_scan_actions | hangar_deck.png
+[  51% ] _update_scan_actions | hangar_far.png
+[  55% ] _update_scan_actions | hangar_mid.png
+[  59% ] _update_scan_actions | mechanical_soldier.png
+[  62% ] _update_scan_actions | operative.png
+[  66% ] _update_scan_actions | fusion-pixel-12px-proportional-zh_hans.otf
+[  70% ] _update_scan_actions | hud.png
+[  74% ] _update_scan_actions | life-empty.png
+[  77% ] _update_scan_actions | life-full.png
+[  81% ] _update_scan_actions | outcome-bottom.png
+[  85% ] _update_scan_actions | outcome-top.png
+[  88% ] _update_scan_actions | portrait.png
+[  92% ] _update_scan_actions | rifle.png
+[ DONE ] _update_scan_actions
+
+[   0% ] reimport | Started 正在导入或重新导入资产 (26 steps)
+[   0% ] reimport | 正在准备重新导入文件……
+[   3% ] reimport | 正在准备重新导入文件……
+[   7% ] reimport | 正在准备重新导入文件……
+[  11% ] reimport | 正在准备重新导入文件……
+[  14% ] reimport | 正在准备重新导入文件……
+[  18% ] reimport | 正在准备重新导入文件……
+[  22% ] reimport | 正在准备重新导入文件……
+[  25% ] reimport | 正在准备重新导入文件……
+[  29% ] reimport | 正在准备重新导入文件……
+[  33% ] reimport | 正在准备重新导入文件……
+[  37% ] reimport | 正在准备重新导入文件……
+[  40% ] reimport | 正在准备重新导入文件……
+[  44% ] reimport | 正在准备重新导入文件……
+[  48% ] reimport | 正在准备重新导入文件……
+[  51% ] reimport | 正在准备重新导入文件……
+[  55% ] reimport | 正在准备重新导入文件……
+[  59% ] reimport | 正在准备重新导入文件……
+[  62% ] reimport | 正在准备重新导入文件……
+[  66% ] reimport | 正在准备重新导入文件……
+[  70% ] reimport | 正在准备重新导入文件……
+[  74% ] reimport | 正在准备重新导入文件……
+[  77% ] reimport | 正在准备重新导入文件……
+[  81% ] reimport | 正在准备重新导入文件……
+[  85% ] reimport | 正在准备重新导入文件……
+[  88% ] reimport | 正在准备重新导入文件……
+[  92% ] reimport | 正在准备重新导入文件……
+[   0% ] reimport | 正在执行重新导入的前置操作……
+[   0% ] reimport | fusion-pixel-12px-proportional-zh_hans.otf
+[   3% ] reimport | fusion-pixel-12px-proportional-zh_hans.otf
+[   7% ] reimport | rifle.png
+[  11% ] reimport | portrait.png
+[  14% ] reimport | outcome-top.png
+[  18% ] reimport | outcome-bottom.png
+[  22% ] reimport | life-full.png
+[  25% ] reimport | life-empty.png
+[  29% ] reimport | hud.png
+[  33% ] reimport | operative.png
+[  37% ] reimport | mechanical_soldier.png
+[  40% ] reimport | hangar_mid.png
+[  44% ] reimport | hangar_far.png
+[  48% ] reimport | hangar_deck.png
+[  51% ] reimport | defense_mech.png
+[  55% ] reimport | base_tiles.png
+[  59% ] reimport | gate.png
+[  62% ] reimport | source.png
+[  66% ] reimport | fusion-pixel-12px-proportional-zh_hans.otf
+[  70% ] reimport | rifle.png
+[  74% ] reimport | portrait.png
+[  77% ] reimport | outcome-top.png
+[  81% ] reimport | outcome-bottom.png
+[  85% ] reimport | life-full.png
+[  88% ] reimport | life-empty.png
+[  92% ] reimport | hud.png
+[  96% ] reimport | 正在结束资产导入……
+[ DONE ] reimport
+
+[   0% ] reimport | Started 正在导入或重新导入资产 (26 steps)
+[   0% ] reimport | 正在执行重新导入的后置操作……
+[ DONE ] reimport
+
+[   0% ] loading_editor_layout | Started 正在加载编辑器 (5 steps)
+[   0% ] loading_editor_layout | 正在加载编辑器布局……
+[  16% ] loading_editor_layout | 正在加载停靠面板……
+[ DONE ] loading_editor_layout
+
+ERROR: Attempt to open script 'res://tools/rc3_render_verification.gd' resulted in error 'File not found'.
+   at: load_source_code (modules/gdscript/gdscript.cpp:1139)
+ERROR: Failed loading resource: res://tools/rc3_render_verification.gd.
+   at: _load (core/io/resource_loader.cpp:317)
+ERROR: Failed to create an autoload, can't load from UID or path: res://tools/rc3_render_verification.gd.
+   at: _create_autoload (editor/settings/editor_autoload_settings.cpp:336)
+
+
+----------------------------------------------------------------------
+Ran 0 tests in 3.533s
+
+FAILED (errors=1)

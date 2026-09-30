@@ -1,0 +1,80 @@
+[
+  {
+    "name": "red-shift12-1",
+    "observed_process_exit": 1,
+    "exit_provenance": "Actual process exit recorded in primary exec output, not inferred from PASS",
+    "ticks": 160,
+    "initial_extra_physics_steps": 12,
+    "visible_hurt_directions": {
+      "False": 0,
+      "True": 41
+    },
+    "trace_sha256": "881627e5b361bbc69b75682c6a6a1e6e147340978445c10cf232e32bbb75426f",
+    "log_sha256": "67809163c446aca8c1fb7a810a08eb720b4027148affbd872931b13edca7b093"
+  },
+  {
+    "name": "red-shift12-2",
+    "observed_process_exit": 1,
+    "exit_provenance": "Actual process exit recorded in primary exec output, not inferred from PASS",
+    "ticks": 160,
+    "initial_extra_physics_steps": 12,
+    "visible_hurt_directions": {
+      "False": 0,
+      "True": 41
+    },
+    "trace_sha256": "4741418225dd9cb1ce0695efc01e9215495a787afa96095ffe6507553993604d",
+    "log_sha256": "67809163c446aca8c1fb7a810a08eb720b4027148affbd872931b13edca7b093"
+  },
+  {
+    "name": "red-shift12-3",
+    "observed_process_exit": 1,
+    "exit_provenance": "Actual process exit recorded in primary exec output, not inferred from PASS",
+    "ticks": 160,
+    "initial_extra_physics_steps": 12,
+    "visible_hurt_directions": {
+      "False": 0,
+      "True": 41
+    },
+    "trace_sha256": "292da30f0aa824ba8b7fa726fcabc58ed9bb823e7dac6978151bfb88c3ad702a",
+    "log_sha256": "67809163c446aca8c1fb7a810a08eb720b4027148affbd872931b13edca7b093"
+  },
+  {
+    "name": "green-shift12-1",
+    "observed_process_exit": 0,
+    "exit_provenance": "Actual process exit recorded in primary exec output, not inferred from PASS",
+    "ticks": 160,
+    "initial_extra_physics_steps": 12,
+    "visible_hurt_directions": {
+      "False": 2,
+      "True": 39
+    },
+    "trace_sha256": "aa7bb3b62f8b1c7260c5af0e453ba6cbd8e5ffe2c59a9d4984143b53d04b0ee5",
+    "log_sha256": "e539be1b284b161072d4ff6c1915220e7799de619452e7f51f94693c3672d087"
+  },
+  {
+    "name": "green-shift12-2",
+    "observed_process_exit": 0,
+    "exit_provenance": "Actual process exit recorded in primary exec output, not inferred from PASS",
+    "ticks": 160,
+    "initial_extra_physics_steps": 12,
+    "visible_hurt_directions": {
+      "False": 2,
+      "True": 39
+    },
+    "trace_sha256": "bb8a8e898664bacb12f90dc0f36645f09e05f047f8efef6af98fb70a341442c6",
+    "log_sha256": "e539be1b284b161072d4ff6c1915220e7799de619452e7f51f94693c3672d087"
+  },
+  {
+    "name": "green-shift12-3",
+    "observed_process_exit": 0,
+    "exit_provenance": "Actual process exit recorded in primary exec output, not inferred from PASS",
+    "ticks": 160,
+    "initial_extra_physics_steps": 12,
+    "visible_hurt_directions": {
+      "False": 2,
+      "True": 39
+    },
+    "trace_sha256": "63b21f640794b6c54fd995caac795d896d19fec9b206aae63782b639bb3717aa",
+    "log_sha256": "e539be1b284b161072d4ff6c1915220e7799de619452e7f51f94693c3672d087"
+  }
+]

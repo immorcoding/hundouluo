@@ -1,0 +1,8 @@
+test_running_turning_jump_landing_hurt_and_both_cameras (test_operative_flash_compositing.OperativeFlashCompositing.test_running_turning_jump_landing_hurt_and_both_cameras) ... ok
+test_victory_freeze_death_and_physical_retry (test_operative_flash_compositing.OperativeFlashCompositing.test_victory_freeze_death_and_physical_retry) ... ok
+test_visible_muzzle_rear_meets_barrel_and_gun_stays_stable (test_operative_flash_compositing.OperativeFlashCompositing.test_visible_muzzle_rear_meets_barrel_and_gun_stays_stable) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 69.631s
+
+OK

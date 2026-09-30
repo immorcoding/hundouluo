@@ -1,0 +1,13 @@
+{
+  "source_commit": "344d151e8b9f801a18f944d1f886ce4fb303bd76",
+  "executable": "E:/Projects/game_hundouluo_codex_artifacts/v0.1.1-rc.3/implementation-play-344d151/轨道基地.exe",
+  "argv": ["E:/Projects/game_hundouluo_codex_artifacts/v0.1.1-rc.3/implementation-play-344d151/轨道基地.exe", "--rendering-method", "gl_compatibility", "--fixed-fps", "60", "--script", "res://tools/capture_issue_31_rc3_pixels.gd", "--", "--out=E:/Projects/game_hundouluo_codex_worktree/issue-31-v011-acceptance/.godot/issue31-rc3/windows-capture-final/paired-spawn", "--full", "--ticks=180", "--scenario=spawn"],
+  "python_harness_exit": 1,
+  "actual_executable_exit": null,
+  "exception": "subprocess.TimeoutExpired after 180 seconds",
+  "generated_capture_files": 0,
+  "complete_suite": false,
+  "strict_pass": false,
+  "observed_child_process_id": 129584,
+  "disclosure": "The actual release EXE was launched without --project. It did not generate any paired frame. subprocess.run automatically killed its child after the timeout; no normal child exit code was returned. The original runner did not persist captured child stdout on this exception, so diagnostics cannot be classified zero. This is a failed attempted capture, not a source substitute or Windows eight-item pass. Root coordinator informed before any tool/production changes."
+}

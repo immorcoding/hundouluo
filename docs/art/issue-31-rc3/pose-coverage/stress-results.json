@@ -1,0 +1,146 @@
+[
+  {
+    "number": 1,
+    "exit": 0,
+    "argv": [
+      "C:/Users/22137/tools/godot-4.7.2/Godot_v4.7.2-stable_win64_console.exe",
+      "--path",
+      "E:\\Projects\\game_hundouluo_codex_worktree\\issue-31-v011-acceptance\\.godot\\issue31-rc3\\full-temp\\issue36-source-m_tw5e3p",
+      "--rendering-method",
+      "gl_compatibility",
+      "--fixed-fps",
+      "60",
+      "--script",
+      "E:\\Projects\\game_hundouluo_codex_worktree\\issue-31-v011-acceptance\\.godot\\issue31-rc3\\pose-diagnosis\\observe.gd",
+      "--",
+      "--full",
+      "--ticks=180",
+      "--scenario=fixed",
+      "--out=E:\\Projects\\game_hundouluo_codex_worktree\\issue-31-v011-acceptance\\.godot\\issue31-rc3\\pose-diagnosis\\stress-1"
+    ],
+    "signal": [
+      "[DEBUG-rc3-pose] forced_hit frame=293 before_health=1 after_health=1 pose=5",
+      "PASS: visible muzzle attachment and stable gun pixels"
+    ]
+  },
+  {
+    "number": 2,
+    "exit": 0,
+    "argv": [
+      "C:/Users/22137/tools/godot-4.7.2/Godot_v4.7.2-stable_win64_console.exe",
+      "--path",
+      "E:\\Projects\\game_hundouluo_codex_worktree\\issue-31-v011-acceptance\\.godot\\issue31-rc3\\full-temp\\issue36-source-m_tw5e3p",
+      "--rendering-method",
+      "gl_compatibility",
+      "--fixed-fps",
+      "60",
+      "--script",
+      "E:\\Projects\\game_hundouluo_codex_worktree\\issue-31-v011-acceptance\\.godot\\issue31-rc3\\pose-diagnosis\\observe.gd",
+      "--",
+      "--full",
+      "--ticks=180",
+      "--scenario=fixed",
+      "--out=E:\\Projects\\game_hundouluo_codex_worktree\\issue-31-v011-acceptance\\.godot\\issue31-rc3\\pose-diagnosis\\stress-2"
+    ],
+    "signal": [
+      "[DEBUG-rc3-pose] forced_hit frame=293 before_health=1 after_health=1 pose=5",
+      "PASS: visible muzzle attachment and stable gun pixels"
+    ]
+  },
+  {
+    "number": 3,
+    "exit": 0,
+    "argv": [
+      "C:/Users/22137/tools/godot-4.7.2/Godot_v4.7.2-stable_win64_console.exe",
+      "--path",
+      "E:\\Projects\\game_hundouluo_codex_worktree\\issue-31-v011-acceptance\\.godot\\issue31-rc3\\full-temp\\issue36-source-m_tw5e3p",
+      "--rendering-method",
+      "gl_compatibility",
+      "--fixed-fps",
+      "60",
+      "--script",
+      "E:\\Projects\\game_hundouluo_codex_worktree\\issue-31-v011-acceptance\\.godot\\issue31-rc3\\pose-diagnosis\\observe.gd",
+      "--",
+      "--full",
+      "--ticks=180",
+      "--scenario=fixed",
+      "--out=E:\\Projects\\game_hundouluo_codex_worktree\\issue-31-v011-acceptance\\.godot\\issue31-rc3\\pose-diagnosis\\stress-3"
+    ],
+    "signal": [
+      "[DEBUG-rc3-pose] forced_hit frame=293 before_health=1 after_health=1 pose=5",
+      "PASS: visible muzzle attachment and stable gun pixels"
+    ]
+  },
+  {
+    "number": 4,
+    "exit": 0,
+    "argv": [
+      "C:/Users/22137/tools/godot-4.7.2/Godot_v4.7.2-stable_win64_console.exe",
+      "--path",
+      "E:\\Projects\\game_hundouluo_codex_worktree\\issue-31-v011-acceptance\\.godot\\issue31-rc3\\full-temp\\issue36-source-m_tw5e3p",
+      "--rendering-method",
+      "gl_compatibility",
+      "--fixed-fps",
+      "60",
+      "--script",
+      "E:\\Projects\\game_hundouluo_codex_worktree\\issue-31-v011-acceptance\\.godot\\issue31-rc3\\pose-diagnosis\\observe.gd",
+      "--",
+      "--full",
+      "--ticks=180",
+      "--scenario=fixed",
+      "--out=E:\\Projects\\game_hundouluo_codex_worktree\\issue-31-v011-acceptance\\.godot\\issue31-rc3\\pose-diagnosis\\stress-4"
+    ],
+    "signal": [
+      "[DEBUG-rc3-pose] forced_hit frame=293 before_health=1 after_health=1 pose=5",
+      "PASS: visible muzzle attachment and stable gun pixels"
+    ]
+  },
+  {
+    "number": 5,
+    "exit": 0,
+    "argv": [
+      "C:/Users/22137/tools/godot-4.7.2/Godot_v4.7.2-stable_win64_console.exe",
+      "--path",
+      "E:\\Projects\\game_hundouluo_codex_worktree\\issue-31-v011-acceptance\\.godot\\issue31-rc3\\full-temp\\issue36-source-m_tw5e3p",
+      "--rendering-method",
+      "gl_compatibility",
+      "--fixed-fps",
+      "60",
+      "--script",
+      "E:\\Projects\\game_hundouluo_codex_worktree\\issue-31-v011-acceptance\\.godot\\issue31-rc3\\pose-diagnosis\\observe.gd",
+      "--",
+      "--full",
+      "--ticks=180",
+      "--scenario=fixed",
+      "--out=E:\\Projects\\game_hundouluo_codex_worktree\\issue-31-v011-acceptance\\.godot\\issue31-rc3\\pose-diagnosis\\stress-5"
+    ],
+    "signal": [
+      "[DEBUG-rc3-pose] forced_hit frame=293 before_health=1 after_health=1 pose=5",
+      "PASS: visible muzzle attachment and stable gun pixels"
+    ]
+  },
+  {
+    "number": 6,
+    "exit": 0,
+    "argv": [
+      "C:/Users/22137/tools/godot-4.7.2/Godot_v4.7.2-stable_win64_console.exe",
+      "--path",
+      "E:\\Projects\\game_hundouluo_codex_worktree\\issue-31-v011-acceptance\\.godot\\issue31-rc3\\full-temp\\issue36-source-m_tw5e3p",
+      "--rendering-method",
+      "gl_compatibility",
+      "--fixed-fps",
+      "60",
+      "--script",
+      "E:\\Projects\\game_hundouluo_codex_worktree\\issue-31-v011-acceptance\\.godot\\issue31-rc3\\pose-diagnosis\\observe.gd",
+      "--",
+      "--full",
+      "--ticks=180",
+      "--scenario=fixed",
+      "--out=E:\\Projects\\game_hundouluo_codex_worktree\\issue-31-v011-acceptance\\.godot\\issue31-rc3\\pose-diagnosis\\stress-6"
+    ],
+    "signal": [
+      "[DEBUG-rc3-pose] forced_hit frame=293 before_health=1 after_health=1 pose=5",
+      "PASS: visible muzzle attachment and stable gun pixels"
+    ]
+  }
+]

@@ -203,7 +203,7 @@ try {
 	New-Item -ItemType Directory -Path $packageDocs | Out-Null
 	Copy-Item -LiteralPath (Join-Path $projectCopy 'docs\assets-manifest.md') -Destination $packageDocs
 	Copy-Item -LiteralPath (Join-Path $projectCopy 'docs\release-prep.md') -Destination $packageDocs
-	Copy-Item -LiteralPath (Join-Path $projectCopy 'docs\retest-v0.1.1-rc.2.md') -Destination $packageDocs
+	Copy-Item -LiteralPath (Join-Path $projectCopy 'docs\retest-v0.1.1-rc.3.md') -Destination $packageDocs
 	Copy-Item -LiteralPath (Join-Path $projectCopy 'docs\known-issues-v0.1.1.md') -Destination $packageDocs
 	Invoke-GodotChecked -Executable $resolvedGodotPath -GodotArguments @('--headless', '--path', $projectCopy, '--script', 'tools/export_engine_notices.gd', '--', $packageDirectory) -Operation 'Engine distribution notices'
 	$playInstructions = @(
@@ -214,10 +214,11 @@ try {
 		'按键：A / ← 向左，D / → 向右，空格跳跃，按住 J 连续射击。'
 		'死亡或任务完成画面按 R，从关卡起点重新开始。'
 		'rc.1 的美术、声音、手感及其余项已通过；真人机甲时间沿用用户“时间差不多”。'
-		'本轮仅复测残骸遮人与跑射枪口亮点错位，并顺路确认通关/R，不要求重验旧整张单。'
-		'请复制 docs/retest-v0.1.1-rc.2.md 的两项定点复测单填写，结果提交到：'
+		'本轮主项 #36：枪口火光可见起始端贴合枪口，左右连射/变向/跳跃/受击时枪身不闪烁。'
+		'#34 残骸遮人和 #35 跑射枪口尚未确认，保留原项；顺路确认通关/R，不要求重验旧整张单。'
+		'请复制 docs/retest-v0.1.1-rc.3.md 的定点复测单填写，结果提交到：'
 		'https://github.com/immorcoding/hundouluo/issues/31'
-		'这是复测候选；两项修复待用户确认，尚未正式封版。'
+		'这是复测候选；三项修复待用户确认，尚未正式封版。'
 		'已知事项见 docs/known-issues-v0.1.1.md；Godot 引擎与第三方完整通知见包根 GODOT_* 文件。'
 		'包版本和源码提交见 BUILD_INFO.txt；素材来源见 docs/assets-manifest.md。'
 	) -join "`r`n"
@@ -232,8 +233,9 @@ try {
 		'project_data=embedded_in_executable'
 		'prior_human_acceptance=https://github.com/immorcoding/hundouluo/issues/31#issuecomment-5911543601'
 		'prior_human_results=other_items_passed;mech_time_report=时间差不多'
-		'本候选两项人工复测：未测'
-		'技术构建：Godot 导入、导出与解压启动已验证；只待两bug修复复测和必要通关/R防退化'
+		'current_human_feedback=https://github.com/immorcoding/hundouluo/issues/36'
+		'本候选人工复测：#36主项；#34/#35保留；均未确认'
+		'技术构建：Godot 导入、导出与解压启动已验证；只待三bug定点复测和必要通关/R防退化'
 	) -join "`r`n"
 	[IO.File]::WriteAllText((Join-Path $packageDirectory 'BUILD_INFO.txt'), $buildInfo + "`r`n", [Text.UTF8Encoding]::new($false))
 

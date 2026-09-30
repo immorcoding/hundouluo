@@ -1,6 +1,10 @@
 # Godot editor cache (generated locally)
 .godot/
 
+# rc.3 raw render frames/import caches remain E-disk evidence, not source.
+docs/art/issue-31-rc3/**/frames/
+docs/art/issue-31-rc3/**/*.png.import
+
 # rc.2 review captures are evidence, not runtime imports.
 docs/art/issue-31-rc2/frames/
 docs/art/issue-31-rc2/**/*.png.import

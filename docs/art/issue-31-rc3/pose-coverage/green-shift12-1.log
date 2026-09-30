@@ -1,0 +1,5 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.47 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4060 Laptop GPU
+
+[DEBUG-rc3-pose] forced_hit frame=305 before_health=2 after_health=2 pose=5
+PASS: visible muzzle attachment and stable gun pixels

@@ -1,0 +1,4 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS passage jumping=false final_x=3323.0 min_sprite_top=204.0
+PASS passage jumping=true final_x=3323.02392578125 min_sprite_top=128.944244384766
