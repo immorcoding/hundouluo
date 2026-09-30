@@ -187,10 +187,11 @@ func _on_operative_died() -> void:
 
 func _stop_gameplay() -> void:
 	# Keep this level alive for R, but freeze every active gameplay subtree.
-	$Operative.process_mode = Node.PROCESS_MODE_DISABLED
-	$Enemies.process_mode = Node.PROCESS_MODE_DISABLED
-	$BossSlot.process_mode = Node.PROCESS_MODE_DISABLED
-	$Projectiles.process_mode = Node.PROCESS_MODE_DISABLED
+	# Death/win can originate in body_entered while physics queries are flushing.
+	$Operative.set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
+	$Enemies.set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
+	$BossSlot.set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
+	$Projectiles.set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
 	# The winner cannot take a final hit from an already-overlapping projectile.
 	$Operative/Operative.set_deferred("collision_layer", 0)
 	$Operative/Operative.set_deferred("collision_mask", 0)

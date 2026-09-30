@@ -1,6 +1,7 @@
 """End-to-end checks for the Windows source and playable package contract."""
 
 import os
+import json
 from pathlib import Path
 import shutil
 import subprocess
@@ -96,6 +97,9 @@ class WindowsPackageTests(unittest.TestCase):
                 self.assertIn("GODOT_LICENSE.txt", windows_entries)
                 self.assertIn("GODOT_COPYRIGHT.json", windows_entries)
                 self.assertIn("GODOT_THIRD_PARTY_LICENSES.json", windows_entries)
+                self.assertIn("Godot Engine contributors", windows_archive.read("GODOT_LICENSE.txt").decode("utf-8"))
+                self.assertTrue(json.loads(windows_archive.read("GODOT_COPYRIGHT.json")))
+                self.assertTrue(json.loads(windows_archive.read("GODOT_THIRD_PARTY_LICENSES.json")))
                 self.assertFalse(any(path.lower().endswith(".pck") for path in windows_entries))
                 build_info = windows_archive.read("BUILD_INFO.txt").decode("utf-8")
                 self.assertIn("source_commit=", build_info)

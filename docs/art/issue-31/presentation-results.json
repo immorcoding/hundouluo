@@ -1,0 +1,90 @@
+[
+  {
+    "sequence": "run-jump",
+    "path": "run-jump-loop.png",
+    "native_size": [
+      640,
+      360
+    ],
+    "source_frames": 80,
+    "duration_ms": 2666.666666666667,
+    "lossless": true
+  },
+  {
+    "sequence": "soldier",
+    "path": "soldier-loop.png",
+    "native_size": [
+      640,
+      360
+    ],
+    "source_frames": 105,
+    "duration_ms": 3500.0000000000005,
+    "lossless": true
+  },
+  {
+    "sequence": "gap",
+    "path": "gap-loop.png",
+    "native_size": [
+      640,
+      360
+    ],
+    "source_frames": 80,
+    "duration_ms": 2666.666666666667,
+    "lossless": true
+  },
+  {
+    "sequence": "entry",
+    "path": "entry-loop.png",
+    "native_size": [
+      640,
+      360
+    ],
+    "source_frames": 80,
+    "duration_ms": 2666.666666666667,
+    "lossless": true
+  },
+  {
+    "sequence": "cancel",
+    "path": "cancel-loop.png",
+    "native_size": [
+      640,
+      360
+    ],
+    "source_frames": 80,
+    "duration_ms": 2666.6666666666665,
+    "lossless": true
+  },
+  {
+    "sequence": "boundary",
+    "path": "boundary-loop.png",
+    "native_size": [
+      640,
+      360
+    ],
+    "source_frames": 225,
+    "duration_ms": 7500.000000000001,
+    "lossless": true
+  },
+  {
+    "sequence": "advance",
+    "path": "advance-loop.png",
+    "native_size": [
+      640,
+      360
+    ],
+    "source_frames": 80,
+    "duration_ms": 2666.666666666667,
+    "lossless": true
+  },
+  {
+    "sequence": "legal-run",
+    "path": "legal-run-loop.png",
+    "native_size": [
+      640,
+      360
+    ],
+    "source_frames": 116,
+    "duration_ms": 23116.666666666668,
+    "lossless": true
+  }
+]
