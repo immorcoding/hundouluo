@@ -17,3 +17,7 @@
 344d151已实际完整48严格通过、21Python无skip，源码8项GL/呈现也通过；但其Windows独立script入口180秒timeout（子进程exit未取得），scene位置参数探针actual3221225620且明确禁止path overrides。辅助movie仅3067/3600帧后240秒timeout，未发送UI按键，不算火光或成功启动证据。原命令/原始异常与日志保留。
 
 必要最小接缝为纯tools验证Node+project.godot autoload注册：普通无flag立即释放；显式userargs仅选择pixels/motion/outcomes/integrated四个嵌入工具，公共SceneTree.set_script及deferred工具初始化，无任意路径或模板/系统配置更改。源码正常入口开发probe12对画面实际exit0，未知模式exit1、无flag90帧exit0，均零诊断。它是非doc的启动配置增量，因此后续新干净实现必须重新完整48、source/Windows8与构建；344旧成功仅历史，不当最终。
+
+15cdbef增量Spec P2发现独立GL fixture只复制capture_issue_36工具、遗漏新增autoload/UID，导致保持原project配置时缺资源。实际单模块红为exit5/0tests/errors1且3ERROR；完整Python为exit1/18tests/errors1及4诊断，不能说21执行或通过。已同步复制该普通启动依赖与UID，不删project配置、不屏蔽导入诊断/不跳过测试，后续新干净完整提交重跑，原15失败保留。
+
+补依赖后该独立真实GL模块3/3实际exit0、零诊断（69.631s），只是定点green不是全套。15实际release用户参数开发probe也取得12对640×360帧、枪身0/接缝0；unknown实际exit1、默认无flagGL90实际exit0均零引擎诊断。它证明验证入口可行，最终仍需新固定提交的完整source/Windows8及全48，不能把12帧开发probe算完整矩阵。
