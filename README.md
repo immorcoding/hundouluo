@@ -1,6 +1,6 @@
 # 轨道基地 · v0.1.1 候选工程入口
 
-当前候选为 **v0.1.1-rc.2**，仅集成残骸遮人 #34 和跑射枪口亮点错位 #35 修复。[rc.1人审](https://github.com/immorcoding/hundouluo/issues/31#issuecomment-5911543601) 的其他项已通过，真人机甲时间保留“时间差不多”，不重新调整美术或平衡。随包 [两项定点复测单](docs/retest-v0.1.1-rc.2.md) 和 [已知事项](docs/known-issues-v0.1.1.md)；只复测两bug及必要通关/R防退化，不要求重填旧单。#34/#35/#31/#25 保持开放，未创建正式发布tag。
+当前候选为 **v0.1.1-rc.3**，新增枪口火光接缝与枪身闪烁 #36 修复，并保留已修但尚未确认的残骸遮人 #34、跑射枪口 #35。[rc.1人审](https://github.com/immorcoding/hundouluo/issues/31#issuecomment-5911543601) 的其他项已通过，真人机甲时间保留“时间差不多”，不重新调整美术、声音或平衡。随包 [定点复测单](docs/retest-v0.1.1-rc.3.md) 和 [已知事项](docs/known-issues-v0.1.1.md)；仅三bug及最小通关/R，不要求重填旧单。#34/#35/#36/#31/#25 保持开放，旧rc.1/rc.2及用户原文保留，未创建正式发布tag。
 
 本仓库是正式的 Godot 4.7.2 标准版 / GDScript 源项目，与 `.scratch/` 中的抛弃式手感灰盒分开。主场景 `scenes/level.tscn` 是五段关卡：行动员可跑跳射击、跨越唯一缺口，五名机械兵可击败或绕过；终点防御机甲完整入镜后激活，必须击败它才能显示任务完成并开启门挡。HUD 展示生命及终点机甲血量。生命耗尽与跌落显示不同死因，按 R 可无限次从起点重载整关。`tests/mechanical_encounter.tscn` 和 `tests/defense_mech_encounter.tscn` 仍可单独观察战斗组件。
 
