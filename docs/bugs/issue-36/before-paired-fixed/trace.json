@@ -1,0 +1,3602 @@
+[
+	{
+		"changed_gun_pixels": 26,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 88,
+		"opaque_pixels": 88,
+		"pose": 0,
+		"projectile_count": 1,
+		"raster_origin": [
+			206.0,
+			234.0
+		],
+		"source_matches": 88,
+		"sprite_origin": [
+			205.5,
+			234.0
+		],
+		"tick": 0,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 26,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 88,
+		"opaque_pixels": 88,
+		"pose": 0,
+		"projectile_count": 1,
+		"raster_origin": [
+			206.0,
+			234.0
+		],
+		"source_matches": 88,
+		"sprite_origin": [
+			205.5,
+			234.0
+		],
+		"tick": 1,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 48,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 88,
+		"opaque_pixels": 88,
+		"pose": 0,
+		"projectile_count": 1,
+		"raster_origin": [
+			206.0,
+			234.0
+		],
+		"source_matches": 88,
+		"sprite_origin": [
+			205.5,
+			234.0
+		],
+		"tick": 2,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 48,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 88,
+		"opaque_pixels": 88,
+		"pose": 0,
+		"projectile_count": 1,
+		"raster_origin": [
+			206.0,
+			234.0
+		],
+		"source_matches": 88,
+		"sprite_origin": [
+			205.5,
+			234.0
+		],
+		"tick": 3,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 48,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 88,
+		"opaque_pixels": 88,
+		"pose": 0,
+		"projectile_count": 1,
+		"raster_origin": [
+			206.0,
+			234.0
+		],
+		"source_matches": 88,
+		"sprite_origin": [
+			205.5,
+			234.0
+		],
+		"tick": 4,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 50,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 104,
+		"opaque_pixels": 104,
+		"pose": 1,
+		"projectile_count": 1,
+		"raster_origin": [
+			209.0,
+			234.0
+		],
+		"source_matches": 104,
+		"sprite_origin": [
+			209.0,
+			234.0
+		],
+		"tick": 5,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 28,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 102,
+		"opaque_pixels": 102,
+		"pose": 2,
+		"projectile_count": 1,
+		"raster_origin": [
+			213.0,
+			234.0
+		],
+		"source_matches": 102,
+		"sprite_origin": [
+			212.5,
+			234.0
+		],
+		"tick": 6,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 31,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 104,
+		"opaque_pixels": 104,
+		"pose": 1,
+		"projectile_count": 1,
+		"raster_origin": [
+			216.0,
+			234.0
+		],
+		"source_matches": 104,
+		"sprite_origin": [
+			216.0,
+			234.0
+		],
+		"tick": 7,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 28,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 102,
+		"opaque_pixels": 102,
+		"pose": 2,
+		"projectile_count": 1,
+		"raster_origin": [
+			220.0,
+			234.0
+		],
+		"source_matches": 102,
+		"sprite_origin": [
+			219.5,
+			234.0
+		],
+		"tick": 8,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 19,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 104,
+		"opaque_pixels": 104,
+		"pose": 1,
+		"projectile_count": 1,
+		"raster_origin": [
+			223.0,
+			234.0
+		],
+		"source_matches": 104,
+		"sprite_origin": [
+			223.0,
+			234.0
+		],
+		"tick": 9,
+		"visible_rear_error_px": -6
+	},
+	{
+		"changed_gun_pixels": 25,
+		"flash_count": 2,
+		"flip": false,
+		"mask_pixels": 102,
+		"opaque_pixels": 102,
+		"pose": 2,
+		"projectile_count": 2,
+		"raster_origin": [
+			227.0,
+			234.0
+		],
+		"source_matches": 102,
+		"sprite_origin": [
+			226.5,
+			234.0
+		],
+		"tick": 10,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 23,
+		"flash_count": 2,
+		"flip": false,
+		"mask_pixels": 102,
+		"opaque_pixels": 102,
+		"pose": 2,
+		"projectile_count": 2,
+		"raster_origin": [
+			230.0,
+			234.0
+		],
+		"source_matches": 102,
+		"sprite_origin": [
+			230.0,
+			234.0
+		],
+		"tick": 11,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 50,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 104,
+		"opaque_pixels": 104,
+		"pose": 1,
+		"projectile_count": 2,
+		"raster_origin": [
+			234.0,
+			234.0
+		],
+		"source_matches": 104,
+		"sprite_origin": [
+			233.5,
+			234.0
+		],
+		"tick": 12,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 49,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 102,
+		"opaque_pixels": 102,
+		"pose": 2,
+		"projectile_count": 2,
+		"raster_origin": [
+			237.0,
+			234.0
+		],
+		"source_matches": 102,
+		"sprite_origin": [
+			237.0,
+			234.0
+		],
+		"tick": 13,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 50,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 104,
+		"opaque_pixels": 104,
+		"pose": 1,
+		"projectile_count": 2,
+		"raster_origin": [
+			241.0,
+			234.0
+		],
+		"source_matches": 104,
+		"sprite_origin": [
+			240.5,
+			234.0
+		],
+		"tick": 14,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 49,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 102,
+		"opaque_pixels": 102,
+		"pose": 2,
+		"projectile_count": 2,
+		"raster_origin": [
+			244.0,
+			234.0
+		],
+		"source_matches": 102,
+		"sprite_origin": [
+			244.0,
+			234.0
+		],
+		"tick": 15,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 31,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 104,
+		"opaque_pixels": 104,
+		"pose": 1,
+		"projectile_count": 2,
+		"raster_origin": [
+			248.0,
+			234.0
+		],
+		"source_matches": 104,
+		"sprite_origin": [
+			247.5,
+			234.0
+		],
+		"tick": 16,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 31,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 104,
+		"opaque_pixels": 104,
+		"pose": 1,
+		"projectile_count": 2,
+		"raster_origin": [
+			251.0,
+			234.0
+		],
+		"source_matches": 104,
+		"sprite_origin": [
+			251.0,
+			234.0
+		],
+		"tick": 17,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 28,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 102,
+		"opaque_pixels": 102,
+		"pose": 2,
+		"projectile_count": 2,
+		"raster_origin": [
+			255.0,
+			234.0
+		],
+		"source_matches": 102,
+		"sprite_origin": [
+			254.5,
+			234.0
+		],
+		"tick": 18,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 19,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 104,
+		"opaque_pixels": 104,
+		"pose": 1,
+		"projectile_count": 2,
+		"raster_origin": [
+			258.0,
+			234.0
+		],
+		"source_matches": 104,
+		"sprite_origin": [
+			258.0,
+			234.0
+		],
+		"tick": 19,
+		"visible_rear_error_px": -6
+	},
+	{
+		"changed_gun_pixels": 23,
+		"flash_count": 2,
+		"flip": false,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			262.0,
+			228.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			261.532470703125,
+			227.944244384766
+		],
+		"tick": 20,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 23,
+		"flash_count": 2,
+		"flip": false,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			265.0,
+			222.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			265.032470703125,
+			222.194244384766
+		],
+		"tick": 21,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			269.0,
+			217.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			268.532470703125,
+			216.694244384766
+		],
+		"tick": 22,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			272.0,
+			211.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			272.032470703125,
+			211.444244384766
+		],
+		"tick": 23,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			276.0,
+			206.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			275.532470703125,
+			206.444244384766
+		],
+		"tick": 24,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			279.0,
+			202.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			279.032470703125,
+			201.694244384766
+		],
+		"tick": 25,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 29,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			283.0,
+			197.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			282.532470703125,
+			197.194244384766
+		],
+		"tick": 26,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 29,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			286.0,
+			193.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			286.032470703125,
+			192.944244384766
+		],
+		"tick": 27,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 29,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			290.0,
+			189.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			289.532470703125,
+			188.944244384766
+		],
+		"tick": 28,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 17,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			293.0,
+			185.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			293.032470703125,
+			185.194244384766
+		],
+		"tick": 29,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 23,
+		"flash_count": 2,
+		"flip": false,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 4,
+		"raster_origin": [
+			297.0,
+			182.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			296.532470703125,
+			181.694244384766
+		],
+		"tick": 30,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 23,
+		"flash_count": 2,
+		"flip": false,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 4,
+		"raster_origin": [
+			300.0,
+			178.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			300.032470703125,
+			178.444244384766
+		],
+		"tick": 31,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 4,
+		"raster_origin": [
+			304.0,
+			175.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			303.532470703125,
+			175.444244384766
+		],
+		"tick": 32,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 4,
+		"raster_origin": [
+			307.0,
+			173.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			307.032470703125,
+			172.694244384766
+		],
+		"tick": 33,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 4,
+		"raster_origin": [
+			311.0,
+			170.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			310.532470703125,
+			170.194244384766
+		],
+		"tick": 34,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			314.0,
+			168.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			314.032470703125,
+			167.944244384766
+		],
+		"tick": 35,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 29,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			318.0,
+			166.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			317.532470703125,
+			165.944244384766
+		],
+		"tick": 36,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 29,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			321.0,
+			164.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			321.032470703125,
+			164.194244384766
+		],
+		"tick": 37,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 29,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			325.0,
+			163.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			324.532470703125,
+			162.694244384766
+		],
+		"tick": 38,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 17,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			328.0,
+			161.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			328.032470703125,
+			161.444244384766
+		],
+		"tick": 39,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 23,
+		"flash_count": 2,
+		"flip": false,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 4,
+		"raster_origin": [
+			332.0,
+			160.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			331.532470703125,
+			160.444244384766
+		],
+		"tick": 40,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 23,
+		"flash_count": 2,
+		"flip": false,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 4,
+		"raster_origin": [
+			335.0,
+			160.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			335.032470703125,
+			159.694244384766
+		],
+		"tick": 41,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			339.0,
+			159.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			338.532470703125,
+			159.194244384766
+		],
+		"tick": 42,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			342.0,
+			159.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			342.032470703125,
+			158.944244384766
+		],
+		"tick": 43,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			346.0,
+			159.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			345.532470703125,
+			158.944244384766
+		],
+		"tick": 44,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			342.0,
+			159.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			342.032470703125,
+			159.194244384766
+		],
+		"tick": 45,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 29,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			339.0,
+			160.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			338.532470703125,
+			159.694244384766
+		],
+		"tick": 46,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 29,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			335.0,
+			160.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			335.032470703125,
+			160.444244384766
+		],
+		"tick": 47,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 29,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			332.0,
+			161.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			331.532470703125,
+			161.444244384766
+		],
+		"tick": 48,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 17,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 2,
+		"raster_origin": [
+			328.0,
+			163.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			328.032470703125,
+			162.694244384766
+		],
+		"tick": 49,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 23,
+		"flash_count": 2,
+		"flip": true,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			325.0,
+			164.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			324.532470703125,
+			164.194244384766
+		],
+		"tick": 50,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 23,
+		"flash_count": 2,
+		"flip": true,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			321.0,
+			166.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			321.032470703125,
+			165.944244384766
+		],
+		"tick": 51,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			318.0,
+			168.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			317.532470703125,
+			167.944244384766
+		],
+		"tick": 52,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			314.0,
+			170.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			314.032470703125,
+			170.194244384766
+		],
+		"tick": 53,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			311.0,
+			173.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			310.532470703125,
+			172.694244384766
+		],
+		"tick": 54,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 2,
+		"raster_origin": [
+			307.0,
+			175.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			307.032470703125,
+			175.444244384766
+		],
+		"tick": 55,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 29,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 2,
+		"raster_origin": [
+			304.0,
+			178.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			303.532470703125,
+			178.444244384766
+		],
+		"tick": 56,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 29,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 2,
+		"raster_origin": [
+			300.0,
+			182.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			300.032470703125,
+			181.694244384766
+		],
+		"tick": 57,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 29,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 2,
+		"raster_origin": [
+			297.0,
+			185.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			296.532470703125,
+			185.194244384766
+		],
+		"tick": 58,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 17,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 2,
+		"raster_origin": [
+			293.0,
+			189.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			293.032470703125,
+			188.944244384766
+		],
+		"tick": 59,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 23,
+		"flash_count": 2,
+		"flip": true,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			290.0,
+			193.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			289.532470703125,
+			192.944244384766
+		],
+		"tick": 60,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 23,
+		"flash_count": 2,
+		"flip": true,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			286.0,
+			197.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			286.032470703125,
+			197.194244384766
+		],
+		"tick": 61,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			283.0,
+			202.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			282.532470703125,
+			201.694244384766
+		],
+		"tick": 62,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			279.0,
+			206.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			279.032470703125,
+			206.444244384766
+		],
+		"tick": 63,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			276.0,
+			211.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			275.532470703125,
+			211.444244384766
+		],
+		"tick": 64,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			272.0,
+			217.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			272.032470703125,
+			216.694244384766
+		],
+		"tick": 65,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 29,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			269.0,
+			222.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			268.532470703125,
+			222.194244384766
+		],
+		"tick": 66,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 29,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			265.0,
+			228.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			265.032470703125,
+			227.944244384766
+		],
+		"tick": 67,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 29,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 81,
+		"opaque_pixels": 81,
+		"pose": 3,
+		"projectile_count": 3,
+		"raster_origin": [
+			262.0,
+			234.0
+		],
+		"source_matches": 81,
+		"sprite_origin": [
+			261.532470703125,
+			233.944244384766
+		],
+		"tick": 68,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 17,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 102,
+		"opaque_pixels": 102,
+		"pose": 2,
+		"projectile_count": 2,
+		"raster_origin": [
+			258.0,
+			234.0
+		],
+		"source_matches": 102,
+		"sprite_origin": [
+			258.032470703125,
+			233.925186157227
+		],
+		"tick": 69,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 26,
+		"flash_count": 2,
+		"flip": true,
+		"mask_pixels": 104,
+		"opaque_pixels": 104,
+		"pose": 1,
+		"projectile_count": 3,
+		"raster_origin": [
+			255.0,
+			234.0
+		],
+		"source_matches": 104,
+		"sprite_origin": [
+			254.532470703125,
+			233.925186157227
+		],
+		"tick": 70,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 26,
+		"flash_count": 2,
+		"flip": true,
+		"mask_pixels": 104,
+		"opaque_pixels": 104,
+		"pose": 1,
+		"projectile_count": 3,
+		"raster_origin": [
+			251.0,
+			234.0
+		],
+		"source_matches": 104,
+		"sprite_origin": [
+			251.032470703125,
+			233.925186157227
+		],
+		"tick": 71,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 49,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 102,
+		"opaque_pixels": 102,
+		"pose": 2,
+		"projectile_count": 3,
+		"raster_origin": [
+			248.0,
+			234.0
+		],
+		"source_matches": 102,
+		"sprite_origin": [
+			247.532470703125,
+			233.925186157227
+		],
+		"tick": 72,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 50,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 104,
+		"opaque_pixels": 104,
+		"pose": 1,
+		"projectile_count": 3,
+		"raster_origin": [
+			244.0,
+			234.0
+		],
+		"source_matches": 104,
+		"sprite_origin": [
+			244.032470703125,
+			233.925186157227
+		],
+		"tick": 73,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 49,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 102,
+		"opaque_pixels": 102,
+		"pose": 2,
+		"projectile_count": 3,
+		"raster_origin": [
+			241.0,
+			234.0
+		],
+		"source_matches": 102,
+		"sprite_origin": [
+			240.532470703125,
+			233.925186157227
+		],
+		"tick": 74,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 50,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 104,
+		"opaque_pixels": 104,
+		"pose": 1,
+		"projectile_count": 2,
+		"raster_origin": [
+			237.0,
+			234.0
+		],
+		"source_matches": 104,
+		"sprite_origin": [
+			237.032470703125,
+			233.925186157227
+		],
+		"tick": 75,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 28,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 102,
+		"opaque_pixels": 102,
+		"pose": 2,
+		"projectile_count": 2,
+		"raster_origin": [
+			234.0,
+			234.0
+		],
+		"source_matches": 102,
+		"sprite_origin": [
+			233.532470703125,
+			233.925186157227
+		],
+		"tick": 76,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 28,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 102,
+		"opaque_pixels": 102,
+		"pose": 2,
+		"projectile_count": 2,
+		"raster_origin": [
+			230.0,
+			234.0
+		],
+		"source_matches": 102,
+		"sprite_origin": [
+			230.032470703125,
+			233.925186157227
+		],
+		"tick": 77,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 30,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 2,
+		"raster_origin": [
+			227.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			226.532470703125,
+			233.925186157227
+		],
+		"tick": 78,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 20,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 2,
+		"raster_origin": [
+			223.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			223.032470703125,
+			233.925186157227
+		],
+		"tick": 79,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 24,
+		"flash_count": 2,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 2,
+		"raster_origin": [
+			220.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			219.532470703125,
+			233.925186157227
+		],
+		"tick": 80,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 24,
+		"flash_count": 2,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 2,
+		"raster_origin": [
+			216.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			216.032470703125,
+			233.925186157227
+		],
+		"tick": 81,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 50,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 2,
+		"raster_origin": [
+			213.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			212.532470703125,
+			233.925186157227
+		],
+		"tick": 82,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 50,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 2,
+		"raster_origin": [
+			209.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			209.032470703125,
+			233.925186157227
+		],
+		"tick": 83,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 50,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 2,
+		"raster_origin": [
+			206.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			205.532470703125,
+			233.925186157227
+		],
+		"tick": 84,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 2,
+		"raster_origin": [
+			202.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			202.032470703125,
+			233.925186157227
+		],
+		"tick": 85,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 33,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 2,
+		"raster_origin": [
+			199.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			198.532470703125,
+			233.925186157227
+		],
+		"tick": 86,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 32,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 1,
+		"raster_origin": [
+			195.0,
+			234.0
+		],
+		"source_matches": 1,
+		"sprite_origin": [
+			195.032470703125,
+			233.925186157227
+		],
+		"tick": 87,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 33,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 1,
+		"raster_origin": [
+			192.0,
+			234.0
+		],
+		"source_matches": 1,
+		"sprite_origin": [
+			191.532470703125,
+			233.925186157227
+		],
+		"tick": 88,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 19,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 1,
+		"raster_origin": [
+			188.0,
+			234.0
+		],
+		"source_matches": 1,
+		"sprite_origin": [
+			188.032470703125,
+			233.925186157227
+		],
+		"tick": 89,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 25,
+		"flash_count": 2,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 2,
+		"raster_origin": [
+			185.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			184.532470703125,
+			233.925186157227
+		],
+		"tick": 90,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 26,
+		"flash_count": 2,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 2,
+		"raster_origin": [
+			181.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			181.032470703125,
+			233.925186157227
+		],
+		"tick": 91,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 50,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 2,
+		"raster_origin": [
+			178.0,
+			234.0
+		],
+		"source_matches": 1,
+		"sprite_origin": [
+			177.532470703125,
+			233.925186157227
+		],
+		"tick": 92,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			174.0,
+			234.0
+		],
+		"source_matches": 1,
+		"sprite_origin": [
+			174.032470703125,
+			233.925186157227
+		],
+		"tick": 93,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 94,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 95,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 32,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 96,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 32,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 97,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 32,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 98,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 21,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 99,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 26,
+		"flash_count": 2,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 1,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 100,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 26,
+		"flash_count": 2,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 101,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 102,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 103,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 104,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 105,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 33,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 106,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 33,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 107,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 33,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 108,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 21,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 109,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 26,
+		"flash_count": 2,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 1,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 110,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 26,
+		"flash_count": 2,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 111,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 112,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 113,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 114,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 115,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 33,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 116,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 33,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 117,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 33,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 118,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 16,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 88,
+		"opaque_pixels": 88,
+		"pose": 0,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 86,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 119,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 26,
+		"flash_count": 2,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 1,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 120,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 26,
+		"flash_count": 2,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 121,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 122,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 123,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 124,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 125,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 33,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 126,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 33,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 127,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 33,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 128,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 21,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 0,
+		"raster_origin": [
+			171.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			170.532470703125,
+			233.925186157227
+		],
+		"tick": 129,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 24,
+		"flash_count": 2,
+		"flip": false,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 1,
+		"raster_origin": [
+			174.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			174.032470703125,
+			233.925186157227
+		],
+		"tick": 130,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 24,
+		"flash_count": 2,
+		"flip": false,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 1,
+		"raster_origin": [
+			178.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			177.532470703125,
+			233.925186157227
+		],
+		"tick": 131,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 50,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 1,
+		"raster_origin": [
+			181.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			181.032470703125,
+			233.925186157227
+		],
+		"tick": 132,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 1,
+		"raster_origin": [
+			185.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			184.532470703125,
+			233.925186157227
+		],
+		"tick": 133,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 50,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 1,
+		"raster_origin": [
+			188.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			188.032470703125,
+			233.925186157227
+		],
+		"tick": 134,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 1,
+		"raster_origin": [
+			192.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			191.532470703125,
+			233.925186157227
+		],
+		"tick": 135,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 31,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 1,
+		"raster_origin": [
+			195.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			195.032470703125,
+			233.925186157227
+		],
+		"tick": 136,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 32,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 1,
+		"raster_origin": [
+			199.0,
+			234.0
+		],
+		"source_matches": 2,
+		"sprite_origin": [
+			198.532470703125,
+			233.925186157227
+		],
+		"tick": 137,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 32,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 1,
+		"raster_origin": [
+			202.0,
+			234.0
+		],
+		"source_matches": 1,
+		"sprite_origin": [
+			202.032470703125,
+			233.925186157227
+		],
+		"tick": 138,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 21,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 1,
+		"raster_origin": [
+			206.0,
+			234.0
+		],
+		"source_matches": 1,
+		"sprite_origin": [
+			205.532470703125,
+			233.925186157227
+		],
+		"tick": 139,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 26,
+		"flash_count": 2,
+		"flip": false,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 2,
+		"raster_origin": [
+			209.0,
+			234.0
+		],
+		"source_matches": 1,
+		"sprite_origin": [
+			209.032470703125,
+			233.925186157227
+		],
+		"tick": 140,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 26,
+		"flash_count": 2,
+		"flip": false,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 2,
+		"raster_origin": [
+			213.0,
+			234.0
+		],
+		"source_matches": 1,
+		"sprite_origin": [
+			212.532470703125,
+			233.925186157227
+		],
+		"tick": 141,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 2,
+		"raster_origin": [
+			216.0,
+			234.0
+		],
+		"source_matches": 1,
+		"sprite_origin": [
+			216.032470703125,
+			233.925186157227
+		],
+		"tick": 142,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 50,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 2,
+		"raster_origin": [
+			220.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			219.532470703125,
+			233.925186157227
+		],
+		"tick": 143,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": false,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 2,
+		"raster_origin": [
+			223.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			223.032470703125,
+			233.925186157227
+		],
+		"tick": 144,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 50,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 2,
+		"raster_origin": [
+			220.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			219.532470703125,
+			233.925186157227
+		],
+		"tick": 145,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 31,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 2,
+		"raster_origin": [
+			216.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			216.032470703125,
+			233.925186157227
+		],
+		"tick": 146,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 30,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 2,
+		"raster_origin": [
+			213.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			212.532470703125,
+			233.925186157227
+		],
+		"tick": 147,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 30,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 2,
+		"raster_origin": [
+			209.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			209.032470703125,
+			233.925186157227
+		],
+		"tick": 148,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 21,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 2,
+		"raster_origin": [
+			206.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			205.532470703125,
+			233.925186157227
+		],
+		"tick": 149,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 25,
+		"flash_count": 2,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 3,
+		"raster_origin": [
+			202.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			202.032470703125,
+			233.925186157227
+		],
+		"tick": 150,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 27,
+		"flash_count": 2,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 3,
+		"raster_origin": [
+			199.0,
+			234.0
+		],
+		"source_matches": 0,
+		"sprite_origin": [
+			198.532470703125,
+			233.925186157227
+		],
+		"tick": 151,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 3,
+		"raster_origin": [
+			195.0,
+			234.0
+		],
+		"source_matches": 1,
+		"sprite_origin": [
+			195.032470703125,
+			233.925186157227
+		],
+		"tick": 152,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 51,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 3,
+		"raster_origin": [
+			192.0,
+			234.0
+		],
+		"source_matches": 1,
+		"sprite_origin": [
+			191.532470703125,
+			233.925186157227
+		],
+		"tick": 153,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 50,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 3,
+		"raster_origin": [
+			188.0,
+			234.0
+		],
+		"source_matches": 1,
+		"sprite_origin": [
+			188.032470703125,
+			233.925186157227
+		],
+		"tick": 154,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 50,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 2,
+		"raster_origin": [
+			188.0,
+			234.0
+		],
+		"source_matches": 1,
+		"sprite_origin": [
+			188.032470703125,
+			233.925186157227
+		],
+		"tick": 155,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 32,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 2,
+		"raster_origin": [
+			188.0,
+			234.0
+		],
+		"source_matches": 1,
+		"sprite_origin": [
+			188.032470703125,
+			233.925186157227
+		],
+		"tick": 156,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 32,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 2,
+		"raster_origin": [
+			188.0,
+			234.0
+		],
+		"source_matches": 1,
+		"sprite_origin": [
+			188.032470703125,
+			233.925186157227
+		],
+		"tick": 157,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 32,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 2,
+		"raster_origin": [
+			188.0,
+			234.0
+		],
+		"source_matches": 1,
+		"sprite_origin": [
+			188.032470703125,
+			233.925186157227
+		],
+		"tick": 158,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 19,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 2,
+		"raster_origin": [
+			188.0,
+			234.0
+		],
+		"source_matches": 1,
+		"sprite_origin": [
+			188.032470703125,
+			233.925186157227
+		],
+		"tick": 159,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 25,
+		"flash_count": 2,
+		"flip": true,
+		"mask_pixels": 79,
+		"opaque_pixels": 79,
+		"pose": 5,
+		"projectile_count": 3,
+		"raster_origin": [
+			188.0,
+			234.0
+		],
+		"source_matches": 1,
+		"sprite_origin": [
+			188.032470703125,
+			233.925186157227
+		],
+		"tick": 160,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 23,
+		"flash_count": 2,
+		"flip": true,
+		"mask_pixels": 88,
+		"opaque_pixels": 88,
+		"pose": 0,
+		"projectile_count": 3,
+		"raster_origin": [
+			188.0,
+			234.0
+		],
+		"source_matches": 88,
+		"sprite_origin": [
+			188.032470703125,
+			233.925186157227
+		],
+		"tick": 161,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 48,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 88,
+		"opaque_pixels": 88,
+		"pose": 0,
+		"projectile_count": 3,
+		"raster_origin": [
+			188.0,
+			234.0
+		],
+		"source_matches": 88,
+		"sprite_origin": [
+			188.032470703125,
+			233.925186157227
+		],
+		"tick": 162,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 48,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 88,
+		"opaque_pixels": 88,
+		"pose": 0,
+		"projectile_count": 2,
+		"raster_origin": [
+			188.0,
+			234.0
+		],
+		"source_matches": 88,
+		"sprite_origin": [
+			188.032470703125,
+			233.925186157227
+		],
+		"tick": 163,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 48,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 88,
+		"opaque_pixels": 88,
+		"pose": 0,
+		"projectile_count": 2,
+		"raster_origin": [
+			188.0,
+			234.0
+		],
+		"source_matches": 88,
+		"sprite_origin": [
+			188.032470703125,
+			233.925186157227
+		],
+		"tick": 164,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 48,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 88,
+		"opaque_pixels": 88,
+		"pose": 0,
+		"projectile_count": 2,
+		"raster_origin": [
+			188.0,
+			234.0
+		],
+		"source_matches": 88,
+		"sprite_origin": [
+			188.032470703125,
+			233.925186157227
+		],
+		"tick": 165,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 29,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 88,
+		"opaque_pixels": 88,
+		"pose": 0,
+		"projectile_count": 2,
+		"raster_origin": [
+			188.0,
+			234.0
+		],
+		"source_matches": 88,
+		"sprite_origin": [
+			188.032470703125,
+			233.925186157227
+		],
+		"tick": 166,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 29,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 88,
+		"opaque_pixels": 88,
+		"pose": 0,
+		"projectile_count": 2,
+		"raster_origin": [
+			188.0,
+			234.0
+		],
+		"source_matches": 88,
+		"sprite_origin": [
+			188.032470703125,
+			233.925186157227
+		],
+		"tick": 167,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 29,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 88,
+		"opaque_pixels": 88,
+		"pose": 0,
+		"projectile_count": 2,
+		"raster_origin": [
+			188.0,
+			234.0
+		],
+		"source_matches": 88,
+		"sprite_origin": [
+			188.032470703125,
+			233.925186157227
+		],
+		"tick": 168,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 16,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 88,
+		"opaque_pixels": 88,
+		"pose": 0,
+		"projectile_count": 1,
+		"raster_origin": [
+			188.0,
+			234.0
+		],
+		"source_matches": 88,
+		"sprite_origin": [
+			188.032470703125,
+			233.925186157227
+		],
+		"tick": 169,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 23,
+		"flash_count": 2,
+		"flip": true,
+		"mask_pixels": 88,
+		"opaque_pixels": 88,
+		"pose": 0,
+		"projectile_count": 2,
+		"raster_origin": [
+			188.0,
+			234.0
+		],
+		"source_matches": 88,
+		"sprite_origin": [
+			188.032470703125,
+			233.925186157227
+		],
+		"tick": 170,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 23,
+		"flash_count": 2,
+		"flip": true,
+		"mask_pixels": 88,
+		"opaque_pixels": 88,
+		"pose": 0,
+		"projectile_count": 2,
+		"raster_origin": [
+			188.0,
+			234.0
+		],
+		"source_matches": 88,
+		"sprite_origin": [
+			188.032470703125,
+			233.925186157227
+		],
+		"tick": 171,
+		"visible_rear_error_px": -7
+	},
+	{
+		"changed_gun_pixels": 48,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 88,
+		"opaque_pixels": 88,
+		"pose": 0,
+		"projectile_count": 2,
+		"raster_origin": [
+			188.0,
+			234.0
+		],
+		"source_matches": 88,
+		"sprite_origin": [
+			188.032470703125,
+			233.925186157227
+		],
+		"tick": 172,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 48,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 88,
+		"opaque_pixels": 88,
+		"pose": 0,
+		"projectile_count": 1,
+		"raster_origin": [
+			188.0,
+			234.0
+		],
+		"source_matches": 88,
+		"sprite_origin": [
+			188.032470703125,
+			233.925186157227
+		],
+		"tick": 173,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 48,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 88,
+		"opaque_pixels": 88,
+		"pose": 0,
+		"projectile_count": 1,
+		"raster_origin": [
+			188.0,
+			234.0
+		],
+		"source_matches": 88,
+		"sprite_origin": [
+			188.032470703125,
+			233.925186157227
+		],
+		"tick": 174,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 48,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 88,
+		"opaque_pixels": 88,
+		"pose": 0,
+		"projectile_count": 0,
+		"raster_origin": [
+			188.0,
+			234.0
+		],
+		"source_matches": 88,
+		"sprite_origin": [
+			188.032470703125,
+			233.925186157227
+		],
+		"tick": 175,
+		"visible_rear_error_px": -10
+	},
+	{
+		"changed_gun_pixels": 29,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 88,
+		"opaque_pixels": 88,
+		"pose": 0,
+		"projectile_count": 0,
+		"raster_origin": [
+			188.0,
+			234.0
+		],
+		"source_matches": 88,
+		"sprite_origin": [
+			188.032470703125,
+			233.925186157227
+		],
+		"tick": 176,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 29,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 88,
+		"opaque_pixels": 88,
+		"pose": 0,
+		"projectile_count": 0,
+		"raster_origin": [
+			188.0,
+			234.0
+		],
+		"source_matches": 88,
+		"sprite_origin": [
+			188.032470703125,
+			233.925186157227
+		],
+		"tick": 177,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 29,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 88,
+		"opaque_pixels": 88,
+		"pose": 0,
+		"projectile_count": 0,
+		"raster_origin": [
+			188.0,
+			234.0
+		],
+		"source_matches": 88,
+		"sprite_origin": [
+			188.032470703125,
+			233.925186157227
+		],
+		"tick": 178,
+		"visible_rear_error_px": -8
+	},
+	{
+		"changed_gun_pixels": 16,
+		"flash_count": 1,
+		"flip": true,
+		"mask_pixels": 88,
+		"opaque_pixels": 88,
+		"pose": 0,
+		"projectile_count": 0,
+		"raster_origin": [
+			188.0,
+			234.0
+		],
+		"source_matches": 88,
+		"sprite_origin": [
+			188.032470703125,
+			233.925186157227
+		],
+		"tick": 179,
+		"visible_rear_error_px": -7
+	}
+]

@@ -153,7 +153,6 @@ func _check_pixels(on: Image, off: Image, sprite: Sprite2D, record: Dictionary) 
 	var guns := [Rect2i(49, 19, 15, 7), Rect2i(51, 20, 16, 8),
 		Rect2i(51, 20, 16, 8), Rect2i(46, 19, 13, 8),
 		Rect2i(46, 19, 11, 8), Rect2i(49, 17, 13, 8)]
-	var origin := sprite.get_global_transform_with_canvas().origin
 	var tip: Vector2i = tips[sprite.frame]
 	var gun: Rect2i = guns[sprite.frame]
 	var direction := -1 if sprite.flip_h else 1
@@ -162,7 +161,7 @@ func _check_pixels(on: Image, off: Image, sprite: Sprite2D, record: Dictionary) 
 	# Godot's half-pixel/tie handling. Search only the four adjacent raster cells.
 	var raster_origin := _register_mask(off, sprite, gun, artwork)
 	record["raster_origin"] = _xy(Vector2(raster_origin))
-	var tip_screen := raster_origin + Vector2i(35 - tip.x if sprite.flip_h else tip.x - 36, tip.y - 30)
+	var tip_screen := raster_origin + _source_pixel_offset(tip, sprite.flip_h)
 	var changed := 0
 	var rear := 1000
 	var mask_pixels := 0
@@ -172,7 +171,7 @@ func _check_pixels(on: Image, off: Image, sprite: Sprite2D, record: Dictionary) 
 		for x in range(gun.position.x, gun.end.x):
 			if artwork.get_pixel(sprite.frame * 72 + x, y).a < 0.99:
 				continue
-			var screen := raster_origin + Vector2i(35 - x if sprite.flip_h else x - 36, y - 30)
+			var screen := raster_origin + _source_pixel_offset(Vector2i(x, y), sprite.flip_h)
 			mask_pixels += 1
 			var source := artwork.get_pixel(sprite.frame * 72 + x, y)
 			if source.a == 1.0:
@@ -215,7 +214,7 @@ func _register_mask(off: Image, sprite: Sprite2D, gun: Rect2i, artwork: Image) -
 					var source := artwork.get_pixel(sprite.frame * 72 + x, y)
 					if source.a != 1.0:
 						continue
-					var screen := Vector2i(cx, cy) + Vector2i(35 - x if sprite.flip_h else x - 36, y - 30)
+					var screen := Vector2i(cx, cy) + _source_pixel_offset(Vector2i(x, y), sprite.flip_h)
 					var actual := off.get_pixelv(screen)
 					var expected := source * sprite.modulate
 					error += absf(actual.r - expected.r) + absf(actual.g - expected.g) + absf(actual.b - expected.b)
@@ -223,6 +222,10 @@ func _register_mask(off: Image, sprite: Sprite2D, gun: Rect2i, artwork: Image) -
 				best_error = error
 				best = Vector2i(cx, cy)
 	return best
+
+
+func _source_pixel_offset(point: Vector2i, mirrored: bool) -> Vector2i:
+	return Vector2i(35 - point.x if mirrored else point.x - 36, point.y - 30)
 
 
 func _step() -> void:

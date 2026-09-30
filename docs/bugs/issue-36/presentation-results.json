@@ -1,0 +1,86 @@
+[
+  {
+    "name": "before-original-spawn",
+    "native_size": [
+      640,
+      360
+    ],
+    "raw_frames": 180,
+    "seconds": 2.9999999999999942,
+    "lossless": true,
+    "paired_samples": 180,
+    "flash_samples": 214,
+    "max_changed_gun_pixels": 52,
+    "max_rear_error_px": 10
+  },
+  {
+    "name": "before-original-follow",
+    "native_size": [
+      640,
+      360
+    ],
+    "raw_frames": 180,
+    "seconds": 2.9999999999999942,
+    "lossless": true,
+    "paired_samples": 180,
+    "flash_samples": 214,
+    "max_changed_gun_pixels": 51,
+    "max_rear_error_px": 10
+  },
+  {
+    "name": "before-original-fixed",
+    "native_size": [
+      640,
+      360
+    ],
+    "raw_frames": 180,
+    "seconds": 2.9999999999999942,
+    "lossless": true,
+    "paired_samples": 180,
+    "flash_samples": 214,
+    "max_changed_gun_pixels": 51,
+    "max_rear_error_px": 10
+  },
+  {
+    "name": "after-original-spawn",
+    "native_size": [
+      640,
+      360
+    ],
+    "raw_frames": 180,
+    "seconds": 2.9999999999999942,
+    "lossless": true,
+    "paired_samples": 180,
+    "flash_samples": 214,
+    "max_changed_gun_pixels": 0,
+    "max_rear_error_px": 1
+  },
+  {
+    "name": "after-original-follow",
+    "native_size": [
+      640,
+      360
+    ],
+    "raw_frames": 180,
+    "seconds": 2.9999999999999942,
+    "lossless": true,
+    "paired_samples": 180,
+    "flash_samples": 214,
+    "max_changed_gun_pixels": 0,
+    "max_rear_error_px": 0
+  },
+  {
+    "name": "after-original-fixed",
+    "native_size": [
+      640,
+      360
+    ],
+    "raw_frames": 180,
+    "seconds": 2.9999999999999942,
+    "lossless": true,
+    "paired_samples": 180,
+    "flash_samples": 214,
+    "max_changed_gun_pixels": 0,
+    "max_rear_error_px": 1
+  }
+]

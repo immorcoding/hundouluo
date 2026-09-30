@@ -1,0 +1,26 @@
+[
+	{
+		"changed_gun_pixels": 23,
+		"flash_count": 1,
+		"flip": false,
+		"pose": 0,
+		"sprite_origin": [
+			140.0,
+			234.0
+		],
+		"tick": 0,
+		"visible_rear_error_px": -6
+	},
+	{
+		"changed_gun_pixels": 23,
+		"flash_count": 1,
+		"flip": false,
+		"pose": 0,
+		"sprite_origin": [
+			140.0,
+			234.0
+		],
+		"tick": 1,
+		"visible_rear_error_px": -6
+	}
+]

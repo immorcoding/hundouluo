@@ -1,0 +1,39 @@
+[
+  {
+    "name": "red-final-loop",
+    "argv": [
+      "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+      "--path",
+      ".scratch\\issue-36\\baseline",
+      "--rendering-method",
+      "gl_compatibility",
+      "--fixed-fps",
+      "60",
+      "--script",
+      "res://tools/capture_issue_36.gd",
+      "--",
+      "--out=E:\\Projects\\game_hundouluo_codex_worktree\\issue-36-muzzle-flash-compositing\\docs\\bugs\\issue-36\\red-final-loop",
+      "--ticks=12"
+    ],
+    "exit": 1
+  },
+  {
+    "name": "red-full-loop",
+    "argv": [
+      "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+      "--path",
+      ".scratch\\issue-36\\baseline",
+      "--rendering-method",
+      "gl_compatibility",
+      "--fixed-fps",
+      "60",
+      "--script",
+      "res://tools/capture_issue_36.gd",
+      "--",
+      "--out=E:\\Projects\\game_hundouluo_codex_worktree\\issue-36-muzzle-flash-compositing\\docs\\bugs\\issue-36\\red-full-loop",
+      "--full",
+      "--ticks=180"
+    ],
+    "exit": 1
+  }
+]

@@ -1,0 +1,59 @@
+[
+  {
+    "probe": "behind",
+    "argv": [
+      "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+      "--path",
+      ".",
+      "--rendering-method",
+      "gl_compatibility",
+      "--fixed-fps",
+      "60",
+      "--script",
+      "tools/capture_issue_36.gd",
+      "--",
+      "--ticks=1",
+      "--probe=behind",
+      "--out=docs\\bugs\\issue-36\\probe-behind"
+    ],
+    "exit": 1
+  },
+  {
+    "probe": "shift",
+    "argv": [
+      "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+      "--path",
+      ".",
+      "--rendering-method",
+      "gl_compatibility",
+      "--fixed-fps",
+      "60",
+      "--script",
+      "tools/capture_issue_36.gd",
+      "--",
+      "--ticks=1",
+      "--probe=shift",
+      "--out=docs\\bugs\\issue-36\\probe-shift"
+    ],
+    "exit": 1
+  },
+  {
+    "probe": "no-projectile",
+    "argv": [
+      "C:\\Users\\22137\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe",
+      "--path",
+      ".",
+      "--rendering-method",
+      "gl_compatibility",
+      "--fixed-fps",
+      "60",
+      "--script",
+      "tools/capture_issue_36.gd",
+      "--",
+      "--ticks=1",
+      "--probe=no-projectile",
+      "--out=docs\\bugs\\issue-36\\probe-no-projectile"
+    ],
+    "exit": 1
+  }
+]
